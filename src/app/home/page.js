@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from "next/image";
 import SocialButton from './components/social_button';
+
 import ShapesDisplayer from '../modules/ShapesDisplayer';
 
 export default function Page() {
@@ -72,6 +73,7 @@ export default function Page() {
           </div>
         </div>
       </div>
+     
     </div>
   )
 }
