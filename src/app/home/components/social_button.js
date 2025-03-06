@@ -11,4 +11,5 @@ export default function SocialButton({source, alt}) {
                 className="w-[50px]"
             />
         </button>
-    )}
+    )
+}

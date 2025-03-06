@@ -24,5 +24,9 @@ export const theme = {
     },
     fontSize: {},
   },
+  animation: {
+    spin: 'spin 1s linear infinite',
+    'spin-slow': 'spin 5s linear infinite',
+  },
 };
 export const plugins = [];
