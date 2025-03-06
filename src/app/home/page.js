@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from "next/image";
 
+
 const gridItems = [
   { rowStart: 1, colStart: 5, colEnd: 17, color: "bg-blue-dark" },
   { rowStart: 2, colStart: 6, colEnd: 11, color: "bg-blue-light" },
@@ -58,6 +59,7 @@ export default function Page() {
           </div>
         </div>
       </div>
+     
     </div>
   )
 }
