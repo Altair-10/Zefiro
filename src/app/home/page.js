@@ -2,6 +2,7 @@ import React from 'react'
 import Image from "next/image";
 import SocialButton from './components/social_button';
 
+
 const gridItems = [
   { rowStart: 1, rowEnd: 3, colStart: 16, colEnd: 62, color: "bg-blue-dark" },      // 1°riga 1°pos
   { rowStart: 3, rowEnd: 5, colStart: 24, colEnd: 45, color: "bg-blue-light" },     // 2°riga 1°pos
@@ -88,6 +89,7 @@ export default function Page() {
           </div>
         </div>
       </div>
+     
     </div>
   )
 }
