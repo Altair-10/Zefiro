@@ -25,35 +25,35 @@ export default function ShapesDisplayer({
   return (
     <div className="flex flex-row justify-start items-center w-full h-full">
       {numShapes >= 1 && (
-        <div className="mx-2">
+        <div className="mx-[0.42vw]">
           <Image
             src={`/geometric_shapes/${imgName1}`}
             width={512}
             height={512}
             alt={"star"}
-            className="w-[30px] animate-spin-slow"
+            className="w-[2.2vw] animate-spin-slow"
           />
         </div>
       )}
       {numShapes >= 2 && (
-        <div className="mx-2">
+        <div className="mx-[0.42vw]">
           <Image
             src={`/geometric_shapes/${imgName2}`}
             width={512}
             height={512}
             alt={"star"}
-            className="w-[30px] animate-spin-slow"
+            className="w-[2.2vw] animate-spin-slow"
           />
         </div>
       )}
       {numShapes === 3 && (
-        <div className="mx-2">
+        <div className="mx-[0.42vw]">
           <Image
             src={`/geometric_shapes/${imgName3}`}
             width={512}
             height={512}
             alt={"star"}
-            className="w-[30px] animate-spin-slow"
+            className="w-[2.2vw] animate-spin-slow"
           />
         </div>
       )}
