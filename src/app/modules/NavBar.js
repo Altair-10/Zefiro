@@ -1,7 +1,10 @@
 import Image from "next/image"
 import SocialButton from "../home/components/SocialButton"
+import Link from "next/link"
 
 export default function NavBar(){
+    const linkServices="./services"
+    const linkAbout="./about"
     return(
         <>
         <div className="w-full h-[10px] sm:h-[15px] bg-blue-dark" />
@@ -17,8 +20,8 @@ export default function NavBar(){
                     className="w-[25vw] sm:w-[15vw] md:w-[13vw] xl:w-[10vw]"
                 />
                 <div className="hidden sm:flex sm:text-blue-medium gap-x-6">
-                    <button>SERVICE</button>
-                    <button>ABOUT US</button>
+                    <Link href={linkServices}>SERVICE</Link>
+                    <Link href={linkAbout}>ABOUT</Link>
                 </div>
             </div>
 
