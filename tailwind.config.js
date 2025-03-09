@@ -23,7 +23,9 @@ module.exports = {
         title: ["Roboto", "sans-serif"],
         general: ["Times New Roman", "serif"],
       },
-      fontSize: {},
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      },
     },
   },
   plugins: [],

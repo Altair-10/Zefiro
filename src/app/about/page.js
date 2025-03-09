@@ -9,7 +9,7 @@ export default function Page() {
 
       <div className="flex items-center justify-center ">
     
-        <div className="grid grid-cols-[repeat(61,15px)] grid-rows-[repeat(33,15px)]  gap-3">
+        <div className="grid grid-cols-[repeat(61,15px)] grid-rows-[repeat(33,15px)] gap-3">
 
           {/* Angolo destro */}
           <div className="bg-blue-light h-full col-[59/61] row-[4/10]" />
