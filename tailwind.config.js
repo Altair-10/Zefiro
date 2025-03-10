@@ -1,3 +1,4 @@
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,jsx,tsx}",
