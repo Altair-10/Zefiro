@@ -1,7 +1,7 @@
 import React from "react";
 import {Form, Input, Select, SelectItem, Checkbox, Button} from "@heroui/react";
 
-const FormPage=()=> {
+const  FormPage=()=> {
   const [password, setPassword] = React.useState("");
   const [submitted, setSubmitted] = React.useState(null);
   const [errors, setErrors] = React.useState({});
@@ -159,4 +159,4 @@ const FormPage=()=> {
   );
 }
 
-export default FormPage
+export default FormPage;

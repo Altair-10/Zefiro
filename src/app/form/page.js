@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import ShapesDisplayer from "@/app/modules/ShapesDisplayer";
 import FormPage from "./components/formPage";
 const page = () => {
   return (
