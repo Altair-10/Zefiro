@@ -34,7 +34,7 @@ export default function ShapesDisplayer({
       throw new Error("imgName1, imgName2, imgName3 and imgName4 are required when numShape=4");
     }
     const validPositions = ["start", "center", "end"];
-    const imageClass = spin ? "w-[4vw] sm:w-[2.2vw] animate-spin-slow" : "w-[2.2vw]";
+    const imageClass = spin ? "w-[4vw] md:w-[2.2vw] animate-spin-slow" : "w-[2.2vw]";
     const flexClass = validPositions.includes(position) 
     ? `flex flex-${flexType} justify-${position} items-center w-full h-full`
     : "flex flex-row justify-end items-center w-full h-full";
