@@ -12,18 +12,19 @@ const page = () => {
           <div className="flex items-center justify-center text-8xl text-blue-dark col-[2/18] row-[1/7]">
             <h1>services</h1>
           </div>
-          <div className="row-[16/18] col-[10/60] bg-blue-light ">
-            <ShapesDisplayer numShapes={1} imgName1={"orange-8.png"} />
+          <div className="row-[16/18] col-[10/60] bg-blue-light">
+            <ShapesDisplayer numShapes={1} imgName1={"/geometric_shapes/orange-8.png"} spin={true} />
           </div>
-          <div className="row-[18/20] col-[10/60] bg-blue-medium flex">
+          <div className="row-[18/20] col-[10/60] bg-blue-medium">
             <ShapesDisplayer
               numShapes={2}
-              imgName1={"orange-8.png"}
-              imgName2={"light-4.png"}
+              imgName1={"/geometric_shapes/orange-8.png"}
+              imgName2={"/geometric_shapes/light-4.png"}
+              spin={true}
             />
           </div>
-          <div className="row-[20/22] col-[10/60]  flex ">
-            <ShapesDisplayer numShapes={1} imgName1={"orange-8.png"} />
+          <div className="row-[20/22] col-[10/60] bg-blue-dark">
+            <ShapesDisplayer numShapes={1} imgName1={"/geometric_shapes/orange-8.png"} spin={true} />
           </div>
           <div className="row-[10/30] col-[10/60] flex bg">
             <Cards />

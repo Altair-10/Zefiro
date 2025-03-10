@@ -20,8 +20,12 @@ export default function NavBar(){
                     className="w-[25vw] sm:w-[15vw] md:w-[13vw] xl:w-[10vw]"
                 />
                 <div className="hidden sm:flex sm:text-blue-medium gap-x-6">
-                    <Link href={linkServices}>SERVICE</Link>
-                    <Link href={linkAbout}>ABOUT</Link>
+                    <Link href={linkServices}>
+                        <h1 className="text-[2.5vw] md:text-[1.5vw]">SERVICE</h1>
+                    </Link>
+                    <Link href={linkAbout}>
+                        <h1 className="text-[2.5vw] md:text-[1.5vw]">ABOUT US</h1>
+                    </Link>
                 </div>
             </div>
 
