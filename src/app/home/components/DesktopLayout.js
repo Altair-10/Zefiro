@@ -1,5 +1,7 @@
-import Image from "next/image"
+import Link from "next/link"
 import ShapesDisplayer from "@/app/modules/ShapesDisplayer"
+
+const linkContattaci="../contattaci"
 
 export default function DesktopLayout(){
     return(
@@ -99,9 +101,12 @@ export default function DesktopLayout(){
       <div className="hidden md:block row-[4] col-[1/5]">
         <h1 className="w-[35vw] text-[7vw] leading-[8vw] font-serif text-blue-dark">take IT for future</h1>
       </div>
-    
-      <div className="hidden md:block row-[16] col-[1/11]">
-        <button className="w-[15vw] h-[4vw] mt-3 rounded-3xl bg-orange text-brown-light text-[2vw]">contattaci</button>
+      <div className="hidden md:block row-[16/19] col-[1/13] bg-orange rounded-3xl">
+        <Link href={linkContattaci} className="flex justify-center items-center w-full h-full">
+          <h1 className=" text-brown-light text-[2vw] text-center">
+            contattaci
+          </h1>
+        </Link>
       </div>
     </>    
     )}

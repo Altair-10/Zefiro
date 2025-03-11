@@ -1,4 +1,7 @@
+import Link from "next/link"
 import ShapesDisplayer from "@/app/modules/ShapesDisplayer"
+
+const linkContattaci="../contattaci"
 
 export default function MobileLayout(){
     return(
@@ -44,10 +47,12 @@ export default function MobileLayout(){
             take IT for future
           </h1>
         </div>
-        <div className="row-[12] col-[11] md:hidden">
-          <button className="w-[40vw] mt-2 rounded-3xl bg-orange text-brown-light text-[5vw]">
-            contattaci
-          </button>
+        <div className="md:hidden row-[13/16] col-[10/28] bg-orange rounded-3xl">
+          <Link href={linkContattaci} className="flex justify-center items-center w-full h-full">
+            <h1 className="text-brown-light text-[4vw] text-center">
+              contattaci
+            </h1>
+          </Link>
         </div>
       </>
     )

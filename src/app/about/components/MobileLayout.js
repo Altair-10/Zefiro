@@ -27,19 +27,19 @@ export default function MobileLayout(){
         </div>
 
         <div className="md:hidden row-[9] col-[5/27]">
-            <Card fileName="test.png" width="100" height="100"   alt="" />
+            <Card fileName="test.png" width="100" height="100" alt="" />
         </div>
 
         <div className="md:hidden row-[18] col-[5/27]">
-            <Card fileName="test.png" width="100" height="100"   alt=""/>
+            <Card fileName="test.png" width="100" height="100" alt=""/>
         </div>
 
         <div className="md:hidden row-[27] col-[5/27]">
-            <Card fileName="test.png" width="100" height="100"   alt="" />  
+            <Card fileName="test.png" width="100" height="100" alt="" />  
         </div>
 
         <div className="md:hidden row-[36] col-[5/27]">
-            <Card fileName="test.png" width="100" height="100"   alt=""/>
+            <Card fileName="test.png" width="100" height="100" alt=""/>
         </div>
     </>
     )
