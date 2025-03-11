@@ -1,7 +1,6 @@
 "use client"
 import { useState } from "react";
 import Image from "next/image"
-import SocialButton from "../home/components/SocialButton"
 import Link from "next/link"
 
 export default function NavBar(){
@@ -50,9 +49,33 @@ export default function NavBar(){
             </div>
             {/* Icone social (visibili su schermi medi o più grandi) */}
             <div className="hidden sm:flex gap-3">
-                <SocialButton source="/loghi_social/instagram.png" alt="instagram" />
-                <SocialButton source="/loghi_social/facebook.png" alt="facebook" />
-                <SocialButton source="/loghi_social/linkedin.png" alt="linkedin" />
+                <button>
+                    <Image 
+                        src="/loghi_social/instagram.png"
+                        width={1000}
+                        height={1000}
+                        alt="instagram"
+                        className="w-[5.5vw] md:w-[5vw] lg:w-[4vw] xl:w-[3.2vw]"
+                    />
+                </button>
+                <button>
+                    <Image 
+                        src="/loghi_social/facebook.png"
+                        width={1000}
+                        height={1000}
+                        alt="facebook" 
+                        className="w-[5.5vw] md:w-[5vw] lg:w-[4vw] xl:w-[3.2vw]"
+                    />
+                </button>
+                <button>
+                    <Image 
+                        src="/loghi_social/linkedin.png"
+                        width={1000}
+                        height={1000}
+                        alt="linkedin" 
+                        className="w-[5.5vw] md:w-[5vw] lg:w-[4vw] xl:w-[3.2vw]"
+                    />
+                </button>
             </div>
         </div>
         {/* Menu a tendina */}
