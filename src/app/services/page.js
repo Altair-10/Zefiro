@@ -1,38 +1,21 @@
 import React from "react";
-import ShapesDisplayer from "@/app/modules/ShapesDisplayer";
-import Cards from "./components/card";
+import DesktopLayout from "./components/DesktopLayout";
 
-const page = () => {
+export default function page(){
   return (
     <>
       <div className="w-screen h-[20px] bg-blue-dark" />
 
-      <div className="flex items-center justify-center ">
-        <div className="grid grid-cols-[repeat(61,15px)] grid-rows-[repeat(33,15px)] gap-3">
-          <div className="flex items-center justify-center text-8xl text-blue-dark col-[2/18] row-[1/7]">
-            <h1>services</h1>
-          </div>
-          <div className="row-[16/18] col-[10/60] bg-blue-light">
-            <ShapesDisplayer numShapes={1} imgName1={"/geometric_shapes/orange-8.png"} spin={true} />
-          </div>
-          <div className="row-[18/20] col-[10/60] bg-blue-medium">
-            <ShapesDisplayer
-              numShapes={2}
-              imgName1={"/geometric_shapes/orange-8.png"}
-              imgName2={"/geometric_shapes/light-4.png"}
-              spin={true}
-            />
-          </div>
-          <div className="row-[20/22] col-[10/60] bg-blue-dark">
-            <ShapesDisplayer numShapes={1} imgName1={"/geometric_shapes/orange-8.png"} spin={true} />
-          </div>
-          <div className="row-[10/30] col-[10/60] flex bg">
-            <Cards />
-          </div>
+      <div className="flex justify-center items-center w-full">
+        <div className="
+          grid gap-[0.5vw] md:mt-8 
+          grid-cols-[repeat(35,_minmax(0,_2vw))] md:grid-cols-[repeat(61,_minmax(0,_1vw))]
+          grid-rows-[repeat(35,_minmax(0,_2vw))] md:grid-rows-[repeat(35,_minmax(0,_1vw))]
+        ">
+          <DesktopLayout />
         </div>
       </div>
     </>
   );
 };
 
-export default page;
