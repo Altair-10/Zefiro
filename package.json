@@ -14,6 +14,7 @@
     "@heroui/system": "^2.4.11",
     "@heroui/theme": "^2.4.11",
     "@heroui/user": "^2.2.11",
+    "bootstrap-icons": "^1.11.3",
     "framer-motion": "^12.4.10",
     "next": "15.1.7",
     "react": "^19.0.0",

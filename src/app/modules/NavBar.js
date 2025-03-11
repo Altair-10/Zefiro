@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react";
+import SocialIcons from "./SocialIcons";
 import Image from "next/image"
 import Link from "next/link"
 
@@ -49,33 +50,7 @@ export default function NavBar(){
             </div>
             {/* Icone social (visibili su schermi medi o più grandi) */}
             <div className="hidden sm:flex gap-3">
-                <button>
-                    <Image 
-                        src="/loghi_social/instagram.png"
-                        width={1000}
-                        height={1000}
-                        alt="instagram"
-                        className="w-[5.5vw] md:w-[5vw] lg:w-[4vw] xl:w-[3.2vw]"
-                    />
-                </button>
-                <button>
-                    <Image 
-                        src="/loghi_social/facebook.png"
-                        width={1000}
-                        height={1000}
-                        alt="facebook" 
-                        className="w-[5.5vw] md:w-[5vw] lg:w-[4vw] xl:w-[3.2vw]"
-                    />
-                </button>
-                <button>
-                    <Image 
-                        src="/loghi_social/linkedin.png"
-                        width={1000}
-                        height={1000}
-                        alt="linkedin" 
-                        className="w-[5.5vw] md:w-[5vw] lg:w-[4vw] xl:w-[3.2vw]"
-                    />
-                </button>
+                <SocialIcons color="#489fb5"/>
             </div>
         </div>
         {/* Menu a tendina */}
