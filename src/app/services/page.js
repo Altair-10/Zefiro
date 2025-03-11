@@ -1,6 +1,5 @@
 import React from "react";
 import DesktopLayout from "./components/DesktopLayout";
-import MobileLayout from "./components/MobileLayout";
 
 export default function page(){
   return (
@@ -14,7 +13,6 @@ export default function page(){
           grid-rows-[repeat(45,_minmax(0,_2vw))] md:grid-rows-[repeat(31,_minmax(0,_1vw))]
         ">
           <DesktopLayout />
-          <MobileLayout />
         </div>
       </div>
     </>
