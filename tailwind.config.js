@@ -2,6 +2,7 @@
 const {heroui} = require("@heroui/react");
 module.exports = {
   content: [
+    
     "./src/pages/**/*.{js,jsx,tsx}",
     "./src/components/**/*.{js,jsx,tsx}",
     "./src/app/**/*.{js,jsx,tsx}",
@@ -31,7 +32,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
   plugins: [heroui()],
 };
 
