@@ -1,10 +1,12 @@
 import React from 'react'
+import HeaderStrip from '../modules/HeaderStrip';
 import NavBar from '../modules/NavBar';
 import DesktopLayout from './components/DesktopLayout';
 
 export default function Page() {
   return (
     <div className="w-screen h-screen">
+      <HeaderStrip />
       <NavBar />
       <div className="flex justify-center items-center w-full">
         <div className="

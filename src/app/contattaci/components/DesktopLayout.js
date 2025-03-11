@@ -49,7 +49,7 @@ export default function DesktopLayout() {
                 <SocialIcons color="#FFFFFF" />
             </div>
 
-            <div className="hidden md:block bg-yellow row-[6/25] col-[7/34]">
+            <div className="hidden md:block bg-black row-[6/25] col-[7/34]">
                 <FormPage />
             </div>
         </>

@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
-import ResponsiveGrid from "../modules/ResponsiveGrid";
+import HeaderStrip from "../modules/HeaderStrip";
 import DesktopLayout from "./components/DesktopLayout";
-import ShapesDisplayer from "@/app/modules/ShapesDisplayer";
-import FormPage from "./components/formPage";
+
 
 export default function Page() {
   return (
     <div className="w-screen h-screen">
-      <div className="w-full h-[10px] sm:h-[15px] bg-blue-dark" />
+    <HeaderStrip />
+    
 
      <div className="flex justify-end w-full">
         <div className="

@@ -1,10 +1,11 @@
 import React from 'react';
 import DesktopLayout from './components/DesktopLayout';
+import HeaderStrip from '../modules/HeaderStrip';
 
 export default function Page() {
   return (
     <>
-    <div className="w-full h-[10px] sm:h-[15px] bg-blue-dark" />
+    <HeaderStrip />
       <div className="flex justify-center w-full">
         <div className="
           grid gap-[0.5vw] md:mt-8 

@@ -16,7 +16,6 @@ export default function NavBar(){
 
     return(
         <>
-        <div className="w-full h-[10px] sm:h-[15px] bg-blue-dark" />
 
         <div className="relative flex flex-row justify-between ml-[2vw] mr-[4.20vw] mt-4 sm:mt-8 md:mt-10 font-bold">
             {/* Logo e pulsanti */}
