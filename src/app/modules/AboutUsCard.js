@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-export default function Card({fileName,width,height,alt}) {
+export default function AboutUsCard({fileName,width,height,alt}) {
   return (
     <div className="flex items-center justify-center ">
       <div className="w-[50vw] h-[20vw] md:w-[26.04vw] md:h-[13vw] bg-blue-dark flex flex-row rounded-3xl">

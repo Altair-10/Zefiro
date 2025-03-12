@@ -1,11 +1,12 @@
-import Card from "@/app/about/components/Card"
+import AboutUsCard from "@/app/modules/AboutUsCard"
 import ShapesDisplayer from "@/app/modules/ShapesDisplayer"
 
 export default function MobileAboutUs(){
     return(
         <div className="flex justify-center items-center w-full">
             <div className="
-            grid gap-[0.5vw] md:mt-8 
+            md:hidden
+            grid gap-[0.5vw]
             grid-cols-[repeat(30,_minmax(0,_2vw))]
             grid-rows-[repeat(45,_minmax(0,_2vw))]
             ">
@@ -32,19 +33,19 @@ export default function MobileAboutUs(){
                 </div>
 
                 <div className="md:hidden row-[9] col-[5/27]">
-                    <Card fileName="test.png" width="100" height="100" alt="" />
+                    <AboutUsCard fileName="test.png" width="100" height="100" alt="" />
                 </div>
 
                 <div className="md:hidden row-[18] col-[5/27]">
-                    <Card fileName="test.png" width="100" height="100" alt=""/>
+                    <AboutUsCard fileName="test.png" width="100" height="100" alt=""/>
                 </div>
 
                 <div className="md:hidden row-[27] col-[5/27]">
-                    <Card fileName="test.png" width="100" height="100" alt="" />  
+                    <AboutUsCard fileName="test.png" width="100" height="100" alt="" />  
                 </div>
 
                 <div className="md:hidden row-[36] col-[5/27]">
-                    <Card fileName="test.png" width="100" height="100" alt=""/>
+                    <AboutUsCard fileName="test.png" width="100" height="100" alt=""/>
                 </div>
             </div>
         </div>
