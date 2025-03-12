@@ -13,7 +13,7 @@ export default function AboutUsCard({fileName,width,height,alt,nome,descrizione1
             width={width}
             height={height}
             alt={alt} 
-            className="w-[4vw] h-[4vw]"
+            className="w-[8vw] h-[8vw] md:w-[6vw] md:h-[6vw] "
           />
         </div>
 
@@ -35,7 +35,7 @@ export default function AboutUsCard({fileName,width,height,alt,nome,descrizione1
                 alt=''
                 className="w-[1vw] h-[1vw]"
               />  
-              <p  className=" text-brown-light text-[2vw]  md:text-[1vw]  m-auto " >{descrizione1}</p>
+              <p  className=" text-brown-light text-[2vw]  md:text-[1vw]  my-auto " >{descrizione1}</p>
             </div>
 
             <div className="flex flex-row  h-1/3 ">
@@ -46,7 +46,7 @@ export default function AboutUsCard({fileName,width,height,alt,nome,descrizione1
                 alt=''
                 className="w-[1vw] h-[1vw]"
               />
-              <p  className=" text-brown-light text-[2vw]  md:text-[1vw]  m-auto " >{descrizione2}</p>
+              <p  className=" text-brown-light text-[2vw]  md:text-[1vw]  my-auto " >{descrizione2}</p>
             </div>
 
             <div className="flex flex-row  h-1/3 ">
@@ -57,7 +57,7 @@ export default function AboutUsCard({fileName,width,height,alt,nome,descrizione1
                 alt=''
                 className="w-[1vw] h-[1vw]" 
               />
-              <p  className=" text-brown-light text-[2vw]  md:text-[1vw]  m-auto " >{descrizione3}</p>
+              <p  className=" text-brown-light text-[2vw]  md:text-[1vw]  my-auto " >{descrizione3}</p>
             </div>
 
            {/* <p className=" text-brown-light text-[3vw]  md:text-[1.5vw] " >{descrizione}</p>  */}
