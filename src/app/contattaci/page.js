@@ -1,13 +1,11 @@
 "use client";
 import React from "react";
-import HeaderStrip from "../modules/HeaderStrip";
 import DesktopLayout from "./components/DesktopLayout";
 
 
 export default function Page() {
   return (
     <div className="w-screen h-screen">
-    <HeaderStrip />
     
 
      <div className="flex justify-end w-full">

@@ -36,7 +36,7 @@ export default function DesktopLayout() {
             <div className="hidden md:block row-[28/30] col-[35/42] bg-blue-dark" />
             <div className="hidden md:block row-[28/30] col-[35/37] bg-blue-medium" />
 
-            <div className="hidden md:block col-[46] bg-blue-dark w-[30vw] h-[100vw]" />
+            <div className="hidden md:block col-[46] bg-blue-dark w-[30vw] h-[48.6vw]" />
 
             <h3 className="hidden md:block row-[7/10] col-[48/56] text-blue-light text-[3vw] text-bold">PHONE</h3>
             <p className="hidden md:block row-[10/12] col-[48/55] text-brown-light text-[1.2vw] text-bold">+39 38904402325</p>
@@ -49,7 +49,7 @@ export default function DesktopLayout() {
                 <SocialIcons color="#FFFFFF" />
             </div>
 
-            <div className="hidden md:block bg-black row-[6/25] col-[7/34]">
+            <div className="hidden md:block row-[6/25] col-[7/34] w-[38vw] h-[28vw] pt-[3vw]">
                 <FormPage />
             </div>
         </>
