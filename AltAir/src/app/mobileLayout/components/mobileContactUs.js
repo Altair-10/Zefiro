@@ -7,7 +7,7 @@ export default function ContactUs() {
             <div className="
                 grid gap-[0.5vw] mt-[4vw]
                 grid-cols-[repeat(30,_minmax(0,_2vw))]
-                grid-rows-[repeat(70,_minmax(0,_2vw))]
+                grid-rows-[repeat(50,_minmax(0,_2vw))]
             ">
                 <div className="col-[6/27] row-[2/7]">
                     <h1 className="text-[10vw] text-blue-dark">Contact Us</h1>
