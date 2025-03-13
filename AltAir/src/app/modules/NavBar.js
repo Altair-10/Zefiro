@@ -1,76 +1,3 @@
-// "use client"
-// import { useState } from "react";
-// import Link from "next/link"
-// import HeaderStrip from "./HeaderStrip";
-
-// export default function NavBar(){
-//     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-//     // Funzione per alternare lo stato del menu
-//     const toggleMenu = () => {
-//         setIsMenuOpen(!isMenuOpen);
-//     };
-
-//     return(
-//         <>
-//         {/* Striscia colorata */}
-//         <HeaderStrip />
-
-//         <div className="relative flex flex-row justify-between ml-[2vw] mr-[4.20vw] mt-4 sm:mt-8 md:mt-10 font-bold">
-//             {/* Logo e pulsanti */}
-//             <div className="relative flex flex-row sm:justify-start sm:gap-x-6 items-center">
-//                 <Image 
-//                     src="/loghi_altair/SmallLogoLight.png"
-//                     width={683}
-//                     height={366}
-//                     alt="Logo" 
-//                     className="w-[25vw] sm:w-[15vw] md:w-[13vw] xl:w-[10vw]"
-//                 />
-//                 <div className="hidden sm:flex sm:text-blue-medium gap-x-6">
-//                     <Link href={linkServices}>
-//                         <h1 className="text-[2.5vw] md:text-[2.2vw] lg:text-[1.7vw] xl:text-[1.3vw]">SERVICE</h1>
-//                     </Link>
-//                     <Link href={linkAbout}>
-//                         <h1 className="text-[2.5vw] md:text-[2.2vw] lg:text-[1.7vw] xl:text-[1.3vw]">ABOUT US</h1>
-//                     </Link>
-//                 </div>
-//             </div>
-
-//             {/* Menu (visibile solo su dispositivi più piccoli) */}
-//             <div className="sm:hidden flex items-center" onClick={toggleMenu}>
-//                 <Image
-//                     src="/geometric_shapes/menu.png"
-//                     width={240}
-//                     height={240}
-//                     alt="Menu"
-//                     className="w-[10vw] md:w-[15vw] cursor-pointer"
-//                 />
-//             </div>
-//             {/* Icone social (visibili su schermi medi o più grandi) */}
-//             <div className="hidden sm:flex gap-3">
-//                 <SocialIcons color="#489fb5"/>
-//             </div>
-//         </div>
-//         {/* Menu a tendina */}
-//         {isMenuOpen && (
-//             <div className="flex justify-center">
-//                 <div className="absolute sm:hidden flex flex-col bg-blue-light shadow-lg w-[90vw] pl-[3vw] rounded-md z-50">
-//                     <Link href={linkServices}>
-//                         <h1 className="text-brown-light text-[6vw] p-[1.5vw]">
-//                             Service
-//                         </h1>
-//                     </Link>
-//                     <Link href={linkAbout}>
-//                         <h1 className="text-brown-light text-[6vw] p-[1.5vw]">
-//                             About Us
-//                         </h1>
-//                     </Link>
-//                 </div>
-//             </div>      
-//             )}
-//         </>
-//     )
-// }
 "use client"
 import { useState, useEffect } from 'react';
 import SocialIcons from "./SocialIcons";
@@ -103,7 +30,7 @@ const Navbar = () => {
                 )}
 
                 {/* Contenuto della navbar */}
-                <div className={`flex justify-between items-center h-full px-8 ${isScrolled ? 'opacity-100 visible' : 'opacity-0 invisible'
+                <div className={`flex justify-between items-center h-full  ${isScrolled ? 'opacity-100 visible' : 'opacity-0 invisible'
                     } transition-opacity duration-300 delay-200`}>
 
                     {/* Logo */}
