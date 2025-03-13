@@ -30,7 +30,7 @@ const Navbar = () => {
                 )}
 
                 {/* Contenuto della navbar */}
-                <div className={`flex justify-between items-center h-full  ${isScrolled ? 'opacity-100 visible' : 'opacity-0 invisible'
+                <div className={`flex justify-between items-center h-full px-[5vw] ${isScrolled ? 'opacity-100 visible' : 'opacity-0 invisible'
                     } transition-opacity duration-300 delay-200`}>
 
                     {/* Logo */}
