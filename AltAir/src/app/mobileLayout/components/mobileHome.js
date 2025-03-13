@@ -6,9 +6,8 @@ const linkContattaci="../contattaci"
 
 export default function MobileHome(){
     return(
-      <div className="flex justify-center items-center w-full">
+      <div className="md:hidden flex justify-center items-center w-full">
         <div className="
-          md:hidden
           grid gap-[0.5vw]
           grid-cols-[repeat(35,_minmax(0,_2vw))]
           grid-rows-[repeat(23,_minmax(0,_2vw))]
@@ -52,7 +51,7 @@ export default function MobileHome(){
                 take IT for future
               </h1>
             </div>
-            <div className="md:hidden row-[13/16] col-[10/28] bg-orange rounded-3xl">
+            <div className="row-[13/16] col-[10/28] bg-orange rounded-3xl">
               <Link href={linkContattaci} className="flex justify-center items-center w-full h-full">
                 <h1 className="text-brown-light text-[4vw] text-center">
                   contattaci

@@ -2,6 +2,7 @@ import NavBar from "../modules/NavBar"
 import MobileHome from "./components/mobileHome"
 import MobileServices from "./components/mobileServices"
 import MobileAboutUs from "./components/mobileAboutUs"
+import ContactUs from "./components/mobileContactUs"
 
 export default function MobileLayout(){
     return(
@@ -10,6 +11,7 @@ export default function MobileLayout(){
         <MobileHome />
         <MobileServices />
         <MobileAboutUs />
+        <ContactUs />
         </>
     )
 }

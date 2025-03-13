@@ -1,6 +1,6 @@
 export default function SocialIcons({color}) {
     return(
-        <div className="flex gap-[1vw]">
+        <div className="flex flex-row justify-center gap-[5vw]">
         {/* INSTAGRAM */}
         <button>
             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill={`${color}`} className="bi bi-instagram" viewBox="0 0 16 16">
