@@ -33,7 +33,7 @@ export default function MobileAboutUs(){
                 </div>
 
                 <div className="md:hidden row-[9] col-[5/27]">
-                    <AboutUsCard fileName="test.png" width="100" height="100" alt="" />
+                    <AboutUsCard fileName="test.png" width="100" height="100" alt="" nome={"Samuele Risso"} descrizione={"Junior Backend developer"} />
                 </div>
 
                 <div className="md:hidden row-[18] col-[5/27]">

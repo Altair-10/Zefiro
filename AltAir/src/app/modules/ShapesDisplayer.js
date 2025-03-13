@@ -83,6 +83,7 @@ export default function ShapesDisplayer({
             alt={"star"}
             className={imageClass}
           />
+          
         </div>
       )}
     </div>

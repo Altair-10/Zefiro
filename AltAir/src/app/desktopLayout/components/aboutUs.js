@@ -27,19 +27,19 @@ export default function AboutUs(){
                 </div>
 
                 <div className="hidden md:block row-[7] col-[9/28]">
-                    <AboutUsCard fileName="test.png" width="100" height="100"   alt="" />
+                    <AboutUsCard fileName="test.png" width="100" height="100"   alt="" nome={"Risso Samuele "} descrizione1={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}  />
                 </div>
 
                 <div className="hidden md:block row-[7] col-[32/51]">
-                    <AboutUsCard fileName="test.png" width="100" height="100"   alt=""/>
+                    <AboutUsCard fileName="test.png" width="100" height="100"   alt="" nome={"La Ferrara Antonino "} descrizione={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}/>
                 </div>
 
                 <div className="hidden md:block row-[17] col-[9/28]">
-                    <AboutUsCard fileName="test.png" width="100" height="100"   alt="" />  
+                    <AboutUsCard fileName="test.png" width="100" height="100"   alt="" nome={"Bamouni Stive "} descrizione={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}/>  
                 </div>
 
                 <div className="hidden md:block row-[17] col-[32/51]">
-                    <AboutUsCard fileName="test.png" width="100" height="100"   alt=""/>
+                    <AboutUsCard fileName="test.png" width="100" height="100"   alt="" nome={"Donati Marco"} descrizione={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}/>
                 </div>
             </div>
         </div>
