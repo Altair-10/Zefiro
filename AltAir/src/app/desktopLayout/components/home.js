@@ -7,11 +7,12 @@ export default function Home() {
   return (
     <div className="hidden md:flex justify-center items-center w-full">
       <div className="
-        grid gap-[0.5vw] mt-[4vw]
-        grid-cols-[repeat(61,_minmax(0,_1vw))]
-        grid-rows-[repeat(23,_minmax(0,_1vw))]
+        grid gap-[1vw] my-[5vw]
+        grid-cols-[repeat(48,_minmax(0,_1vw))]
+        grid-rows-[repeat(19,_minmax(0,_1vw))]
       ">
-        <div className="row-[1/3] col-[16/62] bg-blue-dark">
+        {/*1° riga*/}
+        <div className="row-[1/3] col-[16/48] bg-blue-dark">
           <ShapesDisplayer
             numShapes={2}
             imgName1={"/geometric_shapes/orange-8.png"}
@@ -19,14 +20,16 @@ export default function Home() {
             position="start" spin={true}
           />
         </div>
-        <div className="row-[3/5] col-[24/45] bg-blue-light">
+
+        {/*2° riga*/}
+        <div className="row-[3/5] col-[24/36] bg-blue-light"> 
           <ShapesDisplayer
             numShapes={1}
             imgName1={"/geometric_shapes/medium-5.png"}
             position="start" spin={true}
           />
         </div>
-        <div className="row-[3/5] col-[45/58] bg-blue-medium">
+        <div className="row-[3/5] col-[36/43] bg-blue-medium">
           <ShapesDisplayer
             numShapes={2}
             imgName1={"/geometric_shapes/light-8.png"}
@@ -34,79 +37,37 @@ export default function Home() {
             position="start" spin={true}
           />
         </div>
-        <div className="row-[5/14] col-[28/32] bg-blue-medium"></div>
-        <div className="row-[3/14] col-[58/62] bg-blue-light"></div>
-        <div className="row-[12/14] col-[32/44] bg-blue-light"></div>
-        <div className="row-[12/14] col-[44/58] bg-blue-medium"></div>
-        <div className="row-[14/16] col-[20/35] bg-blue-medium"></div>
-        <div className="row-[14/16] col-[40/52] bg-blue-light">
-          <ShapesDisplayer
-            numShapes={3}
-            imgName1={"/geometric_shapes/dark-4.png"}
-            imgName2={"/geometric_shapes/dark-5.png"}
-            imgName3={"/geometric_shapes/dark-4.png"}
-            position="center" spin={true}
-          />
-        </div>
-        <div className="row-[14/16] col-[52/62] bg-blue-dark"></div>
-        <div className="row-[16/18] col-[15/20] bg-blue-dark"></div>
-        <div className="row-[16/18] col-[20/22] bg-blue-light">
-          <ShapesDisplayer
-            numShapes={1}
-            imgName1={"/decorations/p-graffe.png"}
-          />
-        </div>
-        <div className="row-[16/18] col-[26/41] bg-blue-dark"></div>
-        <div className="row-[16/18] col-[41/48] bg-blue-medium"></div>
-        <div className="row-[16/18] col-[48/62] bg-blue-light"></div>
-        <div className="row-[16/20] col-[22/26] bg-blue-light">
-          <ShapesDisplayer
-            numShapes={1}
-            imgName1={"/geometric_shapes/dark-5.png"}
-            position="center" spin={true}
-          />
-        </div>
-        <div className="row-[18/20] col-[15/22] bg-blue-medium"></div>
-        <div className="row-[18/20] col-[26/28] bg-blue-light">
-          <ShapesDisplayer
-            numShapes={1}
-            imgName1={"/decorations/p-angolari.png"}
-          />
-        </div>
-        <div className="row-[18/22] col-[28/40] bg-blue-medium">
-          <ShapesDisplayer
-            numShapes={1}
-            imgName1={"/geometric_shapes/orange-4.png"}
-            position="center" spin={true}
-          />
-        </div>
-        <div className="row-[18/22] col-[56/62] bg-blue-dark">
-          <ShapesDisplayer
-            numShapes={2}
-            imgName1={"/geometric_shapes/light-4.png"}
-            imgName2={"/geometric_shapes/medium-8.png"}
-            position="center" spin={true}
-          />
-        </div>
-        <div className="row-[20/22] col-[12/17] bg-blue-dark">
-          <ShapesDisplayer
-            numShapes={1}
-            imgName1={"/geometric_shapes/light-8.png"}
-            spin={true}
-          />
-        </div>
-        <div className="row-[22/24] col-[4/62] bg-blue-light">
-          <ShapesDisplayer
-            numShapes={1}
-            imgName1={"/geometric_shapes/dark-8.png"}
-            position="start" spin={true}
-          />
-        </div>
 
-        <div className="row-[4] col-[1/5]">
+        {/*rettangoli verticali*/}
+        <div className="row-[5/12] col-[28/32] bg-blue-medium"></div>
+        <div className="row-[3/12] col-[43/48] bg-blue-light"></div>
+
+        {/*3° riga*/}
+        <div className="row-[10/12] col-[32/38] bg-blue-dark"></div>
+        <div className="row-[10/12] col-[38/42] bg-blue-medium"></div>
+        <div className="row-[10/12] col-[42/43] bg-blue-light" />
+
+        {/*4° riga*/}
+        <div className="row-[12/14] col-[16/30] bg-blue-light"></div>
+        <div className="row-[12/14] col-[35/40] bg-blue-light"></div>
+        <div className="row-[12/14] col-[43/48] bg-blue-dark"></div>
+        
+        {/*5° riga*/}
+        <div className="row-[14/16] col-[26/37] bg-blue-dark"></div>
+        <div className="row-[14/16] col-[37/48] bg-blue-light"></div>
+
+        {/*6° riga*/}
+        <div className="row-[16/18] col-[10/27] bg-blue-medium"></div>
+        <div className="row-[16/18] col-[44/48] bg-blue-dark"></div>
+
+        {/*7° riga*/}
+        <div className="row-[18/20] col-[10/48] bg-blue-light"></div>
+        
+
+        <div className="row-[3] col-[3/7]">
           <h1 className="w-[35vw] text-[7vw] leading-[8vw] font-serif text-blue-dark">take IT for future</h1>
         </div>
-        <div className="row-[16/19] col-[1/13]">
+        <div className="row-[12/15] col-[3/15]">
           <Link href={linkContattaci}>
             <button 
                 className="group font-sans text-[25px] bg-gradient-to-r from-[#ffa62b] via-[#ff9a3b] to-[#ff8c00] 
@@ -131,7 +92,6 @@ export default function Home() {
               <span className="block ml-[0.4em] transition-all duration-300">CONTATTACI</span>
             </button>
           </Link>
-
         </div>
       </div>
     </div>
