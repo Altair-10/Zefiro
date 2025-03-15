@@ -5,9 +5,9 @@ export default function MobileAboutUs(){
     return(
         <div className="md:hidden flex justify-center items-center w-full">
             <div className="
-            grid gap-[0.5vw]
+            grid gap-[0.5vw] my-[5vw]
             grid-cols-[repeat(30,_minmax(0,_2vw))]
-            grid-rows-[repeat(35,_minmax(0,_2vw))]
+            grid-rows-[repeat(45,_minmax(0,_2vw))]
             ">
                 {/* Angolo destro */}
                 <div className="bg-blue-light h-full col-[1/3] row-[3/45]">

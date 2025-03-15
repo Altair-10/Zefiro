@@ -54,7 +54,7 @@ export default function ContactForm() {
 
   return (
     <div>
-      <Form onSubmit={handleSubmit} className="flex flex-col w-[70vw] h-[90vw] md:w-[25vw] md:h-[25vw] space-y-4">
+      <Form onSubmit={handleSubmit} className="flex flex-col w-[70vw] h-[90vw] md:w-[25vw] md:h-[25vw] space-y-6">
         <div className="flex flex-row justify-between">
           <input className="bg-blue-light w-[34vw] h-[10vw] md:w-[12vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl" name="nome" placeholder="Nome" value={formData.nome} onChange={handleChange} required />
           <input className="bg-blue-light w-[34vw] h-[10vw] md:w-[12vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl" name="cognome" placeholder="Cognome" value={formData.cognome} onChange={handleChange} required />

@@ -34,11 +34,11 @@ export default function ContactUs() {
                     <div className="flex flex-col justify-center items-center h-full">
                         <h1 className="text-[3vw] text-blue-medium whitespace-nowrap">Qual è il tuo obiettivo?</h1>
                         <p className="text-center text-[1.5vw] pt-5">
-                            Scrivi nella sezione <br />
+                            Descrivici nella sezione <br />
                             &quot;Come possiamo esserti d&apos;aiuto?&quot; <br />
-                            per descriverci qual è il tuo obiettivo <br /> 
-                            e in cosa possiamo aiutarti <br />
-                            per raggiungerlo!
+                            qual è il tuo obiettivo, <br /> 
+                            di conseguenza capiremo insieme <br />
+                            come raggiungerlo!
                         </p>
                     </div>
                 </div>

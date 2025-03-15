@@ -4,7 +4,7 @@ export default function MobileServices(){
     return(
         <div className="md:hidden flex justify-center items-center w-full">
             <div className="
-                grid gap-[0.5vw]
+                grid gap-[0.5vw] my-[5vw]
                 grid-cols-[repeat(31,_minmax(0,_2vw))]
                 grid-rows-[repeat(45,_minmax(0,_2vw))]
             ">
