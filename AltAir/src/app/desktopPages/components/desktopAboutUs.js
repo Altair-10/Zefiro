@@ -2,6 +2,7 @@ import AboutUsCard from "@/app/pagesComponents/aboutUsCard"
 
 export default function AboutUs(){
     return(
+       
         <div className="hidden md:flex justify-center w-full">
             <div className="
             grid gap-[1vw] my-[5vw]
