@@ -1,6 +1,6 @@
-import Home from "./components/home"
-import Services from "./components/services"
-import AboutUs from "./components/aboutUs"
+import Home from "./components/desktopHome"
+import Services from "./components/desktopServices"
+import AboutUs from "./components/desktopAboutUs"
 import ContactUs from "./components/contactUs"
 
 export default function DesktopLayout(){

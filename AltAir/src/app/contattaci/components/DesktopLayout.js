@@ -1,5 +1,5 @@
-import ShapesDisplayer from "@/app/modules/ShapesDisplayer"
-import SocialIcons from "@/app/modules/SocialIcons"
+import ShapesDisplayer from "@/app/modules/shapesDisplayer"
+import SocialIcons from "@/app/modules/socialIcons"
 import FormPage from "./formPage"
 
 export default function DesktopLayout() {

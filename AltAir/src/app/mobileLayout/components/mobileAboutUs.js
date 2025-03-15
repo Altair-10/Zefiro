@@ -1,5 +1,5 @@
-import AboutUsCard from "@/app/modules/AboutUsCard"
-import ShapesDisplayer from "@/app/modules/ShapesDisplayer"
+import AboutUsCard from "@/app/modules/aboutUsCard"
+import ShapesDisplayer from "@/app/modules/shapesDisplayer"
 
 export default function MobileAboutUs(){
     return(

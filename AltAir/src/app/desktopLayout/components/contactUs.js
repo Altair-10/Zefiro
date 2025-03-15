@@ -1,4 +1,4 @@
-import ShapesDisplayer from "@/app/modules/ShapesDisplayer"
+import ShapesDisplayer from "@/app/modules/shapesDisplayer"
 import Footer from "@/app/modules/footer"
 
 export default function ContactUs() {

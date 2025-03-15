@@ -1,5 +1,5 @@
 import FormPage from "@/app/modules/formPage"
-import SocialIcons from "@/app/modules/SocialIcons"
+import SocialIcons from "@/app/modules/socialIcons"
 
 export default function ContactUs() {
     return (

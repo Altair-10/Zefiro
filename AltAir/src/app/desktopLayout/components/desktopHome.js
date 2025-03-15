@@ -1,5 +1,5 @@
 import Link from "next/link"
-import ShapesDisplayer from "@/app/modules/ShapesDisplayer"
+import ShapesDisplayer from "@/app/modules/shapesDisplayer"
 
 const linkContattaci = "../contattaci"
 

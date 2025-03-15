@@ -1,4 +1,4 @@
-import AboutUsCard from "@/app/modules/AboutUsCard"
+import AboutUsCard from "@/app/modules/aboutUsCard"
 export default function AboutUs(){
     return(
         <div className="hidden md:flex justify-center w-full">

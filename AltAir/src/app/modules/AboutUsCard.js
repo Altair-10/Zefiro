@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-export default function AboutUsCard({fileName,width,height,alt,nome,descrizione1,icona1,descrizione2,icona2,descrizione3,icona3 }) {
+export default function AboutUsCard({fileName,width,height,alt,nome,descr1,ico1,descr2,ico2,descr3,ico3 }) {
   return (
     <div className="flex items-center justify-center ">
       <div className="w-[50vw] h-[20vw] md:w-[30vw] md:h-[13vw] bg-blue-dark flex flex-row rounded-3xl">
@@ -29,35 +29,35 @@ export default function AboutUsCard({fileName,width,height,alt,nome,descrizione1
 
             <div className="flex flex-row  h-1/3 ">
               <Image  
-                src={`/geometric_shapes/${icona1}`}
+                src={`/geometric_shapes/${ico1}`}
                 width={50}
                 height={50}
                 alt=''
                 className="w-[1vw] h-[1vw]"
               />  
-              <p  className=" text-brown-light text-[2vw]  md:text-[1vw]  my-auto " >{descrizione1}</p>
+              <p  className=" text-brown-light text-[2vw]  md:text-[1vw]  my-auto " >{descr1}</p>
             </div>
 
             <div className="flex flex-row  h-1/3 ">
               <Image  
-                src={`/geometric_shapes/${icona2}`}
+                src={`/geometric_shapes/${ico2}`}
                 width={50}
                 height={50}
                 alt=''
                 className="w-[1vw] h-[1vw]"
               />
-              <p  className=" text-brown-light text-[2vw]  md:text-[1vw]  my-auto " >{descrizione2}</p>
+              <p  className=" text-brown-light text-[2vw]  md:text-[1vw]  my-auto " >{descr2}</p>
             </div>
 
             <div className="flex flex-row  h-1/3 ">
               <Image  
-                src={`/geometric_shapes/${icona3}`}
+                src={`/geometric_shapes/${ico3}`}
                 width={50}
                 height={50}
                 alt=''
                 className="w-[1vw] h-[1vw]" 
               />
-              <p  className=" text-brown-light text-[2vw]  md:text-[1vw]  my-auto " >{descrizione3}</p>
+              <p  className=" text-brown-light text-[2vw]  md:text-[1vw]  my-auto " >{descr3}</p>
             </div>
 
            {/* <p className=" text-brown-light text-[3vw]  md:text-[1.5vw] " >{descrizione}</p>  */}

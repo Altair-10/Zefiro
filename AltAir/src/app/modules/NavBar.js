@@ -1,8 +1,8 @@
 "use client"
-import { useState, useEffect } from 'react';
-import SocialIcons from "./SocialIcons";
+import { useState, useEffect } from 'react'
 import Image from "next/image"
 import Link from "next/link"
+import SocialIcons from './socialIcons'
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);

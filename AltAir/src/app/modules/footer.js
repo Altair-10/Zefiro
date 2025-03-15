@@ -1,5 +1,5 @@
 import Image from "next/image"
-import SocialIcons from "./SocialIcons"
+import SocialIcons from "./socialIcons"
 
 export default function Footer() {
     return (
