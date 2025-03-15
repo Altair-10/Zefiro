@@ -1,23 +1,22 @@
 import ShapesDisplayer from "@/app/modules/ShapesDisplayer"
-import SocialIcons from "@/app/modules/SocialIcons"
-import FormPage from "@/app/modules/formPage"
+import Footer from "@/app/modules/footer"
 
 export default function ContactUs() {
     return (
         <div className="hidden md:flex flex-col justify-center items-center w-full">
             <div className="
-                grid gap-[0.5vw] md:my-[5vw]
-                grid-cols-[repeat(61,_minmax(0,_1vw))]
-                grid-rows-[repeat(30,_minmax(0,_1vw))]
+                grid gap-[1vw] md:my-[5vw]
+                grid-cols-[repeat(48,_minmax(0,_1vw))]
+                grid-rows-[repeat(22,_minmax(0,_1vw))]
             ">
-                <h1 className="text-[5vw] text-blue-dark col-[3/20] row-[1/6]">Contattaci</h1>
+                <h1 className="row-[1/6] col-[3/20] text-[6vw] text-blue-dark h-full">Contattaci</h1>
 
-                <div className="row-[4/24] col-[57/59] bg-blue-light"></div>
-                <div className="row-[3/5] col-[20/61] bg-blue-dark">
+                <div className="row-[4/14] col-[46/48] bg-blue-light" />
+                <div className="row-[3/5] col-[20/48] bg-blue-dark">
                     <ShapesDisplayer numShapes={1} imgName1="/geometric_shapes/light-8.png" position="start" spin={true} />
                 </div>
 
-                <div className="row-[26/28] col-[7/55] bg-blue-medium">
+                <div className="row-[20/22] col-[2/40] bg-blue-medium">
                     <ShapesDisplayer
                         numShapes={3}
                         imgName1="/geometric_shapes/dark-8.png"
@@ -26,26 +25,13 @@ export default function ContactUs() {
                         position="start" spin={true}
                     />
                 </div>
-                <div className="row-[23/30] col-[54/56] bg-blue-medium" />
-                <div className="row-[23/25] col-[54/61] bg-blue-light" />
-                <div className="row-[23/30] col-[59/61] bg-orange" />
-                <div className="row-[28/30] col-[54/61] bg-blue-dark" />
-                <div className="row-[28/30] col-[54/56] bg-blue-medium" />
+                <div className="row-[16/22] col-[41/43] bg-blue-medium" />
+                <div className="row-[15/17] col-[41/48] bg-blue-light" />
+                <div className="row-[15/22] col-[46/48] bg-orange" />
+                <div className="row-[20/22] col-[41/48] bg-blue-dark" />
+                <div className="row-[20/22] col-[41/43] bg-blue-medium" />
             </div>
-            <div className="flex flex-row justify-around items-center w-full h-[15vw] bg-blue-dark">
-                <div className="flex flex-col items-center">
-                    <h3 className="text-blue-light text-[5vw] text-bold">PHONE</h3>
-                    <p className="text-brown-light text-[2vw] text-bold">+39 38904402325</p>
-                </div>
-                <div className="flex flex-col items-center">
-                    <h3 className="text-blue-light text-[5vw] text-bold">E-MAIL</h3>
-                    <p className="text-brown-light text-[2vw] text-bold">samuele.risso30@gmail.com</p>
-                </div>
-                <div className="flex flex-col gap-y-[0.5vw] items-center">
-                    <h3 className="text-blue-light text-[5vw] text-bold">SOCIAL</h3>
-                    <SocialIcons color="#FFFFFF" />
-                </div>
-            </div>
+            <Footer />
         </div>
     )
 }

@@ -5,41 +5,39 @@ export default function AboutUs(){
             <div className="
             grid gap-[1vw] my-[5vw]
             grid-cols-[repeat(48,_minmax(0,_1vw))]
-            grid-rows-[repeat(31,_minmax(0,_1vw))]
+            grid-rows-[repeat(22,_minmax(0,_1vw))]
             ">
                 {/* Angolo destro */}
-                {/* <div className="bg-blue-light h-full col-[59/61] row-[4/10]" />
-                <div className="bg-blue-medium h-full col-[20/61] row-[3/5]" /> */}
+                <div className="bg-blue-light h-full row-[4/13] col-[46/48]" />
+                <div className="bg-blue-medium h-full row-[3/5] col-[17/48]" />
 
                 {/* Angolo sinistro */}
-                {/* <div className="bg-blue-medium h-full col-[2/4] row-[10/27]" />
-                <div className="bg-blue-light h-full col-[2/54] row-[26/28]" /> */}
+                <div className="bg-blue-medium h-full row-[6/22] col-[2/4]" />
+                <div className="bg-blue-light h-full row-[23/21] col-[2/41]" />
 
                 {/* Tacche basso destra */}
-                {/* <div className="bg-blue-light h-full col-[55/57] row-[25/28]" />
-                <div className="bg-blue-medium h-full col-[57/59] row-[20/28]" />
-                <div className="bg-blue-dark h-full col-[59/61] row-[15/28]" /> */}
+                <div className="bg-blue-light h-full row-[20/23] col-[42/44]" />
+                <div className="bg-blue-medium h-full row-[17/23] col-[44/46]" />
+                <div className="bg-blue-dark h-full row-[14/23] col-[46/48]" />
 
                 {/* Testo "About us" */}
-                {/* <div className="col-[3/20] row-[1/6]">
-                    <h1 className="text-[5vw] text-blue-dark">About Us</h1>
-                </div> */}
+                <h1 className="row-[1/6] col-[3/20] text-[6vw] text-blue-dark h-full">About Us</h1>
 
-                {/* <div className="row-[6] col-[11/30]">
+                <div className="row-[6] col-[9/26]">
                     <AboutUsCard fileName="test.png" width="100" height="100"   alt="" nome={"Risso Samuele "} descrizione1={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}  />
                 </div>
 
-                <div className="row-[6] col-[33/52]">
+                <div className="row-[6] col-[24/42]">
                     <AboutUsCard fileName="test.png" width="100" height="100"   alt="" nome={"La Ferrara Antonino "} descrizione={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}/>
                 </div>
 
-                <div className="row-[16] col-[11/30]">
+                <div className="row-[13] col-[9/26]">
                     <AboutUsCard fileName="test.png" width="100" height="100"   alt="" nome={"Bamouni Stive "} descrizione={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}/>
                 </div>
 
-                <div className="row-[16] col-[33/52]">
+                <div className="row-[13] col-[24/42]">
                     <AboutUsCard fileName="test.png" width="100" height="100"   alt="" nome={"Donati Marco"} descrizione={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}/>
-                </div> */}
+                </div>
             </div>
         </div>
     )
