@@ -21,8 +21,8 @@ export default function Footer() {
                 </div>
             </div>
             <div className="flex flex-col w-[1/3] items-center md:items-start">
-                <h3 className="text-blue-light text-[8vw] text-bold">Perchè Altair</h3>
-                <p className="text-brown-light text-[5vw] text-bold">perche si</p>
+                <h3 className="text-blue-light text-[8vw] md:text-[3vw] text-bold">Perchè Altair</h3>
+                <p className="text-brown-light text-[5vw] md:text-[1.5vw] text-bold">perche si</p>
             </div>
             <div className="md:hidden flex flex-col justify-center items-center md:items-start">
                 <h3 className="text-blue-light text-[8vw] text-bold">servizi</h3>
