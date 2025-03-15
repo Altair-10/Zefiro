@@ -15,8 +15,8 @@ export default function Home() {
         <div className="row-[1/3] col-[16/48] bg-blue-dark">
           <ShapesDisplayer
             numShapes={2}
-            imgName1={"/geometric_shapes/orange-8.png"}
-            imgName2={"/geometric_shapes/light-4.png"}
+            imgName1={"/decorations/orange-8.png"}
+            imgName2={"/decorations/light-4.png"}
             flexType="row" position="start" spin={true}
           />
         </div>
@@ -25,15 +25,15 @@ export default function Home() {
         <div className="row-[3/5] col-[24/36] bg-blue-light">
           <ShapesDisplayer
             numShapes={1}
-            imgName1={"/geometric_shapes/medium-5.png"}
+            imgName1={"/decorations/medium-5.png"}
             flexType="row" position="start" spin={true}
           />
         </div>
         <div className="row-[3/5] col-[36/44] bg-blue-medium">
           <ShapesDisplayer
             numShapes={2}
-            imgName1={"/geometric_shapes/dark-8.png"}
-            imgName2={"/geometric_shapes/orange-4.png"}
+            imgName1={"/decorations/dark-8.png"}
+            imgName2={"/decorations/orange-4.png"}
             flexType="row" position="start" spin={true}
           />
         </div>
@@ -46,8 +46,8 @@ export default function Home() {
         <div className="row-[10/12] col-[32/38] bg-blue-dark">
           <ShapesDisplayer
             numShapes={2}
-            imgName1={"/geometric_shapes/light-8.png"}
-            imgName2={"/geometric_shapes/orange-4.png"}
+            imgName1={"/decorations/light-8.png"}
+            imgName2={"/decorations/orange-4.png"}
             flexType="row" position="start" spin={true}
           />
         </div>
@@ -55,7 +55,7 @@ export default function Home() {
         <div className="row-[10/12] col-[42/44] bg-blue-light">
           <ShapesDisplayer
             numShapes={1}
-            imgName1={"/geometric_shapes/dark-5.png"}
+            imgName1={"/decorations/dark-5.png"}
             flexType="row" position="start" spin={true}
           />
         </div>
@@ -66,7 +66,7 @@ export default function Home() {
         <div className="row-[12/14] col-[43/48] bg-blue-dark">
           <ShapesDisplayer
             numShapes={1}
-            imgName1={"/geometric_shapes/dark-5.png"}
+            imgName1={"/decorations/dark-5.png"}
             flexType="row" position="start" spin={true}
           />
         </div>

@@ -17,7 +17,7 @@ export default function Footer() {
                     <p className="text-brown-light text-[5vw] md:text-[1.5vw] text-bold">samuele.risso30@gmail.com</p>
                 </div>
                 <div className="mt-[3vw] md:mt-[1vw] md:ml-[1.3vw] ">
-                    <SocialIcons color="#FFFFFF" />
+                    <SocialIcons color="#FFFFFF" hoverColor="text-orange" />
                 </div>
             </div>
             <div className="flex flex-col w-[1/3] items-center md:items-start">

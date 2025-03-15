@@ -42,7 +42,7 @@ export default function ShapesDisplayer({
   return (
     <div className={flexClass}>
       {numShapes >= 1 && (
-        <div className="mx-[0.42vw]">
+        <div className="m-[0.42vw]">
           <Image
             src={`${imgName1}`}
             width={512}
@@ -53,7 +53,7 @@ export default function ShapesDisplayer({
         </div>
       )}
       {numShapes >= 2 && (
-        <div className="mx-[0.42vw]">
+        <div className="m-[0.42vw]">
           <Image
             src={`${imgName2}`}
             width={512}
@@ -64,7 +64,7 @@ export default function ShapesDisplayer({
         </div>
       )}
       {numShapes >= 3 && (
-        <div className="mx-[0.42vw]">
+        <div className="m-[0.42vw]">
           <Image
             src={`${imgName3}`}
             width={512}
@@ -75,7 +75,7 @@ export default function ShapesDisplayer({
         </div>
       )}
       {numShapes === 4 && (
-        <div className="mx-[0.42vw]">
+        <div className="m-[0.42vw]">
           <Image
             src={`${imgName4}`}
             width={512}

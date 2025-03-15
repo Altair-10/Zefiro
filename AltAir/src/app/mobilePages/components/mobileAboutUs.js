@@ -5,24 +5,24 @@ export default function MobileAboutUs(){
     return(
         <div className="md:hidden flex justify-center items-center w-full">
             <div className="
-            grid gap-[0.5vw]
+            grid gap-[0.5vw] my-[5vw]
             grid-cols-[repeat(30,_minmax(0,_2vw))]
-            grid-rows-[repeat(35,_minmax(0,_2vw))]
+            grid-rows-[repeat(45,_minmax(0,_2vw))]
             ">
                 {/* Angolo destro */}
                 <div className="bg-blue-light h-full col-[1/3] row-[3/45]">
                     <ShapesDisplayer 
                         numShapes={2} 
-                        imgName1="/geometric_shapes/dark-8.png" 
-                        imgName2="/geometric_shapes/medium-5.png"
+                        imgName1="/decorations/dark-8.png" 
+                        imgName2="/decorations/medium-5.png"
                         flexType="col" position="start" spin={true}
                     />
                 </div>
                 <div className="bg-blue-medium h-full col-[28/30] row-[3/45]">
                     <ShapesDisplayer 
                         numShapes={2} 
-                        imgName1="/geometric_shapes/dark-8.png" 
-                        imgName2="/geometric_shapes/light-5.png"
+                        imgName1="/decorations/dark-8.png" 
+                        imgName2="/decorations/light-5.png"
                         flexType="col" position="start" spin={true}    
                     />
                 </div>
