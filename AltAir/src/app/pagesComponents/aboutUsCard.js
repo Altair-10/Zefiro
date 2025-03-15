@@ -22,7 +22,7 @@ export default function AboutUsCard({fileName,width,height,alt,nome,descr1,ico1,
 
           {/* Primo sotto-flexbox orizzontale */}
           <div className="flex flex-row  h-1/3  ">
-            <h1  className=" text-brown-light text-[4vw]  md:text-[2vw] font-bold my-auto " >{nome}</h1>
+            <h1  className=" text-orange text-[4vw]  md:text-[2vw] font-bold my-auto " >{nome}</h1>
           </div>
           {/* Secondo sotto-flexbox orizzontale */}
           <div className="flex flex-col h-2/3">
