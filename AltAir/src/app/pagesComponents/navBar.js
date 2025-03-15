@@ -8,7 +8,7 @@ const Navbar = () => {
     const linkAbout = "./about"
 
     return (
-        <div className="fixed w-full top-0 z-50 h-[4vw] bg-gradient-to-r from-orange via-[#ff9a3b] to-[#ff8c00]">
+        <div className="fixed w-full top-0 z-50 h-[5vw] bg-gradient-to-r from-orange via-[#ff9a3b] to-[#ff8c00]">
             <div className="flex justify-between items-center h-full px-8">
                 {/* Logo */}
                 <div>
@@ -22,7 +22,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Items */}
-                <div className="hidden sm:flex text-2xl gap-[2vw] text-white font-bold">
+                <div className="hidden sm:flex text-xl gap-[2vw] text-white font-bold">
                     <Link href={linkServices}>
                         <span className="hover:text-blue-dark">SERVICE</span>
                     </Link>

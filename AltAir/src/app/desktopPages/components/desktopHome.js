@@ -94,17 +94,17 @@ export default function Home() {
         <div className="row-[12/15] col-[3/13]">
           <Link href={linkContattaci}>
             <button
-              className="group font-sans text-[25px] bg-gradient-to-r from-[#ffa62b] via-[#ff9a3b] to-[#ff8c00] 
-                text-[#ede7e4] px-[1.2em] py-[0.8em] flex items-center justify-center border-none rounded-[25px] 
-                shadow-md transition-all duration-300 w-full h-full hover:transform hover:-translate-y-[3px] hover:shadow-lg 
+              className="group font-sans text-[2vw] bg-gradient-to-r from-[#ffa62b] via-[#ff9a3b] to-[#ff8c00] 
+                text-[#ede7e4] px-[1.2em] py-[0.8em] flex items-center justify-center border-none rounded-[2vw] 
+                shadow-md transition-all duration-300 w-full h-full hover:transform hover:-translate-y-[0.2vw] hover:shadow-lg 
                 hover:text-[#16697a] active:scale-95 active:shadow-sm"
             >
               <div className="transition-all duration-300">
                 <div className="rounded-full mr-[0.5em] transition-all duration-300">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="36"
-                    height="36"
+                    width="30"
+                    height="30"
                     fill="currentColor"
                     className="bi bi-send-fill fill-[#ede7e4] transition-all duration-300 group-hover:fill-[#16697a] group-hover:rotate-45 transform"
                     viewBox="0 0 16 16"
