@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Navbar from "@/app/pagesComponents/navBar"
 import ShapesDisplayer from "@/app/pagesComponents/shapesDisplayer"
 
 const linkContattaci="../contattaci"

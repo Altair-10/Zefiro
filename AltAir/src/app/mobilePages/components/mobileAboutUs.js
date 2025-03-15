@@ -13,16 +13,16 @@ export default function MobileAboutUs(){
                 <div className="bg-blue-light h-full col-[1/3] row-[3/45]">
                     <ShapesDisplayer 
                         numShapes={2} 
-                        imgName1="/geometric_shapes/dark-8.png" 
-                        imgName2="/geometric_shapes/medium-5.png"
+                        imgName1="/decorations/dark-8.png" 
+                        imgName2="/decorations/medium-5.png"
                         flexType="col" position="start" spin={true}
                     />
                 </div>
                 <div className="bg-blue-medium h-full col-[28/30] row-[3/45]">
                     <ShapesDisplayer 
                         numShapes={2} 
-                        imgName1="/geometric_shapes/dark-8.png" 
-                        imgName2="/geometric_shapes/light-5.png"
+                        imgName1="/decorations/dark-8.png" 
+                        imgName2="/decorations/light-5.png"
                         flexType="col" position="start" spin={true}    
                     />
                 </div>

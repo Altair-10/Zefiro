@@ -9,19 +9,19 @@ export default function ContactUs() {
                 grid-cols-[repeat(48,_minmax(0,_1vw))]
                 grid-rows-[repeat(22,_minmax(0,_1vw))]
             ">
-                <h1 className="row-[1/6] col-[3/20] text-[6vw] text-blue-dark h-full">Contact Us</h1>
+                <h1 className="row-[1/6] col-[3/20] text-[6vw] text-blue-dark h-full">Contattaci</h1>
 
                 <div className="row-[4/14] col-[46/48] bg-blue-light" />
                 <div className="row-[3/5] col-[20/48] bg-blue-dark">
-                    <ShapesDisplayer numShapes={1} imgName1="/geometric_shapes/light-8.png" position="start" spin={true} />
+                    <ShapesDisplayer numShapes={1} imgName1="/decorations/light-8.png" position="start" spin={true} />
                 </div>
 
                 <div className="row-[20/22] col-[2/40] bg-blue-medium">
                     <ShapesDisplayer
                         numShapes={3}
-                        imgName1="/geometric_shapes/dark-8.png"
-                        imgName2="/geometric_shapes/light-4.png"
-                        imgName3="/geometric_shapes/dark-8.png"
+                        imgName1="/decorations/dark-8.png"
+                        imgName2="/decorations/light-4.png"
+                        imgName3="/decorations/dark-8.png"
                         position="start" spin={true}
                     />
                 </div>
@@ -33,7 +33,7 @@ export default function ContactUs() {
                 <div className="row-[6/18] col-[3/18]">
                     <div className="flex flex-col justify-center items-center h-full">
                         <h1 className="text-[3vw] text-blue-medium whitespace-nowrap">Qual è il tuo obiettivo?</h1>
-                        <p className="text-center text-[1.5vw] pt-5">
+                        <p className="text-center text-[1.5vw] pt-5 whitespace-nowrap text-orange">
                             Descrivici nella sezione <br />
                             &quot;Come possiamo esserti d&apos;aiuto?&quot; <br />
                             qual è il tuo obiettivo, <br /> 
