@@ -67,7 +67,7 @@ export default function ContactForm() {
         <input type="email" className="bg-blue-light w-full h-[10vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl" name="email" placeholder="Email aziendale" value={formData.email} onChange={handleChange} required />
         <textarea className="bg-blue-light w-full h-[20vw] md:h-[7vw] pl-2 pt-2 placeholder-blue-dark rounded-xl" name="aiuto" placeholder="Come possiamo esserti d'aiuto?" value={formData.aiuto} onChange={handleChange} required />
         <div className="flex justify-center">
-          <button type="submit" className="w-[20vw] h-[10vw] md:w-[10vw] md:h-[3vw] bg-blue-medium rounded-xl" disabled={loading}>
+          <button type="submit" className="w-[20vw] h-[10vw] md:w-[10vw] md:h-[3vw] bg-orange rounded-xl" disabled={loading}>
             {loading ? "Invio in corso..." : "Invia"}
           </button>
         </div>
