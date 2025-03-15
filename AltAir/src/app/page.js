@@ -1,5 +1,5 @@
-import MobileLayout from "./mobileLayout/page";
-import DesktopLayout from "./desktopLayout/page";
+import MobileLayout from "./mobilePages/page";
+import DesktopLayout from "./desktopPages/page";
 
 export default function SplashScreen() {
   return (

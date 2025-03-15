@@ -1,4 +1,4 @@
-import ShapesDisplayer from "@/app/modules/shapesDisplayer";
+import ShapesDisplayer from "@/app/pagesComponents/shapesDisplayer"
 
 export default function MobileServices(){
     return(

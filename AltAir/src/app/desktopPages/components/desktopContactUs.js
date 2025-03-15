@@ -1,5 +1,5 @@
-import ShapesDisplayer from "@/app/modules/shapesDisplayer"
-import Footer from "@/app/modules/footer"
+import ContactForm from "@/app/pagesComponents/formEmail"
+import ShapesDisplayer from "@/app/pagesComponents/shapesDisplayer"
 
 export default function ContactUs() {
     return (
@@ -9,7 +9,7 @@ export default function ContactUs() {
                 grid-cols-[repeat(48,_minmax(0,_1vw))]
                 grid-rows-[repeat(22,_minmax(0,_1vw))]
             ">
-                <h1 className="row-[1/6] col-[3/20] text-[6vw] text-blue-dark h-full">Contattaci</h1>
+                <h1 className="row-[1/6] col-[3/20] text-[6vw] text-blue-dark h-full">Contact Us</h1>
 
                 <div className="row-[4/14] col-[46/48] bg-blue-light" />
                 <div className="row-[3/5] col-[20/48] bg-blue-dark">
@@ -30,8 +30,10 @@ export default function ContactUs() {
                 <div className="row-[15/22] col-[46/48] bg-orange" />
                 <div className="row-[20/22] col-[41/48] bg-blue-dark" />
                 <div className="row-[20/22] col-[41/43] bg-blue-medium" />
+                <div className="row-[5] col-[24] mt-3">
+                    <ContactForm />
+                </div>
             </div>
-            <Footer />
         </div>
     )
 }

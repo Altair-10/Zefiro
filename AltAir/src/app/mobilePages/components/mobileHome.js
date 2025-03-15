@@ -1,6 +1,6 @@
 import Link from "next/link"
-import NavBar from "@/app/modules/navBar"
-import ShapesDisplayer from "@/app/modules/shapesDisplayer"
+import Navbar from "@/app/pagesComponents/navBar"
+import ShapesDisplayer from "@/app/pagesComponents/shapesDisplayer"
 
 const linkContattaci="../contattaci"
 

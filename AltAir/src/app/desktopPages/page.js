@@ -1,8 +1,8 @@
 import Home from "./components/desktopHome"
 import Services from "./components/desktopServices"
 import AboutUs from "./components/desktopAboutUs"
-import ContactUs from "./components/contactUs"
-
+import ContactUs from "./components/desktopContactUs"
+import Footer from "../pagesComponents/footer"
 export default function DesktopLayout(){
     return(
         <>
@@ -10,6 +10,7 @@ export default function DesktopLayout(){
         <Services />
         <AboutUs />
         <ContactUs />
+        <Footer />
         </>
     )
 }

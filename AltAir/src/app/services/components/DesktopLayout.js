@@ -1,4 +1,4 @@
-import ShapesDisplayer from "@/app/modules/shapesDisplayer";
+import ShapesDisplayer from "../../../pagesComponents/shapesDisplayer";
 import Cards from "./cards";
 
 export default function DesktopLayout(){

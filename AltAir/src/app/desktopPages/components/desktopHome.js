@@ -1,5 +1,5 @@
 import Link from "next/link"
-import ShapesDisplayer from "@/app/modules/shapesDisplayer"
+import ShapesDisplayer from "@/app/pagesComponents/shapesDisplayer"
 
 const linkContattaci = "../contattaci"
 
@@ -29,7 +29,7 @@ export default function Home() {
             position="start" spin={true}
           />
         </div>
-        <div className="row-[3/5] col-[36/43] bg-blue-medium">
+        <div className="row-[3/5] col-[36/44] bg-blue-medium">
           <ShapesDisplayer
             numShapes={2}
             imgName1={"/geometric_shapes/light-8.png"}
@@ -40,12 +40,12 @@ export default function Home() {
 
         {/*rettangoli verticali*/}
         <div className="row-[5/12] col-[28/32] bg-blue-medium"></div>
-        <div className="row-[3/12] col-[43/48] bg-blue-light"></div>
+        <div className="row-[3/12] col-[44/48] bg-blue-light"></div>
 
         {/*3° riga*/}
         <div className="row-[10/12] col-[32/38] bg-blue-dark"></div>
         <div className="row-[10/12] col-[38/42] bg-blue-medium"></div>
-        <div className="row-[10/12] col-[42/43] bg-blue-light" />
+        <div className="row-[10/12] col-[42/44] bg-blue-light" />
 
         {/*4° riga*/}
         <div className="row-[12/14] col-[16/30] bg-blue-light"></div>
@@ -67,7 +67,7 @@ export default function Home() {
         <div className="row-[3] col-[3/7]">
           <h1 className="w-[35vw] text-[7vw] leading-[8vw] font-serif text-blue-dark">take IT for future</h1>
         </div>
-        <div className="row-[12/15] col-[3/15]">
+        <div className="row-[12/15] col-[3/13]">
           <Link href={linkContattaci}>
             <button 
                 className="group font-sans text-[25px] bg-gradient-to-r from-[#ffa62b] via-[#ff9a3b] to-[#ff8c00] 

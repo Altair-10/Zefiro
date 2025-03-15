@@ -1,5 +1,4 @@
-import FormPage from "@/app/modules/formPage"
-import SocialIcons from "@/app/modules/socialIcons"
+import SocialIcons from "@/app/pagesComponents/socialIcons"
 
 export default function ContactUs() {
     return (
@@ -13,7 +12,7 @@ export default function ContactUs() {
                     <h1 className="text-[10vw] text-blue-dark">Contact Us</h1>
                 </div>
                 <div className="col-[6/26] row-[10/20]">
-                    <FormPage />
+                    {/* <FormPage /> */}
                 </div>
             </div>
             <div className="flex flex-col justify-around w-[100vw] h-[80vw] bg-blue-dark">

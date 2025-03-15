@@ -22,7 +22,7 @@ export default function Footer() {
             </div>
             <div className="flex flex-col w-[1/3] items-center">
                 <h3 className="text-blue-light text-[3vw] text-bold">Perchè Altair</h3>
-                <p className="text-brown-light text-[2vw] text-bold">samuele.risso30@gmail.com</p>
+                <p className="text-brown-light text-[1.5vw] text-bold">perche si</p>
             </div>
             <div className="flex flex-col gap-y-[0.5vw] w-[1/3] items-center">
                 <h3 className="text-blue-light text-[3vw] text-bold">servizi</h3>
