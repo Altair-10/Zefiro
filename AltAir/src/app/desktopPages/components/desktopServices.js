@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Card, CardHeader, CardFooter, Image, Button } from "@heroui/react";
+import ShapesDisplayer from "../../pagesComponents/shapesDisplayer";
 
 export default function Services() {
   const [windPosition, setWindPosition] = useState(-50);
@@ -15,15 +16,67 @@ export default function Services() {
 
   const ServicesCm = () => {
     return (
-      <div className="flex justify-center items-center w-full">
-        <div className="relative max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 px-8 overflow-hidden">
-         
-          {/* Titolo "Servizi" */}
-          <h1 className="col-span-12 sm:col-span-4 text-[4vw] sm:text-[3vw] text-blue-dark font-bold mb-4">
-            Servizi
-          </h1>
+      <div
+        className="
+        grid gap-[1vw] my-[5vw]
+        grid-cols-[repeat(48,_minmax(0,_1vw))]
+        grid-rows-[repeat(19,_minmax(0,_1vw))]
+      "
+      >
+        <div className="bg-blue-light h-full row-[4/13] col-[46/48]">
+          <ShapesDisplayer
+            numShapes={1}
+            imgName1={"/decorations/medium-5.png"}
+            flexType="row"
+            position="start"
+            spin={true}
+          />
+        </div>
+        <div className="bg-blue-medium h-full row-[3/5] col-[17/48]" />
+        <ShapesDisplayer
+          numShapes={1}
+          imgName1={"/decorations/medium-5.png"}
+          flexType="row"
+          position="center"
+          spin={true}
+        />
+        <div />
+        {/* Angolo sinistro */}
+        <div className="bg-blue-medium h-full row-[6/30] col-[2/4]" />{" "}
+        <ShapesDisplayer
+          numShapes={1}
+          imgName1={"/decorations/medium-5.png"}
+          flexType="row"
+          position="start"
+          spin={true}
+        />
+        <div />
+        {/* Tacche basso destra */}
+        <div className="bg-blue-light h-full row-[20/30] col-[42/44]">
+          <ShapesDisplayer
+            numShapes={1}
+            imgName1={"/decorations/medium-5.png"}
+            flexType="row"
+            position="start"
+            spin={true}
+          />
+        </div>
+        <div className="bg-blue-medium h-full row-[17/30] col-[44/46]" />
+        <div className="bg-blue-dark h-full row-[14/30] col-[46/48]" />
+        <h1 className="row-[1/6] col-[3/20] text-[6vw] text-blue-dark h-full">
+          Services
+        </h1>
+        <div className="relative max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 overflow-hidden row-[6/29] col-[10/42]">
+          {/* Effetto vento con JavaScript */}
+          <div
+            className="absolute top-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-30"
+            style={{
+              left: `${windPosition}%`,
+              transition: "left 0.03s linear",
+            }}
+          />
 
-          <Card className="col-span-12 sm:col-span-4 h-[300px] ">
+          <Card className="col-span-12 sm:col-span-4 h-[300px]">
             <CardHeader className="absolute z-10 top-1 flex-col !items-start">
               <p className="text-tiny text-white/60 uppercase font-bold">
                 What to watch
@@ -131,7 +184,7 @@ export default function Services() {
                 />
                 <div className="flex flex-col">
                   <p className="text-tiny text-white/60">Breathing App</p>
-                  <p className="text-tiny text-white/60">Get a good sleep.</p>
+                  <p className="text-tiny text-white/60">Get a good s sleep.</p>
                 </div>
               </div>
               <Button radius="full" size="sm">
