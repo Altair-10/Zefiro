@@ -6,7 +6,7 @@ import Image from "next/image";
  * @param {string} props.imgName2 - Required if numShapes >= 2
  * @param {string} props.imgName3 - Required if numShapes >= 3
  * @param {string} props.imgName4 - Required if numShapes === 4
- * @param {string} props.flexType - Optional; Options -> "row"=default or "col"
+ * @param {string} props.flexType - Required; Options -> "row" or "col"
  * @param {string} props.posizion - Optional; Options -> "end"=default, "start" or "center"
  * @param {bool} props.spin - Optional; if true, the shape will spin
  */
@@ -37,7 +37,7 @@ export default function ShapesDisplayer({
     const imageClass = spin ? "w-[4vw] md:w-[2.2vw] animate-spin-slow" : "w-[2.2vw]";
     const flexClass = validPositions.includes(position) 
     ? `flex flex-${flexType} justify-${position} items-center w-full h-full`
-    : "flex flex-row justify-end items-center w-full h-full";
+    : `flex flex-${flexType} justify-end items-center w-full h-full`;
 
   return (
     <div className={flexClass}>
