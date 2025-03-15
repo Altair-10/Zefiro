@@ -30,7 +30,19 @@ export default function ContactUs() {
                 <div className="row-[15/22] col-[46/48] bg-orange" />
                 <div className="row-[20/22] col-[41/48] bg-blue-dark" />
                 <div className="row-[20/22] col-[41/43] bg-blue-medium" />
-                <div className="row-[5] col-[24] mt-3">
+                <div className="row-[6/18] col-[3/18]">
+                    <div className="flex flex-col justify-center items-center h-full">
+                        <h1 className="text-[3vw] text-blue-medium whitespace-nowrap">Qual è il tuo obiettivo?</h1>
+                        <p className="text-center text-[1.5vw] pt-5">
+                            Scrivi nella sezione <br />
+                            &quot;Come possiamo esserti d&apos;aiuto?&quot; <br />
+                            per descriverci qual è il tuo obiettivo <br /> 
+                            e in cosa possiamo aiutarti <br />
+                            per raggiungerlo!
+                        </p>
+                    </div>
+                </div>
+                <div className="row-[6] col-[24] mt-3">
                     <ContactForm />
                 </div>
             </div>

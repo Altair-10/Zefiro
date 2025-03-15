@@ -1,4 +1,5 @@
 import SocialIcons from "@/app/pagesComponents/socialIcons"
+import ContactForm from "@/app/pagesComponents/formEmail"
 
 export default function ContactUs() {
     return (
@@ -8,25 +9,25 @@ export default function ContactUs() {
                 grid-cols-[repeat(30,_minmax(0,_2vw))]
                 grid-rows-[repeat(50,_minmax(0,_2vw))]
             ">
-                <div className="col-[6/27] row-[2/7]">
+                <div className="row-[2/7] col-[6/27]">
                     <h1 className="text-[10vw] text-blue-dark">Contact Us</h1>
                 </div>
-                <div className="col-[6/26] row-[10/20]">
-                    {/* <FormPage /> */}
+                <div className="row-[16] col-[8/23]">
+                    <div className="flex flex-col justify-center items-center h-full">
+                        <h1 className="text-[4vw] text-blue-medium whitespace-nowrap">Qual è il tuo obiettivo?</h1>
+                        <p className="text-center text-[3vw] pt-5 whitespace-nowrap">
+                            Scrivi nella sezione <br />
+                            &quot;Come possiamo esserti d&apos;aiuto?&quot; <br />
+                            per descriverci qual è il tuo obiettivo <br /> 
+                            e in cosa possiamo aiutarti <br />
+                            per raggiungerlo!
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div className="flex flex-col justify-around w-[100vw] h-[80vw] bg-blue-dark">
-                <div className="flex flex-col items-center">
-                    <h3 className="text-blue-light text-[8vw] text-bold">PHONE</h3>
-                    <p className="text-brown-light text-[3vw] text-bold">+39 38904402325</p>
-                </div>
-                <div className="flex flex-col items-center">
-                    <h3 className="text-blue-light text-[8vw] text-bold">E-MAIL</h3>
-                    <p className="text-brown-light text-[3vw] text-bold">samuele.risso30@gmail.com</p>
-                </div>
-                <div className="flex flex-col gap-y-[2vw] items-center">
-                    <h3 className="text-blue-light text-[8vw] text-bold">SOCIAL</h3>
-                    <SocialIcons color="#FFFFFF" />
+                <div className="row-[26/36] col-[6/26]">
+                    <div className="flex justify-center">
+                        <ContactForm />
+                    </div>
                 </div>
             </div>
         </div>
