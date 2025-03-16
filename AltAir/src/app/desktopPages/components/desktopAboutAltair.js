@@ -28,7 +28,7 @@ export default function AboutAltair(){
                             alt=''
                             className="w-[50vw] h-[15vw] absolute top-[-8vw]"
                         />
-                        <h1 className="text-[1.5vw] font-bold text-center text-blue-dark">
+                        <p className="text-[1.5vw] font-bold text-center text-blue-dark">
                             Negli ultimi anni in Italia <br /> 
                             si è accumulato un enorme ritardo <br /> 
                             tecnologico rispetto al resto del mondo. <br /> 
@@ -39,21 +39,21 @@ export default function AboutAltair(){
                             è la soluzione che proponiamo, <br /> 
                             aggiornarsi oggi per essere <br /> 
                             avantaggiati domani.
-                        </h1>  
+                        </p>  
                     </div>
                 </div>
 
                  {/* Il Progetto */}
                  <div className="row-[1/12] col-[25/45] pt-[8vw]">
                     <div className="relative flex flex-col justify-center h-full font-bold bg-blue-dark rounded-3xl">
-                        <h1 className="absolute top-[-3.3vw] text-[4vw] text-orange">Il Progetto</h1>
-                        <h1 className="text-[1.2vw]  text-center text-brown-light">
+                        <h2 className="absolute top-[-3.3vw] text-[4vw] text-orange">Il Progetto</h2>
+                        <p className="text-[1.2vw]  text-center text-brown-light">
                             AltAir nasce a febbraio 2025 dalla collaborazione di 4 amici <br />
                             che dopo aver condiviso 2 anni di studio  <br />
                             hanno deciso di mettersi in gioco,  <br />
                             mettendo a disposizione competenze,  <br />
                             serietà lavorativa ed affidabilità.
-                        </h1>
+                        </p>
                     </div>
                 </div>
                 
@@ -61,14 +61,14 @@ export default function AboutAltair(){
                 {/* L'idea  */}
                 <div className=" col-[25/45] row-[10/22] pt-[8vw]">
                     <div className="relative flex flex-col justify-center h-full font-bold bg-blue-medium rounded-3xl">
-                    <h1 className="absolute top-[-3.3vw] text-[4vw] text-orange">L&apos;idea</h1>
-                        <h1 className="text-[1.3vw] text-center text-brown-light">
+                    <h2 className="absolute top-[-3.3vw] text-[4vw] text-orange">L&apos;idea</h2>
+                        <p className="text-[1.3vw] text-center text-brown-light">
                             AltAir nasce a febbraio 2025 dalla collaborazione di 4 amici <br />
                             che dopo aver condiviso 2 anni di studio  <br />
                             hanno deciso di mettersi in gioco,  <br />
                             mettendo a disposizione competenze,  <br />
                             serietà lavorativa ed affidabilità.
-                        </h1>
+                        </p>
                     </div>
                 </div>
             </div>

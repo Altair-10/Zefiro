@@ -1,5 +1,5 @@
 
-const {heroui} = require("@heroui/react");
+const {heroui, lightLayout} = require("@heroui/react");
 module.exports = {
   content: [
     
@@ -35,6 +35,10 @@ module.exports = {
       },
     },
   },
-  plugins: [heroui()],
+  plugins: [
+    heroui({
+      prefix: "myapp",
+    }),
+  ],
 };
 
