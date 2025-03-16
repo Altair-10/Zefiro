@@ -23,6 +23,9 @@ module.exports = {
         },
         orange: "#ffa62b",
       },
+      backgroundImage: {
+        'gradient-orange': "linear-gradient(to right, #ffa62b, #ff9a3b, #ff8c00)",
+      },
       fontFamily: {
         title: ["Roboto", "sans-serif"],
         general: ["Times New Roman", "serif"],
