@@ -1,7 +1,16 @@
+"use client"
+
+import Link from "next/link";
 import Image from "next/image"
+import { Copy } from "lucide-react";
 import SocialIcons from "./socialIcons"
 
 export default function Footer() {
+    const copyToClipboard = (text) => {
+        navigator.clipboard.writeText(text);
+        alert(`Copiato: ${text}`);
+    }
+
     return (
         <div className="flex flex-col md:flex-row justify-around md:items-center w-full h-[150vw] md:h-[30vw] bg-blue-dark">
             <div className="flex flex-col items-center md:items-start">
@@ -13,8 +22,18 @@ export default function Footer() {
                     className="w-[50vw] h-[25vw] md:w-[20vw] md:h-[10vw] ml-6 md:ml-0" 
                 />
                 <div className="ml-[1.3vw] text-center md:text-start">
-                    <p className="text-brown-light text-[5vw] md:text-[1.5vw] text-bold">+39 38904402325</p>
-                    <p className="text-brown-light text-[5vw] md:text-[1.5vw] text-bold">samuele.risso30@gmail.com</p>
+                    {[
+                        { text: "+39 38904402325" },
+                        { text: "altair-info@gmail.com" },
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-center justify-center md:justify-start gap-2">
+                        <p className="text-brown-light text-[5vw] md:text-[1.5vw] font-bold">{item.text}</p>
+                        <Copy
+                            className="w-[4.5vw] h-[3.5vw] md:w-[2vw] md:h-[1.5vw] cursor-pointer text-brown-light hover:text-orange"
+                            onClick={() => copyToClipboard(item.text)}
+                        />
+                        </div>
+                    ))}
                 </div>
                 <div className="mt-[3vw] md:mt-[1vw] md:ml-[1.3vw] ">
                     <SocialIcons color="#FFFFFF" hoverColor="text-orange" />
@@ -22,7 +41,7 @@ export default function Footer() {
             </div>
             <div className="flex flex-col w-[1/3] items-center md:items-start">
                 <h3 className="text-blue-light text-[8vw] md:text-[3vw] text-bold">Perchè Altair</h3>
-                <p className="text-brown-light text-[5vw] md:text-[1.5vw] text-bold">perche si</p>
+                <Link href="" className="text-brown-light text-[5vw] md:text-[1.5vw] text-bold">perche si</Link>
             </div>
             <div className="md:hidden flex flex-col justify-center items-center md:items-start">
                 <h3 className="text-blue-light text-[8vw] text-bold">servizi</h3>
@@ -30,7 +49,7 @@ export default function Footer() {
             </div>
             <div className="md:hidden flex flex-col justify-center items-center md:items-start">
                 <h3 className="text-blue-light text-[8vw] text-bold">contattaci</h3>
-                <h3 className="text-brown-light text-[5vw] text-bold">servizi</h3>
+                <Link href="" className="text-brown-light text-[5vw] text-bold">servizi</Link>
             </div>
             <div className="hidden md:flex flex-col gap-y-[0.5vw] items-start">
                 <h3 className="text-blue-light text-[3vw] text-bold">servizi</h3>

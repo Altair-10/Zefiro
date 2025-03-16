@@ -11,11 +11,13 @@ export default function ContactUs() {
             ">
                 <h1 className="row-[1/6] col-[3/20] text-[6vw] text-blue-dark h-full">Contattaci</h1>
 
+                {/* angolo alto destra */}
                 <div className="row-[4/14] col-[46/48] bg-blue-light" />
                 <div className="row-[3/5] col-[20/48] bg-blue-dark">
                     <ShapesDisplayer numShapes={1} imgName1="/decorations/light-8.png" position="start" spin={true} />
                 </div>
-
+                
+                {/* linea in basso */}
                 <div className="row-[20/22] col-[2/40] bg-blue-medium">
                     <ShapesDisplayer
                         numShapes={3}
@@ -25,11 +27,21 @@ export default function ContactUs() {
                         position="start" spin={true}
                     />
                 </div>
+
+                {/* quadrato alto */}
+                <div className="row-[7/12] col-[39/41] bg-blue-medium" />
+                <div className="row-[6/8] col-[39/45] bg-blue-light" />
+                <div className="row-[6/12] col-[43/45] bg-orange" />
+                <div className="row-[10/12] col-[39/45] bg-blue-dark" />
+                <div className="row-[10/12] col-[39/41] bg-blue-medium" />
+
+                {/* quadrato basso */}
                 <div className="row-[16/22] col-[41/43] bg-blue-medium" />
                 <div className="row-[15/17] col-[41/48] bg-blue-light" />
                 <div className="row-[15/22] col-[46/48] bg-orange" />
                 <div className="row-[20/22] col-[41/48] bg-blue-dark" />
                 <div className="row-[20/22] col-[41/43] bg-blue-medium" />
+
                 <div className="row-[6/18] col-[3/18]">
                     <div className="flex flex-col justify-center items-center h-full">
                         <h1 className="text-[3vw] text-blue-medium whitespace-nowrap">Qual è il tuo obiettivo?</h1>
@@ -42,7 +54,7 @@ export default function ContactUs() {
                         </p>
                     </div>
                 </div>
-                <div className="row-[6] col-[24] mt-3">
+                <div className="row-[6] col-[23] mt-3">
                     <ContactForm />
                 </div>
             </div>
