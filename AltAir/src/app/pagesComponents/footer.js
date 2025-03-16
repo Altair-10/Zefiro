@@ -1,7 +1,15 @@
+"use client"
+
+import { Copy } from "lucide-react";
 import Image from "next/image"
 import SocialIcons from "./socialIcons"
 
 export default function Footer() {
+    const copyToClipboard = (text) => {
+        navigator.clipboard.writeText(text);
+        alert(`Copiato: ${text}`);
+    }
+
     return (
         <div className="flex flex-col md:flex-row justify-around md:items-center w-full h-[150vw] md:h-[30vw] bg-blue-dark">
             <div className="flex flex-col items-center md:items-start">
@@ -13,8 +21,18 @@ export default function Footer() {
                     className="w-[50vw] h-[25vw] md:w-[20vw] md:h-[10vw] ml-6 md:ml-0" 
                 />
                 <div className="ml-[1.3vw] text-center md:text-start">
-                    <p className="text-brown-light text-[5vw] md:text-[1.5vw] text-bold">+39 38904402325</p>
-                    <p className="text-brown-light text-[5vw] md:text-[1.5vw] text-bold">samuele.risso30@gmail.com</p>
+                    {[
+                        { text: "+39 38904402325" },
+                        { text: "altair-info@gmail.com" },
+                    ].map((item, index) => (
+                        <div key={index} className="flex items-center justify-center md:justify-start gap-2">
+                        <p className="text-brown-light text-[5vw] md:text-[1.5vw] font-bold">{item.text}</p>
+                        <Copy
+                            className="w-5 h-5 cursor-pointer text-brown-light hover:text-orange"
+                            onClick={() => copyToClipboard(item.text)}
+                        />
+                        </div>
+                    ))}
                 </div>
                 <div className="mt-[3vw] md:mt-[1vw] md:ml-[1.3vw] ">
                     <SocialIcons color="#FFFFFF" hoverColor="text-orange" />

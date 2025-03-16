@@ -56,16 +56,16 @@ export default function ContactForm() {
     <div>
       <Form onSubmit={handleSubmit} className="flex flex-col w-[70vw] h-[90vw] md:w-[25vw] md:h-[25vw] space-y-6">
         <div className="flex flex-row justify-between">
-          <input className="bg-blue-light w-[34vw] h-[10vw] md:w-[12vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl" name="nome" placeholder="Nome" value={formData.nome} onChange={handleChange} required />
-          <input className="bg-blue-light w-[34vw] h-[10vw] md:w-[12vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl" name="cognome" placeholder="Cognome" value={formData.cognome} onChange={handleChange} required />
+          <input className="bg-blue-light w-[34vw] h-[10vw] md:w-[12vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl border-2 border-blue-dark" name="nome" placeholder="Nome" value={formData.nome} onChange={handleChange} required />
+          <input className="bg-blue-light w-[34vw] h-[10vw] md:w-[12vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl border-2 border-blue-dark" name="cognome" placeholder="Cognome" value={formData.cognome} onChange={handleChange} required />
         </div>
         <div className="flex flex-row justify-between">
-          <input className="bg-blue-light w-[34vw] h-[10vw] md:w-[12vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl" name="azienda" placeholder="Azienda" value={formData.azienda} onChange={handleChange} required />
-          <input type="tel" className="bg-blue-light w-[34vw] h-[10vw] md:w-[12vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl" name="telefono" placeholder="Telefono" value={formData.telefono} onChange={handleChange} required />
+          <input className="bg-blue-light w-[34vw] h-[10vw] md:w-[12vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl border-2 border-blue-dark" name="azienda" placeholder="Azienda" value={formData.azienda} onChange={handleChange} required />
+          <input type="tel" className="bg-blue-light w-[34vw] h-[10vw] md:w-[12vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl border-2 border-blue-dark" name="telefono" placeholder="Telefono" value={formData.telefono} onChange={handleChange} required />
         </div>
         
-        <input type="email" className="bg-blue-light w-full h-[10vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl" name="email" placeholder="Email aziendale" value={formData.email} onChange={handleChange} required />
-        <textarea className="bg-blue-light w-full h-[20vw] md:h-[7vw] pl-2 pt-2 placeholder-blue-dark rounded-xl" name="aiuto" placeholder="Come possiamo esserti d'aiuto?" value={formData.aiuto} onChange={handleChange} required />
+        <input type="email" className="bg-blue-light w-full h-[10vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl border-2 border-blue-dark" name="email" placeholder="Email aziendale" value={formData.email} onChange={handleChange} required />
+        <textarea className="bg-blue-light w-full h-[20vw] md:h-[7vw] pl-2 pt-2 placeholder-blue-dark rounded-xl border-2 border-blue-dark" name="aiuto" placeholder="Come possiamo esserti d'aiuto?" value={formData.aiuto} onChange={handleChange} required />
         <div className="flex justify-center">
           <button type="submit" className="w-[20vw] h-[10vw] md:w-[10vw] md:h-[3vw] bg-orange rounded-xl" disabled={loading}>
             {loading ? "Invio in corso..." : "Invia"}
