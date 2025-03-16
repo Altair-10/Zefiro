@@ -8,7 +8,7 @@ const Navbar = () => {
     const linkAbout = "./about"
 
     return (
-        <div className="fixed w-full top-0 z-50 h-[5vw] bg-gradient-to-r from-orange via-[#ff9a3b] to-[#ff8c00]">
+        <div className="fixed w-full top-0 z-50 h-[5vw] bg-gradient-orange">
             <div className="flex justify-between items-center h-full px-8">
                 {/* Logo */}
                 <div>
@@ -33,7 +33,7 @@ const Navbar = () => {
 
                 {/* Social icons */}
                 <div className="hidden sm:flex gap-3">
-                    <SocialIcons color="#ede7e4" hoverColor="text-blue-dark"/>
+                    <SocialIcons color="#ffffff" hoverColor="text-blue-dark"/>
                 </div>
             </div>
         </div>

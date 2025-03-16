@@ -94,8 +94,8 @@ export default function Home() {
         <div className="row-[12/15] col-[3/13]">
           <Link href={linkContattaci}>
             <button
-              className="group font-sans text-[2vw] bg-gradient-to-r from-[#ffa62b] via-[#ff9a3b] to-[#ff8c00] 
-                text-[#ede7e4] px-[1.2em] py-[0.8em] flex items-center justify-center border-none rounded-[2vw] 
+              className="group font-sans text-[2vw] bg-gradient-orange 
+                text-[#ffffff] px-[1.2em] py-[0.8em] flex items-center justify-center border-none rounded-[2vw] 
                 shadow-md transition-all duration-300 w-full h-full hover:transform hover:-translate-y-[0.2vw] hover:shadow-lg 
                 hover:text-[#16697a] active:scale-95 active:shadow-sm"
             >
@@ -106,7 +106,7 @@ export default function Home() {
                     width="30"
                     height="30"
                     fill="currentColor"
-                    className="bi bi-send-fill fill-[#ede7e4] transition-all duration-300 group-hover:fill-[#16697a] group-hover:rotate-45 transform"
+                    className="bi bi-send-fill fill-[#ffffff] transition-all duration-300 group-hover:fill-[#16697a] group-hover:rotate-45 transform"
                     viewBox="0 0 16 16"
                   >
                     <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
