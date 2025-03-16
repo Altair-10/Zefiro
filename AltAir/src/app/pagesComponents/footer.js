@@ -1,7 +1,8 @@
 "use client"
 
-import { Copy } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image"
+import { Copy } from "lucide-react";
 import SocialIcons from "./socialIcons"
 
 export default function Footer() {
@@ -28,7 +29,7 @@ export default function Footer() {
                         <div key={index} className="flex items-center justify-center md:justify-start gap-2">
                         <p className="text-brown-light text-[5vw] md:text-[1.5vw] font-bold">{item.text}</p>
                         <Copy
-                            className="w-5 h-5 cursor-pointer text-brown-light hover:text-orange"
+                            className="w-[4.5vw] h-[3.5vw] md:w-[2vw] md:h-[1.5vw] cursor-pointer text-brown-light hover:text-orange"
                             onClick={() => copyToClipboard(item.text)}
                         />
                         </div>
@@ -40,7 +41,7 @@ export default function Footer() {
             </div>
             <div className="flex flex-col w-[1/3] items-center md:items-start">
                 <h3 className="text-blue-light text-[8vw] md:text-[3vw] text-bold">Perchè Altair</h3>
-                <p className="text-brown-light text-[5vw] md:text-[1.5vw] text-bold">perche si</p>
+                <Link href="" className="text-brown-light text-[5vw] md:text-[1.5vw] text-bold">perche si</Link>
             </div>
             <div className="md:hidden flex flex-col justify-center items-center md:items-start">
                 <h3 className="text-blue-light text-[8vw] text-bold">servizi</h3>
@@ -48,7 +49,7 @@ export default function Footer() {
             </div>
             <div className="md:hidden flex flex-col justify-center items-center md:items-start">
                 <h3 className="text-blue-light text-[8vw] text-bold">contattaci</h3>
-                <h3 className="text-brown-light text-[5vw] text-bold">servizi</h3>
+                <Link href="" className="text-brown-light text-[5vw] text-bold">servizi</Link>
             </div>
             <div className="hidden md:flex flex-col gap-y-[0.5vw] items-start">
                 <h3 className="text-blue-light text-[3vw] text-bold">servizi</h3>
