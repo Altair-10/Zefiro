@@ -80,14 +80,12 @@ export default function ContactForm() {
                 required
               />
               <label
-                for="username"
+                htmlFor="username"
                 className="absolute left-0 top-1 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-orange"
               >Name
               </label>
             </div>
           </div>
-
-
 
           {/* <input className="bg-blue-light w-[34vw] h-[10vw] md:w-[12vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl" name="nome" placeholder="Nome" value={formData.nome} onChange={handleChange} required /> */}
           <input className="bg-blue-light w-[34vw] h-[10vw] md:w-[12vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl" name="cognome" placeholder="Cognome" value={formData.cognome} onChange={handleChange} required />
@@ -104,8 +102,7 @@ export default function ContactForm() {
             {loading ? "Invio in corso..." : "Invia"}
           </button>
         </div>
-
-      </Form>
+      </form>
       {message && <p className="mt-4 text-center">{message}</p>}
     </div>
   );
