@@ -2,18 +2,16 @@
 
 import ContactForm from "@/app/pagesComponents/formEmail";
 import ShapesDisplayer from "@/app/pagesComponents/shapesDisplayer";
-import { TypeAnimation } from "react-type-animation";
-import { useInView } from "react-intersection-observer";
+import ContactUsCard from "@/app/pagesComponents/contactUsCard";
 
 export default function ContactUs() {
-    const { ref, inView } = useInView({
-        triggerOnce: true,
-        threshold: 0.5,
-    });
-
     return (
         <div className="hidden md:flex flex-col justify-center items-center w-full">
-            <div className="grid gap-[1vw] md:my-[5vw] grid-cols-[repeat(48,_minmax(0,_1vw))] grid-rows-[repeat(22,_minmax(0,_1vw))]">
+            <div className="
+                grid gap-[1vw] md:my-[5vw]
+                grid-cols-[repeat(48,_minmax(0,_1vw))]
+                grid-rows-[repeat(22,_minmax(0,_1vw))]
+            ">
                 <h1 className="row-[1/6] col-[3/20] text-[6vw] text-blue-dark h-full">Contattaci</h1>
 
                 <div className="row-[3/13] col-[46/48] bg-blue-light" />
@@ -46,54 +44,9 @@ export default function ContactUs() {
 
                 {/* Card con effetto di macchina da scrivere */}
                 <div className="row-[6/18] col-[3/18]">
-                    <div ref={ref} className="w-72 h-80 mx-auto bg-gray-100 rounded-xl shadow-2xl">
-                        {/* Puntini colorati in alto */}
-                        <div className="flex items-center p-2">
-                            <div className="px-1">
-                                <span className="w-4 h-4 rounded-full inline-block bg-red-500 cursor-pointer"></span>
-                            </div>
-                            <div className="px-1">
-                                <span className="w-4 h-4 rounded-full inline-block bg-yellow-400 cursor-pointer"></span>
-                            </div>
-                            <div className="px-1">
-                                <span className="w-4 h-4 rounded-full inline-block bg-green-500 cursor-pointer"></span>
-                            </div>
-                        </div>
-
-                        {/* Contenuto della card */}
-                        <div className="flex flex-col items-center justify-center h-[calc(100%-3rem)] p-5">
-                            <h2 className="text-xl font-bold text-gray-800 mb-4">
-                                {inView && (
-                                    <TypeAnimation
-                                        sequence={[
-                                            "Raccontaci la tua idea: insieme la realizzeremo 🎯",
-                                            1000, // Tempo di attesa dopo la fine dell'animazione
-                                        ]}
-                                        speed={50}
-                                        style={{ whiteSpace: "pre-line" }}
-                                        cursor={false} // Disabilita il cursore lampeggiante
-                                    />
-                                )}
-                            </h2>
-                            <p className="text-gray-600">
-                                {inView && (
-                                    <TypeAnimation
-                                        sequence={[
-                                            3000, // Ritardo prima di iniziare
-                                            "Descrivici la tua sfida o il tuo sogno nel campo informatico. Noi ti aiuteremo a trasformarlo in una soluzione concreta, passo dopo passo 👣",
-                                            1000, // Tempo di attesa dopo la fine dell'animazione
-                                        ]}
-                                        speed={30}
-                                        style={{ whiteSpace: "pre-line" }}
-                                        cursor={false}
-                                    />
-                                )}
-                            </p>
-                        </div>
-                    </div>
+                    <ContactUsCard />
                 </div>
-
-                <div className="row-[6] col-[23] mt-3">
+                <div className="row-[4/20] col-[22/37]">
                     <ContactForm />
                 </div>
             </div>

@@ -53,107 +53,90 @@ export default function ContactForm() {
     }
   }, [formData]);
 
-  const formValues = useMemo(() => formData, [formData]);
-
-  const InputField = ({ type = "text", name, placeholder }) => (
-    <input
-      type={type}
-      name={name}
-      placeholder={placeholder}
-      value={formValues[name]}
-      onChange={handleChange}
-      className="bg-blue-light w-[34vw] h-[10vw] md:w-[12vw] md:h-[3vw] pl-2 placeholder-blue-dark rounded-xl border-2 border-blue-dark"
-      required
-    />
-  );
-
   return (
-    <div>
-      <form onSubmit={handleSubmit} className="flex flex-col justify-center pb-[2vw] w-[70vw] h-[85vw] md:w-[25vw] md:h-[25vw] space-y-6">
-        <div className="flex flex-row justify-between">
-          <div className="flex items-center justify-center">
-            <div className="flex w-[10vw] md:w-[12vw] md:h-[3vw] items-end md:flex-nowrap pb-[0.5vw] md:mb-0">
-              <Input
-                isRequired
-                label="Nome"
-                labelPlacement="outside"
-                type="text"
-                name="nome"
-                value={formData.nome}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="flex w-[10vw] md:w-[12vw] md:h-[3vw] ml-[1vw] pb-[0.5vw] items-end md:flex-nowrap md:mb-0">
-              <Input
-                isRequired
-                label="Cognome"
-                labelPlacement="outside"
-                type="text"
-                name="cognome"
-                value={formData.cognome}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-row justify-between">
-          <div className="flex w-[10vw] md:w-[12vw] md:h-[3vw] items-end md:flex-nowrap md:mb-0">
-            <Input
-              label="Azienda"
-              labelPlacement="outside"
-              type="text"
-              name="azienda"
-              value={formData.azienda}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="flex w-[10vw] md:w-[12vw] md:h-[3vw] ml-[1vw] items-end md:flex-nowrap md:mb-0">
-            <Input
-              isRequired
-              label="Numero di telefono"
-              labelPlacement="outside"
-              type="tel"
-              name="telefono"
-              value={formData.telefono}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <div>
-          <Input
-            isRequired
-            label="Email"
-            labelPlacement="outside"
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-        </div>
-
+    <form
+    onSubmit={handleSubmit}
+    className="flex flex-col justify-center gap-y-4 md:gap-y-2 w-full h-full"
+    >
+      <div className="flex flex-row justify-between w-full gap-4">
+        <Input
+          isRequired
+          label="Nome"
+          labelPlacement="outside"
+          type="text"
+          name="nome"
+          value={formData.nome}
+          onChange={handleChange}
+          className="flex-1 min-w-0"
+        />
+        <Input
+          isRequired
+          label="Cognome"
+          labelPlacement="outside"
+          type="text"
+          name="cognome"
+          value={formData.cognome}
+          onChange={handleChange}
+          className="flex-1 min-w-0"
+        />
+      </div>
+    
+      <div className="flex flex-row justify-between w-full gap-4">
+        <Input
+          label="Azienda"
+          labelPlacement="outside"
+          type="text"
+          name="azienda"
+          value={formData.azienda}
+          onChange={handleChange}
+          className="flex-1 min-w-0"
+        />
+        <Input
+          isRequired
+          label="Numero di telefono"
+          labelPlacement="outside"
+          type="tel"
+          name="telefono"
+          value={formData.telefono}
+          onChange={handleChange}
+          className="flex-1 min-w-0"
+        />
+      </div>
+    
+      <div className="w-full">
+        <Input
+          isRequired
+          label="Email"
+          labelPlacement="outside"
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          className="w-full"
+        />
+      </div>
+    
+      <div className="w-full">
         <Textarea
           isRequired
-          label="Siamo qui per rendere le cose più semplici. Parlaci!"
+          label="Siamo qui per te. Parlaci!"
           labelPlacement="outside"
           variant="flat"
           name="aiuto"
           value={formData.aiuto}
           onChange={handleChange}
+          className="w-full min-h-[8vw]"
         />
-
-        <div className="flex justify-center">
-          <SendButton
-            text={`${loading ? "Invio in corso..." : "Invia"}`}
-            type="submit"
-            width="w-[20vw]"
-            height="h-[10vw]"
-            className="mt-[0.5vw] md:w-[12vw] md:h-[3vw] md:text-[1.5vw]"
-            disabled={loading}
-          />
-        </div>
-      </form>
-      {message && <p className="mt-4 text-center">{message}</p>}
-    </div>
+      </div>
+    
+      <div className="flex flex-row justify-center">
+        <SendButton
+          text={`${loading ? "Invio in corso..." : "Invia"}`}
+          type="submit"
+          className="w-[40vw] text-lg md:w-1/3 md:text-base"
+          disabled={loading}
+        />
+      </div>
+    </form>  
   );
 }

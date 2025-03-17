@@ -37,7 +37,7 @@ export default function Footer() {
                         </div>
                     ))}
                 </div>
-                <div className="pt-[4vw] md:mt-[1vw] md:ml-[1.3vw] ">
+                <div className="mt-[4vw] md:mt-[1vw] md:ml-[1.3vw] ">
                     <SocialIcons color="#FFFFFF" hoverColor="text-blue-dark" />
                 </div>
             </div>
