@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useCallback, useMemo } from "react";
-import { Input } from "@heroui/react"
-import { Textarea } from "@heroui/input";
 import SendButton from "./buttonContact";
+import { Input } from "@heroui/react";
+import { Textarea } from "@heroui/react";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -69,10 +69,10 @@ export default function ContactForm() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="flex flex-col w-[70vw] h-[90vw] md:w-[25vw] md:h-[25vw] space-y-6">
+      <form onSubmit={handleSubmit} className="flex flex-col justify-center pb-[2vw] w-[70vw] h-[85vw] md:w-[25vw] md:h-[25vw] space-y-6">
         <div className="flex flex-row justify-between">
           <div className="flex items-center justify-center">
-            <div className="flex w-[10vw] md:w-[12vw] md:h-[3vw] items-end md:flex-nowrap mb-6 md:mb-0">
+            <div className="flex w-[10vw] md:w-[12vw] md:h-[3vw] items-end md:flex-nowrap pb-[0.5vw] md:mb-0">
               <Input
                 isRequired
                 label="Nome"
@@ -83,13 +83,13 @@ export default function ContactForm() {
                 onChange={handleChange}
               />
             </div>
-            <div className="flex w-[10vw] md:w-[12vw] md:h-[3vw] ml-[1vw] items-end md:flex-nowrap mb-6 md:mb-0">
+            <div className="flex w-[10vw] md:w-[12vw] md:h-[3vw] ml-[1vw] pb-[0.5vw] items-end md:flex-nowrap md:mb-0">
               <Input
                 isRequired
                 label="Cognome"
                 labelPlacement="outside"
                 type="text"
-                name="nome"
+                name="cognome"
                 value={formData.cognome}
                 onChange={handleChange}
               />
@@ -97,7 +97,7 @@ export default function ContactForm() {
           </div>
         </div>
         <div className="flex flex-row justify-between">
-          <div className="flex w-[10vw] md:w-[12vw] md:h-[3vw] items-end md:flex-nowrap mb-6 md:mb-0">
+          <div className="flex w-[10vw] md:w-[12vw] md:h-[3vw] items-end md:flex-nowrap md:mb-0">
             <Input
               label="Azienda"
               labelPlacement="outside"
@@ -107,7 +107,7 @@ export default function ContactForm() {
               onChange={handleChange}
             />
           </div>
-          <div className="flex w-[10vw] md:w-[12vw] md:h-[3vw] ml-[1vw] items-end md:flex-nowrap mb-6 md:mb-0">
+          <div className="flex w-[10vw] md:w-[12vw] md:h-[3vw] ml-[1vw] items-end md:flex-nowrap md:mb-0">
             <Input
               isRequired
               label="Numero di telefono"
@@ -132,7 +132,7 @@ export default function ContactForm() {
           />
         </div>
 
-        <Textarea 
+        <Textarea
           isRequired
           label="Siamo qui per rendere le cose più semplici. Parlaci!"
           labelPlacement="outside"
@@ -143,14 +143,13 @@ export default function ContactForm() {
         />
 
         <div className="flex justify-center">
-          <SendButton 
-          text={`${loading ? "Invio in corso..." : "Invia"}`} 
-          type="submit" 
-          width="w-[20vw]" 
-          height="h-[10vw]" 
-          className="mt-[1vw] md:w-[12vw] md:h-[3vw] md:text-[1.5vw]" 
-          disabled={loading}
-          
+          <SendButton
+            text={`${loading ? "Invio in corso..." : "Invia"}`}
+            type="submit"
+            width="w-[20vw]"
+            height="h-[10vw]"
+            className="mt-[0.5vw] md:w-[12vw] md:h-[3vw] md:text-[1.5vw]"
+            disabled={loading}
           />
         </div>
       </form>

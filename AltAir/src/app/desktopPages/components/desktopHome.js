@@ -94,7 +94,7 @@ export default function Home() {
         </div>
         <div className="row-[12/15] col-[3/13]">
           <Link href={linkContattaci}>
-            < SendButton />
+            < SendButton text="CONTATTACI"/>
           </Link>
         </div>
       </div>
