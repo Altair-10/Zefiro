@@ -46,7 +46,7 @@ export default function ContactUs() {
                 <div className="row-[6/18] col-[3/18]">
                     <ContactUsCard />
                 </div>
-                <div className="row-[4/20] col-[22/37]">
+                <div className="row-[5/20] col-[22/37]">
                     <ContactForm />
                 </div>
             </div>
