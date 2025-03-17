@@ -19,7 +19,7 @@ export default function ContactUs() {
                     <ShapesDisplayer numShapes={1} imgName1="/decorations/light-8.png" position="start" spin={true} />
                 </div>
 
-                <div className="row-[20/22] col-[2/40] bg-blue-medium">
+                <div className="row-[20/22] col-[2/19] bg-blue-medium">
                     <ShapesDisplayer
                         numShapes={3}
                         imgName1="/decorations/dark-8.png"
@@ -46,7 +46,7 @@ export default function ContactUs() {
                 <div className="row-[6/18] col-[3/18]">
                     <ContactUsCard />
                 </div>
-                <div className="row-[5/20] col-[22/37]">
+                <div className="row-[5/21] col-[22/37]">
                     <ContactForm />
                 </div>
             </div>

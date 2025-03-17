@@ -5,7 +5,7 @@ const linkContattaci="../contattaci"
 
 export default function MobileHome(){
     return(
-      <div className="md:hidden flex justify-center items-center w-full">
+      <div className="md:hidden flex justify-center items-center w-full  mt-[15vw]">
         <div className="
           grid gap-[0.5vw] my-[5vw]
           grid-cols-[repeat(35,_minmax(0,_2vw))]
