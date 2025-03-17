@@ -6,7 +6,7 @@ const linkContattaci = "../contattaci"
 
 export default function Home() {
   return (
-    <div className="hidden md:flex justify-center items-center w-full mt-[2.5vw]">
+    <div className="hidden md:flex justify-center items-center w-full mt-[10vw] xl:mt-[4.5vw]">
       <div className="
         grid gap-[1vw] my-[5vw]
         grid-cols-[repeat(48,_minmax(0,_1vw))]

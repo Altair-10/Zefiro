@@ -42,22 +42,22 @@ export default function Footer() {
                 </div>
             </div>
             <div className="flex flex-col w-[1/3] items-center md:items-start">
-                <h3 className="text-blue-light text-[8vw] md:text-[3vw] text-bold">Perchè Altair</h3>
-                <Link href="" className="text-brown-light text-[5vw] md:text-[1.5vw] text-bold">perche si</Link>
+                <h3 className="text-blue-dark text-[8vw] md:text-[3vw] font-bold">Perchè Altair</h3>
+                <Link href="" className="text-brown-light text-[5vw] md:text-[1.5vw]">perche si</Link>
             </div>
             <div className="md:hidden flex flex-col justify-center items-center md:items-start">
-                <h3 className="text-blue-light text-[8vw] text-bold">servizi</h3>
-                <h3 className="text-brown-light text-[5vw] text-bold">servizi</h3>
+                <h3 className="text-blue-dark text-[8vw] font-bold">servizi</h3>
+                <h3 className="text-brown-light text-[5vw]">servizi</h3>
             </div>
             <div className="md:hidden flex flex-col justify-center items-center md:items-start">
-                <h3 className="text-blue-light text-[8vw] text-bold">contattaci</h3>
-                <Link href="" className="text-brown-light text-[5vw] text-bold">servizi</Link>
+                <h3 className="text-blue-dark text-[8vw] font-bold">contattaci</h3>
+                <Link href="" className="text-brown-light text-[5vw]">servizi</Link>
             </div>
             <div className="hidden md:flex flex-col gap-y-[0.5vw] items-start">
-                <h3 className="text-blue-light text-[3vw] text-bold">servizi</h3>
-                <h3 className="text-brown-light text-[1.5vw] text-bold">servizi</h3>
-                <h3 className="text-blue-light text-[3vw] text-bold">contattaci</h3>
-                <h3 className="text-brown-light text-[1.5vw] text-bold">servizi</h3>
+                <h3 className="text-blue-dark text-[3vw] font-bold">servizi</h3>
+                <h3 className="text-brown-light text-[1.5vw]">servizi</h3>
+                <h3 className="text-blue-dark text-[3vw] font-bold">contattaci</h3>
+                <h3 className="text-brown-light text-[1.5vw]">servizi</h3>
             </div>
         </div>
     )

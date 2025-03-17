@@ -1,4 +1,5 @@
 "use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import SocialIcons from './socialIcons'
@@ -8,7 +9,7 @@ const Navbar = () => {
     const linkAbout = "./about"
 
     return (
-        <div className="fixed w-full top-0 z-50 h-[5vw] bg-gradient-orange">
+        <div className="fixed w-full top-0 z-50 h-[20vw] sm:h-[13vw] md:h-[10vw] lg:h-[8vw] xl:h-[6vw] bg-gradient-orange">
             <div className="flex justify-between items-center h-full px-8">
                 {/* Logo */}
                 <div>
