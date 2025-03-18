@@ -20,7 +20,7 @@ export default function Services() {
         
         {/* Card grande sx */}
         <Card isFooterBlurred className="
-          row-[10/35] col-[1/32] md:row-[6/14] md:col-[10/22] 
+          row-[10/35] col-[1/32] md:row-[6/14] md:col-[13/25] 
           group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105
         ">
           <CardHeader className="
@@ -64,12 +64,12 @@ export default function Services() {
         </Card>
 
         {/* Cubo */}
-        <div className="hidden md:block md:row-[7/13] md:col-[23/29]">
+        <div className="hidden md:block md:row-[7/13] md:col-[26/32]">
           <CubeRotation />
         </div>
 
         {/* Card clienti */}
-        <Card className="hidden md:block row-[14/21] col-[14/22] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105 bg-blue-medium">
+        <Card className="hidden md:block row-[14/21] col-[17/25] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105 bg-blue-medium">
           <CardHeader className="absolute z-10 top-1 flex-col !items-start ">
             <p className="md:text-[0.6vw] text-white/60 uppercase font-bold">
               Partner e Collaborazioni
@@ -89,7 +89,7 @@ export default function Services() {
         {/* Card e-commerce */}
         <Card
           isFooterBlurred
-          className="row-[36/61] col-[1/32] md:row-[14/22] md:col-[22/34] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105"
+          className="row-[36/61] col-[1/32] md:row-[14/22] md:col-[25/37] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105"
         >
           <CardHeader className="
             absolute 
@@ -128,6 +128,13 @@ export default function Services() {
             </Button>
           </CardFooter>
         </Card>
+
+        {/* Rettangoli */}
+        <div className="hidden md:block row-[3/5] col-[16/48] bg-blue-dark" />
+        <div className="hidden md:block row-[8/10] col-[2/14] bg-blue-medium" />
+        <div className="hidden md:block row-[10/12] col-[2/14] bg-blue-light" />
+        <div className="hidden md:block row-[16/18] col-[24/48] bg-blue-light" />
+        <div className="hidden md:block row-[18/20] col-[24/48] bg-blue-medium" />
       </div>
     </div>
   );
