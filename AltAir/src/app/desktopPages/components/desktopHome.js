@@ -1,6 +1,8 @@
 import Link from "next/link"
+import DinamicSVG from "../../pagesComponents/DinamicSVG"
 import ShapesDisplayer from "@/app/pagesComponents/shapesDisplayer"
 import SendButton from "../../pagesComponents/buttonContact"
+
 
 const linkContattaci = "../contattaci"
 
@@ -14,12 +16,11 @@ export default function Home() {
       ">
         {/*1° riga*/}
         <div className="row-[1/3] col-[16/48] bg-blue-dark">
-          <ShapesDisplayer
-            numShapes={2}
-            imgName1={"/decorations/orange-8.png"}
-            imgName2={"/decorations/light-4.png"}
-            flexType="row" position="start" spin={true}
-          />
+          <div className="w-[3vw] h-[3vw]">
+            <DinamicSVG
+              SvgComponent="FormeSVG/orange-4.svg"
+            />
+          </div>
         </div>
 
         {/*2° riga*/}
@@ -94,7 +95,7 @@ export default function Home() {
         </div>
         <div className="row-[12/15] col-[3/13]">
           <Link href={linkContattaci}>
-            < SendButton text="CONTATTACI"/>
+            < SendButton text="CONTATTACI" />
           </Link>
         </div>
       </div>

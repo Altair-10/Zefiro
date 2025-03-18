@@ -53,11 +53,11 @@ export default function ShapesDisplayer({
         </div>
       )}
       {numShapes >= 2 && (
-        <div className="m-[0.42vw]">
+        <div className="m-[2vw]">
           <Image
             src={`${imgName2}`}
-            width={512}
-            height={512}
+            width={10}
+            height={10}
             alt={"star"}
             className={imageClass}
           />
