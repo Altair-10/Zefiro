@@ -13,10 +13,10 @@ export default function ContactUs() {
                     <h1 className="text-[10vw] text-blue-dark">Contattaci</h1>
                 </div>
                 
-                <div className="row-[10/40] col-[3/34]">
+                <div className="row-[10/35] col-[2/31]">
                     <ContactUsCard />
                 </div>
-                <div className="row-[50/95] col-[2/35]">
+                <div className="row-[40/70] col-[2/31]">
                     <ContactForm />
                 </div>
             </div>
