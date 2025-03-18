@@ -6,7 +6,7 @@ export default function ContactUs() {
         <div className="md:hidden flex flex-col justify-center items-center w-full">
             <div className="
                 grid gap-[0.5vw] my-[5vw]
-                grid-cols-[repeat(35,_minmax(0,_2vw))]
+                grid-cols-[repeat(31,_minmax(0,_2vw))]
                 grid-rows-[repeat(95,_minmax(0,_2vw))]
             ">
                 <div className="row-[2/7] col-[9/26]">
