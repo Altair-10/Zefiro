@@ -1,7 +1,7 @@
 const {heroui, lightLayout} = require("@heroui/react");
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false, // or 'media' or 'class will be used' 
   content: [
     "./src/pages/**/*.{js,jsx,tsx}",
     "./src/components/**/*.{js,jsx,tsx}",
