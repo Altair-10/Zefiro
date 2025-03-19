@@ -82,14 +82,16 @@ export default function Services() {
             removeWrapper
             alt="Card background"
             className="z-0 w-full h-full object-cover"
-            src=""
+            src="/loghi_altair/SmallLogoDark.png"
           />
         </Card>
 
         {/* Card e-commerce */}
         <Card
           isFooterBlurred
-          className="row-[36/61] col-[1/32] md:row-[14/22] md:col-[25/37] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105"
+          className="
+          row-[36/61] col-[1/32] md:row-[14/22] md:col-[25/37] 
+          group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105"
         >
           <CardHeader className="
             absolute 
