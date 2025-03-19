@@ -1,8 +1,8 @@
-
 const {heroui, lightLayout} = require("@heroui/react");
 module.exports = {
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  darkMode: false, // or 'media' or 'class'
   content: [
-    
     "./src/pages/**/*.{js,jsx,tsx}",
     "./src/components/**/*.{js,jsx,tsx}",
     "./src/app/**/*.{js,jsx,tsx}",
@@ -34,6 +34,9 @@ module.exports = {
         'spin-slow': 'spin 3s linear infinite',
       },
     },
+  },
+  variants: {
+    extend: {},
   },
   plugins: [
     heroui({
