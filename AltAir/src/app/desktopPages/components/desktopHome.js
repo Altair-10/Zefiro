@@ -130,7 +130,7 @@ export default function Home() {
         </div>
 
         {/*7° riga*/}
-        <div className="row-[18/20] col-[10/48] bg-blue-light">
+        <div className="row-[18/20] col-[12/48] bg-blue-light">
           <ShapesDisplayer
             numShapes={3}
             imgName1="/FormeSVG/blue-4.svg"
