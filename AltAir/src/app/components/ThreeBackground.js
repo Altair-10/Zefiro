@@ -33,7 +33,7 @@ export default function ThreeBackground() {
         const texture = textureLoader.load('/FormeSVG/blue-4.svg', () => {
             const particles = new THREE.Points(
                 geometry,
-                new THREE.PointsMaterial({ map: texture, size: 4, transparent: true })
+                new THREE.PointsMaterial({ map: texture, size: 3, transparent: true })
             );
             scene.add(particles);
 
