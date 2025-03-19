@@ -1,8 +1,8 @@
-
-const {heroui} = require("@heroui/react");
+const {heroui, lightLayout} = require("@heroui/react");
 module.exports = {
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  darkMode: false, // or 'media' or 'class'
   content: [
-    
     "./src/pages/**/*.{js,jsx,tsx}",
     "./src/components/**/*.{js,jsx,tsx}",
     "./src/app/**/*.{js,jsx,tsx}",
@@ -23,6 +23,9 @@ module.exports = {
         },
         orange: "#ffa62b",
       },
+      backgroundImage: {
+        'gradient-orange': "linear-gradient(to right, #ffa62b, #ff9a3b, #ff8c00)",
+      },
       fontFamily: {
         title: ["Roboto", "sans-serif"],
         general: ["Times New Roman", "serif"],
@@ -32,6 +35,13 @@ module.exports = {
       },
     },
   },
-  plugins: [heroui()],
+  variants: {
+    extend: {},
+  },
+  plugins: [
+    heroui({
+      prefix: "myapp",
+    }),
+  ],
 };
 
