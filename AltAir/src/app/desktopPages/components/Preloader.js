@@ -223,7 +223,7 @@ export default function Preloader() {
             {[...Array(3)].map((_, index) => (
                 <motion.div
                     key={index}
-                    className="w-[40vw] h-2 bg-gradient-to-r from-[#82bfca] via-[#489fb5] to-[#16697a] mb-3 rounded-full"
+                    className="w-[80vw] sm:w-[60vw] md:w-[50vw] lg:w-[40vw] h-2 bg-gradient-to-r from-[#82bfca] via-[#489fb5] to-[#16697a] mb-3 rounded-full"
                     initial={{ scaleX: 0 }}
                     animate={{
                         scaleX: [0, 1.2, 0],
@@ -251,32 +251,32 @@ export default function Preloader() {
                     ease: "easeInOut"
                 }}
             >
-                <div className="w-[30vw] h-[12vw] bg-gradient-orange relative flex justify-center items-center overflow-hidden rounded-[2vw]">
+                <div className="w-[60vw] sm:w-[50vw] md:w-[40vw] lg:w-[30vw] h-[24vw] sm:h-[20vw] md:h-[16vw] lg:h-[12vw] bg-gradient-orange relative flex justify-center items-center overflow-hidden rounded-[4vw] sm:rounded-[3vw] md:rounded-[2.5vw] lg:rounded-[2vw]">
                     <div className="flex justify-center items-center z-10 relative">
                         <Image
                             src="/loghi_altair/BigLogoDark.png"
                             width={748}
                             height={333}
                             alt="Logo Altair"
-                            className="w-[20vw] h-auto object-contain"
+                            className="w-[40vw] sm:w-[30vw] md:w-[25vw] lg:w-[20vw] h-auto object-contain"
                         />
                     </div>
                     <div
-                        className="absolute w-[150%] h-[150%] bg-gradient-to-r from-[#82bfca] via-[#489fb5] to-[#16697a] animate-rotBGimg blur-[1vw]"
+                        className="absolute w-[150%] h-[150%] bg-gradient-to-r from-[#82bfca] via-[#489fb5] to-[#16697a] animate-rotBGimg blur-[2vw] sm:blur-[1.5vw] md:blur-[1.2vw] lg:blur-[1vw]"
                         style={{
                             animation: "rotBGimg 8s linear infinite",
                         }}
                     />
-                    <div className="absolute inset-[0.5vw] bg-gradient-orange rounded-[1.5vw]" />
+                    <div className="absolute inset-[1vw] sm:inset-[0.8vw] md:inset-[0.6vw] lg:inset-[0.5vw] bg-gradient-orange rounded-[3vw] sm:rounded-[2.5vw] md:rounded-[2vw] lg:rounded-[1.5vw]" />
                 </div>
             </motion.div>
 
             {/* Loading text con effetto fade */}
             <motion.div
-                className="mt-8 text-2xl font-semibold text-[#16697a]"
+                className="mt-8 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-[#16697a]"
                 animate={{
                     opacity: [0, 1, 0],
-                }}
+                }}  
                 transition={{
                     duration: 1.5,
                     repeat: Infinity,
