@@ -8,13 +8,13 @@ export default function Card({fileName,width,height,alt,nome,descr1,ico1,descr2,
 
         {/* Primo flexbox che divide verticalmente il primo 1/3 */}
         <div className="flex flex-col w-1/4 items-center justify-center">
-          <Image  
+          {/* <Image  
             src={`/imgProf/${fileName}`}
             width={width}
             height={height}
             alt={alt} 
             className="w-[8vw] h-[8vw] md:w-[6vw] md:h-[6vw] "
-          />
+          /> */}
         </div>
 
         {/* Secondo flexbox che divide orizzontalmente il restante spazio */}
@@ -28,35 +28,35 @@ export default function Card({fileName,width,height,alt,nome,descr1,ico1,descr2,
           <div className="flex flex-col h-2/3">
 
             <div className="flex flex-row  h-1/3 ">
-              <Image  
-                src={`/formeSVG/${ico1}`}
+              {/* <Image  
+                src={`/FormeSVG/${ico1}`}
                 width={50}
                 height={50}
                 alt=''
                 className="w-[1vw] h-[1vw]"
-              />  
+              />   */}
               <p  className=" text-brown-light text-[2vw]  md:text-[1vw]  my-auto " >{descr1}</p>
             </div>
 
             <div className="flex flex-row  h-1/3 ">
-              <Image  
+              {/* <Image  
                 src={`/formeSVG/${ico2}`}
                 width={50}
                 height={50}
                 alt=''
                 className="w-[1vw] h-[1vw]"
-              />
+              /> */}
               <p  className=" text-brown-light text-[2vw]  md:text-[1vw]  my-auto " >{descr2}</p>
             </div>
 
             <div className="flex flex-row  h-1/3 ">
-              <Image  
+              {/* <Image  
                 src={`/formeSVG/${ico3}`}
                 width={50}
                 height={50}
                 alt=''
                 className="w-[1vw] h-[1vw]" 
-              />
+              /> */}
               <p  className=" text-brown-light text-[2vw]  md:text-[1vw]  my-auto " >{descr3}</p>
             </div>
 

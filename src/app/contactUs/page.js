@@ -4,6 +4,7 @@ import ContactForm from "@/app/contactUs/components/formEmail";
 import ShapesDisplayer from "@/app/modules/shapesDisplayer";
 import ContactUsCard from "@/app/contactUs/components/card";
 
+
 export default function ContactUs() {
     return (
         <div className="flex flex-col justify-center items-center w-full">
