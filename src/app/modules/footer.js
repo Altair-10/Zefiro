@@ -1,20 +1,23 @@
 "use client"
 
-import Link from "next/link";
 import Image from "next/image"
 import SocialIcons from "./socialIcons"
 
 export default function Footer() {
+    const scrollToSection = (id) => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    };
+
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text);
         alert(`Copiato: ${text}`);
     }
 
     return (
-        <div className="flex flex-col md:flex-row justify-around md:items-center w-full h-[150vw] md:h-[30vw] bg-gradient-orange">
+        <div className="flex flex-col md:flex-row justify-center md:items-center gap-[10vw] w-full h-[150vw] md:h-[24vw] bg-gradient-orange">
             <div className="flex flex-col items-center md:items-start">
                 <Image
-                    src={`/loghi_altair/BigLogoDark.png`}
+                    src={`/loghi_altair/BigLogoLight.png`}
                     width={1000}
                     height={1000}
                     alt=''
@@ -41,23 +44,25 @@ export default function Footer() {
                     <SocialIcons color="#FFFFFF" hoverColor="text-blue-dark" />
                 </div>
             </div>
-            <div className="flex flex-col w-[1/3] items-center md:items-start">
-                <h3 className="text-blue-dark text-[8vw] md:text-[3vw] font-bold">Perchè Altair</h3>
-                <Link href="" className="text-brown-light text-[5vw] md:text-[1.5vw]">perche si</Link>
-            </div>
-            <div className="md:hidden flex flex-col justify-center items-center md:items-start">
-                <h3 className="text-blue-dark text-[8vw] font-bold">servizi</h3>
-                <h3 className="text-brown-light text-[5vw]">servizi</h3>
-            </div>
-            <div className="md:hidden flex flex-col justify-center items-center md:items-start">
-                <h3 className="text-blue-dark text-[8vw] font-bold">contattaci</h3>
-                <Link href="" className="text-brown-light text-[5vw]">servizi</Link>
-            </div>
-            <div className="hidden md:flex flex-col gap-y-[0.5vw] items-start">
-                <h3 className="text-blue-dark text-[3vw] font-bold">servizi</h3>
-                <h3 className="text-brown-light text-[1.5vw]">servizi</h3>
-                <h3 className="text-blue-dark text-[3vw] font-bold">contattaci</h3>
-                <h3 className="text-brown-light text-[1.5vw]">servizi</h3>
+            <div className="flex flex-col gap-5 items-center md:items-start">
+                <button 
+                    onClick={() => scrollToSection("servizi")} 
+                    className="text-brown-light text-[5vw] md:text-[1.5vw] font-bold"
+                >
+                    SERVIZI
+                </button>
+                <button 
+                    onClick={() => scrollToSection("aboutUs")} 
+                    className="text-brown-light text-[5vw] md:text-[1.5vw] font-bold"
+                >
+                    ABOUT US
+                </button>
+                <button
+                    onClick={() => scrollToSection("contattaci")}
+                    className="text-brown-light text-[5vw] md:text-[1.5vw] font-bold"
+                >
+                    CONTATTACI
+                </button>
             </div>
         </div>
     )

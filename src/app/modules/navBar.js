@@ -1,12 +1,12 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
 import SocialIcons from './socialIcons'
 
 const Navbar = () => {
-    const linkServices = "./services"
-    const linkAbout = "./about"
+    const scrollToSection = (id) => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    };
 
     return (
         <div className="fixed w-full top-0 z-50 h-[20vw] sm:h-[13vw] md:h-[10vw] lg:h-[8vw] xl:h-[5vw] bg-gradient-orange">
@@ -23,13 +23,25 @@ const Navbar = () => {
                 </div>
 
                 {/* Items */}
-                <div className="hidden sm:flex text-xl gap-[2vw] text-white font-bold">
-                    <Link href={linkServices}>
-                        <span className="hover:text-blue-dark">SERVICE</span>
-                    </Link>
-                    <Link href={linkAbout}>
-                        <span className="hover:text-blue-dark">ABOUT US</span>
-                    </Link>
+                <div className="hidden sm:flex text-xl gap-[3vw] text-white font-bold">
+                    <span 
+                        onClick={() => scrollToSection("servizi")} 
+                        className="hover:text-blue-dark"
+                    >
+                        SERVIZI
+                    </span>
+                    <span 
+                        onClick={() => scrollToSection("aboutUs")} 
+                        className="hover:text-blue-dark"
+                    >
+                        CHI SIAMO
+                    </span>
+                    <span
+                        onClick={() => scrollToSection("contattaci")}
+                        className="hover:text-blue-dark"
+                    >
+                        CONTATTACI
+                    </span>
                 </div>
 
                 {/* Social icons */}

@@ -29,7 +29,7 @@ export default function ContactUsCard() {
                         {inView && (
                             <TypeAnimation
                                 sequence={[
-                                    "Raccontaci la tua idea: insieme la realizzeremo 🎯",
+                                    "Raccontaci la tua idea e la realizzeremo insieme 🎯",
                                     1000, // Tempo di attesa dopo la fine dell'animazione
                                 ]}
                                 speed={50}

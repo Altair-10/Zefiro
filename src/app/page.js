@@ -10,9 +10,15 @@ export default function SplashScreen() {
     <div className="w-screen h-screen">
       <Navbar />
       <Home />
-      <Services />
-      <AboutUs />
-      <ContactUs />
+      <div id="servizi">
+        <Services />
+      </div>
+      <div id="aboutUs">
+        <AboutUs />
+      </div>
+      <div id="contattaci">
+        <ContactUs />
+      </div>
       <Footer />
     </div>
   );
