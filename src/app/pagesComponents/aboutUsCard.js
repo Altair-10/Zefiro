@@ -29,7 +29,7 @@ export default function AboutUsCard({fileName,width,height,alt,nome,descr1,ico1,
 
             <div className="flex flex-row  h-1/3 ">
               <Image  
-                src={`/geometric_shapes/${ico1}`}
+                src={`/FormeSVG/${ico1}`}
                 width={50}
                 height={50}
                 alt=''
@@ -40,7 +40,7 @@ export default function AboutUsCard({fileName,width,height,alt,nome,descr1,ico1,
 
             <div className="flex flex-row  h-1/3 ">
               <Image  
-                src={`/geometric_shapes/${ico2}`}
+                src={`/FormeSVG/${ico2}`}
                 width={50}
                 height={50}
                 alt=''
@@ -51,7 +51,7 @@ export default function AboutUsCard({fileName,width,height,alt,nome,descr1,ico1,
 
             <div className="flex flex-row  h-1/3 ">
               <Image  
-                src={`/geometric_shapes/${ico3}`}
+                src={`/FormeSVG/${ico3}`}
                 width={50}
                 height={50}
                 alt=''

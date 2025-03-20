@@ -1,14 +1,18 @@
-import MobileLayout from "./mobilePages/page";
-import DesktopLayout from "./desktopPages/page";
 import Navbar from "./pagesComponents/navBar";
+import Home from "./home/page";
+import Services from "./services/page";
+import AboutUs from "./aboutUs/page";
+import ContactUs from "./contactUs/page";
 import Footer from "./pagesComponents/footer";
 
 export default function SplashScreen() {
   return (
     <div className="w-screen h-screen">
       <Navbar />
-      <MobileLayout />
-      <DesktopLayout />
+      <Home />
+      <Services />
+      <AboutUs />
+      <ContactUs />
       <Footer />
     </div>
   );
