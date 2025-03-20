@@ -1,5 +1,5 @@
-import AboutUsCard from "@/app/pagesComponents/aboutUsCard"
-import ShapesDisplayer from "@/app/pagesComponents/shapesDisplayer"
+import Card from "./components/card"
+import ShapesDisplayer from "@/app/modules/shapesDisplayer"
 
 export default function AboutUs(){
     return(   
@@ -19,19 +19,19 @@ export default function AboutUs(){
                 </h1>
 
                 <div className="row-[9] col-[5/27] md:row-[6] md:col-[9/26]">
-                    <AboutUsCard fileName="test.png" width="100" height="100"   alt="" nome={"Risso Samuele "} descrizione1={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}  />
+                    <Card fileName="test.png" width="100" height="100"   alt="" nome={"Risso Samuele "} descrizione1={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}  />
                 </div>
 
                 <div className="row-[18] col-[5/27] md:row-[6] md:col-[24/42]">
-                    <AboutUsCard fileName="test.png" width="100" height="100"   alt="" nome={"La Ferrara Antonino "} descrizione={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}/>
+                    <Card fileName="test.png" width="100" height="100"   alt="" nome={"La Ferrara Antonino "} descrizione={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}/>
                 </div>
 
                 <div className="row-[27] col-[5/27] md:row-[13] md:col-[9/26]">
-                    <AboutUsCard fileName="test.png" width="100" height="100"   alt="" nome={"Bamouni Stive "} descrizione={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}/>
+                    <Card fileName="test.png" width="100" height="100"   alt="" nome={"Bamouni Stive "} descrizione={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}/>
                 </div>
 
                 <div className="row-[36] col-[5/27] md:row-[13] md:col-[24/42]">
-                    <AboutUsCard fileName="test.png" width="100" height="100"   alt="" nome={"Donati Marco"} descrizione={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}/>
+                    <Card fileName="test.png" width="100" height="100"   alt="" nome={"Donati Marco"} descrizione={"Junior Backend developer"} icona1={""} descrizione2={""} icona2={""} descrizione3={""} icona3={""}/>
                 </div>
 
 {/* RETTANGOLI MOBILE */}
@@ -60,7 +60,7 @@ export default function AboutUs(){
 
                 {/* Angolo sinistro */}
                 <div className="hidden md:block row-[6/22] col-[2/4] bg-blue-medium h-full" />
-                <div className="hidden md:block row-[23/21] col-[2/41] bg-blue-light h-full" />
+                <div className="hidden md:block row-[23/21] col-[2/10] bg-blue-light h-full" />
 
                 {/* Tacche basso destra */}
                 <div className="hidden md:block row-[20/23] col-[42/44] bg-blue-light h-full" />

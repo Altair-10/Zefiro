@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useMemo } from "react";
-import SendButton from "./buttonContact";
+import SendButton from "../../modules/contactButton";
 import { Input } from "@heroui/react";
 import { Textarea } from "@heroui/react";
 

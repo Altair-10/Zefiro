@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardHeader, CardFooter, Image, Button } from "@heroui/react";
-import CubeRotation from "@/app/pagesComponents/rotatingCube";
+import CubeRotation from "@/app/services/components/rotatingCube";
 
 export default function Services() {
   return (

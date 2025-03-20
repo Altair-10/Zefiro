@@ -1,6 +1,6 @@
 import Link from "next/link"
-import ShapesDisplayer from "@/app/pagesComponents/shapesDisplayer"
-import SendButton from "../pagesComponents/buttonContact"
+import ShapesDisplayer from "@/app/modules/shapesDisplayer"
+import SendButton from "../modules/contactButton"
 
 const linkContattaci = "../contattaci"
 

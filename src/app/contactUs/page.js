@@ -1,8 +1,8 @@
 "use client";
 
-import ContactForm from "@/app/pagesComponents/formEmail";
-import ShapesDisplayer from "@/app/pagesComponents/shapesDisplayer";
-import ContactUsCard from "@/app/pagesComponents/contactUsCard";
+import ContactForm from "@/app/contactUs/components/formEmail";
+import ShapesDisplayer from "@/app/modules/shapesDisplayer";
+import ContactUsCard from "@/app/contactUs/components/card";
 
 export default function ContactUs() {
     return (
