@@ -82,7 +82,7 @@ export default function Services() {
             removeWrapper
             alt="Card background"
             className="z-0 w-full h-full object-cover"
-            src="/FormeSVG/blue-8.svg"
+            src="/formeSVG/blue-8.svg"
           />
         </Card>
 
@@ -139,21 +139,3 @@ export default function Services() {
     </div>
   );
 };
-
-
-{/* <Card className="col-span-12 sm:col-span-4 h-[300px] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105">
-  <CardHeader className="absolute z-10 top-1 flex-col !items-start">
-    <p className="text-tiny text-white/60 uppercase font-bold">
-      Supercharged
-    </p>
-    <h4 className="text-white font-medium text-large">
-      Creates beauty like a beast
-    </h4>
-  </CardHeader>
-  <Image
-    removeWrapper
-    alt="Card background"
-    className="z-0 w-full h-full object-cover"
-    src="https://heroui.com/images/card-example-2.jpeg"
-  />
-</Card> */}

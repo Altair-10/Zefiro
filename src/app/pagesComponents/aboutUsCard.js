@@ -29,7 +29,7 @@ export default function AboutUsCard({fileName,width,height,alt,nome,descr1,ico1,
 
             <div className="flex flex-row  h-1/3 ">
               <Image  
-                src={`/FormeSVG/${ico1}`}
+                src={`/formeSVG/${ico1}`}
                 width={50}
                 height={50}
                 alt=''
@@ -40,7 +40,7 @@ export default function AboutUsCard({fileName,width,height,alt,nome,descr1,ico1,
 
             <div className="flex flex-row  h-1/3 ">
               <Image  
-                src={`/FormeSVG/${ico2}`}
+                src={`/formeSVG/${ico2}`}
                 width={50}
                 height={50}
                 alt=''
@@ -51,7 +51,7 @@ export default function AboutUsCard({fileName,width,height,alt,nome,descr1,ico1,
 
             <div className="flex flex-row  h-1/3 ">
               <Image  
-                src={`/FormeSVG/${ico3}`}
+                src={`/formeSVG/${ico3}`}
                 width={50}
                 height={50}
                 alt=''

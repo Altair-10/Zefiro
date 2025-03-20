@@ -39,16 +39,16 @@ export default function AboutUs(){
                 <div className="md:hidden row-[3/45] col-[1/3] bg-blue-light h-full">
                     <ShapesDisplayer 
                         numShapes={2} 
-                        imgName1="/FormeSVG/blue-8.svg" 
-                        imgName2="/FormeSVG/blue-6.svg"
+                        imgName1="/formeSVG/blue-8.svg" 
+                        imgName2="/formeSVG/blue-6.svg"
                         flexType="col" position="start" spin={true}
                     />
                 </div>
                 <div className="md:hidden row-[3/45] col-[28/30] bg-blue-medium h-full">
                     <ShapesDisplayer 
                         numShapes={2} 
-                        imgName1="/FormeSVG/blue-8.svg" 
-                        imgName2="/FormeSVG/blue-6.svg"
+                        imgName1="/formeSVG/blue-8.svg" 
+                        imgName2="/formeSVG/blue-6.svg"
                         flexType="col" position="start" spin={true}    
                     />
                 </div>

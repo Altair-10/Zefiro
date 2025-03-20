@@ -28,22 +28,22 @@ export default function Home() {
         <div className="md:hidden row-[3/5] col-[1/32] bg-blue-medium">
           <ShapesDisplayer 
             numShapes={1} 
-            imgName1={"/FormeSVG/blue-4.svg"}
+            imgName1={"/formeSVG/blue-4.svg"}
             position="center" spin={true}
           />
         </div>
         <div className="md:hidden row-[18/20] col-[1/14] bg-blue-medium">
           <ShapesDisplayer 
             numShapes={1} 
-            imgName1={"/FormeSVG/orange-6.svg"}
+            imgName1={"/formeSVG/orange-6.svg"}
             position="start" spin={true}
           />
         </div>
         <div className="md:hidden row-[20/22] col-[1/31] bg-blue-dark">
           <ShapesDisplayer 
             numShapes={2} 
-            imgName1={"/FormeSVG/blue-4.svg"}
-            imgName2={"/FormeSVG/orange-4.svg"}
+            imgName1={"/formeSVG/blue-4.svg"}
+            imgName2={"/formeSVG/orange-4.svg"}
             spin={true}
           />
         </div>
@@ -53,8 +53,8 @@ export default function Home() {
         <div className="hidden md:block row-[1/3] col-[20/48] bg-blue-dark">
           <ShapesDisplayer
             numShapes={2}
-            imgName1="/FormeSVG/orange-6.svg"
-            imgName2="/FormeSVG/blue-4.svg"
+            imgName1="/formeSVG/orange-6.svg"
+            imgName2="/formeSVG/blue-4.svg"
             position="start"
           />
         </div>
@@ -63,14 +63,14 @@ export default function Home() {
         <div className="hidden md:block row-[3/5] col-[24/36] bg-blue-light">
           <ShapesDisplayer
             numShapes={1}
-            imgName1={"/FormeSVG/orange-12.svg"}
+            imgName1={"/formeSVG/orange-12.svg"}
             position="end"
           />
         </div>
         <div className="hidden md:block row-[3/5] col-[36/44] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
-            imgName1={"/FormeSVG/blue-8.svg"}
+            imgName1={"/formeSVG/blue-8.svg"}
             position="start"
           />
         </div>
@@ -79,7 +79,7 @@ export default function Home() {
         <div className="hidden md:block row-[5/12] col-[28/32] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
-            imgName1={"/FormeSVG/reactLogo.svg"}
+            imgName1={"/formeSVG/reactLogo.svg"}
             flexType="column"
             position="center"
             height="4vw"
@@ -89,10 +89,10 @@ export default function Home() {
         <div className="hidden md:block row-[3/12] col-[44/48] mt-[2.5vw] bg-blue-light">
           <ShapesDisplayer
             numShapes={4}
-            imgName1={"/FormeSVG/pAngolari.svg"}
-            imgName2={"/FormeSVG/pTonde.svg"}
-            imgName3={"/FormeSVG/pGraffe.svg"}
-            imgName4={"/FormeSVG/pQuadre.svg"}
+            imgName1={"/formeSVG/pAngolari.svg"}
+            imgName2={"/formeSVG/pTonde.svg"}
+            imgName3={"/formeSVG/pGraffe.svg"}
+            imgName4={"/formeSVG/pQuadre.svg"}
             flexType="col"
             spin={false}
           />
@@ -102,9 +102,9 @@ export default function Home() {
         <div className="hidden md:block row-[10/12] col-[32/44] bg-blue-dark">
           <ShapesDisplayer
             numShapes={3}
-            imgName1={"/FormeSVG/blue-4.svg"}
-            imgName2={"/FormeSVG/orange-12.svg"}
-            imgName3={"/FormeSVG/blue-4.svg"}
+            imgName1={"/formeSVG/blue-4.svg"}
+            imgName2={"/formeSVG/orange-12.svg"}
+            imgName3={"/formeSVG/blue-4.svg"}
             flexType="row"
             position="center"
           />
@@ -114,7 +114,7 @@ export default function Home() {
         <div className="hidden md:block row-[12/14] col-[22/30] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/FormeSVG/blue-6.svg"
+            imgName1="/formeSVG/blue-6.svg"
             position="start"
           />
         </div>
@@ -124,7 +124,7 @@ export default function Home() {
         <div className="hidden md:block row-[12/14] col-[38/48] bg-blue-dark">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/FormeSVG/blue-4.svg"
+            imgName1="/formeSVG/blue-4.svg"
           />
         </div>
 
@@ -132,13 +132,13 @@ export default function Home() {
         <div className="hidden md:block row-[14/16] col-[26/37] bg-blue-dark">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/FormeSVG/orange-4.svg"
+            imgName1="/formeSVG/orange-4.svg"
           />
         </div>
         <div className="hidden md:block row-[14/16] col-[37/48] bg-blue-light">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/FormeSVG/orange-4.svg"
+            imgName1="/formeSVG/orange-4.svg"
             position="start"
           />
         </div>
@@ -147,7 +147,7 @@ export default function Home() {
         <div className="hidden md:block row-[16/18] col-[18/30] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/FormeSVG/blue-8.svg"
+            imgName1="/formeSVG/blue-8.svg"
             position="start"
           />
         </div>
@@ -159,7 +159,7 @@ export default function Home() {
         <div className="hidden md:block md:row-[16/18] md:col-[44/48] bg-blue-dark">
         <ShapesDisplayer
             numShapes={1}
-            imgName1="/FormeSVG/orange-6.svg"
+            imgName1="/formeSVG/orange-6.svg"
           />
         </div>
 
@@ -167,9 +167,9 @@ export default function Home() {
         <div className="hidden md:block row-[18/20] col-[10/48] bg-blue-light">
           <ShapesDisplayer
             numShapes={3}
-            imgName1="/FormeSVG/blue-4.svg"
-            imgName2="/FormeSVG/orange-12.svg"
-            imgName3="/FormeSVG/blue-6.svg"
+            imgName1="/formeSVG/blue-4.svg"
+            imgName2="/formeSVG/orange-12.svg"
+            imgName3="/formeSVG/blue-6.svg"
             position="start"
           />
         </div>

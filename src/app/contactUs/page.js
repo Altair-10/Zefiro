@@ -20,15 +20,15 @@ export default function ContactUs() {
 
                 <div className="hidden md:block row-[3/13] col-[46/48] bg-blue-light" />
                 <div className="hidden md:block row-[2/4] col-[20/48] bg-blue-dark">
-                    <ShapesDisplayer numShapes={1} imgName1="/FormeSVG/blue-8.svg" position="start" spin={true} />
+                    <ShapesDisplayer numShapes={1} imgName1="/formeSVG/blue-8.svg" position="start" spin={true} />
                 </div>
 
                 <div className="hidden md:block row-[20/22] col-[2/19] bg-blue-medium">
                     <ShapesDisplayer
                         numShapes={3}
-                        imgName1="/FormeSVG/blue-8.svg"
-                        imgName2="/FormeSVG/blue-4.svg"
-                        imgName3="/FormeSVG/blue-8.svg"
+                        imgName1="/formeSVG/blue-8.svg"
+                        imgName2="/formeSVG/blue-4.svg"
+                        imgName3="/formeSVG/blue-8.svg"
                         position="start"
                         spin={true}
                     />
