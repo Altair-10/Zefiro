@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import SocialIcons from './socialIcons'
 
 const Navbar = () => {
@@ -13,35 +12,37 @@ const Navbar = () => {
             <div className="flex justify-between items-center h-full px-8">
                 {/* Logo */}
                 <div>
-                    <Image
-                        src="/loghi_altair/SmallLogoDark.png"
-                        width={130}
-                        height={60}
-                        alt="Logo"
-                        className="w-32"
-                    />
+                    <button  onClick={() => scrollToSection("home")}>
+                        <img
+                            src="/loghi_altair/SmallLogoDark.svg"
+                            width={130}
+                            height={60}
+                            alt="Logo"
+                            className="w-32"
+                        />
+                    </button>
                 </div>
 
                 {/* Items */}
                 <div className="hidden sm:flex text-xl gap-[3vw] text-white font-bold">
-                    <span 
+                    <button 
                         onClick={() => scrollToSection("servizi")} 
                         className="hover:text-blue-dark"
                     >
                         SERVIZI
-                    </span>
-                    <span 
+                    </button>
+                    <button 
                         onClick={() => scrollToSection("aboutUs")} 
                         className="hover:text-blue-dark"
                     >
                         CHI SIAMO
-                    </span>
-                    <span
+                    </button>
+                    <button
                         onClick={() => scrollToSection("contattaci")}
                         className="hover:text-blue-dark"
                     >
                         CONTATTACI
-                    </span>
+                    </button>
                 </div>
 
                 {/* Social icons */}

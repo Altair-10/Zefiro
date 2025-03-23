@@ -45,10 +45,10 @@ export default function Services() {
           />
           <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
             <div className="flex flex-grow gap-2 items-center">
-              <Image
+              <img
                 alt="Logo Altair"
                 className="hidden md:block md:w-[2.5vw] md:h-[2vw]"
-                src="/loghi_altair/LogoSocialDark.png"
+                src="/loghi_altair/LogoSocialDark.svg"
               />
               <div className="flex flex-col">
                 <p className="text-[3.3vw] md:text-[0.6vw] text-white/60">Distinguiti online</p>
@@ -83,7 +83,7 @@ export default function Services() {
             removeWrapper
             alt="Card background"
             className="z-0 w-full h-full object-cover"
-            src="/formeSVG/blue-8.svg"
+            src="/FormeSVG/blue-8.svg"
           />
         </Card>
 
@@ -111,10 +111,10 @@ export default function Services() {
           {/*z-0 w-full h-full object-contain object-right py-[8vw] md:pt-[0.5vw] bg-orange */}
           <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
             <div className="flex flex-grow gap-2 items-center">
-              <Image
+              <img
                 alt="Logo Altair"
                 className="hidden md:block md:w-[2.5vw] md:h-[2vw]"
-                src="/loghi_altair/LogoSocialDark.png"
+                src="/loghi_altair/LogoSocialDark.svg"
               />
               <div className="flex flex-col">
                 <p className="text-[3.3vw] md:text-[0.6vw] text-white/60">Presto disponibile.</p>

@@ -16,8 +16,8 @@ export default function Footer() {
     return (
         <div className="flex flex-col md:flex-row justify-center md:items-center gap-[10vw] w-full h-[150vw] md:h-[24vw] bg-gradient-orange">
             <div className="flex flex-col items-center md:items-start">
-                <Image
-                    src={`/loghi_altair/BigLogoLight.png`}
+                <img
+                    src={`/loghi_altair/BigLogoLight.svg`}
                     width={1000}
                     height={1000}
                     alt=''
