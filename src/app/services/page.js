@@ -2,6 +2,7 @@
 
 import { Card, CardHeader, CardFooter, Image, Button } from "@heroui/react";
 import CubeRotation from "@/app/services/components/rotatingCube";
+import ShapesDisplayer from "../modules/shapesDisplayer";
 
 export default function Services() {
   return (
@@ -47,7 +48,7 @@ export default function Services() {
               <Image
                 alt="Logo Altair"
                 className="hidden md:block md:w-[2.5vw] md:h-[2vw]"
-                src="/loghi_altair/LogoSocialLight.png"
+                src="/loghi_altair/LogoSocialDark.png"
               />
               <div className="flex flex-col">
                 <p className="text-[3.3vw] md:text-[0.6vw] text-white/60">Distinguiti online</p>
@@ -64,13 +65,13 @@ export default function Services() {
         </Card>
 
         {/* Cubo */}
-        <div className="hidden md:block md:row-[7/13] md:col-[26/32]">
+        <div className="hidden md:block md:row-[7/13] md:col-[37/43]">
           <CubeRotation />
         </div>
 
         {/* Card clienti */}
-        <Card className="hidden md:block row-[14/21] col-[17/25] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105 bg-blue-medium">
-          <CardHeader className="absolute z-10 top-1 flex-col !items-start ">
+        <Card className="hidden md:block row-[15/22] col-[5/13] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105 bg-blue-medium">
+          <CardHeader className="absolute z-10 top-1 flex-col !items-start">
             <p className="md:text-[0.6vw] text-white/60 uppercase font-bold">
               Partner e Collaborazioni
             </p>
@@ -89,7 +90,7 @@ export default function Services() {
         {/* Card e-commerce */}
         <Card
           isFooterBlurred
-          className="row-[36/61] col-[1/32] md:row-[14/22] md:col-[25/37] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105"
+          className="row-[36/61] col-[1/32] md:row-[15/23] md:col-[25/37] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105"
         >
           <CardHeader className="
             absolute 
@@ -130,11 +131,30 @@ export default function Services() {
         </Card>
 
         {/* Rettangoli */}
-        <div className="hidden md:block row-[3/5] col-[16/48] bg-blue-dark" />
-        <div className="hidden md:block row-[8/10] col-[2/14] bg-blue-medium" />
-        <div className="hidden md:block row-[10/12] col-[2/14] bg-blue-light" />
-        <div className="hidden md:block row-[16/18] col-[24/48] bg-blue-light" />
-        <div className="hidden md:block row-[18/20] col-[24/48] bg-blue-medium" />
+        <div className="hidden md:block row-[3/5] col-[16/48] bg-blue-dark" >
+          <ShapesDisplayer 
+            numShapes={2}
+            imgName1="FormeSVG/orange-6.svg"
+            imgName2="FormeSVG/blue-4.svg"
+            position="start"
+          />
+        </div>
+        <div className="hidden md:block row-[7/9] col-[2/27] bg-blue-medium">
+          <ShapesDisplayer 
+            numShapes={1}
+            imgName1="FormeSVG/blue-6.svg"
+            position="start"
+          />
+        </div>
+        <div className="hidden md:block row-[9/11] col-[2/27] bg-blue-light" />
+        <div className="hidden md:block row-[16/18] col-[23/48] bg-blue-light" />
+        <div className="hidden md:block row-[18/20] col-[23/48] bg-blue-medium">
+          <ShapesDisplayer 
+            numShapes={1}
+            imgName1="FormeSVG/orange-12.svg"
+            position="end"
+          />
+        </div>
       </div>
     </div>
   );

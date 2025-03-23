@@ -28,7 +28,7 @@ export default function ContactUs() {
                     <ShapesDisplayer
                         numShapes={3}
                         imgName1="/formeSVG/blue-8.svg"
-                        imgName2="/formeSVG/blue-4.svg"
+                        imgName2="/formeSVG/orange-12.svg"
                         imgName3="/formeSVG/blue-8.svg"
                         position="start"
                         spin={true}

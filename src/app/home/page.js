@@ -86,7 +86,7 @@ export default function Home() {
             width="4vw"
           />
         </div>
-        <div className="hidden md:block row-[3/12] col-[44/48] mt-[2.5vw] bg-blue-light">
+        <div className="hidden md:block row-[3/12] col-[44/48] bg-blue-light">
           <ShapesDisplayer
             numShapes={4}
             imgName1={"/formeSVG/pAngolari.svg"}
@@ -94,6 +94,7 @@ export default function Home() {
             imgName3={"/formeSVG/pGraffe.svg"}
             imgName4={"/formeSVG/pQuadre.svg"}
             flexType="col"
+            position="center"
             spin={false}
           />
         </div>

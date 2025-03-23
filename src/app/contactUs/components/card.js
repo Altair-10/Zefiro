@@ -46,7 +46,7 @@ export default function ContactUsCard() {
                                     "Descrivici la tua sfida o il tuo sogno nel campo informatico. Noi ti aiuteremo a trasformarlo in una soluzione concreta, passo dopo passo 👣",
                                     1000, // Tempo di attesa dopo la fine dell'animazione
                                 ]}
-                                speed={30}
+                                speed={65}
                                 style={{ whiteSpace: "pre-line" }}
                                 cursor={false}
                             />
