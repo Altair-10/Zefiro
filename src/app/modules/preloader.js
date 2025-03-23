@@ -253,8 +253,8 @@ export default function Preloader() {
             >
                 <div className="w-[60vw] sm:w-[50vw] md:w-[40vw] lg:w-[30vw] h-[24vw] sm:h-[20vw] md:h-[16vw] lg:h-[12vw] bg-gradient-orange relative flex justify-center items-center overflow-hidden rounded-[4vw] sm:rounded-[3vw] md:rounded-[2.5vw] lg:rounded-[2vw]">
                     <div className="flex justify-center items-center z-10 relative">
-                        <Image
-                            src="/loghi_altair/BigLogoDark.png"
+                        <img
+                            src="/loghi_altair/BigLogoDark.svg"
                             width={748}
                             height={333}
                             alt="Logo Altair"

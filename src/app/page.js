@@ -10,7 +10,7 @@ import Preloader from "./modules/preloader";
 export default function SplashScreen() {
   return (
     <div className="w-screen h-screen">
-      {/* <ThreeBackground /> */}
+     <ThreeBackground /> 
       <Preloader />
       <Navbar />
       <div id="home">
