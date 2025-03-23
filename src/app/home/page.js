@@ -119,7 +119,7 @@ export default function Home() {
             position="start"
           />
         </div>
-        <p className="hidden md:row-[12/14] md:col-[30/38] md:flex justify-center items-center text-xl text-blue-dark font-extrabold">
+        <p className="hidden md:row-[12/14] md:col-[30/38] md:flex justify-center items-center text-[1.7vw] text-blue-dark font-extrabold">
           &lt;div&gt; 🌐 &lt;/div&gt;
         </p>
         <div className="hidden md:block row-[12/14] col-[38/48] bg-blue-dark">
@@ -153,7 +153,7 @@ export default function Home() {
           />
         </div>
 
-        <p className="hidden md:row-[16/18] md:col-[29/45] md:flex justify-center items-center text-xl text-blue-dark font-extrabold">
+        <p className="hidden md:row-[16/18] md:col-[29/45] md:flex justify-center items-center text-[1.4vw] text-blue-dark font-extrabold">
           const [count, setCount] = useState(0);
         </p>
 
