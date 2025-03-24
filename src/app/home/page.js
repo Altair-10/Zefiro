@@ -6,11 +6,11 @@ const linkContattaci = "../contattaci"
 
 export default function Home() {
   return (
-    <div className="flex justify-center items-center w-full mt-[10vw] xl:mt-[4.5vw]">
+    <div className="flex justify-center items-center w-full mt-[20vw] md:mt-[10vw] xl:mt-[4.5vw]">
       <div className="
         grid gap-[0.5vw] md:gap-[1vw] my-[5vw]
-        md:grid-rows-[repeat(19,_minmax(0,_1vw))] grid-rows-[repeat(23,_minmax(0,_2vw))]
-        md:grid-cols-[repeat(48,_minmax(0,_1vw))] grid-cols-[repeat(31,_minmax(0,_2vw))]
+        grid-rows-[repeat(23,_minmax(0,_2vw))] md:grid-rows-[repeat(19,_minmax(0,_1vw))]
+        grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))]
       ">
         <div className="row-[7] col-[1] md:row-[3] md:col-[3/7]">
           <h1 className="w-[76vw] text-[10vw] md:w-[35vw] md:text-[7vw] leading-[8vw] font-serif text-blue-dark">

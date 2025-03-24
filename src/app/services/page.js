@@ -15,8 +15,10 @@ export default function Services() {
         grid-rows-[repeat(65,_minmax(0,_2vw))] md:grid-rows-[repeat(22,_minmax(0,_1vw))]
       "
       >
-        <div className="row-[2/7] col-[8/26] md:row-[1/6] md:col-[3/20]">
-          <h1 className="text-[10vw] md:text-[6vw] md:h-full text-blue-dark ">Services</h1>
+        <div className="row-[2/7] col-[11] md:row-[1/6] md:col-[3/20]">
+          <h1 className="text-[10vw] md:text-[6vw] md:h-full text-blue-dark ">
+            Servizi
+          </h1>
         </div>
         
         {/* Card grande sx */}
@@ -131,7 +133,7 @@ export default function Services() {
         </Card>
 
         {/* Rettangoli */}
-        <div className="hidden md:block row-[3/5] col-[16/48] bg-blue-dark" >
+        <div className="hidden md:block row-[3/5] col-[14/48] bg-blue-dark" >
           <ShapesDisplayer 
             numShapes={2}
             imgName1="FormeSVG/orange-6.svg"
