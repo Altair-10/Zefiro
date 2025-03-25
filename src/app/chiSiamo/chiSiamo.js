@@ -1,24 +1,49 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-{/*
-    useRef si riferisce al container principale
-    useState tiene traccia della progressione dello scroll
-    L'effect calcola quanto il container è visibile nella viewport 
-*/}
+import { Employee } from './components/emplyes' 
 
 export default function ChiSiamo() {
-  const [scrollProgress, setScrollProgress] = useState(0) // scrollProgress tiene traccia dello scroll, compreso tra 0 e 1
-  const containerRef = useRef(null) // riferimento al container principale di tutta la pagina 
-  const titleRef = useRef(null) // riferimento al titolo principale
-  const employees = ['CEO', 'CTO', 'Design Lead']
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const containerRef = useRef(null)
+  const titleRef = useRef(null)
+  
+  // Definisci i membri del team come oggetti completi
+  const teamMembers = [
+    new Employee(
+      "Nome CEO",
+      "CEO",
+      {
+        src: "/MarcoDonati.jpg",
+        alt: "Foto del CEO",
+        className: "rounded-lg object-cover"
+      }
+    ),
+    new Employee(
+      "Nome CTO",
+      "CTO",
+      {
+        src: "/images/cto.jpg",
+        alt: "Foto del CTO",
+        width: 350
+      }
+    ),
+    new Employee(
+      "Nome Design Lead",
+      "Design Lead",
+      {
+        src: "/images/design-lead.jpg",
+        alt: "Foto del Design Lead",
+        otherProps: { priority: true }
+      }
+    )
+  ];
+
   const moralPrinciples = ['Innovazione', 'Trasparenza', 'Qualità', 'Collaborazione']
 
   useEffect(() => {
-    let ticking = false // flag per evitare chiamate multiple
-    
-    // Calcola la posizione del container rispetto alla viewport
-    const handleScroll = () => { 
+    let ticking = false
+    const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           if (containerRef.current) {
@@ -31,20 +56,19 @@ export default function ChiSiamo() {
         ticking = true
       }
     }
-  
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
-    <div 
-      ref={containerRef} 
+    <div
+      ref={containerRef}
       className="min-h-[150vh] py-20 px-4 md:px-8 flex flex-col justify-center items-center"
     >
-      {/* Titolo principale con effetto parallax */}
-      <h1 
+      {/* Titolo principale */}
+      <h1
         ref={titleRef}
-        className="text-[7vw] md:text-[6vw]  text-blue-dark font-bold mb-16 transition-transform duration-100"
+        className="text-[7vw] md:text-[6vw] text-blue-dark font-bold mb-16 transition-transform duration-100"
         style={{
           transform: `translateY(${scrollProgress * -100}px) scale(${1 + scrollProgress * 0.2})`,
           opacity: 1 - (scrollProgress * 0.3)
@@ -53,42 +77,32 @@ export default function ChiSiamo() {
         Scopri chi c'è dietro Altair
       </h1>
 
-      {/* Sezione team con effetti di apparizione */}
+      {/* Sezione team */}
       <div className="w-full max-w-6xl">
-        <div 
+        <div
           className="mb-24 transition-all duration-500 delay-200"
           style={{
             transform: `translateX(${(scrollProgress - 0.5) * 100}px)`,
             opacity: scrollProgress > 0.2 ? 1 : 0
           }}
         >
-          <h2 className="text-3xl md:text-4xl font-semibold text-blue-800 mb-6">Il nostro team</h2>
-          <p className="text-lg text-gray-700">
-            Un gruppo di professionisti appassionati che condividono una visione comune.
-          </p>
+          <div className="bg-blue-50 border-l-4 border-blue-medium p-6 rounded-lg shadow-md">
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-dark mb-6">Il nostro team</h2>
+            <p className="text-lg text-gray-900 font-semibold">
+              Pionieri di soluzioni, guidati dalla curiosità e dalla voglia di cambiare le regole del gioco.            
+            </p>
+          </div>
         </div>
 
-        {/* Membri del team con effetti a cascata */}
+        {/* Membri del team */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {employees.map((role, index) => (
-            <div 
-              key={role}
-              className="bg-white p-6 rounded-xl shadow-lg transition-all duration-500"
-              style={{
-                transform: `translateY(${scrollProgress > (0.3 + index * 0.15) ? 0 : 50}px)`,
-                opacity: scrollProgress > (0.3 + index * 0.15) ? 1 : 0,
-                transitionDelay: `${index * 100 + 200}ms`
-              }}
-            >
-              <div className="h-48 bg-gray-200 rounded-lg mb-4"></div>
-              <h3 className="text-xl font-bold text-blue-900">{role}</h3>
-              <p className="text-gray-600 mt-2">Descrizione del ruolo e competenze</p>
-            </div>
-          ))}
+          {teamMembers.map((employee, index) => 
+            employee.getCardComponent(scrollProgress, index)
+          )}
         </div>
 
-        {/* Sezione valori con effetto di rotazione */}
-        <div 
+        {/* Sezione valori */}
+        <div
           className="mt-32 p-8 bg-blue-900 text-white rounded-3xl transition-all duration-1000"
           style={{
             transform: `rotate(${scrollProgress * 5}deg)`,
@@ -98,7 +112,7 @@ export default function ChiSiamo() {
           <h2 className="text-2xl md:text-3xl font-bold mb-6">I nostri valori</h2>
           <ul className="space-y-4">
             {moralPrinciples.map((value, i) => (
-              <li 
+              <li
                 key={value}
                 className="text-lg transition-all duration-300"
                 style={{
