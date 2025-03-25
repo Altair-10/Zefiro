@@ -16,6 +16,7 @@ export default function ContactForm() {
   });
 
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
 
   const handleChange = useCallback((e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -54,8 +55,8 @@ export default function ContactForm() {
 
   return (
     <form
-    onSubmit={handleSubmit}
-    className="flex flex-col justify-center md:gap-y-2 w-full h-full"
+      onSubmit={handleSubmit}
+      className="flex flex-col justify-center md:gap-y-2 w-full h-full"
     >
       <div className="flex flex-row justify-between w-full gap-4">
         <Input
@@ -79,7 +80,7 @@ export default function ContactForm() {
           className="flex-1 min-w-0"
         />
       </div>
-    
+
       <div className="flex flex-row justify-between w-full gap-4">
         <Input
           label="Azienda"
@@ -101,7 +102,7 @@ export default function ContactForm() {
           className="flex-1 min-w-0"
         />
       </div>
-    
+
       <div className="w-full">
         <Input
           isRequired
@@ -114,7 +115,7 @@ export default function ContactForm() {
           className="w-full"
         />
       </div>
-    
+
       <div className="w-full">
         <Textarea
           isRequired
@@ -127,10 +128,17 @@ export default function ContactForm() {
           className="w-full min-h-[8vw]"
         />
       </div>
-    
-      <div className="flex flex-row justify-center">
-        <SendButton disabled={loading} />
+
+      <div className="flex justify-center mb-[3vw]">
+        <SendButton
+          text={`${loading ? "Invio in corso..." : "Invia"}`}
+          type="submit"
+          width="w-[10vw]"
+          height="h-[5vw]"
+          className="mt-[0.5vw] md:w-[12vw] md:h-[3vw] md:text-[1.5vw]"
+          disabled={loading}
+        />
       </div>
-    </form>  
+    </form>
   );
 }
