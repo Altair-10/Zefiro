@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
+import SendButton from "../../modules/sendButton";
 import { Input } from "@heroui/react";
 import { Textarea } from "@heroui/react";
-import SendButton from "./submitButton";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({

@@ -1,7 +1,17 @@
+"use client"
+import React from "react";
 import ShapesDisplayer from "@/app/modules/shapesDisplayer"
-import ContactUsButton from "./components/contactUsButton"
+import SendButton from "../modules/sendButton"
+
+const linkContattaci = "../contattaci"
 
 export default function Home() {
+  const scrollToSection = (id) => {
+    if (typeof document !== "undefined") {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="flex justify-center items-center w-full mt-[20vw] md:mt-[10vw] xl:mt-[4.5vw]">
       <div className="
@@ -16,7 +26,31 @@ export default function Home() {
           </h1>
         </div>
         <div className="row-[13/16] col-[7/25] md:row-[12/15] md:col-[3/13]">
-          <ContactUsButton />
+          <SendButton text="CONTATTACI" onClick={() => scrollToSection("contattaci")}/>
+        </div>
+
+{/* RETTANGOLI MOBILE */}
+        <div className="md:hidden row-[3/5] col-[1/32] bg-blue-medium">
+          <ShapesDisplayer 
+            numShapes={1} 
+            imgName1={"/formeSVG/blue-4.svg"}
+            position="center" spin={true}
+          />
+        </div>
+        <div className="md:hidden row-[18/20] col-[1/14] bg-blue-medium">
+          <ShapesDisplayer 
+            numShapes={1} 
+            imgName1={"/formeSVG/orange-6.svg"}
+            position="start" spin={true}
+          />
+        </div>
+        <div className="md:hidden row-[20/22] col-[1/31] bg-blue-dark">
+          <ShapesDisplayer 
+            numShapes={2} 
+            imgName1={"/formeSVG/blue-4.svg"}
+            imgName2={"/formeSVG/orange-4.svg"}
+            spin={true}
+          />
         </div>
 
 {/* RETTANGOLI DESKTOP */}

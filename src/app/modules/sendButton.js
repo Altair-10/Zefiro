@@ -1,23 +1,20 @@
-"use client"
-
 import React from "react";
 
-export default function ContactUsButton (){
-  const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+const SendButton = ({
+  type = "button", // Tipo di bottone (default: "button")
+  width = "full", // Larghezza (default: "full" per 100%)
+  height = "full", // Altezza (default: "full" per 100%)
+  text,
+  hoverTextColor = "#16697a",
+  className = "",
+  onClick,
+}) => {
   return (
     <button
-      onClick={() => scrollToSection("contattaci")}
-      type="button"
-      className="
-        group font-sans text-[2vw] text-[#ffffff]  
-        w-full h-full px-[1.2em] py-[0.8em] 
-        flex items-center justify-center 
-        border-none rounded-[2vw] shadow-md bg-gradient-orange
-        transition-all duration-300 hover:transform hover:-translate-y-[0.2vw] hover:shadow-lg active:scale-95 active:shadow-sm
-      "
-      style={{ color: '#ffffff', '--hover-text-color': "#16697a" }}
+      type={type}
+      className={`group font-sans text-[2vw] bg-gradient-orange text-[#ffffff] px-[1.2em] py-[0.8em] flex items-center justify-center border-none rounded-[2vw] shadow-md transition-all duration-300 w-${width} h-${height} hover:transform hover:-translate-y-[0.2vw] hover:shadow-lg active:scale-95 active:shadow-sm ${className}`}
+      style={{ color: '#ffffff', '--hover-text-color': hoverTextColor }}
+      onClick={onClick}
     >
       <div className="transition-all duration-300">
         <div className="rounded-full mr-[0.5em] transition-all duration-300">
@@ -33,7 +30,9 @@ export default function ContactUsButton (){
           </svg>
         </div>
       </div>
-      <span className="block ml-[0.4em] transition-all duration-300 group-hover:text-[var(--hover-text-color)]">CONTATTACI</span>
+      <span className="block ml-[0.4em] transition-all duration-300 group-hover:text-[var(--hover-text-color)]">{text}</span>
     </button>
   );
 };
+
+export default SendButton;
