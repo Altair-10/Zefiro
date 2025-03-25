@@ -7,6 +7,8 @@ import Footer from "./modules/footer";
 import ThreeBackground from "./modules/threeBackGround";
 import Preloader from "./modules/preloader";
 
+import ChiSiamo from "./chiSiamo/chiSiamo";
+
 export default function SplashScreen() {
   return (
     <div className="w-screen h-screen">
@@ -20,7 +22,7 @@ export default function SplashScreen() {
         <Services />
       </div>
       <div id="aboutUs">
-        <AboutUs />
+        <ChiSiamo />
       </div>
       <div id="contattaci">
         <ContactUs />
