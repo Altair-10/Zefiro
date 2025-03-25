@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
-import SendButton from "../../modules/contactButton";
+import { useState, useCallback } from "react";
 import { Input } from "@heroui/react";
 import { Textarea } from "@heroui/react";
+import SendButton from "./submitButton";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -16,7 +16,6 @@ export default function ContactForm() {
   });
 
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
 
   const handleChange = useCallback((e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -130,12 +129,7 @@ export default function ContactForm() {
       </div>
     
       <div className="flex flex-row justify-center">
-        <SendButton
-          text={`${loading ? "Invio in corso..." : "Invia"}`}
-          type="submit"
-          className="w-[40vw] text-lg md:w-1/3 md:text-base"
-          disabled={loading}
-        />
+        <SendButton disabled={loading} />
       </div>
     </form>  
   );

@@ -1,8 +1,5 @@
-import Link from "next/link"
 import ShapesDisplayer from "@/app/modules/shapesDisplayer"
-import SendButton from "../modules/contactButton"
-
-const linkContattaci = "../contattaci"
+import ContactUsButton from "./components/contactUsButton"
 
 export default function Home() {
   return (
@@ -19,33 +16,7 @@ export default function Home() {
           </h1>
         </div>
         <div className="row-[13/16] col-[7/25] md:row-[12/15] md:col-[3/13]">
-          <Link href={linkContattaci}>
-            <SendButton text="CONTATTACI" />
-          </Link>
-        </div>
-
-{/* RETTANGOLI MOBILE */}
-        <div className="md:hidden row-[3/5] col-[1/32] bg-blue-medium">
-          <ShapesDisplayer 
-            numShapes={1} 
-            imgName1={"/formeSVG/blue-4.svg"}
-            position="center" spin={true}
-          />
-        </div>
-        <div className="md:hidden row-[18/20] col-[1/14] bg-blue-medium">
-          <ShapesDisplayer 
-            numShapes={1} 
-            imgName1={"/formeSVG/orange-6.svg"}
-            position="start" spin={true}
-          />
-        </div>
-        <div className="md:hidden row-[20/22] col-[1/31] bg-blue-dark">
-          <ShapesDisplayer 
-            numShapes={2} 
-            imgName1={"/formeSVG/blue-4.svg"}
-            imgName2={"/formeSVG/orange-4.svg"}
-            spin={true}
-          />
+          <ContactUsButton />
         </div>
 
 {/* RETTANGOLI DESKTOP */}
