@@ -3,7 +3,7 @@
 import { useState, useCallback } from "react";
 import { Input } from "@heroui/react";
 import { Textarea } from "@heroui/react";
-import SendButton from "./submitButton";
+import SubmitButton from "./submitButton";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -15,7 +15,7 @@ export default function ContactForm() {
     aiuto: "",
   });
 
-  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(false);
 
   const handleChange = useCallback((e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -23,7 +23,7 @@ export default function ContactForm() {
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
-    setLoading(true);
+    setStatus(true);
 
     try {
       const response = await fetch("/api/sendEmail", {
@@ -39,22 +39,21 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
-        setMessage("Email inviata con successo!");
+        //setMessage("Email inviata con successo!");
         setFormData({ azienda: "", nome: "", cognome: "", email: "", telefono: "", aiuto: "" });
-      } else {
-        setMessage("Errore durante l'invio dell'email.");
-      }
+      } // else {
+      //   setMessage("Errore durante l'invio dell'email.");
+      // }
     } catch (error) {
       console.error("Errore:", error);
-      setMessage("Si è verificato un problema.");
+      //setMessage("Si è verificato un problema.");
     } finally {
-      setLoading(false);
+      setStatus(false);
     }
   }, [formData]);
 
   return (
     <form
-    onSubmit={handleSubmit}
     className="flex flex-col justify-center md:gap-y-2 w-full h-full"
     >
       <div className="flex flex-row justify-between w-full gap-4">
@@ -127,9 +126,8 @@ export default function ContactForm() {
           className="w-full min-h-[8vw]"
         />
       </div>
-    
       <div className="flex flex-row justify-center">
-        <SendButton disabled={loading} />
+        <SubmitButton onClick={handleSubmit} onGoing={status} />
       </div>
     </form>  
   );

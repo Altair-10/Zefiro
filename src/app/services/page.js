@@ -12,18 +12,18 @@ export default function Services() {
         grid my-[5vw]
         gap-[0.5vw] md:gap-[1vw] 
         grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))]
-        grid-rows-[repeat(65,_minmax(0,_2vw))] md:grid-rows-[repeat(22,_minmax(0,_1vw))]
+        grid-rows-[repeat(65,_minmax(0,_2vw))] md:grid-rows-[repeat(24,_minmax(0,_1vw))]
       "
       >
-        <div className="row-[2/7] col-[11] md:row-[1/6] md:col-[3/20]">
-          <h1 className="text-[10vw] md:text-[6vw] md:h-full text-blue-dark ">
+        <div className="row-[2/7] col-[11] md:row-[1/5] md:col-[20]">
+          <h1 className="text-[10vw] md:text-[6vw] md:h-full font-bold text-blue-dark ">
             Servizi
           </h1>
         </div>
         
         {/* Card grande sx */}
         <Card isFooterBlurred className="
-          row-[10/35] col-[1/32] md:row-[6/14] md:col-[13/25] 
+          row-[10/35] col-[1/32] md:row-[7/15] md:col-[13/25] 
           group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105
         ">
           <CardHeader className="
@@ -35,9 +35,9 @@ export default function Services() {
             <p className="text-[3vw] pt-[2vw] pl-[2vw] md:p-0 md:text-[0.6vw] text-black/60 uppercase font-bold">
               Mostra il meglio della tua attività
             </p>
-            <h4 className="text-[6vw] pl-[2vw] md:p-0 md:text-[1.5vw] text-black/90 font-medium">
+            <h1 className="text-[6vw] pl-[2vw] md:p-0 md:text-[1.5vw] text-black/90 font-medium">
               Sito vetrina
-            </h4>
+            </h1>
           </CardHeader>
           <Image
             removeWrapper
@@ -67,12 +67,12 @@ export default function Services() {
         </Card>
 
         {/* Cubo */}
-        <div className="hidden md:block md:row-[7/13] md:col-[37/43]">
+        <div className="hidden md:block md:row-[8/14] md:col-[37/43]">
           <CubeRotation />
         </div>
 
         {/* Card clienti */}
-        <Card className="hidden md:block row-[15/22] col-[5/13] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105 bg-blue-medium">
+        <Card className="hidden md:block row-[16/23] col-[5/13] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105 bg-blue-medium">
           <CardHeader className="absolute z-10 top-1 flex-col !items-start">
             <p className="md:text-[0.6vw] text-white/60 uppercase font-bold">
               Partner e Collaborazioni
@@ -92,7 +92,7 @@ export default function Services() {
         {/* Card e-commerce */}
         <Card
           isFooterBlurred
-          className="row-[36/61] col-[1/32] md:row-[15/23] md:col-[25/37] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105"
+          className="row-[36/61] col-[1/32] md:row-[16/24] md:col-[25/37] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105"
         >
           <CardHeader className="
             absolute 
@@ -133,24 +133,16 @@ export default function Services() {
         </Card>
 
         {/* Rettangoli */}
-        <div className="hidden md:block row-[3/5] col-[14/48] bg-blue-dark" >
-          <ShapesDisplayer 
-            numShapes={2}
-            imgName1="FormeSVG/orange-6.svg"
-            imgName2="FormeSVG/blue-4.svg"
-            position="start"
-          />
-        </div>
-        <div className="hidden md:block row-[7/9] col-[2/27] bg-blue-medium">
+        <div className="hidden md:block row-[9/11] col-[2/27] bg-blue-medium">
           <ShapesDisplayer 
             numShapes={1}
             imgName1="FormeSVG/blue-6.svg"
             position="start"
           />
         </div>
-        <div className="hidden md:block row-[9/11] col-[2/27] bg-blue-light" />
-        <div className="hidden md:block row-[16/18] col-[23/48] bg-blue-light" />
-        <div className="hidden md:block row-[18/20] col-[23/48] bg-blue-medium">
+        <div className="hidden md:block row-[11/13] col-[2/27] bg-blue-light" />
+        <div className="hidden md:block row-[18/20] col-[23/48] bg-blue-light" />
+        <div className="hidden md:block row-[20/22] col-[23/48] bg-blue-medium">
           <ShapesDisplayer 
             numShapes={1}
             imgName1="FormeSVG/orange-12.svg"

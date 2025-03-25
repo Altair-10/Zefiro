@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function SendButton ({disabled}){
+export default function SubmitButton ({onGoing, callback}){
   return (
     <button
-      type="submit"
+      onClick = {callback}
       className="
         group font-sans text-[2vw] text-[#ffffff]  
         w-full h-full px-[1.2em] py-[0.8em] 
@@ -28,7 +28,7 @@ export default function SendButton ({disabled}){
         </div>
       </div>
       <span className="block ml-[0.4em] transition-all duration-300 group-hover:text-[var(--hover-text-color)]">
-        {`${disabled ? "Invio in corso..." : "Invia"}`}
+        {`${onGoing ? "Invio in corso..." : "Invia"}`}
       </span>
     </button>
   );
