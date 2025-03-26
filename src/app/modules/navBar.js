@@ -24,7 +24,9 @@ const useOnClickOutside = (ref, handler) => {
 
 export default function Navbar () {
   const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    if (typeof document !== "undefined") {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const [open, setOpen] = useState(false);

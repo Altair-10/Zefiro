@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
+import SubmitButton from "./submitButton";
 import { Input } from "@heroui/react";
 import { Textarea } from "@heroui/react";
 import SubmitButton from "./submitButton";
@@ -78,7 +79,7 @@ export default function ContactForm() {
           className="flex-1 min-w-0"
         />
       </div>
-    
+
       <div className="flex flex-row justify-between w-full gap-4">
         <Input
           label="Azienda"
@@ -100,7 +101,7 @@ export default function ContactForm() {
           className="flex-1 min-w-0"
         />
       </div>
-    
+
       <div className="w-full">
         <Input
           isRequired
@@ -113,7 +114,7 @@ export default function ContactForm() {
           className="w-full"
         />
       </div>
-    
+
       <div className="w-full">
         <Textarea
           isRequired
@@ -129,6 +130,6 @@ export default function ContactForm() {
       <div className="flex flex-row justify-center">
         <SubmitButton onClick={handleSubmit} onGoing={status} />
       </div>
-    </form>  
+    </form>
   );
 }

@@ -1,7 +1,10 @@
 import nodemailer from "nodemailer";
+import "dotenv/config";
+
 
 export async function POST(req) {
   const { azienda, name, email, tel, message } = await req.json();
+  
 
   console.log("EMAIL_USER:", process.env.EMAIL_USER);
   console.log("EMAIL_PASS:", process.env.EMAIL_PASS);
