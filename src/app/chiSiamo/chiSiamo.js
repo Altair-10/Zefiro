@@ -63,7 +63,7 @@ export default function ChiSiamo() {
   return (
     <div
       ref={containerRef}
-      className="min-h-[150vh] py-20 px-4 md:px-8 flex flex-col justify-center items-center"
+      className="flex flex-col justify-center items-center w-full min-h-[150vh] py-20 px-4 md:px-8 "
     >
       {/* Titolo principale */}
       <h1
@@ -74,7 +74,7 @@ export default function ChiSiamo() {
           opacity: 1 - (scrollProgress * 0.3)
         }}
       >
-        Scopri chi c'è dietro Altair
+        {`Scopri chi c'è dietro Altair`}
       </h1>
 
       {/* Sezione team */}
