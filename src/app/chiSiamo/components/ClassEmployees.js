@@ -7,6 +7,7 @@ export class Employee {
     this.image = {
       src: imageOptions.src,
       alt: imageOptions.alt || `${name} - ${role}`,
+      title: imageOptions.title || `${name} - ${role}`,
       width: imageOptions.width || 300,  // Valore base per l'ottimizzazione
       height: imageOptions.height || 300, // Stesso valore di width
       className: imageOptions.className || 'rounded-full object-cover',
