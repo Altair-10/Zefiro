@@ -9,7 +9,6 @@ export default function ChiSiamo() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const containerRef = useRef(null);
   const titleRef = useRef(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -29,13 +28,6 @@ export default function ChiSiamo() {
     new Employee("Marco Donati", "Creatore di bug 👾", {
       src: "/cardEmployees/MarcoDonati.jpg",
     }),
-  ];
-
-  const moralPrinciples = [
-    "Innovazione",
-    "Trasparenza",
-    "Qualità",
-    "Collaborazione",
   ];
 
   useEffect(() => {
@@ -101,26 +93,21 @@ export default function ChiSiamo() {
         </div>
 
         <div
-          className="mt-[7vw] p-[1vw] bg-blue-50 border-l-4 border-blue-medium shadow-md rounded-3xl transition-all duration-100"
-          style={{ opacity: scrollProgress > 0.6 ? 1 : 0 }}
-        >
+          className="mt-[7vw] p-[1vw] bg-blue-50 border-l-4 border-blue-medium shadow-md rounded-3xl"
+          >
           <h2 className="text-3xl md:text-4xl font-bold text-blue-dark mb-[1vw]">I nostri valori</h2>
-          {scrollProgress > 0.6 && !hasAnimated && (
             <p ref={ref} className="text-lg text-gray-900 font-semibold">
               {inView && (
                 <TypeAnimation
                   sequence={[
                     "🌍 Oltre i confini\n Esploriamo territori inesplorati con curiosità da pionieri.\n🧰 Ecosistema umano\n Tecnologia che amplifica, non sostituisce l'umanità.\n🍃 Bellezza funzionale\n Cerchiamo l'armonia perfetta tra forma e sostanza.\n🥳 Gioia contagiosa\n Lavoriamo con il sorriso e lo trasmettiamo attraverso ciò che creiamo.",
                   ]}
-                  speed={65}
+                  speed={60}
                   style={{ whiteSpace: "pre-line" }}
                   cursor={false}
-                  repeat={0}
-                  onFinish={() => setHasAnimated(true)}
                 />
               )}
             </p>
-          )}
         </div>
       </div>
     </div>

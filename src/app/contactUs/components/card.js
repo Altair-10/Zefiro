@@ -46,7 +46,7 @@ export default function ContactUsCard() {
                                 `Descrivici il tuo sogno tecnologico. \nNoi ti aiuteremo a concretizzarlo \npasso dopo passo 👣`,
                                 1000, // Tempo di attesa dopo la fine dell'animazione
                             ]}
-                            speed={65}
+                            speed={60}
                             style={{ whiteSpace: "pre-line" }}
                             cursor={false}
                         />
