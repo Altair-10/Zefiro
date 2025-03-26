@@ -1,31 +1,69 @@
+"use client";
 
-export default function Carosello(){
-    return(
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                <img src="..." class="d-block w-100" alt="..." />
-                </div>
-                <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="..." />
-                </div>
-                <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="..." />
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    )
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+
+const images = [
+  "/imgCarosello/bar.jpg",
+  "/imgCarosello/ristorante.jpg",
+  "/imgCarosello/spiaggia.jpg",
+  "/imgCarosello/concessionaria.jpg",
+];
+
+export default function Carosello() {
+  const [index, setIndex] = useState(0);
+
+  const nextSlide = () => {
+    setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  // Aggiungi un useEffect per gestire lo scroll automatico
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000); // Modifica il tempo a tuo piacere (3000 ms = 3 secondi)
+
+    // Cleanup quando il componente viene smontato
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative w-full h-full mx-auto overflow-hidden rounded-lg shadow-lg">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.5 }}
+          className="w-full h-full"
+        >
+          <Image
+            src={images[index]}
+            width={800}
+            height={800}
+            alt={`Slide ${index + 1}`}
+            className="w-full h-full object-contain"
+          />
+        </motion.div>
+      </AnimatePresence>
+      <button
+        onClick={prevSlide}
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
+      >
+        ❮
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
+      >
+        ❯
+      </button>
+    </div>
+  );
 }

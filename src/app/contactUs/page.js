@@ -10,14 +10,14 @@ export default function ContactUs() {
         <div className="flex flex-col justify-center items-center w-full">
             <div className="
                 grid gap-[0.5vw] md:gap-[1vw] my-[5vw]
-                grid-rows-[repeat(115,_minmax(0,_2vw))] md:grid-rows-[repeat(28,_minmax(0,_1vw))]
+                grid-rows-[repeat(110,_minmax(0,_2vw))] md:grid-rows-[repeat(22,_minmax(0,_1vw))]
                 grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))]
             ">
                 <PageTitle title="Contattaci" />       
                 <div className="row-[10/40] col-[2/31] md:row-[7/19] md:col-[3/18]">
                     <ContactUsCard />
                 </div>
-                <div className="row-[80] col-[2/31] md:row-[7/20] md:col-[22/37]">
+                <div className="row-[75] col-[2/31] md:row-[7/20] md:col-[22/37]">
                     <ContactForm />
                 </div>
 

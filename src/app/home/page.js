@@ -1,14 +1,11 @@
 "use client"
 import React from "react";
+import Carosello from "./components/carosello";
+import ContactButton from "./components/contactButton";
 import ShapesDisplayer from "@/app/modules/shapesDisplayer"
-// import SendButton from "../modules/sendButton"
 
 export default function Home() {
-  const scrollToSection = (id) => {
-    if (typeof document !== "undefined") {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  
 
   return (
     <div className="flex justify-center items-center w-full mt-[20vw] md:mt-[10vw] xl:mt-[4.5vw]">
@@ -23,11 +20,14 @@ export default function Home() {
             <span className="inline md:block">for future</span>
           </h1>
         </div>
-        <div className="row-[13/16] col-[7/25] md:row-[12/15] md:col-[3/13]">
-          {/* <SendButton text="CONTATTACI" onClick={() => scrollToSection("contattaci")}/> */}
+        <div className="row-[7] col-[1] md:row-[5/12] md:col-[28/44]">
+          <Carosello />
+        </div>
+        <div className="row-[13/18] col-[7/25] md:row-[12/15] md:col-[3/13]">
+          <ContactButton />
         </div>
 
-{/* RETTANGOLI DESKTOP */}
+        {/* RETTANGOLI DESKTOP */}
         {/*1° riga*/}
         <div className="hidden md:block row-[1/3] col-[20/48] bg-blue-dark">
           <ShapesDisplayer
@@ -55,7 +55,7 @@ export default function Home() {
         </div>
 
         {/*rettangoli verticali*/}
-        <div className="hidden md:block row-[5/12] col-[28/32] bg-blue-medium">
+        <div className="hidden md:block row-[5/12] col-[24/28] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
             imgName1={"/formeSVG/reactLogo.svg"}
@@ -79,7 +79,7 @@ export default function Home() {
         </div>
 
         {/*3° riga*/}
-        <div className="hidden md:block row-[10/12] col-[32/44] bg-blue-dark">
+        {/* <div className="hidden md:block row-[10/12] col-[32/44] bg-blue-dark">
           <ShapesDisplayer
             numShapes={3}
             imgName1={"/formeSVG/blue-4.svg"}
@@ -88,7 +88,7 @@ export default function Home() {
             flexType="row"
             position="center"
           />
-        </div>
+        </div> */}
 
         {/*4° riga*/}
         <div className="hidden md:block row-[12/14] col-[22/30] bg-blue-medium">
@@ -98,10 +98,10 @@ export default function Home() {
             position="start"
           />
         </div>
-        <p className="hidden md:row-[12/14] md:col-[30/38] md:flex justify-center items-center text-[1.7vw] text-blue-dark font-extrabold">
+        {/* <p className="hidden md:row-[12/14] md:col-[30/38] md:flex justify-center items-center text-[1.7vw] text-blue-dark font-extrabold">
           &lt;div&gt; 🌐 &lt;/div&gt;
-        </p>
-        <div className="hidden md:block row-[12/14] col-[38/48] bg-blue-dark">
+        </p> */}
+        <div className="hidden md:block row-[12/14] col-[30/48] bg-blue-dark">
           <ShapesDisplayer
             numShapes={1}
             imgName1="/formeSVG/blue-4.svg"

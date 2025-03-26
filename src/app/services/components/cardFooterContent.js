@@ -18,7 +18,7 @@ export default function CardFooterContent({ testo1, testo2 }){
             <button radius="full" className="
               transition-all duration-150 ease-in-out
               rounded-2xl bg-brown-light 
-              text-[5vw] md:text-[0.8vw] xl:text-[1vw] 2xl:text-[0.8vw] font-bold
+              text-[5vw] md:text-[0.8vw] xl:text-[1vw] 2xl:text-[0.8vw]
               w-[28vw] h-[10vw] md:w-[3vw] md:h-[3vw] xl:w-[6vw] xl:h-[2vw]
               active:scale-90
             ">
