@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import ShapesDisplayer from "@/app/modules/shapesDisplayer"
-import SendButton from "../modules/sendButton"
+// import SendButton from "../modules/sendButton"
 
 export default function Home() {
   const scrollToSection = (id) => {
@@ -24,7 +24,7 @@ export default function Home() {
           </h1>
         </div>
         <div className="row-[13/16] col-[7/25] md:row-[12/15] md:col-[3/13]">
-          <SendButton text="CONTATTACI" onClick={() => scrollToSection("contattaci")}/>
+          {/* <SendButton text="CONTATTACI" onClick={() => scrollToSection("contattaci")}/> */}
         </div>
 
 {/* RETTANGOLI DESKTOP */}

@@ -4,7 +4,6 @@ import { useState, useCallback, useMemo } from "react";
 import SubmitButton from "./submitButton";
 import { Input } from "@heroui/react";
 import { Textarea } from "@heroui/react";
-import SubmitButton from "./submitButton";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -57,7 +56,7 @@ export default function ContactForm() {
     <form
     className="flex flex-col justify-center md:gap-y-2 w-full h-full"
     >
-      <div className="flex flex-row justify-between w-full gap-4">
+      <div className="md:flex flex-row justify-between w-full gap-4">
         <Input
           isRequired
           label="Nome"
@@ -80,7 +79,7 @@ export default function ContactForm() {
         />
       </div>
 
-      <div className="flex flex-row justify-between w-full gap-4">
+      <div className="md:flex flex-row justify-between w-full gap-4">
         <Input
           label="Azienda"
           labelPlacement="outside"

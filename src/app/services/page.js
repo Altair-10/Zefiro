@@ -1,6 +1,9 @@
 "use client";
 
 import { Card, CardHeader, CardFooter, Image, Button } from "@heroui/react";
+import PageTitle from "../modules/pageTitle";
+import CardTitle from "./components/cardTitle";
+import CardFooterContent from "./components/cardFooterContent";
 import CubeRotation from "@/app/services/components/rotatingCube";
 import ShapesDisplayer from "../modules/shapesDisplayer";
 
@@ -15,11 +18,7 @@ export default function Services() {
         grid-rows-[repeat(65,_minmax(0,_2vw))] md:grid-rows-[repeat(24,_minmax(0,_1vw))]
       "
       >
-        <div className="row-[2/7] col-[11] md:row-[1/5] md:col-[20]">
-          <h1 className="text-[10vw] md:text-[6vw] md:h-full font-bold text-blue-dark ">
-            Servizi
-          </h1>
-        </div>
+        <PageTitle title="Servizi" />
         
         {/* Card grande sx */}
         <Card isFooterBlurred className="
@@ -32,12 +31,7 @@ export default function Services() {
             z-10 
             flex-col items-start
           ">
-            <p className="text-[3vw] pt-[2vw] pl-[2vw] md:p-0 md:text-[0.6vw] text-black/60 uppercase font-bold">
-              Mostra il meglio della tua attività
-            </p>
-            <h1 className="text-[6vw] pl-[2vw] md:p-0 md:text-[1.5vw] text-black/90 font-medium">
-              Sito vetrina
-            </h1>
+            <CardTitle preTitle="Mostra il meglio della tua attività" title="Sito Vetrina" />
           </CardHeader>
           <Image
             removeWrapper
@@ -46,23 +40,7 @@ export default function Services() {
             src="/sfondi/sitoVetrina.jpg"
           />
           <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-            <div className="flex flex-grow gap-2 items-center">
-              <Image
-                alt="Logo Altair"
-                className="hidden md:block md:w-[2.5vw] md:h-[2vw]"
-                src="/loghi_altair/LogoSocialDark.svg"
-              />
-              <div className="flex flex-col">
-                <p className="text-[3.3vw] md:text-[0.6vw] text-white/60">Distinguiti online</p>
-                <p className="text-[3.3vw] md:text-[0.6vw] text-white/60">Un sito che parla per te.</p>
-              </div>
-            </div>
-            <Button radius="full" className="
-              md:text-[0.8rem] lg:text-[0.6rem] xl:text-[0.8rem] 
-              md:w-[3vw] md:h-[3vw] lg:w-[0.6vw] lg:h-[2.5vw] xl:w-[3vw] xl:h-[2vw] 
-            ">
-              Scopri di più
-            </Button>
+            <CardFooterContent testo1={"Distinguiti online"} testo2={"Un sito che parla per te."} />
           </CardFooter>
         </Card>
 
@@ -100,8 +78,7 @@ export default function Services() {
             z-10 
             flex-col items-start
           ">
-            <p className="text-[3vw] pt-[2vw] pl-[2vw] md:p-0 md:text-[0.6vw] text-black/60 uppercase font-bold">New</p>
-            <h4 className="text-[6vw] pl-[2vw] md:p-0 md:text-[1.5vw] text-black/90 font-medium">E-commerce</h4>
+            <CardTitle preTitle="Prossimamente" title="E-commerce" />
           </CardHeader>
           <Image
             removeWrapper
@@ -112,23 +89,7 @@ export default function Services() {
           />
           {/*z-0 w-full h-full object-contain object-right py-[8vw] md:pt-[0.5vw] bg-orange */}
           <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-            <div className="flex flex-grow gap-2 items-center">
-              <img
-                alt="Logo Altair"
-                className="hidden md:block md:w-[2.5vw] md:h-[2vw]"
-                src="/loghi_altair/LogoSocialDark.svg"
-              />
-              <div className="flex flex-col">
-                <p className="text-[3.3vw] md:text-[0.6vw] text-white/60">Presto disponibile.</p>
-                <p className="text-[3.3vw] md:text-[0.6vw] text-white/60">Resta aggiornato con un clic.</p>
-              </div>
-            </div>
-            <Button radius="full" className="
-              md:text-[0.8rem] lg:text-[0.6rem] xl:text-[0.8rem] 
-              md:w-[3vw] md:h-[3vw] lg:w-[0.6vw] lg:h-[2.5vw] xl:w-[3vw] xl:h-[2vw] 
-            ">
-              Avvisami
-            </Button>
+            <CardFooterContent testo1={"Porta il tuo negozio online"} testo2={"Ppresto disponibile."} />
           </CardFooter>
         </Card>
 

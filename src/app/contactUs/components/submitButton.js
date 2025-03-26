@@ -5,20 +5,21 @@ export default function SubmitButton ({onGoing, callback}){
     <button
       onClick = {callback}
       className="
-        group font-sans text-[2vw] text-[#ffffff]  
-        w-full h-full px-[1.2em] py-[0.8em] 
-        flex items-center justify-center 
-        border-none rounded-[2vw] shadow-md bg-gradient-orange
+        group flex items-center justify-center
+        w-[30vw] h-[10vw] md:w-[12vw] md:h-[3vw]
+        px-[1em] mt-[5vw] md:mt-0
+        font-sans text-[5vw] md:text-[1.5vw] text-[#ffffff]
+        border-none rounded-[4vw] md:rounded-[2vw] shadow-md bg-gradient-orange
         transition-all duration-300 hover:transform hover:-translate-y-[0.2vw] hover:shadow-lg active:scale-95 active:shadow-sm
       "
       style={{ color: '#ffffff', '--hover-text-color': "#16697a" }}
     >
       <div className="transition-all duration-300">
-        <div className="rounded-full mr-[0.5em] transition-all duration-300">
+        <div className="mr-[0.5em] transition-all duration-300">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
+            width="20"
+            height="20"
             fill="currentColor"
             className={`bi bi-send-fill fill-[#ffffff] transition-all duration-300 group-hover:fill-[var(--hover-text-color)] group-hover:rotate-45 transform`}
             viewBox="0 0 16 16"
@@ -27,7 +28,7 @@ export default function SubmitButton ({onGoing, callback}){
           </svg>
         </div>
       </div>
-      <span className="block ml-[0.4em] transition-all duration-300 group-hover:text-[var(--hover-text-color)]">
+      <span className="block transition-all duration-300 group-hover:text-[var(--hover-text-color)]">
         {`${onGoing ? "Invio in corso..." : "Invia"}`}
       </span>
     </button>
