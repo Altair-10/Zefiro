@@ -3,8 +3,6 @@ import React from "react";
 import ShapesDisplayer from "@/app/modules/shapesDisplayer"
 import SendButton from "../modules/sendButton"
 
-const linkContattaci = "../contattaci"
-
 export default function Home() {
   const scrollToSection = (id) => {
     if (typeof document !== "undefined") {
@@ -20,37 +18,13 @@ export default function Home() {
         grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))]
       ">
         <div className="row-[7] col-[1] md:row-[3] md:col-[3/7]">
-          <h1 className="w-[76vw] text-[10vw] md:w-[35vw] md:text-[7vw] leading-[8vw] font-serif text-blue-dark">
+          <h1 className="w-[80vw] text-[8vw] md:w-[35vw] md:text-[7vw] leading-[8vw] font-serif text-blue-dark">
             <span className="inline md:block">take IT </span>
             <span className="inline md:block">for future</span>
           </h1>
         </div>
         <div className="row-[13/16] col-[7/25] md:row-[12/15] md:col-[3/13]">
           <SendButton text="CONTATTACI" onClick={() => scrollToSection("contattaci")}/>
-        </div>
-
-{/* RETTANGOLI MOBILE */}
-        <div className="md:hidden row-[3/5] col-[1/32] bg-blue-medium">
-          <ShapesDisplayer 
-            numShapes={1} 
-            imgName1={"/formeSVG/blue-4.svg"}
-            position="center" spin={true}
-          />
-        </div>
-        <div className="md:hidden row-[18/20] col-[1/14] bg-blue-medium">
-          <ShapesDisplayer 
-            numShapes={1} 
-            imgName1={"/formeSVG/orange-6.svg"}
-            position="start" spin={true}
-          />
-        </div>
-        <div className="md:hidden row-[20/22] col-[1/31] bg-blue-dark">
-          <ShapesDisplayer 
-            numShapes={2} 
-            imgName1={"/formeSVG/blue-4.svg"}
-            imgName2={"/formeSVG/orange-4.svg"}
-            spin={true}
-          />
         </div>
 
 {/* RETTANGOLI DESKTOP */}

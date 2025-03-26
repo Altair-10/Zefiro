@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import SocialIcons from "./socialIcons";
@@ -39,13 +40,13 @@ export default function Navbar () {
             {/* Logo */}
             <div>
                 <button onClick={() => scrollToSection("home")}>
-                    <img
-                    src="/loghi_altair/SmallLogoDark.svg"
-                    width={130}
-                    height={60}
-                    alt="Logo"
-                    className="w-[30vw] md:w-[8vw]"
-                    />
+                  <Image
+                  src="/loghi_altair/SmallLogoDark.svg"
+                  width={130}
+                  height={60}
+                  alt="Logo"
+                  className="w-[30vw] md:w-[8vw]"
+                  />
                 </button>
             </div>
 
@@ -178,6 +179,7 @@ const Menu = ({ open, setOpen }) => {
       });
     }
   };
+
   return (
     <StyledMenu open={open}>
       <button onClick={() => scrollToSection("servizi")}>

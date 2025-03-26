@@ -13,6 +13,17 @@ export default function Footer() {
         alert(`Copiato: ${text}`);
     }
 
+    const section = [
+        { id: "servizi", label: "SERVIZI" },
+        { id: "aboutUs", label: "ABOUT US" },
+        { id: "contattaci", label: "CONTATTACI" }
+    ]
+
+    const info = [
+        { text: "+39 38904402325" },
+        { text: "altair-info@gmail.com" }
+    ]
+
     return (
         <div className="flex flex-col md:flex-row justify-center md:items-center gap-[10vw] w-full h-[150vw] md:h-[24vw] bg-gradient-orange">
             <div className="flex flex-col items-center md:items-start">
@@ -24,10 +35,7 @@ export default function Footer() {
                     className="w-[50vw] h-[25vw] md:w-[20vw] md:h-[10vw] ml-6 md:ml-0"
                 />
                 <div className="ml-[1.3vw] text-center md:text-start">
-                    {[
-                        { text: "+39 38904402325" },
-                        { text: "altair-info@gmail.com" },
-                    ].map((item, index) => (
+                    {info.map((item, index) => (
                         <div key={index} className="flex items-center justify-center md:justify-start gap-2 group">
                             <p className="text-white text-[5vw] md:text-[1.5vw] font-bold group-hover:text-blue-dark">{item.text}</p>
                             <div className="w-[4.5vw] h-[3.5vw] md:w-[2vw] md:h-[1.5vw] cursor-pointer text-white group-hover:text-blue-dark">
@@ -45,24 +53,15 @@ export default function Footer() {
                 </div>
             </div>
             <div className="flex flex-col gap-5 items-center md:items-start">
-                <button 
-                    onClick={() => scrollToSection("servizi")} 
-                    className="text-brown-light text-[5vw] md:text-[1.5vw] font-bold"
-                >
-                    SERVIZI
-                </button>
-                <button 
-                    onClick={() => scrollToSection("aboutUs")} 
-                    className="text-brown-light text-[5vw] md:text-[1.5vw] font-bold"
-                >
-                    ABOUT US
-                </button>
-                <button
-                    onClick={() => scrollToSection("contattaci")}
-                    className="text-brown-light text-[5vw] md:text-[1.5vw] font-bold"
-                >
-                    CONTATTACI
-                </button>
+                {section.map((item) => (
+                    <button
+                        key={item.id}
+                        onClick={() => scrollToSection(item.id)}
+                        className="text-brown-light text-[5vw] md:text-[1.5vw] font-bold hover:text-blue-dark"
+                    >
+                        {item.label}
+                    </button>
+                ))}
             </div>
         </div>
     )
