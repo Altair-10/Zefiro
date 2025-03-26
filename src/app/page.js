@@ -1,7 +1,6 @@
 import Navbar from "./modules/navBar";
 import Home from "./home/page";
 import Services from "./services/page";
-import AboutUs from "./aboutUs/page";
 import ContactUs from "./contactUs/page";
 import Footer from "./modules/footer";
 import ThreeBackground from "./modules/threeBackGround";

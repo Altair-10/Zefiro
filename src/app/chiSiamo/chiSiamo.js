@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { Employee } from './components/emplyes' 
+import { Employee } from './components/ClassEmployees' 
 
 export default function ChiSiamo() {
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -11,30 +11,35 @@ export default function ChiSiamo() {
   // Definisci i membri del team come oggetti completi
   const teamMembers = [
     new Employee(
-      "Nome CEO",
-      "CEO",
+      "Antonino La Ferrara",
+      "Full stack developer 🧩",
       {
-        src: "/MarcoDonati.jpg",
-        alt: "Foto del CEO",
-        className: "rounded-lg object-cover"
+        src: "/cardEmployees/AntoninoLaFerrara.png",
+        alt: "Foto"
       }
     ),
     new Employee(
-      "Nome CTO",
+      "Samuele Risso",
       "CTO",
       {
-        src: "/images/cto.jpg",
+        src: "/cardEmployees/MarcoDonati.jpg",
         alt: "Foto del CTO",
-        width: 350
       }
     ),
     new Employee(
-      "Nome Design Lead",
+      "Stive Baumi",
       "Design Lead",
       {
-        src: "/images/design-lead.jpg",
+        src: "/cardEmployees/MarcoDonati.jpg",
         alt: "Foto del Design Lead",
-        otherProps: { priority: true }
+      }
+    ),
+    new Employee(
+      "Marco Donati",
+      "Creatore di bug 👾",
+      {
+        src: "/cardEmployees/MarcoDonati.jpg",
+        alt: "Foto del Design Lead",
       }
     )
   ];
@@ -95,7 +100,7 @@ export default function ChiSiamo() {
         </div>
 
         {/* Membri del team */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8"> 
           {teamMembers.map((employee, index) => 
             employee.getCardComponent(scrollProgress, index)
           )}
