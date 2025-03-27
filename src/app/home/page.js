@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import Carosello from "./components/carosello";
+import VideoPlayer from "./components/videoPlayer";
 import ContactButton from "./components/contactButton";
 import ShapesDisplayer from "@/app/modules/shapesDisplayer"
 
@@ -20,8 +20,8 @@ export default function Home() {
             <span className="inline md:block">for future</span>
           </h1>
         </div>
-        <div className="row-[7] col-[1] md:row-[5/12] md:col-[28/44]">
-          <Carosello />
+        <div className="row-[7] col-[1] md:row-[5/14] md:col-[28/44]">
+          <VideoPlayer />
         </div>
         <div className="row-[13/18] col-[7/25] md:row-[12/15] md:col-[3/13]">
           <ContactButton />
@@ -79,36 +79,21 @@ export default function Home() {
         </div>
 
         {/*3° riga*/}
-        {/* <div className="hidden md:block row-[10/12] col-[32/44] bg-blue-dark">
-          <ShapesDisplayer
-            numShapes={3}
-            imgName1={"/formeSVG/blue-4.svg"}
-            imgName2={"/formeSVG/orange-12.svg"}
-            imgName3={"/formeSVG/blue-4.svg"}
-            flexType="row"
-            position="center"
-          />
-        </div> */}
-
-        {/*4° riga*/}
-        <div className="hidden md:block row-[12/14] col-[22/30] bg-blue-medium">
+        <div className="hidden md:block row-[12/14] col-[22/28] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
             imgName1="/formeSVG/blue-6.svg"
             position="start"
           />
         </div>
-        {/* <p className="hidden md:row-[12/14] md:col-[30/38] md:flex justify-center items-center text-[1.7vw] text-blue-dark font-extrabold">
-          &lt;div&gt; 🌐 &lt;/div&gt;
-        </p> */}
-        <div className="hidden md:block row-[12/14] col-[30/48] bg-blue-dark">
+        <div className="hidden md:block row-[12/14] col-[44/48] bg-blue-dark">
           <ShapesDisplayer
             numShapes={1}
             imgName1="/formeSVG/blue-4.svg"
           />
         </div>
 
-        {/*5° riga*/}
+        {/*4° riga*/}
         <div className="hidden md:block row-[14/16] col-[26/37] bg-blue-dark">
           <ShapesDisplayer
             numShapes={1}
@@ -123,7 +108,7 @@ export default function Home() {
           />
         </div>
 
-        {/*6° riga*/}
+        {/*5° riga*/}
         <div className="hidden md:block row-[16/18] col-[18/30] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
@@ -131,19 +116,14 @@ export default function Home() {
             position="start"
           />
         </div>
-
-        <p className="hidden md:row-[16/18] md:col-[29/45] md:flex justify-center items-center text-[1.4vw] text-blue-dark font-extrabold">
-          const [count, setCount] = useState(0);
-        </p>
-
-        <div className="hidden md:block md:row-[16/18] md:col-[44/48] bg-blue-dark">
+        <div className="hidden md:block md:row-[16/18] md:col-[30/48] bg-blue-dark">
         <ShapesDisplayer
             numShapes={1}
             imgName1="/formeSVG/orange-6.svg"
           />
         </div>
 
-        {/*7° riga*/}
+        {/*6° riga*/}
         <div className="hidden md:block row-[18/20] col-[10/48] bg-blue-light">
           <ShapesDisplayer
             numShapes={3}
