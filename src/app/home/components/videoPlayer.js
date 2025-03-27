@@ -1,55 +1,103 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 
 const VideoPlayer = () => {
   const videoRef = useRef(null);
+  const observerRef = useRef(null); // Aggiungiamo un riferimento per l'observer
   const [isPlaying, setIsPlaying] = useState(false);
   const [showPlayButton, setShowPlayButton] = useState(true);
+  const [isFlashing, setIsFlashing] = useState(false);
 
-  // Gestisce l'avvio e la pausa del video
-  const togglePlayPause = () => {
+  // Funzione per avviare o fermare il video
+  const togglePlayPause = useCallback(() => {
     if (isPlaying) {
       videoRef.current.pause();
-
     } else {
       videoRef.current.play();
     }
     setIsPlaying(!isPlaying);
     setShowPlayButton(true);
-  };
+  }, [isPlaying]);
 
-  // Gestisce la fine del video
-  const handleVideoEnd = () => {
+  // Funzione per il termine del video
+  const handleVideoEnd = useCallback(() => {
     videoRef.current.currentTime = 0; // Riporta il video all'inizio
     setIsPlaying(false); // Ferma il video
     setShowPlayButton(true); // Mostra il pulsante per riavviare
-  };
+  }, []);
+
+  // Funzione per far lampeggiare i bordi del video
+  const startFlashingBorders = useCallback(() => {
+    setIsFlashing(true);
+    setTimeout(() => setIsFlashing(false), 2000); // Fermiamo il lampeggio dopo 2 secondi
+  }, []);
+
+  // Gestiamo l'IntersectionObserver solo una volta
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startFlashingBorders(); // Iniziamo a far lampeggiare i bordi
+          }
+        });
+      },
+      {
+        threshold: 0.5, // L'elemento deve essere visibile al 50% per attivare l'osservatore
+      }
+    );
+
+    observerRef.current = observer; // Salviamo il riferimento all'observer
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (observerRef.current && videoRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        observerRef.current.unobserve(videoRef.current);
+      }
+    };
+  }, [startFlashingBorders]);
 
   return (
-    <div className="relative w-full h-full">
-        <video
-            ref={videoRef}
-            onClick={togglePlayPause}
-            className="w-full h-full object-contain"
-            controls={false} // Nasconde la barra di controllo
-            poster="/video/copertina.png"
-            onEnded={handleVideoEnd} // Chiamato quando il video finisce
-        >
-            <source src="/video/add.mp4" type="video/mp4" />
-        </video>
+    <div
+      className="relative w-full h-full"
+      style={{
+        border: isFlashing ? '5px solid red' : '5px solid transparent',
+        transition: 'border 0.5s ease-in-out',
+      }}
+    >
+      <video
+        ref={videoRef}
+        onClick={togglePlayPause}
+        className="w-full h-full object-cover"
+        controls={false}
+        poster=""
+        onEnded={handleVideoEnd}
+      >
+        <source src="/video/add.mp4" type="video/mp4" />
+      </video>
 
-        {showPlayButton && (
+      {showPlayButton && (
         <div className="absolute inset-0 flex items-center justify-center">
-            <button
-                onClick={togglePlayPause}
-                className=" text-white p-4 opacity-50 hover:opacity-100 transition text-4xl"
-                >
-                {!isPlaying ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="60" height="60" fill="currentColor">
-                        <rect x="2" y="2" width="20" height="20" rx="4" fill="none" stroke="currentColor" strokeWidth="2"/>
-                        <polygon points="10,7 16,12 10,17" fill="currentColor"/>
-                    </svg>
-                ) : null}
-            </button>
+          <button
+            onClick={togglePlayPause}
+            className="text-white p-4 opacity-50 hover:opacity-100 transition text-4xl"
+          >
+            {!isPlaying ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="100"
+                height="100"
+                fill="currentColor"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="4" fill="none" stroke="currentColor" strokeWidth="2" />
+                <polygon points="10,7 16,12 10,17" fill="currentColor" />
+              </svg>
+            ) : null}
+          </button>
         </div>
       )}
     </div>

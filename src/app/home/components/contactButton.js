@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ContactButton ({callback}){
+export default function ContactButton (){
   const scrollToSection = (id) => {
     if (typeof document !== "undefined") {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });

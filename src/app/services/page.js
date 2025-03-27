@@ -10,6 +10,12 @@ import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
 export default function Services() {
+  const scrollToSection = (id) => {
+    if (typeof document !== "undefined") {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   // Stati per la visibilità delle card
   const [isInViewSitoVetrina, setIsInViewSitoVetrina] = useState(false);
   const [isInViewEcommerce, setIsInViewEcommerce] = useState(false);
@@ -21,7 +27,7 @@ export default function Services() {
   useEffect(() => {
     const options = {
       rootMargin: "0px",
-      threshold: 0.5, // Attiva l'animazione quando la card è almeno al 50% visibile
+      threshold: 0.5,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -39,7 +45,9 @@ export default function Services() {
     if (ecommerceRef.current) observer.observe(ecommerceRef.current);
 
     return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       if (sitoVetrinaRef.current) observer.unobserve(sitoVetrinaRef.current);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       if (ecommerceRef.current) observer.unobserve(ecommerceRef.current);
     };
   }, []);
@@ -88,7 +96,7 @@ export default function Services() {
               src="/sfondi/sitoVetrina.jpg"
             />
             <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-              <CardFooterContent testo1={"Distinguiti online"} testo2={"Un sito che parla per te."} />
+              <CardFooterContent testo1={"Distinguiti online"} testo2={"Un sito che parla per te."} testoBottone={"scopri di più"} onClick={() => scrollToSection("home")} />
             </CardFooter>
           </Card>
         </motion.div>
@@ -112,18 +120,23 @@ export default function Services() {
               src="/sfondi/E-commerce.jpg"
             />
             <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-              <CardFooterContent testo1={"Porta il tuo negozio online"} testo2={"Ppresto disponibile."} />
+              <CardFooterContent testo1={"Porta il tuo negozio online"} testo2={"Presto disponibile."} testoBottone={"richiedi info"} onClick={() => scrollToSection("contattaci")} />
             </CardFooter>
           </Card>
         </motion.div>
 
-        {/* Cubo */}
+        {/* Cubo sopra */}
         <div className="hidden md:block md:row-[8/14] md:col-[37/43]">
           <CubeRotation />
         </div>
 
+        {/* Cubo sotto */}
+        <div className="hidden md:block md:row-[17/24] md:col-[5/13]">
+          <CubeRotation />
+        </div>
+
         {/* Card clienti */}
-        <Card className="hidden md:block row-[16/23] col-[5/13] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105 bg-blue-medium">
+        {/* <Card className="hidden md:block row-[16/23] col-[5/13] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105 bg-blue-medium">
           <CardHeader className="absolute z-10 top-1 flex-col !items-start">
             <p className="md:text-[0.6vw] text-white/60 uppercase font-bold">
               Partner e Collaborazioni
@@ -138,7 +151,7 @@ export default function Services() {
             className="z-0 w-full h-full object-cover"
             src="/FormeSVG/blue-8.svg"
           />
-        </Card>
+        </Card> */}
 
         {/* Rettangoli */}
         <div className="hidden md:block row-[9/11] col-[2/27] bg-blue-medium">

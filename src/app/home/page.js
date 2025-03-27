@@ -5,8 +5,6 @@ import ContactButton from "./components/contactButton";
 import ShapesDisplayer from "@/app/modules/shapesDisplayer"
 
 export default function Home() {
-  
-
   return (
     <div className="flex justify-center items-center w-full mt-[20vw] md:mt-[10vw] xl:mt-[4.5vw]">
       <div className="
