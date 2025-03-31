@@ -2,10 +2,11 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 
 const VideoPlayer = () => {
   const videoRef = useRef(null);
-  const observerRef = useRef(null); // Aggiungiamo un riferimento per l'observer
+  const observerRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showPlayButton, setShowPlayButton] = useState(true);
   const [isFlashing, setIsFlashing] = useState(false);
+  const [isVideoEnded, setIsVideoEnded] = useState(false);  // Stato per il termine del video
 
   // Funzione per avviare o fermare il video
   const togglePlayPause = useCallback(() => {
@@ -20,9 +21,10 @@ const VideoPlayer = () => {
 
   // Funzione per il termine del video
   const handleVideoEnd = useCallback(() => {
-    videoRef.current.currentTime = 0; // Riporta il video all'inizio
-    setIsPlaying(false); // Ferma il video
-    setShowPlayButton(true); // Mostra il pulsante per riavviare
+    videoRef.current.currentTime = 0;  // Riporta il video all'inizio
+    setIsPlaying(false);  // Ferma il video
+    setShowPlayButton(true);  // Mostra il pulsante per riavviare
+    setIsVideoEnded(true);  // Imposta che il video è terminato
   }, []);
 
   // Funzione per far lampeggiare i bordi del video
@@ -54,7 +56,6 @@ const VideoPlayer = () => {
 
     return () => {
       if (observerRef.current && videoRef.current) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         observerRef.current.unobserve(videoRef.current);
       }
     };
@@ -68,13 +69,24 @@ const VideoPlayer = () => {
         transition: 'border 0.5s ease-in-out',
       }}
     >
+      {!isPlaying && isVideoEnded && (
+        <img
+          src="/video/copertina.png"
+          alt="Poster"
+          className="w-full h-full object-cover absolute top-0 left-0"
+        />
+      )}
+
       <video
         ref={videoRef}
         onClick={togglePlayPause}
         className="w-full h-full object-cover"
         controls={false}
-        poster=""
+        poster="/video/copertina.png"
         onEnded={handleVideoEnd}
+        style={{
+          display: isVideoEnded ? 'none' : 'block', // Nasconde il video quando è finito
+        }}
       >
         <source src="/video/add.mp4" type="video/mp4" />
       </video>

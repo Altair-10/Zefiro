@@ -28,16 +28,15 @@ export default function CubeRotation() {
           {faces.map((face, i) => (
             <motion.div
               key={i}
-              className="absolute flex items-center justify-center text-brown-light text-[1.5vw] font-bold shadow-lg border border-gray-300"
+              className="absolute flex items-center justify-center text-brown-light text-[1.5vw] font-bold shadow-lg border border-gray-300 rounded-2xl"
               style={{
                 backgroundColor: face.color,
                 width: "10vw",
                 height: "10vw",
                 position: "absolute",
                 backfaceVisibility: "hidden",
-                transform: `rotateY(${i * 120}deg) translateZ(50px)`,
+                transform: `rotateY(${i * 120}deg) translateZ(4vw)`,
                 boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
-                borderRadius: "10px"
               }}
             >
               {face.text}
