@@ -1,6 +1,5 @@
 "use client"
 import React from "react";
-import VideoPlayer from "./components/videoPlayer";
 import ContactButton from "./components/contactButton";
 import ShapesDisplayer from "@/app/modules/shapesDisplayer"
 
@@ -17,9 +16,6 @@ export default function Home() {
             <span className="inline md:block">take IT </span>
             <span className="inline md:block">for future</span>
           </h1>
-        </div>
-        <div className="row-[7] col-[1] md:row-[5/14] md:col-[28/44]">
-          <VideoPlayer />
         </div>
         <div className="row-[13/18] col-[7/25] md:row-[12/15] md:col-[3/13]">
           <ContactButton />
