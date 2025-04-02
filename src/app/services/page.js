@@ -1,12 +1,9 @@
 "use client";
 
-import { Card, CardHeader, CardFooter, Image } from "@heroui/react";
 import PageTitle from "../modules/pageTitle";
-import CardTitle from "./components/cardTitle";
-import CardFooterContent from "./components/cardFooterContent";
+import Card from "./components/card";
 import CubeRotation from "@/app/services/components/rotatingCube";
 import ShapesDisplayer from "../modules/shapesDisplayer";
-import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
 export default function Services() {
@@ -16,15 +13,29 @@ export default function Services() {
     }
   };
 
-  // Stati per la visibilità delle card
   const [isInViewSitoVetrina, setIsInViewSitoVetrina] = useState(false);
   const [isInViewEcommerce, setIsInViewEcommerce] = useState(false);
+  const [isMdScreen, setIsMdScreen] = useState(false);
 
-  // Riferimenti per osservare le card
   const sitoVetrinaRef = useRef(null);
   const ecommerceRef = useRef(null);
 
   useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMdScreen(window.matchMedia("(min-width: 768px)").matches);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isMdScreen) return;
+
     const options = {
       rootMargin: "0px",
       threshold: 0.5,
@@ -45,24 +56,17 @@ export default function Services() {
     if (ecommerceRef.current) observer.observe(ecommerceRef.current);
 
     return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       if (sitoVetrinaRef.current) observer.unobserve(sitoVetrinaRef.current);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       if (ecommerceRef.current) observer.unobserve(ecommerceRef.current);
     };
-  }, []);
+  }, [isMdScreen]);
 
-  // Funzioni per determinare le animazioni
   const getSitoVetrinaAnimation = () => {
-    return isInViewSitoVetrina
-      ? { x: 0, opacity: 1 }
-      : { x: "-100%", opacity: 0 }; // Animazione da sinistra
+    return isInViewSitoVetrina ? { x: 0, opacity: 1 } : { x: "-100%", opacity: 0 };
   };
 
   const getEcommerceAnimation = () => {
-    return isInViewEcommerce
-      ? { x: 0, opacity: 1 }
-      : { x: "100%", opacity: 0 }; // Animazione da destra
+    return isInViewEcommerce ? { x: 0, opacity: 1 } : { x: "100%", opacity: 0 };
   };
 
   return (
@@ -78,52 +82,34 @@ export default function Services() {
         <PageTitle title="Servizi" />
 
         {/* Card "Sito Vetrina" */}
-        <motion.div
-          ref={sitoVetrinaRef}
-          className="row-[10/35] col-[1/32] md:row-[7/15] md:col-[13/25]"
-          initial={{ x: "-100%", opacity: 0 }}
-          animate={getSitoVetrinaAnimation()}
-          transition={{ type: "spring", stiffness: 50 }}
-        >
-          <Card isFooterBlurred className="w-full h-full group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105">
-            <CardHeader className="absolute p-[0.4vw] md:p-[0.6vw] z-10 flex-col items-start">
-              <CardTitle preTitle="Mostra il meglio della tua attività" title="Sito Vetrina" />
-            </CardHeader>
-            <Image
-              removeWrapper
-              alt="Relaxing app background"
-              className="z-0 w-full h-full object-contain object-right py-[8vw] md:py-0 md:pt-[0.5vw] bg-orange"
-              src="/sfondi/sitoVetrina.jpg"
-            />
-            <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-              <CardFooterContent testo1={"Distinguiti online"} testo2={"Un sito che parla per te."} testoBottone={"scopri di più"} onClick={() => scrollToSection("home")} />
-            </CardFooter>
-          </Card>
-        </motion.div>
+        <div className="row-[10/35] col-[1/32] md:row-[7/15] md:col-[13/25]">
+          <Card 
+            reference={sitoVetrinaRef}
+            pretitle={"Mostra il meglio della tua attività"} 
+            title={"Sito Vetrina"} 
+            img={"/sfondi/sitoVetrina.jpg"} 
+            calltoaction1={"Distinguiti online"} 
+            calltoaction2={"Un sito che parla per te."} 
+            testoBottone={"scopri di più"}
+            animation={getSitoVetrinaAnimation()} 
+            onClick={() => scrollToSection("home")} 
+          />
+        </div>
 
         {/* Card "E-commerce" */}
-        <motion.div
-          ref={ecommerceRef}
-          className="row-[36/61] col-[1/32] md:row-[16/24] md:col-[25/37]"
-          initial={{ x: "100%", opacity: 0 }}
-          animate={getEcommerceAnimation()}
-          transition={{ type: "spring", stiffness: 50 }}
-        >
-          <Card isFooterBlurred className="w-full h-full group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105">
-            <CardHeader className="absolute p-[0.4vw] md:p-[0.6vw] z-10 flex-col items-start">
-              <CardTitle preTitle="Prossimamente" title="E-commerce" />
-            </CardHeader>
-            <Image
-              removeWrapper
-              alt="Card example background"
-              className="z-0 w-full h-full scale-125 -translate-y-6 object-contain object-right pt-[10vw] pb-[7vw] pr-[2vw] md:p-0 md:pr-[1vw] md:pt-[2vw] lg:pt-[1.5vw] xl:pt-[1vw] bg-orange"
-              src="/sfondi/E-commerce.jpg"
-            />
-            <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-              <CardFooterContent testo1={"Porta il tuo negozio online"} testo2={"Presto disponibile."} testoBottone={"richiedi info"} onClick={() => scrollToSection("contattaci")} />
-            </CardFooter>
-          </Card>
-        </motion.div>
+        <div className="row-[36/61] col-[1/32] md:row-[16/24] md:col-[25/37]">
+          <Card 
+            reference={ecommerceRef}
+            pretitle={"Prossimamente"} 
+            title={"E-commerce"} 
+            img={"/sfondi/E-commerce.jpg"} 
+            calltoaction1={"Porta il tuo negozio online"} 
+            calltoaction2={"Presto disponibile."} 
+            testoBottone={"richiedi info"}
+            animation={getEcommerceAnimation()} 
+            onClick={() => scrollToSection("contattaci")} 
+          />
+        </div>
 
         {/* Cubo sopra */}
         <div className="hidden md:block md:row-[8/14] md:col-[37/43]">
@@ -134,24 +120,6 @@ export default function Services() {
         <div className="hidden md:block md:row-[17/24] md:col-[5/13]">
           <CubeRotation />
         </div>
-
-        {/* Card clienti */}
-        {/* <Card className="hidden md:block row-[16/23] col-[5/13] group overflow-hidden relative transition-all duration-300 hover:shadow-2xl hover:scale-105 bg-blue-medium">
-          <CardHeader className="absolute z-10 top-1 flex-col !items-start">
-            <p className="md:text-[0.6vw] text-white/60 uppercase font-bold">
-              Partner e Collaborazioni
-            </p>
-            <h4 className="md:text-[1vw] text-white font-medium ">
-              Le attività che ci hanno scelto
-            </h4>
-          </CardHeader>
-          <Image
-            removeWrapper
-            alt="Card background"
-            className="z-0 w-full h-full object-cover"
-            src="/FormeSVG/blue-8.svg"
-          />
-        </Card> */}
 
         {/* Rettangoli */}
         <div className="hidden md:block row-[9/11] col-[2/27] bg-blue-medium">
