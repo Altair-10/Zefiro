@@ -1,9 +1,7 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback } from "react";
 import SubmitButton from "./submitButton";
-import { Input } from "@heroui/react";
-import { Textarea } from "@heroui/react";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -16,14 +14,36 @@ export default function ContactForm() {
   });
 
   const [status, setStatus] = useState(false);
+  const [errors, setErrors] = useState({ nome: "", cognome: "", telefono: "" });
+
+  const validateInputs = (name, value) => {
+    let error = "";
+    if (name === "nome" || name === "cognome") {
+      if (!/^[A-Za-zÀ-ÖØ-öø-ÿ'’ -]{2,}$/.test(value)) {
+        error = "Inserire un cognome valido.";
+      }
+    } else if (name === "telefono") {
+      if (!/^\+?[0-9\s\-()]{8,15}$/.test(value)) {
+        error = "Inserire un numero di telefono valido.";
+      }
+    }
+    setErrors((prev) => ({ ...prev, [name]: error }));
+  };
 
   const handleChange = useCallback((e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    validateInputs(name, value);
   }, []);
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     setStatus(true);
+
+    if (errors.nome || errors.cognome || errors.telefono) {
+      setStatus(false);
+      return;
+    }
 
     try {
       const response = await fetch("/api/sendEmail", {
@@ -39,95 +59,54 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
-        //setMessage("Email inviata con successo!");
         setFormData({ azienda: "", nome: "", cognome: "", email: "", telefono: "", aiuto: "" });
-      } // else {
-      //   setMessage("Errore durante l'invio dell'email.");
-      // }
+      }
     } catch (error) {
       console.error("Errore:", error);
-      //setMessage("Si è verificato un problema.");
     } finally {
       setStatus(false);
     }
-  }, [formData]);
+  }, [formData, errors]);
 
   return (
-    <form
-    className="flex flex-col justify-center md:gap-y-2 w-full h-full"
-    >
+    <form className="flex flex-col justify-center md:gap-y-2 w-full h-full" onSubmit={handleSubmit}>
       <div className="md:flex flex-row justify-between w-full gap-4">
-        <Input
-          isRequired
-          label="Nome"
-          labelPlacement="outside"
-          type="text"
-          name="nome"
-          value={formData.nome}
-          onChange={handleChange}
-          className="flex-1 min-w-0"
-        />
-        <Input
-          isRequired
-          label="Cognome"
-          labelPlacement="outside"
-          type="text"
-          name="cognome"
-          value={formData.cognome}
-          onChange={handleChange}
-          className="flex-1 min-w-0"
-        />
+        <div className="flex-1 min-w-0">
+          <label className="block text-sm font-medium">Nome</label>
+          <input required type="text" name="nome" value={formData.nome} onChange={handleChange} className="w-full p-2 border rounded-md" />
+          {errors.nome && <p className="text-red-500 text-xs mt-1">{errors.nome}</p>}
+        </div>
+        <div className="flex-1 min-w-0">
+          <label className="block text-sm font-medium">Cognome</label>
+          <input required type="text" name="cognome" value={formData.cognome} onChange={handleChange} className="w-full p-2 border rounded-md" />
+          {errors.cognome && <p className="text-red-500 text-xs mt-1">{errors.cognome}</p>}
+        </div>
       </div>
 
       <div className="md:flex flex-row justify-between w-full gap-4">
-        <Input
-          label="Azienda"
-          labelPlacement="outside"
-          type="text"
-          name="azienda"
-          value={formData.azienda}
-          onChange={handleChange}
-          className="flex-1 min-w-0"
-        />
-        <Input
-          isRequired
-          label="Numero di telefono"
-          labelPlacement="outside"
-          type="tel"
-          name="telefono"
-          value={formData.telefono}
-          onChange={handleChange}
-          className="flex-1 min-w-0"
-        />
+        <div className="flex-1 min-w-0">
+          <label className="block text-sm font-medium">Azienda</label>
+          <input type="text" name="azienda" value={formData.azienda} onChange={handleChange} className="w-full p-2 border rounded-md" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <label className="block text-sm font-medium">Numero di telefono</label>
+          <input required type="tel" name="telefono" value={formData.telefono} onChange={handleChange} className="w-full p-2 border rounded-md" />
+          {errors.telefono && <p className="text-red-500 text-xs mt-1">{errors.telefono}</p>}
+        </div>
       </div>
 
       <div className="w-full">
-        <Input
-          isRequired
-          label="Email"
-          labelPlacement="outside"
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full"
-        />
+        <label className="block text-sm font-medium">Email</label>
+        <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full p-2 border rounded-md" />
       </div>
 
       <div className="w-full">
-        <Textarea
-          isRequired
-          label="Siamo qui per te. Parlaci!"
-          labelPlacement="outside"
-          variant="flat"
-          name="aiuto"
-          value={formData.aiuto}
-          onChange={handleChange}
-          className="w-full min-h-[8vw]"
-        />
+        <label className="block text-sm font-medium">Siamo qui per te. Parlaci!</label>
+        <textarea required name="aiuto" value={formData.aiuto} onChange={handleChange} className="w-full p-2 border rounded-md min-h-[8vw]" />
       </div>
+      
       <div className="flex flex-row justify-center">
-        <SubmitButton onClick={handleSubmit} onGoing={status} />
+        <SubmitButton onGoing={status} />
       </div>
     </form>
   );

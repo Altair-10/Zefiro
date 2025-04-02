@@ -29,7 +29,7 @@ export default function SubmitButton ({onGoing, callback}){
         </div>
       </div>
       <span className="block transition-all duration-300 group-hover:text-[var(--hover-text-color)]">
-        {`${onGoing ? "Invio in corso..." : "Invia"}`}
+        {`${onGoing ? "In corso..." : "Invia"}`}
       </span>
     </button>
   );
