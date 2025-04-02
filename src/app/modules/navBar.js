@@ -16,7 +16,7 @@ export default function Navbar() {
     <div id="navbar" className="fixed w-full top-0 z-50 h-[20vw] sm:h-[13vw] md:h-[10vw] lg:h-[8vw] xl:h-[5vw] bg-gradient-orange">
       <div className="flex justify-between items-center h-full md:mx-5 pr-5 md:pr-0">
         {/* Logo */}
-        <div>
+        <div className="flex items-center justify-center">
           <button onClick={() => scrollToSection("home")}>
             <Image
               src="/loghi_altair/SmallLogoDark.svg"
