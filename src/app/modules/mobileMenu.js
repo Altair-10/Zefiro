@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import SocialIcons from "./socialIcons";
+import ShapesDisplayer from "./shapesDisplayer";
 
 // Custom hook per rilevare la dimensione dello schermo
 const useMobileView = () => {
@@ -22,6 +23,7 @@ const useMobileView = () => {
 
   return isMobile;
 };
+
 
 // Custom hook per rilevare click esterni
 const useOnClickOutside = (ref, handler) => {
