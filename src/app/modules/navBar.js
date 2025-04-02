@@ -19,11 +19,11 @@ export default function Navbar() {
         <div className="flex items-center justify-center">
           <button onClick={() => scrollToSection("home")}>
             <Image
-              src="/loghi_altair/SmallLogoDark.svg"
+              src="/loghi_altair/bigZefiro_dark.svg"
               width={130}
               height={60}
               alt="Logo"
-              className="w-[30vw] md:w-[8vw]"
+              className="w-[30vw] md:w-[12vw] mx-[1vw]"
             />
           </button>
         </div>
