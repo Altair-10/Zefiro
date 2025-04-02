@@ -11,7 +11,7 @@ import ChiSiamo from "./chiSiamo/chiSiamo";
 export default function SplashScreen() {
   return (
     <div>
-     <ThreeBackground /> 
+      <ThreeBackground /> 
       <Preloader />
       <Navbar />
       <div id="home">
