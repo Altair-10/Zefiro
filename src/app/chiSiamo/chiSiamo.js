@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Employee } from './components/ClassEmployees';
 import { useInView } from "react-intersection-observer";
-import { TypeAnimation } from "react-type-animation";
 
 export default function ChiSiamo() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -70,9 +69,9 @@ export default function ChiSiamo() {
 
       <div className="w-full max-w-6xl">
         <div
-          className="mb-24 transition-all duration-500 delay-200"
+          className="mb-24 transition-all duration-500 delay-100"
           style={{
-            transform: `translateX(${(scrollProgress - 0.5) * 100}px)`,
+            transform: `translateY(${(scrollProgress - 0.5) * 100}px)`,
             opacity: scrollProgress > 0.2 ? 1 : 0,
           }}
         >
@@ -93,21 +92,35 @@ export default function ChiSiamo() {
         </div>
 
         <div
-          className="mt-[7vw] p-[1vw] bg-blue-50 border-l-4 border-blue-medium shadow-md rounded-3xl"
-          >
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-dark mb-[1vw]">I nostri valori</h2>
-            <p ref={ref} className="text-lg text-gray-900 font-semibold">
-              {inView && (
-                <TypeAnimation
-                  sequence={[
-                    "🌍 Oltre i confini\n Esploriamo territori inesplorati con curiosità da pionieri.\n🧰 Ecosistema umano\n Tecnologia che amplifica, non sostituisce l'umanità.\n🍃 Bellezza funzionale\n Cerchiamo l'armonia perfetta tra forma e sostanza.\n🥳 Gioia contagiosa\n Lavoriamo con il sorriso e lo trasmettiamo attraverso ciò che creiamo.",
-                  ]}
-                  speed={60}
-                  style={{ whiteSpace: "pre-line" }}
-                  cursor={false}
-                />
-              )}
-            </p>
+          ref={ref}
+          className="md:mt-[10vw] mt-[20vw] p-[2vw] bg-blue-50 border-l-4 border-blue-medium shadow-md rounded-lg transition-all duration-500 delay-200"
+          style={{
+            transform: inView ? `translateY(${scrollProgress * -50}px)` : 'translateY(50px)',
+            opacity: inView ? 1 : 0,
+          }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-dark mb-[1.5vw]">I nostri valori</h2>
+          <div className="text-lg text-gray-900 font-semibold space-y-2">
+            <div>
+              <p className="font-extrabold">🌍 Oltre i confini</p>
+              <p>Esploriamo territori inesplorati con curiosità da pionieri.</p>
+            </div>
+            
+            <div>
+              <p className="font-extrabold">🧰 Ecosistema umano</p>
+              <p>Tecnologia che amplifica, non sostituisce l'umanità.</p>
+            </div>
+            
+            <div>
+              <p className="font-extrabold">🍃 Bellezza funzionale</p>
+              <p>Cerchiamo l'armonia perfetta tra forma e sostanza.</p>
+            </div>
+            
+            <div>
+              <p className="font-extrabold">🥳 Gioia contagiosa</p>
+              <p>Lavoriamo con il sorriso e lo trasmettiamo attraverso ciò che creiamo.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
