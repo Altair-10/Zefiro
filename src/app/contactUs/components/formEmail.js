@@ -74,12 +74,12 @@ export default function ContactForm() {
         <div className="flex-1 min-w-0">
           <label className="block text-sm font-medium">Nome</label>
           <input required type="text" name="nome" value={formData.nome} onChange={handleChange} className="w-full p-2 border rounded-md" />
-          {errors.nome && <p className="text-red-500 text-xs mt-1">{errors.nome}</p>}
+          {errors.nome && <p className="text-red-500 text-xs mt-1 whitespace-nowrap">{errors.nome}</p>}
         </div>
         <div className="flex-1 min-w-0">
           <label className="block text-sm font-medium">Cognome</label>
           <input required type="text" name="cognome" value={formData.cognome} onChange={handleChange} className="w-full p-2 border rounded-md" />
-          {errors.cognome && <p className="text-red-500 text-xs mt-1">{errors.cognome}</p>}
+          {errors.cognome && <p className="text-red-500 text-xs mt-1 whitespace-nowrap">{errors.cognome}</p>}
         </div>
       </div>
 
@@ -89,9 +89,9 @@ export default function ContactForm() {
           <input type="text" name="azienda" value={formData.azienda} onChange={handleChange} className="w-full p-2 border rounded-md" />
         </div>
         <div className="flex-1 min-w-0">
-          <label className="block text-sm font-medium">Numero di telefono</label>
+          <label className="block text-sm font-medium whitespace-nowrap">Numero di telefono</label>
           <input required type="tel" name="telefono" value={formData.telefono} onChange={handleChange} className="w-full p-2 border rounded-md" />
-          {errors.telefono && <p className="text-red-500 text-xs mt-1">{errors.telefono}</p>}
+          {errors.telefono && <p className="text-red-500 text-xs mt-1 whitespace-nowrap">{errors.telefono}</p>}
         </div>
       </div>
 

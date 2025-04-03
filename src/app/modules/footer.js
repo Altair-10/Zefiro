@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import SocialIcons from "./socialIcons"
 
 export default function Footer() {
     const scrollToSection = (id) => {
@@ -15,13 +14,13 @@ export default function Footer() {
 
     const info = [
         { text: "+39 38904402325" },
-        { text: "altair-info@gmail.com" }
+        { text: "zefiro-info@gmail.com" }
     ]
 
     return (
         <div className="flex flex-col md:flex-row justify-center items-center md:gap-[10vw] w-full h-[60vw] md:h-[12vw] bg-gradient-orange">
                 <Image
-                    src={`/loghi_altair/BigLogoLight.svg`}
+                    src={`/loghi_altair/bigZefiro_light.svg`}
                     width={1000}
                     height={1000}
                     alt=''
