@@ -6,6 +6,7 @@ import CubeRotation from "@/app/services/components/rotatingCube";
 import ShapesDisplayer from "../modules/shapesDisplayer";
 import { useState, useEffect, useRef } from "react";
 
+
 export default function Services() {
   const scrollToSection = (id) => {
     if (typeof document !== "undefined") {
@@ -13,61 +14,29 @@ export default function Services() {
     }
   };
 
-  const [isInViewSitoVetrina, setIsInViewSitoVetrina] = useState(false);
-  const [isInViewEcommerce, setIsInViewEcommerce] = useState(false);
-  const [isMdScreen, setIsMdScreen] = useState(false);
-
-  const sitoVetrinaRef = useRef(null);
-  const ecommerceRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMdScreen(window.matchMedia("(min-width: 768px)").matches);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+        if (containerRef.current) {
+          const { top } = containerRef.current.getBoundingClientRect();
+          const progress = Math.min(
+          1,
+          Math.max(0, (window.innerHeight * 0.2 - top) / (window.innerHeight * 0.6))
+          );
+          setScrollProgress(progress);
+        }
+        ticking = false;
+        });
+        ticking = true;
+      }
     };
-
-    checkScreenSize();
-    window.addEventListener("resize", checkScreenSize);
-
-    return () => {
-      window.removeEventListener("resize", checkScreenSize);
-    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    if (!isMdScreen) return;
-
-    const options = {
-      rootMargin: "0px",
-      threshold: 0.5,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.target === sitoVetrinaRef.current) {
-          setIsInViewSitoVetrina(entry.isIntersecting);
-        }
-        if (entry.target === ecommerceRef.current) {
-          setIsInViewEcommerce(entry.isIntersecting);
-        }
-      });
-    }, options);
-
-    if (sitoVetrinaRef.current) observer.observe(sitoVetrinaRef.current);
-    if (ecommerceRef.current) observer.observe(ecommerceRef.current);
-
-    return () => {
-      if (sitoVetrinaRef.current) observer.unobserve(sitoVetrinaRef.current);
-      if (ecommerceRef.current) observer.unobserve(ecommerceRef.current);
-    };
-  }, [isMdScreen]);
-
-  const getSitoVetrinaAnimation = () => {
-    return isInViewSitoVetrina ? { x: 0, opacity: 1 } : { x: "-100%", opacity: 0 };
-  };
-
-  const getEcommerceAnimation = () => {
-    return isInViewEcommerce ? { x: 0, opacity: 1 } : { x: "100%", opacity: 0 };
-  };
 
   return (
     <div className="flex justify-center items-center w-full">
@@ -82,33 +51,31 @@ export default function Services() {
         <PageTitle title="Servizi" />
 
         {/* Card "Sito Vetrina" */}
-        <div className="row-[10/35] col-[1/32] md:row-[7/15] md:col-[13/25]">
+        <div 
+          className="row-[10/35] col-[1/32] md:row-[7/15] md:col-[13/25]"
+        >
           <Card 
-            reference={sitoVetrinaRef}
-            pretitle={"Mostra il meglio della tua attività"} 
+            preTitle={"Mostra il meglio della tua attività"} 
             title={"Sito Vetrina"} 
             img={"/sfondi/sitoVetrina.jpg"} 
             calltoaction1={"Distinguiti online"} 
             calltoaction2={"Un sito che parla per te."} 
-            testoBottone={"scopri di più"}
-            animation={getSitoVetrinaAnimation()} 
-            onClick={() => scrollToSection("home")} 
+            onClick={() => scrollToSection("contattaci")}
+            animationDirection="left" 
           />
         </div>
 
         {/* Card "E-commerce" */}
         <div className="row-[36/61] col-[1/32] md:row-[16/24] md:col-[25/37]">
-          <Card 
-            reference={ecommerceRef}
-            pretitle={"Prossimamente"} 
-            title={"E-commerce"} 
-            img={"/sfondi/E-commerce.jpg"} 
-            calltoaction1={"Porta il tuo negozio online"} 
-            calltoaction2={"Presto disponibile."} 
-            testoBottone={"richiedi info"}
-            animation={getEcommerceAnimation()} 
-            onClick={() => scrollToSection("contattaci")} 
-          />
+        <Card 
+          preTitle={"Ottimizza il tuo business"} 
+          title={"Gestionale"} 
+          img={"/sfondi/E-commerce.jpg"} 
+          calltoaction1={"Gestisci tutto in un unico posto"} 
+          calltoaction2={"Ordinato, efficiente, su misura"} 
+          onClick={() => scrollToSection("contattaci")}
+          animationDirection="right" 
+        />
         </div>
 
         {/* Cubo sopra */}

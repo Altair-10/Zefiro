@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import SocialIcons from "./socialIcons"
 
 export default function Footer() {
     const scrollToSection = (id) => {
