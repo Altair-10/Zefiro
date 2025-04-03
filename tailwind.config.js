@@ -24,6 +24,7 @@ export const theme = {
     },
     backgroundImage: {
       "gradient-orange": "linear-gradient(to right, #ffa62b, #ff9a3b, #ff8c00)",
+      "gradient-blue": "linear-gradient(to right, #16697a, #489fb5)"
     },
     fontFamily: {
       title: ["Roboto", "sans-serif"],

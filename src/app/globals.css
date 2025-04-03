@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #ede7e4;
+  --background: #ffffff;
   --foreground: #171717;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* @media (prefers-color-scheme: dark) {
