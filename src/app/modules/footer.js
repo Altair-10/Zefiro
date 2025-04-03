@@ -3,10 +3,6 @@
 import Image from "next/image"
 
 export default function Footer() {
-    const scrollToSection = (id) => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    };
-
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text);
         alert(`Copiato: ${text}`);
@@ -14,7 +10,7 @@ export default function Footer() {
 
     const info = [
         { text: "+39 38904402325" },
-        { text: "zefiro-info@gmail.com" }
+        { text: "zefiro.it.info@gmail.com" }
     ]
 
     return (
