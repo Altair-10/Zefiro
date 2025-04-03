@@ -64,7 +64,7 @@ export default function ChiSiamo() {
           opacity: 1 - scrollProgress * 0.3,
         }}
       >
-        {`Scopri chi c'è dietro Altair`}
+        {`Scopri chi c'è dietro Zefiro`}
       </h1>
 
       <div className="w-full max-w-6xl">
