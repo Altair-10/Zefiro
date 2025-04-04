@@ -63,7 +63,7 @@ export default function Card({ preTitle, title, img, calltoaction1, calltoaction
               className="transition-all duration-150 ease-in-out rounded-2xl bg-brown-light mr-[2vw] md:mr-[0.5vw]
               text-[4vw] md:text-[1vw] xl:text-[1vw] 2xl:text-[0.8vw] w-[28vw] h-[10vw] md:w-[8vw] md:h-[2vw] active:scale-90 whitespace-nowrap"
             >
-              richiedi info
+              Richiedi info
             </button>
           </div>
         </div>

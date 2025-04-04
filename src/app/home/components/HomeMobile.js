@@ -34,10 +34,6 @@ export default function HomeMobile() {
             <span className="block">Take IT</span>
             <span className="block">for future</span>
           </h1>
-
-
-          {/* seconda riga con riquadro grande */}
-
         </div>
 
         {/* Bottone contattaci */}
@@ -45,6 +41,7 @@ export default function HomeMobile() {
           <ContactButton />
         </div>
 
+        {/* Terza riga con riquadro grande */}
         <div className="h-[20vw] bg-blue-medium rounded-sm col-span-2">
           <ShapesDisplayer
             numShapes={1}
