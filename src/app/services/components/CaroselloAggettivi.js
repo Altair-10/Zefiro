@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import dynamic from 'next/dynamic';
 
 const sellingPoints = [
   { text: "Convenienza", color: "#FF6B35", emoji: "💰", shadow: "0 0 15px rgba(255, 107, 53, 0.7)" },
@@ -9,9 +10,10 @@ const sellingPoints = [
   { text: "Sicurezza", color: "#3A86FF", emoji: "🛡️", shadow: "0 0 15px rgba(58, 134, 255, 0.7)" },
 ];
 
-export default function PremiumSaleAnimation() {
+function PremiumSaleAnimationComponent() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isManualSelection, setIsManualSelection] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef(null);
 
   const startTimer = () => {
@@ -19,10 +21,11 @@ export default function PremiumSaleAnimation() {
     timerRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % sellingPoints.length);
       setIsManualSelection(false);
-    }, 3000); // Aumentato a 3 secondi
+    }, 3000);
   };
 
   useEffect(() => {
+    setIsMounted(true);
     startTimer();
     return () => clearInterval(timerRef.current);
   }, []);
@@ -30,8 +33,26 @@ export default function PremiumSaleAnimation() {
   const handleManualSelection = (index) => {
     setIsManualSelection(true);
     setCurrentIndex(index);
-    startTimer(); // Riavvia il timer quando si fa una selezione manuale
+    startTimer();
   };
+
+  // Render semplificato per SSR
+  if (!isMounted) {
+    return (
+      <div className="relative w-full h-full flex items-center justify-center rounded-xl overflow-hidden">
+        <div 
+          className="px-8 py-6 rounded-xl text-white font-extrabold text-3xl md:text-4xl flex items-center justify-center gap-3"
+          style={{
+            background: sellingPoints[0].color,
+            boxShadow: sellingPoints[0].shadow,
+          }}
+        >
+          <span className="text-4xl">{sellingPoints[0].emoji}</span>
+          <span>{sellingPoints[0].text}</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative w-full h-full flex items-center justify-center rounded-xl overflow-hidden">
@@ -60,8 +81,8 @@ export default function PremiumSaleAnimation() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Effetto particellare */}
-      {Array.from({ length: 12 }).map((_, i) => (
+      {/* Effetto particellare - solo su client */}
+      {isMounted && Array.from({ length: 12 }).map((_, i) => (
         <motion.div
           key={`particle-${i}`}
           className="absolute rounded-full"
@@ -107,3 +128,27 @@ export default function PremiumSaleAnimation() {
     </div>
   );
 }
+
+// Caricamento lato client con SSR disabilitato
+const PremiumSaleAnimation = dynamic(
+  () => Promise.resolve(PremiumSaleAnimationComponent),
+  { 
+    ssr: false,
+    loading: () => (
+      <div className="relative w-full h-full flex items-center justify-center rounded-xl overflow-hidden">
+        <div 
+          className="px-8 py-6 rounded-xl text-white font-extrabold text-3xl md:text-4xl flex items-center justify-center gap-3"
+          style={{
+            background: sellingPoints[0].color,
+            boxShadow: sellingPoints[0].shadow,
+          }}
+        >
+          <span className="text-4xl">{sellingPoints[0].emoji}</span>
+          <span>{sellingPoints[0].text}</span>
+        </div>
+      </div>
+    )
+  }
+);
+
+export default PremiumSaleAnimation;

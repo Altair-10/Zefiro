@@ -37,7 +37,7 @@ export default function Footer() {
     }
 
     const info = [
-        { text: "+39 38904402325" },
+        { text: "+39 3347850255" },
         { text: "zefiro.it.info@gmail.com" }
     ]
 
