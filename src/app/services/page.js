@@ -4,7 +4,9 @@ import PageTitle from "../modules/pageTitle";
 import Card from "./components/card";
 import CubeRotation from "@/app/services/components/rotatingCube";
 import ShapesDisplayer from "../modules/shapesDisplayer";
-import { useState, useEffect, useRef } from "react";
+import CaroselloAggettivi from "./components/CaroselloAggettivi"
+import {useEffect, useRef } from "react";
+
 
 
 export default function Services() {
@@ -78,13 +80,12 @@ export default function Services() {
         />
         </div>
 
-        {/* Cubo sopra */}
-        <div className="hidden md:block md:row-[8/14] md:col-[37/43]">
-          <CubeRotation />
+        <div className="hidden md:block md:row-[4/14] md:col-[33/50]">
+          <CaroselloAggettivi />
         </div>
 
         {/* Cubo sotto */}
-        <div className="hidden md:block md:row-[17/24] md:col-[5/13]">
+        <div className="hidden md:block md:row-[16/23] md:col-[5/13]">
           <CubeRotation />
         </div>
 

@@ -1,6 +1,5 @@
 "use client"
 import React from "react";
-import ShapesDisplayer from "@/app/modules/shapesDisplayer";
 import HomeMobile from "./components/HomeMobile";
 import HomeDesktop from "./components/HomeDesktop";
 

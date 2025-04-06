@@ -13,7 +13,7 @@ export default function Home() {
       ">
         <div className="row-[7] col-[1] md:row-[3] md:col-[3/7]">
           <h1 className="w-[80vw] text-[8vw] md:w-[35vw] md:text-[7vw] leading-[8vw] font-serif text-blue-dark">
-            <span className="inline md:block">take IT </span>
+            <span className="inline md:block">Take IT </span>
             <span className="inline md:block">for future</span>
           </h1>
         </div>
