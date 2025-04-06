@@ -11,34 +11,38 @@ export default function CallToAction() {
       grid-rows-[repeat(45,_minmax(0,_2vw))] md:grid-rows-[repeat(20,_minmax(0,_1vw))]
       grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))]
     ">
-        <div className="row-[7] col-[1/32] md:row-[3] md:col-[3/7]">
+        <div className="row-[8] col-[1/32] md:row-[3] md:col-[3/7]">
           <h1 className="w-[80vw] text-center text-[8vw] md:w-[35vw] md:text-[7vw] leading-[8vw] font-serif text-blue-dark">
             <span className="inline md:block">Take IT </span>
             <span className="inline md:block">for future</span>
           </h1>
         </div>
-        <div className="row-[18/23] col-[4/29] md:row-[12/15] md:col-[3/13]">
+        <div className="row-[21/26] col-[4/29] md:row-[12/15] md:col-[3/13]">
           <ContactButton />
         </div>
 
-        { /* RETTANGOLI CALL TO ACTION MOBILE */}
+        {/* 1° riga */}
+        <div className="md:hidden row-[1/5] col-[1/16] bg-blue-light rounded-sm">
+          <ShapesDisplayer
+            numShapes={1}
+            imgName1="/formeSVG/blue-6.svg"
+            position="center"
+            width="6vw"
+            height="6vw"
+          />
+        </div>
         <div className="md:hidden row-[1/5] col-[17/32] bg-blue-dark rounded-sm">
           <ShapesDisplayer
             numShapes={1}
             imgName1="/formeSVG/orange-6.svg"
             position="center"
-            width="7vw"
-            height="7vw"
+            width="6vw"
+            height="6vw"
           />
         </div>
-        <div className="md:hidden row-[1/5] col-[1/16] bg-blue-light rounded-sm">
-          <ShapesDisplayer
-            numShapes={1}
-            imgName1="/formeSVG/blue-4.svg"
-            position="center"
-          />
-        </div>
-        <div className="md:hidden row-[12/18] col-[1/32] bg-blue-medium rounded-sm">
+
+        {/* 2° riga */}
+        <div className="md:hidden row-[14/20] col-[1/32] bg-blue-medium rounded-sm">
           <ShapesDisplayer
             numShapes={1}
             imgName1="/formeSVG/reactLogo.svg"
@@ -47,18 +51,41 @@ export default function CallToAction() {
             width="12vw"
           />
         </div>
-        <div className="md:hidden row-[27/33] col-[1/32] bg-blue-medium rounded-sm">
-          <ShapesDisplayer
-            numShapes={1}
-            imgName1="/formeSVG/blue-8.svg"
-            position="center"
-          />
-        </div>
-        <div className="md:hidden row-[34/40] col-[1/32] bg-blue-dark rounded-sm">
+
+        {/* 3° riga */}
+        <div className="md:hidden row-[31/35] col-[1/23] bg-blue-medium rounded-sm" />
+
+        <div className="md:hidden row-[31/35] col-[24/32] bg-blue-dark rounded-sm">
           <ShapesDisplayer
             numShapes={1}
             imgName1="/formeSVG/orange-12.svg"
             position="center"
+            width="6vw"
+            height="6vw"
+          />
+        </div>
+
+        {/* 4° riga */}
+        <div className="md:hidden row-[36/40] col-[1/7] bg-blue-light rounded-sm">
+          <ShapesDisplayer
+            numShapes={1}
+            imgName1="/formeSVG/blue-8.svg"
+            position="center"
+            width="6vw"
+            height="6vw"
+          />
+        </div>
+        <div className="md:hidden row-[36/40] col-[8/32] bg-blue-medium rounded-sm" />
+
+        {/* 5° riga */}
+        <div className="md:hidden row-[41/45] col-[1/23] bg-blue-dark rounded-sm" />
+        <div className="md:hidden row-[41/45] col-[24/32] bg-blue-dark rounded-sm">
+          <ShapesDisplayer
+            numShapes={1}
+            imgName1="/formeSVG/orange-4.svg"
+            position="center"
+            width="6vw"
+            height="6vw"
           />
         </div>
 

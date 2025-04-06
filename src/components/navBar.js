@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SocialIcons from "./socialIcons";
@@ -8,9 +8,24 @@ import BurgerMenu from "./mobileMenu";
 
 export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const dropdownButtonRef = useRef(null);
+  const dropdownTimeoutRef = useRef(null);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen((prev) => !prev);
+  const openDropdown = () => {
+    clearTimeout(dropdownTimeoutRef.current);
+    setIsDropdownOpen(true);
+  };
+
+  const closeDropdown = () => {
+    // Aggiungi un piccolo ritardo per permettere il passaggio al dropdown
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setIsDropdownOpen(false);
+    }, 200);
+  };
+
+  const cancelCloseDropdown = () => {
+    clearTimeout(dropdownTimeoutRef.current);
   };
 
   return (
@@ -31,54 +46,55 @@ export default function Navbar() {
 
         {/* Menu Desktop */}
         <div className="hidden sm:flex text-xl gap-[3vw] text-white font-bold">
-        <Link
-          href={"/"}
-          className="hover:text-blue-dark"
-        >
-          HOME
-        </Link>
-        <div className="relative">
-          <button
-            onClick={toggleDropdown}
-            className="flex items-center gap-1 hover:text-blue-dark"
+          <Link href={"/"} className="hover:text-blue-dark">
+            HOME
+          </Link>
+          <div
+            className="relative"
+            onMouseEnter={openDropdown}
+            onMouseLeave={closeDropdown}
+            ref={dropdownButtonRef}
           >
-            SERVIZI
-            <span
-              className={`transition-transform duration-200 ${
-                isDropdownOpen ? "rotate-180" : ""
-              }`}
+            <button
+              className="flex items-center gap-1 hover:text-blue-dark"
             >
-              ▼
-            </span>
-          </button>
+              SERVIZI
+              <span
+                className={`transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""
+                  }`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                </svg>
+              </span>
+            </button>
 
-          {isDropdownOpen && (
-            <div className="absolute mt-2 w-44 bg-orange shadow-lg rounded-lg py-2 z-10">
-              <Link
-                href={"/sitoVetrina"}
-                className="block w-full text-left px-4 py-2 hover:bg-blue-light"
+            {isDropdownOpen && (
+              <div
+                ref={dropdownRef}
+                className="absolute mt-5 w-44 bg-gradient-orange shadow-lg rounded-lg py-2 z-10"
+                onMouseEnter={cancelCloseDropdown}
+                onMouseLeave={closeDropdown}
               >
-                Sito Vetrina
-              </Link>
-              <Link
-                href={"/gestionale"}
-                className="block w-full text-left px-4 py-2 hover:bg-blue-light"
-              >
-                Gestionale
-              </Link>
-            </div>
-          )}
-        </div>
-          <Link
-            href={"about"}
-            className="hover:text-blue-dark"
-          >
+                <Link
+                  href={"/sitoVetrina"}
+                  className="block w-full text-left px-4 py-2 hover:text-blue-dark"
+                >
+                  SITO VETRINA
+                </Link>
+                <Link
+                  href={"/gestionale"}
+                  className="block w-full text-left px-4 py-2 hover:text-blue-dark"
+                >
+                  GESTIONALE
+                </Link>
+              </div>
+            )}
+          </div>
+          <Link href={"about"} className="hover:text-blue-dark">
             CHI SIAMO
           </Link>
-          <Link
-            href={"/contactUs"}
-            className="hover:text-blue-dark"
-          >
+          <Link href={"/contactUs"} className="hover:text-blue-dark">
             CONTATTACI
           </Link>
         </div>
