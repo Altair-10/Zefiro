@@ -1,11 +1,11 @@
 "use client";
 
-import Card from "./components/card";
-import CubeRotation from "@/app/services/components/rotatingCube";
-import ShapesDisplayer from "../modules/shapesDisplayer";
-import CaroselloAggettivi from "./components/CaroselloAggettivi"
-import {useEffect, useRef } from "react";
-
+import Card from "./card";
+import TrianglePrism from "./rotatingCube";
+import ShapesDisplayer from "../shapesDisplayer";
+import PremiumSaleAnimation from "./caroselloAggettivi";
+import PageTitle from "../pageTitle";
+import { useEffect, useRef } from "react";
 
 export default function Services() {
   const scrollToSection = (id) => {
@@ -21,15 +21,15 @@ export default function Services() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-        if (containerRef.current) {
-          const { top } = containerRef.current.getBoundingClientRect();
-          const progress = Math.min(
-          1,
-          Math.max(0, (window.innerHeight * 0.2 - top) / (window.innerHeight * 0.6))
-          );
-          setScrollProgress(progress);
-        }
-        ticking = false;
+          if (containerRef.current) {
+            const { top } = containerRef.current.getBoundingClientRect();
+            const progress = Math.min(
+              1,
+              Math.max(0, (window.innerHeight * 0.2 - top) / (window.innerHeight * 0.6))
+            );
+            setScrollProgress(progress);
+          }
+          ticking = false;
         });
         ticking = true;
       }
@@ -51,50 +51,45 @@ export default function Services() {
         <PageTitle title="Servizi" />
 
         {/* Card "Sito Vetrina" */}
-        <div 
+        <div
           className="row-[10/35] col-[1/32] md:row-[7/15] md:col-[13/25]"
         >
-          <Card 
-            preTitle={"Mostra il meglio della tua attività"} 
-            title={"Sito Vetrina"} 
-            img={"/sfondi/sitoVetrina.jpg"} 
-            calltoaction1={"Distinguiti online"} 
-            calltoaction2={"Un sito che parla per te."} 
+          <Card
+            preTitle={"Mostra il meglio della tua attività"}
+            title={"Sito Vetrina"}
+            img={"/sfondi/sitoVetrina.jpg"}
+            calltoaction1={"Distinguiti online"}
+            calltoaction2={"Un sito che parla per te."}
             onClick={() => scrollToSection("contattaci")}
-            animationDirection="left" 
+            animationDirection="left"
           />
         </div>
 
         {/* Card "E-commerce" */}
         <div className="row-[36/61] col-[1/32] md:row-[16/24] md:col-[25/37]">
-        <Card 
-          preTitle={"Ottimizza il tuo business"} 
-          title={"Gestionale"} 
-          img={"/sfondi/E-commerce.jpg"} 
-          calltoaction1={"Gestisci tutto in un unico posto"} 
-          calltoaction2={"Ordinato, efficiente, su misura"} 
-          onClick={() => scrollToSection("contattaci")}
-          animationDirection="right" 
-        />
-        </div>
-
-        {/* Cubo sopra */}
-        <div className="hidden md:block md:row-[8/14] md:col-[37/43]">
-          <CubeRotation />
+          <Card
+            preTitle={"Ottimizza il tuo business"}
+            title={"Gestionale"}
+            img={"/sfondi/E-commerce.jpg"}
+            calltoaction1={"Gestisci tutto in un unico posto"}
+            calltoaction2={"Ordinato, efficiente, su misura"}
+            onClick={() => scrollToSection("contattaci")}
+            animationDirection="right"
+          />
         </div>
 
         <div className="hidden md:block md:row-[4/14] md:col-[33/50]">
-          <CaroselloAggettivi />
+          <PremiumSaleAnimation />
         </div>
 
         {/* Cubo sotto */}
         <div className="hidden md:block md:row-[16/23] md:col-[5/13]">
-          <CubeRotation />
+          <TrianglePrism />
         </div>
 
         {/* Rettangoli */}
         <div className="hidden md:block row-[9/11] col-[2/27] bg-blue-medium">
-          <ShapesDisplayer 
+          <ShapesDisplayer
             numShapes={1}
             imgName1="FormeSVG/blue-6.svg"
             position="start"
@@ -103,7 +98,7 @@ export default function Services() {
         <div className="hidden md:block row-[11/13] col-[2/27] bg-blue-light" />
         <div className="hidden md:block row-[18/20] col-[23/48] bg-blue-light" />
         <div className="hidden md:block row-[20/22] col-[23/48] bg-blue-medium">
-          <ShapesDisplayer 
+          <ShapesDisplayer
             numShapes={1}
             imgName1="FormeSVG/orange-12.svg"
             position="end"
