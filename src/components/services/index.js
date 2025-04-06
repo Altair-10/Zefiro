@@ -78,7 +78,7 @@ export default function Services() {
           />
         </div>
 
-        <div className="hidden md:block md:row-[4/14] md:col-[33/50]">
+        <div className="hidden md:block md:row-[6/16] md:col-[32/49]">
           <PremiumSaleAnimation />
         </div>
 
