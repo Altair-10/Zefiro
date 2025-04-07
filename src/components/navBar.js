@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
@@ -14,9 +14,37 @@ export default function Navbar() {
   const dropdownRef = useRef(null);
   const dropdownButtonRef = useRef(null);
   const dropdownTimeoutRef = useRef(null);
+  const scrollTimeoutRef = useRef(null);
 
-  // Controlla se siamo nella pagina principale
   const isHomePage = pathname === "/";
+
+  // Observer per aggiornare l'URL durante lo scroll
+  useEffect(() => {
+    if (!isHomePage) return;
+
+    const sections = document.querySelectorAll("section[id]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            clearTimeout(scrollTimeoutRef.current);
+            scrollTimeoutRef.current = setTimeout(() => {
+              const id = entry.target.getAttribute("id");
+              window.history.replaceState(null, "", `/#${id}`);
+            }, 300);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+      clearTimeout(scrollTimeoutRef.current);
+    };
+  }, [isHomePage]);
 
   const openDropdown = () => {
     clearTimeout(dropdownTimeoutRef.current);
@@ -35,13 +63,14 @@ export default function Navbar() {
 
   const scrollToSection = (sectionId) => {
     if (!isHomePage) {
-      router.push(`/#${sectionId}`); // Se non siamo in home, naviga alla home con hash
+      router.push(`/#${sectionId}`);
       return;
     }
-    
+
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
+      window.history.replaceState(null, "", `/#${sectionId}`);
     }
   };
 
@@ -50,28 +79,33 @@ export default function Navbar() {
       router.push("/");
     } else {
       scrollToSection("home");
+      window.history.replaceState(null, "", "/");
     }
   };
 
   return (
     <div id="navbar" className="fixed w-full top-0 z-50 h-[20vw] sm:h-[13vw] md:h-[10vw] lg:h-[8vw] xl:h-[5vw] bg-gradient-orange">
       <div className="flex justify-between items-center h-full md:mx-5 pr-5 md:pr-0">
-        {/* Logo con link alla home */}
+        {/* Logo che sostituisce il pulsante HOME */}
         <div className="flex items-center justify-center">
-          <button onClick={handleLogoClick} className="focus:outline-none">
+          <button 
+            onClick={handleLogoClick} 
+            className="focus:outline-none hover:opacity-80 transition-opacity"
+            aria-label="Torna alla home"
+          >
             <Image
               src="/loghi_altair/bigZefiro_dark.svg"
               width={130}
               height={60}
-              alt="Logo"
+              alt="Logo Altair - Torna alla home"
               className="w-[30vw] md:w-[12vw] mx-[1vw] cursor-pointer"
+              priority
             />
           </button>
         </div>
 
-        {/* Menu Desktop */}
-        <div className="hidden sm:flex text-xl gap-[3vw] text-white font-bold"> 
-          
+        {/* Menu Desktop - SENZA pulsante HOME */}
+        <div className="hidden sm:flex text-xl gap-[3vw] text-white font-bold">
           {/* Servizi con dropdown */}
           <div
             className="relative"
@@ -82,10 +116,22 @@ export default function Navbar() {
             <button
               className="flex items-center gap-1 hover:text-blue-dark cursor-pointer"
               onClick={() => scrollToSection("services")}
+              aria-expanded={isDropdownOpen}
             >
               SERVIZI
-              <span className={`transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-down-fill" viewBox="0 0 16 16">
+              <span
+                className={`transition-transform duration-200 ${
+                  isDropdownOpen ? "rotate-180" : ""
+                }`}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-caret-down-fill"
+                  viewBox="0 0 16 16"
+                >
                   <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                 </svg>
               </span>
@@ -115,14 +161,14 @@ export default function Navbar() {
           </div>
           
           {/* Chi siamo e Contattaci */}
-          <button 
-            onClick={() => scrollToSection("aboutUs")} 
+          <button
+            onClick={() => scrollToSection("aboutUs")}
             className="hover:text-blue-dark cursor-pointer"
           >
             CHI SIAMO
           </button>
-          <button 
-            onClick={() => scrollToSection("contactUs")} 
+          <button
+            onClick={() => scrollToSection("contactUs")}
             className="hover:text-blue-dark cursor-pointer"
           >
             CONTATTACI

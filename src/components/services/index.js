@@ -51,16 +51,14 @@ export default function Services() {
         <PageTitle title="Servizi" />
 
         {/* Card "Sito Vetrina" */}
-        <div
-          className="row-[10/35] col-[1/32] md:row-[7/15] md:col-[13/25]"
-        >
+        <div className="row-[10/35] col-[1/32] md:row-[7/15] md:col-[13/25]">
           <Card
-            preTitle={"Mostra il meglio della tua attività"}
+            preTitle={"Dai vita alla tua attività"}
             title={"Sito Vetrina"}
             img={"/sfondi/sitoVetrina.jpg"}
             calltoaction1={"Distinguiti online"}
             calltoaction2={"Un sito che parla per te."}
-            onClick={() => scrollToSection("contattaci")}
+            href="/sitoVetrina"
             animationDirection="left"
           />
         </div>
@@ -73,7 +71,7 @@ export default function Services() {
             img={"/sfondi/E-commerce.jpg"}
             calltoaction1={"Gestisci tutto in un unico posto"}
             calltoaction2={"Ordinato, efficiente, su misura"}
-            onClick={() => scrollToSection("contattaci")}
+            href="/gestionale"
             animationDirection="right"
           />
         </div>

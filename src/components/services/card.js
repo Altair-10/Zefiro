@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Card({ preTitle, title, img, calltoaction1, calltoaction2, onClick, animationDirection }) {
+export default function Card({ preTitle, title, img, calltoaction1, calltoaction2, href = "/sitoVetrina", animationDirection }) {
   const cardRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -58,13 +59,14 @@ export default function Card({ preTitle, title, img, calltoaction1, calltoaction
               <p className="whitespace-nowrap text-[3.3vw] md:text-[1vw] xl:text-[0.8vw] 2xl:text-[0.6vw] text-white/60">{calltoaction1}</p>
               <p className="whitespace-nowrap text-[3.3vw] md:text-[1vw] xl:text-[0.8vw] 2xl:text-[0.6vw] text-white/60">{calltoaction2}</p>
             </div>
-            <button
-              onClick={onClick}
+            <Link
+              href={href}
               className="transition-all duration-150 ease-in-out rounded-2xl bg-brown-light mr-[2vw] md:mr-[0.5vw]
-              text-[4vw] md:text-[1vw] xl:text-[1vw] 2xl:text-[0.8vw] w-[28vw] h-[10vw] md:w-[8vw] md:h-[2vw] active:scale-90 whitespace-nowrap"
+              text-[4vw] md:text-[1vw] xl:text-[1vw] 2xl:text-[0.8vw] w-[28vw] h-[10vw] md:w-[8vw] md:h-[2vw] active:scale-90 whitespace-nowrap
+              flex items-center justify-center"
             >
-              Richiedi info
-            </button>
+              Scopri di più
+            </Link>
           </div>
         </div>
       </div>
