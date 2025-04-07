@@ -36,8 +36,8 @@ export default function Card({ preTitle, title, img, calltoaction1, calltoaction
     <div ref={cardRef} style={animationStyle} className="w-full h-full">
       <div className="w-full h-full group overflow-hidden relative rounded-2xl transition-all duration-300 hover:shadow-2xl hover:scale-105">
         <div className="absolute p-[0.4vw] md:p-[0.6vw] z-10 flex-col items-start">
-          <p className="text-[3vw] pt-[2vw] pl-[2vw] md:p-0 md:text-[0.7vw] text-black/60 uppercase font-bold">{preTitle}</p>
-          <h1 className="text-[6vw] pl-[2vw] md:p-0 md:text-[1.5vw] text-black/90 font-medium">{title}</h1>
+          <p className="text-[3vw] pt-[2vw] pl-[2vw] md:p-0 md:text-[0.7vw] text-white uppercase font-bold">{preTitle}</p>
+          <h1 className="text-[6vw] pl-[2vw] md:p-0 md:text-[1.5vw] text-white font-medium">{title}</h1>
         </div>
         <Image
           width={1000}
@@ -56,8 +56,8 @@ export default function Card({ preTitle, title, img, calltoaction1, calltoaction
               src="/loghi_altair/LogoSocialDark.svg"
             />
             <div className="flex flex-col w-2/3 ml-[4vw] md:ml-[1vw]">
-              <p className="whitespace-nowrap text-[3.3vw] md:text-[1vw] xl:text-[0.8vw] 2xl:text-[0.6vw] text-white/60">{calltoaction1}</p>
-              <p className="whitespace-nowrap text-[3.3vw] md:text-[1vw] xl:text-[0.8vw] 2xl:text-[0.6vw] text-white/60">{calltoaction2}</p>
+              <p className="whitespace-nowrap text-[3.3vw] md:text-[1vw] xl:text-[0.8vw] 2xl:text-[0.6vw] text-white/60 font-extrabold">{calltoaction1}</p>
+              <p className="whitespace-nowrap text-[3.3vw] md:text-[1vw] xl:text-[0.8vw] 2xl:text-[0.6vw] text-white/60 font-extrabold">{calltoaction2}</p>
             </div>
             <Link
               href={href}

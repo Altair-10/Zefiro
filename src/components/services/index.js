@@ -8,11 +8,6 @@ import PageTitle from "../pageTitle";
 import { useEffect, useRef } from "react";
 
 export default function Services() {
-  const scrollToSection = (id) => {
-    if (typeof document !== "undefined") {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   const containerRef = useRef(null);
 
@@ -57,7 +52,7 @@ export default function Services() {
             title={"Sito Vetrina"}
             img={"/sfondi/sitoVetrina.jpg"}
             calltoaction1={"Distinguiti online"}
-            calltoaction2={"Un sito che parla per te."}
+            calltoaction2={"un sito che parla per te."}
             href="/sitoVetrina"
             animationDirection="left"
           />
@@ -69,8 +64,8 @@ export default function Services() {
             preTitle={"Ottimizza il tuo business"}
             title={"Gestionale"}
             img={"/sfondi/E-commerce.jpg"}
-            calltoaction1={"Gestisci tutto in un unico posto"}
-            calltoaction2={"Ordinato, efficiente, su misura"}
+            calltoaction1={"Vendi senza limiti"}
+            calltoaction2={"un gestionale su misura."}
             href="/gestionale"
             animationDirection="right"
           />

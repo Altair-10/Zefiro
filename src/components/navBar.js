@@ -104,7 +104,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Menu Desktop - SENZA pulsante HOME */}
+        {/* Menu Desktop */}
         <div className="hidden sm:flex text-xl gap-[3vw] text-white font-bold">
           {/* Servizi con dropdown */}
           <div
