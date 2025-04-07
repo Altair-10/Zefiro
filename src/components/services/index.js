@@ -56,7 +56,7 @@ export default function Services() {
         >
           <Card
             preTitle={"Mostra il meglio della tua attività"}
-            title={"Sito Vetrina"}
+            title={"Sito Online"}
             img={"/sfondi/sitoVetrina.jpg"}
             calltoaction1={"Distinguiti online"}
             calltoaction2={"Un sito che parla per te."}
