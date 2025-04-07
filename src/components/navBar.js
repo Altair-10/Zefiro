@@ -3,14 +3,20 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 import SocialIcons from "./socialIcons";
 import BurgerMenu from "./mobileMenu";
 
 export default function Navbar() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const dropdownButtonRef = useRef(null);
   const dropdownTimeoutRef = useRef(null);
+
+  // Controlla se siamo nella pagina principale
+  const isHomePage = pathname === "/";
 
   const openDropdown = () => {
     clearTimeout(dropdownTimeoutRef.current);
@@ -18,7 +24,6 @@ export default function Navbar() {
   };
 
   const closeDropdown = () => {
-    // Aggiungi un piccolo ritardo per permettere il passaggio al dropdown
     dropdownTimeoutRef.current = setTimeout(() => {
       setIsDropdownOpen(false);
     }, 200);
@@ -28,27 +33,46 @@ export default function Navbar() {
     clearTimeout(dropdownTimeoutRef.current);
   };
 
+  const scrollToSection = (sectionId) => {
+    if (!isHomePage) {
+      router.push(`/#${sectionId}`); // Se non siamo in home, naviga alla home con hash
+      return;
+    }
+    
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (!isHomePage) {
+      router.push("/");
+    } else {
+      scrollToSection("home");
+    }
+  };
+
   return (
     <div id="navbar" className="fixed w-full top-0 z-50 h-[20vw] sm:h-[13vw] md:h-[10vw] lg:h-[8vw] xl:h-[5vw] bg-gradient-orange">
       <div className="flex justify-between items-center h-full md:mx-5 pr-5 md:pr-0">
-        {/* Logo */}
+        {/* Logo con link alla home */}
         <div className="flex items-center justify-center">
-          <button onClick={() => scrollToSection("home")}>
+          <button onClick={handleLogoClick} className="focus:outline-none">
             <Image
               src="/loghi_altair/bigZefiro_dark.svg"
               width={130}
               height={60}
               alt="Logo"
-              className="w-[30vw] md:w-[12vw] mx-[1vw]"
+              className="w-[30vw] md:w-[12vw] mx-[1vw] cursor-pointer"
             />
           </button>
         </div>
 
         {/* Menu Desktop */}
-        <div className="hidden sm:flex text-xl gap-[3vw] text-white font-bold">
-          <Link href={"/"} className="hover:text-blue-dark">
-            HOME
-          </Link>
+        <div className="hidden sm:flex text-xl gap-[3vw] text-white font-bold"> 
+          
+          {/* Servizi con dropdown */}
           <div
             className="relative"
             onMouseEnter={openDropdown}
@@ -56,13 +80,11 @@ export default function Navbar() {
             ref={dropdownButtonRef}
           >
             <button
-              className="flex items-center gap-1 hover:text-blue-dark"
+              className="flex items-center gap-1 hover:text-blue-dark cursor-pointer"
+              onClick={() => scrollToSection("services")}
             >
               SERVIZI
-              <span
-                className={`transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""
-                  }`}
-              >
+              <span className={`transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-down-fill" viewBox="0 0 16 16">
                   <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                 </svg>
@@ -77,13 +99,13 @@ export default function Navbar() {
                 onMouseLeave={closeDropdown}
               >
                 <Link
-                  href={"/sitoVetrina"}
+                  href="/sitoVetrina"
                   className="block w-full text-left px-4 py-2 hover:text-blue-dark"
                 >
                   SITO VETRINA
                 </Link>
                 <Link
-                  href={"/gestionale"}
+                  href="/gestionale"
                   className="block w-full text-left px-4 py-2 hover:text-blue-dark"
                 >
                   GESTIONALE
@@ -91,12 +113,20 @@ export default function Navbar() {
               </div>
             )}
           </div>
-          <Link href={"about"} className="hover:text-blue-dark">
+          
+          {/* Chi siamo e Contattaci */}
+          <button 
+            onClick={() => scrollToSection("aboutUs")} 
+            className="hover:text-blue-dark cursor-pointer"
+          >
             CHI SIAMO
-          </Link>
-          <Link href={"/contactUs"} className="hover:text-blue-dark">
+          </button>
+          <button 
+            onClick={() => scrollToSection("contactUs")} 
+            className="hover:text-blue-dark cursor-pointer"
+          >
             CONTATTACI
-          </Link>
+          </button>
         </div>
 
         {/* Social Icons */}

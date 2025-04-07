@@ -4,12 +4,20 @@ import AboutUs from "@/components/aboutUs"
 import ContactUs from "@/components/contactUs"
 
 export default function HomePage() {
-    return(
+    return (
         <>
-        <CallToAction />
-        <Services />
-        <AboutUs />
-        <ContactUs />
+            <section id="home">
+                <CallToAction />
+            </section>
+            <section id="services">
+                <Services />
+            </section>
+            <section id="aboutUs">
+                <AboutUs />
+            </section>
+            <section id="contactUs">
+                <ContactUs />
+            </section>
         </>
     )
 }
