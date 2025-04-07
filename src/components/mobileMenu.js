@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import SocialIcons from "./socialIcons";
+import Link from "next/link";
 
 // Custom hook per rilevare la dimensione dello schermo
 const useMobileView = () => {
@@ -199,22 +200,36 @@ const Overlay = styled.div`
     display: none;
   }
 `;
-
 const Burger = ({ open, setOpen }) => {
   return (
-    <StyledBurger 
-      open={open} 
+    <button
+      className={`flex flex-col justify-around w-10 h-10 bg-transparent border-none cursor-pointer p-0 z-20 mr-4 focus:outline-none`}
       onClick={() => setOpen(!open)}
       aria-label={open ? "Close menu" : "Open menu"}
     >
-      <div />
-      <div />
-      <div />
-    </StyledBurger>
+      <div 
+        className={`w-full h-1 bg-[#ede7e4] rounded-[10px] transition-all duration-300 origin-[1px] ${
+          open ? "bg-[#ffa62b] rotate-45 scale-x-110" : "rotate-0"
+        }`}
+      />
+      <div 
+        className={`w-full h-1 bg-[#ede7e4] rounded-[10px] transition-all duration-300 origin-[1px] ${
+          open ? "opacity-0 translate-x-5" : "opacity-100 translate-x-0"
+        }`}
+      />
+      <div 
+        className={`w-full h-1 bg-[#ede7e4] rounded-[10px] transition-all duration-300 origin-[1px] ${
+          open ? "bg-[#ffa62b] -rotate-45 scale-x-110" : "rotate-0"
+        }`}
+      />
+    </button>
   );
 };
 
 const Menu = ({ open, setOpen }) => {
+  const [showSubMenu, setShowSubMenu] = useState(false);
+  const subMenuRef = useRef();
+
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     setOpen(false);
@@ -222,72 +237,119 @@ const Menu = ({ open, setOpen }) => {
     if (section) {
       setTimeout(() => {
         section.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, null, `#${id}`);
       }, 400);
     }
   };
 
+  useOnClickOutside(subMenuRef, () => setShowSubMenu(false));
+
   return (
     <>
-      <Overlay open={open} onClick={() => setOpen(false)} />
-      <StyledMenu open={open}>
-        <MenuContent>
-          {[
-            { id: "servizi", label: "Servizi" },
-            { id: "aboutUs", label: "Chi Siamo" },
-            { id: "contattaci", label: "Contattaci" }
-          ].map((item, i) => (
-            <MenuButton 
-              key={item.id}
-              open={open} 
-              onClick={() => scrollToSection(item.id)}
-              style={{ transitionDelay: open ? `${0.1 * i}s` : '0s' }}
+      {/* Overlay */}
+      <div 
+        className={`fixed top-0 left-0 w-full h-full bg-black/40 z-10 transition-opacity duration-300 ease-in-out ${
+          open ? "opacity-100 visible" : "opacity-0 invisible"
+        } md:hidden`}
+        onClick={() => setOpen(false)}
+      />
+      
+      {/* Main Menu */}
+      <nav 
+        className={`flex flex-col bg-[rgba(237,231,228,0.98)] w-full h-full text-center pt-12 px-4 pb-4 fixed top-0 left-0 z-[15] overflow-y-auto transition-transform duration-500 ease-[cubic-bezier(0.77,0.2,0.05,1)] ${
+          open ? "translate-x-0" : "-translate-x-full"
+        } md:hidden`}
+      >
+        <div className="flex flex-col justify-center pt-8 pb-4 flex-grow">
+          {/* Services dropdown */}
+          <div ref={subMenuRef}>
+            <button
+              className={`text-2xl text-center uppercase py-5 font-bold tracking-wider text-[#16697a] transition-all duration-400 ease-in-out relative overflow-hidden flex justify-center items-center w-full ${
+                open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              }`}
+              onClick={() => setShowSubMenu(!showSubMenu)}
+              style={{ transitionDelay: open ? '0.1s' : '0s' }}
             >
+              Servizi
               <span 
-                role="img" 
-                aria-hidden="true"
-                style={{
-                  display: 'inline-block',
-                  marginRight: '12px',
-                  transition: 'transform 0.3s ease'
-                }}
+                className="ml-2 transition-transform duration-300 ease-in-out"
+                style={{ transform: showSubMenu ? 'rotate(90deg)' : 'rotate(0)' }}
               >
-                {item.emoji}
+                ›
               </span>
-              {item.label}
-            </MenuButton>
-          ))}
-        </MenuContent>
-        
-        <MenuFooter open={open}>
-          <p style={{ 
-            color: '#16697a',
-            marginBottom: '1.2rem',
-            fontSize: '1rem'
-          }}>
-            Seguici sui social
-          </p>
-          <div style={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
-            marginBottom: '1.2rem'
-          }}>
-            <SocialIcons 
-              color="#16697a" 
-            />
+            </button>
+
+            {/* Submenu */}
+            <div 
+              className={`overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] mx-[20%] ${
+                showSubMenu ? "max-h-48" : "max-h-0"
+              }`}
+            >
+              <Link href="/sitoVetrina" passHref legacyBehavior>
+                <a
+                  className={`block text-xl py-3 w-full my-1 transition-all duration-400 ease-in-out rounded-md ${
+                    open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+                  } text-[#ff7d00] font-medium tracking-[0.1rem] bg-[rgba(255,125,0,0.08)]`}
+                  onClick={() => setOpen(false)}
+                  style={{ transitionDelay: showSubMenu ? '0.2s' : '0s' }}
+                >
+                  Sito Vetrina
+                </a>
+              </Link>
+              <Link href="/gestionale" passHref legacyBehavior>
+                <a
+                  className={`block text-xl py-3 w-full my-1 transition-all duration-400 ease-in-out rounded-md ${
+                    open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+                  } text-[#489fb5] font-medium tracking-[0.1rem] bg-[rgba(72,159,181,0.08)]`}
+                  onClick={() => setOpen(false)}
+                  style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
+                >
+                  Gestionale
+                </a>
+              </Link>
+            </div>
           </div>
-          <p style={{ 
-            color: 'rgba(22, 105, 122, 0.7)',
-            fontSize: '0.85rem',
-            marginTop: '0.5rem'
-          }}>
+
+          {/* Other menu items */}
+          <button
+            className={`text-2xl text-center uppercase py-5 font-bold tracking-wider text-[#16697a] transition-all duration-400 ease-in-out relative overflow-hidden ${
+              open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
+            onClick={() => scrollToSection("aboutUs")}
+            style={{ transitionDelay: open ? '0.4s' : '0s' }}
+          >
+            Chi Siamo
+          </button>
+          <button
+            className={`text-2xl text-center uppercase py-5 font-bold tracking-wider text-[#16697a] transition-all duration-400 ease-in-out relative overflow-hidden ${
+              open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
+            onClick={() => scrollToSection("contactUs")}
+            style={{ transitionDelay: open ? '0.5s' : '0s' }}
+          >
+            Contattaci
+          </button>
+        </div>
+        
+        {/* Footer */}
+        <footer 
+          className={`w-[calc(100%-2rem)] py-6 mx-auto border-t border-[rgba(22,105,122,0.2)] sticky bottom-0 bg-[rgba(237,231,228,0.9)] transition-all duration-400 ease-in-out ${
+            open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+          }`}
+          style={{ transitionDelay: open ? '0.4s' : '0s' }}
+        >
+          <p className="text-[#16697a] mb-5 text-base">Seguici sui social</p>
+          <div className="flex justify-center mb-[3vw]">
+            <SocialIcons color="#16697a" />
+          </div>
+          <p className="text-[#16697a] text-[3.5vw] mt-[4vw]">
             © {new Date().getFullYear()} Zefiro. Take IT for future.
           </p>
-        </MenuFooter>
-      </StyledMenu>
+        </footer>
+      </nav>
     </>
   );
 };
-
 
 const BurgerMenu = () => {
   const isMobile = useMobileView();
@@ -314,10 +376,10 @@ const BurgerMenu = () => {
   if (!isMobile) return null;
 
   return (
-    <MobileOnlyWrapper ref={node}>
+    <div className="flex items-center md:hidden" ref={node}>
       <Burger open={open} setOpen={setOpen} />
       <Menu open={open} setOpen={setOpen} />
-    </MobileOnlyWrapper>
+    </div>
   );
 };
 

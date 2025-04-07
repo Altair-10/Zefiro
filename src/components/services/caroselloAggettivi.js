@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -11,31 +13,50 @@ const sellingPoints = [
 
 export default function PremiumSaleAnimation() {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isManualSelection, setIsManualSelection] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef(null);
+
+    useEffect(() => {
+        setIsMounted(true);
+        return () => setIsMounted(false);
+    }, []);
 
     const startTimer = () => {
         clearInterval(timerRef.current);
         timerRef.current = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % sellingPoints.length);
-            setIsManualSelection(false);
-        }, 3000); // Aumentato a 3 secondi
+        }, 3000);
     };
 
     useEffect(() => {
-        startTimer();
+        if (isMounted) {
+            startTimer();
+        }
         return () => clearInterval(timerRef.current);
-    }, []);
+    }, [isMounted]);
 
-    const handleManualSelection = (index) => {
-        setIsManualSelection(true);
-        setCurrentIndex(index);
-        startTimer(); // Riavvia il timer quando si fa una selezione manuale
-    };
+    if (!isMounted) {
+        // Return a simplified version for SSR
+        return (
+            <div className="relative w-full h-full flex items-center justify-center rounded-xl overflow-hidden">
+                <div className="absolute z-10">
+                    <div
+                        className="px-8 py-6 rounded-xl text-white font-extrabold text-3xl md:text-4xl flex items-center justify-center gap-3"
+                        style={{
+                            background: sellingPoints[0].color,
+                            boxShadow: sellingPoints[0].shadow,
+                        }}
+                    >
+                        <span className="text-4xl">{sellingPoints[0].emoji}</span>
+                        <span>{sellingPoints[0].text}</span>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="relative w-full h-full flex items-center justify-center rounded-xl overflow-hidden">
-            {/* Parola principale in evidenza */}
             <AnimatePresence mode="wait">
                 <motion.div
                     key={currentIndex}
@@ -60,7 +81,6 @@ export default function PremiumSaleAnimation() {
                 </motion.div>
             </AnimatePresence>
 
-            {/* Effetto particellare */}
             {Array.from({ length: 12 }).map((_, i) => (
                 <motion.div
                     key={`particle-${i}`}
@@ -85,25 +105,6 @@ export default function PremiumSaleAnimation() {
                     }}
                 />
             ))}
-
-            {/* Mini preview delle altre parole */}
-            <div className="absolute bottom-4 flex gap-2">
-                {sellingPoints.map((point, index) => (
-                    <motion.div
-                        key={index}
-                        className="px-3 py-2 rounded-lg text-xs font-semibold cursor-pointer"
-                        style={{
-                            background: index === currentIndex ? point.color : "#333",
-                            color: "white",
-                            opacity: index === currentIndex ? 1 : 0.6,
-                        }}
-                        whileHover={{ scale: 1.1 }}
-                        onClick={() => handleManualSelection(index)}
-                    >
-                        {point.emoji}
-                    </motion.div>
-                ))}
-            </div>
         </div>
     );
 }

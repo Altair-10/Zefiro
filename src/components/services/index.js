@@ -8,11 +8,6 @@ import PageTitle from "../pageTitle";
 import { useEffect, useRef } from "react";
 
 export default function Services() {
-  const scrollToSection = (id) => {
-    if (typeof document !== "undefined") {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   const containerRef = useRef(null);
 
@@ -51,16 +46,19 @@ export default function Services() {
         <PageTitle title="Servizi" />
 
         {/* Card "Sito Vetrina" */}
-        <div
-          className="row-[10/35] col-[1/32] md:row-[7/15] md:col-[13/25]"
-        >
+        <div className="row-[10/35] col-[1/32] md:row-[7/15] md:col-[13/25]">
           <Card
+<<<<<<< HEAD
             preTitle={"Mostra il meglio della tua attività"}
             title={"Sito Online"}
+=======
+            preTitle={"Dai vita alla tua attività"}
+            title={"Sito Vetrina"}
+>>>>>>> 1f96d31203e5744beb1475b7f56656df32d9f306
             img={"/sfondi/sitoVetrina.jpg"}
             calltoaction1={"Distinguiti online"}
-            calltoaction2={"Un sito che parla per te."}
-            onClick={() => scrollToSection("contattaci")}
+            calltoaction2={"un sito che parla per te."}
+            href="/sitoVetrina"
             animationDirection="left"
           />
         </div>
@@ -71,14 +69,14 @@ export default function Services() {
             preTitle={"Ottimizza il tuo business"}
             title={"Gestionale"}
             img={"/sfondi/E-commerce.jpg"}
-            calltoaction1={"Gestisci tutto in un unico posto"}
-            calltoaction2={"Ordinato, efficiente, su misura"}
-            onClick={() => scrollToSection("contattaci")}
+            calltoaction1={"Vendi senza limiti"}
+            calltoaction2={"un gestionale su misura."}
+            href="/gestionale"
             animationDirection="right"
           />
         </div>
 
-        <div className="hidden md:block md:row-[4/14] md:col-[33/50]">
+        <div className="hidden md:block md:row-[6/16] md:col-[32/49]">
           <PremiumSaleAnimation />
         </div>
 

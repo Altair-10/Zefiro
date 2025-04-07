@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Card({ preTitle, title, img, calltoaction1, calltoaction2, onClick, animationDirection }) {
+export default function Card({ preTitle, title, img, calltoaction1, calltoaction2, href = "/sitoVetrina", animationDirection }) {
   const cardRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -35,8 +36,8 @@ export default function Card({ preTitle, title, img, calltoaction1, calltoaction
     <div ref={cardRef} style={animationStyle} className="w-full h-full">
       <div className="w-full h-full group overflow-hidden relative rounded-2xl transition-all duration-300 hover:shadow-2xl hover:scale-105">
         <div className="absolute p-[0.4vw] md:p-[0.6vw] z-10 flex-col items-start">
-          <p className="text-[3vw] pt-[2vw] pl-[2vw] md:p-0 md:text-[0.7vw] text-black/60 uppercase font-bold">{preTitle}</p>
-          <h1 className="text-[6vw] pl-[2vw] md:p-0 md:text-[1.5vw] text-black/90 font-medium">{title}</h1>
+          <p className="text-[3vw] pt-[2vw] pl-[2vw] md:p-0 md:text-[0.7vw] text-white uppercase font-bold">{preTitle}</p>
+          <h1 className="text-[6vw] pl-[2vw] md:p-0 md:text-[1.5vw] text-white font-medium">{title}</h1>
         </div>
         <Image
           width={1000}
@@ -55,16 +56,17 @@ export default function Card({ preTitle, title, img, calltoaction1, calltoaction
               src="/loghi_altair/LogoSocialDark.svg"
             />
             <div className="flex flex-col w-2/3 ml-[4vw] md:ml-[1vw]">
-              <p className="whitespace-nowrap text-[3.3vw] md:text-[1vw] xl:text-[0.8vw] 2xl:text-[0.6vw] text-white/60">{calltoaction1}</p>
-              <p className="whitespace-nowrap text-[3.3vw] md:text-[1vw] xl:text-[0.8vw] 2xl:text-[0.6vw] text-white/60">{calltoaction2}</p>
+              <p className="whitespace-nowrap text-[3.3vw] md:text-[1vw] xl:text-[0.8vw] 2xl:text-[0.6vw] text-white/60 font-extrabold">{calltoaction1}</p>
+              <p className="whitespace-nowrap text-[3.3vw] md:text-[1vw] xl:text-[0.8vw] 2xl:text-[0.6vw] text-white/60 font-extrabold">{calltoaction2}</p>
             </div>
-            <button
-              onClick={onClick}
+            <Link
+              href={href}
               className="transition-all duration-150 ease-in-out rounded-2xl bg-brown-light mr-[2vw] md:mr-[0.5vw]
-              text-[4vw] md:text-[1vw] xl:text-[1vw] 2xl:text-[0.8vw] w-[28vw] h-[10vw] md:w-[8vw] md:h-[2vw] active:scale-90 whitespace-nowrap"
+              text-[4vw] md:text-[1vw] xl:text-[1vw] 2xl:text-[0.8vw] w-[28vw] h-[10vw] md:w-[8vw] md:h-[2vw] active:scale-90 whitespace-nowrap
+              flex items-center justify-center"
             >
-              Richiedi info
-            </button>
+              Scopri di più
+            </Link>
           </div>
         </div>
       </div>
