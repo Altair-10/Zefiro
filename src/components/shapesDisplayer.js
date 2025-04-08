@@ -39,7 +39,7 @@ export default function ShapesDisplayer({
   }
 
   const validPositions = ["start", "center", "end"];
-  const imageClass = spin ? "w-[4vw] md:w-[2.2vw] animate-spin-slow" : "w-[2.2vw]";
+  const imageClass = spin ? "animate-spin-slow" : "";
   const flexClass = validPositions.includes(position)
     ? `flex flex-${flexType} justify-${position} items-center w-full h-full`
     : `flex flex-${flexType} justify-end items-center w-full h-full`;
