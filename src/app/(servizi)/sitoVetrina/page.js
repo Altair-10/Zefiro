@@ -52,7 +52,7 @@ export default function SitoVetrina() {
                     call to action
                 </div>
 
-                <div className="row-[40/50] col-[1/49] flex justify-center items-center bg-blue-dark text-blue-light text-[5vw] text-center pb-[5vw] rounded-xl">
+                <div className="row-[40/50] col-[1/49] flex justify-center items-center bg-gradient-to-b from-blue-dark to-blue-verydark text-blue-light text-[4.5vw] text-center pb-[10vw] rounded-xl shadow-lg">
                     Scegli il piano che fa per te!
                 </div>
 
