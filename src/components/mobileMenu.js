@@ -273,9 +273,18 @@ const Menu = ({ open, setOpen }) => {
               Servizi
               <span 
                 className="ml-2 transition-transform duration-300 ease-in-out"
-                style={{ transform: showSubMenu ? 'rotate(90deg)' : 'rotate(0)' }}
+                style={{ transform: showSubMenu ? 'rotate(180deg)' : 'rotate(0)' }}
               >
-                ›
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-caret-down-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                </svg>
               </span>
             </button>
 
@@ -287,9 +296,9 @@ const Menu = ({ open, setOpen }) => {
             >
               <Link href="/sitoVetrina" passHref legacyBehavior>
                 <a
-                  className={`block text-xl py-3 w-full my-1 transition-all duration-400 ease-in-out rounded-md ${
+                  className={`block text-xl py-3 w-full transition-all duration-400 ease-in-out ${
                     open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-                  } text-[#ff7d00] font-medium tracking-[0.1rem] bg-[rgba(255,125,0,0.08)]`}
+                  } text-blue-medium font-bold tracking-[0.5vw]`}
                   onClick={() => setOpen(false)}
                   style={{ transitionDelay: showSubMenu ? '0.2s' : '0s' }}
                 >
@@ -298,9 +307,9 @@ const Menu = ({ open, setOpen }) => {
               </Link>
               <Link href="/gestionale" passHref legacyBehavior>
                 <a
-                  className={`block text-xl py-3 w-full my-1 transition-all duration-400 ease-in-out rounded-md ${
+                  className={`block text-xl py-3 w-full transition-all duration-400 ease-in-out ${
                     open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-                  } text-[#489fb5] font-medium tracking-[0.1rem] bg-[rgba(72,159,181,0.08)]`}
+                  } text-[#489fb5] font-bold tracking-[0.5vw]`}
                   onClick={() => setOpen(false)}
                   style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
                 >

@@ -48,13 +48,8 @@ export default function Services() {
         {/* Card "Sito Vetrina" */}
         <div className="row-[10/35] col-[1/32] md:row-[7/15] md:col-[13/25]">
           <Card
-<<<<<<< HEAD
-            preTitle={"Mostra il meglio della tua attività"}
-            title={"Sito Online"}
-=======
             preTitle={"Dai vita alla tua attività"}
             title={"Sito Vetrina"}
->>>>>>> 1f96d31203e5744beb1475b7f56656df32d9f306
             img={"/sfondi/sitoVetrina.jpg"}
             calltoaction1={"Distinguiti online"}
             calltoaction2={"un sito che parla per te."}
