@@ -40,7 +40,7 @@ export default function Services() {
           grid my-[5vw]
           gap-[0.5vw] md:gap-[1vw] 
           grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))]
-          grid-rows-[repeat(65,_minmax(0,_2vw))] md:grid-rows-[repeat(24,_minmax(0,_1vw))]
+          grid-rows-[repeat(65,_minmax(0,_2vw))] md:grid-rows-[repeat(48,_minmax(0,_1vw))]
         "
       >
         <PageTitle title="Servizi" />
@@ -58,8 +58,8 @@ export default function Services() {
           />
         </div>
 
-        {/* Card "E-commerce" */}
-        <div className="row-[36/61] col-[1/32] md:row-[16/24] md:col-[25/37]">
+        {/* Card "Gestionale" */}
+        <div className="row-[36/45] col-[1/32] md:row-[16/24] md:col-[25/37]">
           <Card
             preTitle={"Ottimizza il tuo business"}
             title={"Gestionale"}
@@ -70,16 +70,6 @@ export default function Services() {
             animationDirection="right"
           />
         </div>
-
-        <div className="hidden md:block md:row-[6/16] md:col-[32/49]">
-          <PremiumSaleAnimation />
-        </div>
-
-        {/* switch tra gestionale e sito vetrina */}
-        <div className="hidden md:block md:row-[15/22] md:col-[4/15]">
-          <ServicesSwitch />
-        </div>
-
 
         {/* Rettangoli */}
         <div className="hidden md:block row-[9/11] col-[2/27] bg-blue-medium">
@@ -97,6 +87,15 @@ export default function Services() {
             imgName1="FormeSVG/orange-12.svg"
             position="end"
           />
+        </div>
+
+        <div className="hidden md:block md:row-[24/34] md:col-[5/20]">
+          <PremiumSaleAnimation />
+        </div>
+
+        {/* switch tra gestionale e sito vetrina */}
+        <div className="hidden md:block md:row-[26/33] md:col-[30/40]">
+          <ServicesSwitch />
         </div>
       </div>
     </div>
