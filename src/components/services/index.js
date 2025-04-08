@@ -1,7 +1,7 @@
 "use client";
 
 import Card from "./card";
-import TrianglePrism from "./rotatingCube";
+import ServicesSwitch from "./ServicesSwitch";
 import ShapesDisplayer from "../shapesDisplayer";
 import PremiumSaleAnimation from "./caroselloAggettivi";
 import PageTitle from "../pageTitle";
@@ -75,10 +75,11 @@ export default function Services() {
           <PremiumSaleAnimation />
         </div>
 
-        {/* Cubo sotto */}
-        <div className="hidden md:block md:row-[16/23] md:col-[5/13]">
-          <TrianglePrism />
+        {/* switch tra gestionale e sito vetrina */}
+        <div className="hidden md:block md:row-[15/22] md:col-[4/15]">
+          <ServicesSwitch />
         </div>
+
 
         {/* Rettangoli */}
         <div className="hidden md:block row-[9/11] col-[2/27] bg-blue-medium">
