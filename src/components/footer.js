@@ -38,12 +38,12 @@ export default function Footer() {
         <footer className="text-white bg-orange px-4 py-5 w-full md:px-8">
             <div className="flex flex-col justify-center items-center">
                 <Image
-                    src="/loghi_altair/bigZefiro_dark.svg"
+                    src="/loghi_altair/bigZefiro_light.svg"
                     width={1000}
                     height={1000}
                     alt="logo"
                     className="w-[60vw] md:w-[20vw]" />
-                <p className="leading-relaxed w-[45vw] text-[15px] text-center text-brown-light font-bold">
+                <p className="leading-relaxed w-[45vw] text-[20px] text-center text-black font-bold">
                     Offriamo competenze, creatività e tecnologie avanzate per trasformare le tue idee in soluzioni digitali innovative, 
                     aiutandoti a comunicare meglio, crescere online e offrire esperienze uniche ai tuoi utenti.                
                 </p>
@@ -51,7 +51,7 @@ export default function Footer() {
 
             <ul className="flex flex-col justify-center items-center mt-[2vw] gap-2">
                 {footerNavs.map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2 hover:text-blue-dark cursor-pointer">
+                    <li key={idx} className="flex items-center gap-2 text-gray-800 hover:text-blue-dark cursor-pointer">
                         <span>{item.name}</span>
                         <span
                             onClick={() => copyToClipboard(item.name)}
@@ -67,12 +67,12 @@ export default function Footer() {
                 ))}
             </ul>
 
-            <div className="flex flex-col md:flex-row justify-between items-center mt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center mt-8 text-gray-800">
                 <div className="mt-4 sm:mt-0">
                     &copy; 2025 Zefiro. Tutti i diritti riservati.
                 </div>
                 <div className="mt-6 sm:mt-0">
-                    <SocialIcons color="#ffffff" hoverColor="text-blue-dark" />
+                    <SocialIcons color="#2d3748" hoverColor="text-blue-dark" />
                 </div>
             </div>
         </footer>

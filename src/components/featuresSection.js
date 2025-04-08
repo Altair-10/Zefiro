@@ -55,7 +55,7 @@ export default function FeatureSection() {
         <section className="py-14">
             <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
                 <div className="max-w-xl mx-auto space-y-3 sm:text-center">
-                    <h1 className="text-blue-dark text-3xl font-semibold md:text-6xl">
+                    <h1 className="text-black text-3xl font-semibold md:text-6xl">
                         Funzionalità
                     </h1>
                 </div>

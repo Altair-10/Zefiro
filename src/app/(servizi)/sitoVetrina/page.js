@@ -5,6 +5,7 @@ import PageTitle from "@/components/pageTitle"
 import PlanCard from "@/components/planCard"
 import FeatureSection from "@/components/featuresSection"
 import CTASitoVetrina from "@/components/ctaSitoVetrina"
+import ShapesDisplayer from "@/components/shapesDisplayer"
 
 export default function SitoVetrina() {
     const [activeButton, setActiveButton] = useState("statico")
@@ -23,7 +24,7 @@ export default function SitoVetrina() {
                         <button
                             onClick={() => setActiveButton("statico")}
                             className={`
-                                h-2/4 text-[2vw] rounded-xl
+                                h-2/4 text-[2vw] rounded-xl font-bold
                                 transition-all duration-300 ease-in-out
                                 ${activeButton === "statico" ? "shadow-lg bg-blue-medium" : "hover:bg-blue-light"}
                             `}
@@ -34,7 +35,7 @@ export default function SitoVetrina() {
                         <button
                             onClick={() => setActiveButton("dinamico")}
                             className={`
-                                h-2/4 text-[2vw] rounded-xl
+                                h-2/4 text-[2vw] rounded-xl font-bold
                                 transition-all duration-300 ease-in-out
                                 ${activeButton === "dinamico" ? "shadow-lg bg-blue-medium" : "hover:bg-blue-light"}
                             `}
@@ -47,27 +48,41 @@ export default function SitoVetrina() {
                         FOTO
                     </div>
                 </div>
+                
                 <div className="row-[22] col-[1/49] w-full h-full">
                     <FeatureSection />
                 </div>
-
 
                 {/* FASCIA */}
                 <div className="row-[43] col-[6/44] flex justify-center items-center">
                     <CTASitoVetrina />
                 </div>
 
-                <div className="row-[40/42] col-[24/49] bg-blue-dark" />
-                <div className="row-[42/44] col-[24/49] bg-blue-medium" />
+                <div className="row-[40/42] col-[24/49] bg-blue-dark">
+                    <ShapesDisplayer
+                        numShapes={1}
+                        imgName1="/formeSVG/orange-6.svg"
+                        width="2vw"
+                        height="2vw"
+                    />
+                </div>
+                <div className="row-[42/44] col-[24/49] bg-blue-medium">
+                    <ShapesDisplayer
+                        numShapes={1}
+                        imgName1="/formeSVG/blue-8.svg"
+                        width="2vw"
+                        height="2vw"
+                    />
+                </div>
 
-                <div className="row-[55/65] col-[1/49] flex justify-center items-center bg-gradient-to-b from-blue-dark to-blue-verydark text-orange text-[4.5vw] text-center pb-[10vw] rounded-t-medium">
+                <div className="row-[55] col-[1/49] flex justify-center items-center text-black text-3xl font-semibold md:text-6xl">
                     Scegli il piano che fa per te!
                 </div>
 
-                <div className="row-[61] col-[1/49] flex flex-row justify-around">
-                    <PlanCard />
-                    <PlanCard />
-                    <PlanCard />
+                <div className="row-[59] col-[1/49] flex flex-row justify-around">
+                    <PlanCard title="standard" />
+                    <PlanCard title="premium" />
+                    <PlanCard title="business" />
                 </div>
             </div>
         </>
