@@ -4,8 +4,8 @@ import Card from "./card";
 import ServicesSwitch from "./ServicesSwitch";
 import ShapesDisplayer from "../shapesDisplayer";
 import PremiumSaleAnimation from "./caroselloAggettivi";
-import PageTitle from "../pageTitle";
 import { useEffect, useRef } from "react";
+import AnimatedTitle from "../AnimatedTitle";
 
 export default function Services() {
 
@@ -43,7 +43,10 @@ export default function Services() {
           grid-rows-[repeat(65,_minmax(0,_2vw))] md:grid-rows-[repeat(48,_minmax(0,_1vw))]
         "
       >
-        <PageTitle title="Servizi" />
+        {/* Title */}
+        <div className="flex justify-center items-center row-[2] col-[1/32] md:row-[2] md:col-[1/49]">
+          <AnimatedTitle text="I nostri servizi" />
+        </div>
 
         {/* Card "Sito Vetrina" */}
         <div className="row-[10/35] col-[1/32] md:row-[7/15] md:col-[13/25]">

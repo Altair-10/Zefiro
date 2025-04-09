@@ -2,6 +2,7 @@
 import React from "react";
 import ContactButton from "./contactButton";
 import ShapesDisplayer from "@/components/shapesDisplayer";
+import Title from "./Title"
 
 export default function CallToAction() {
   return (
@@ -12,10 +13,10 @@ export default function CallToAction() {
       grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))]
     ">
         <div className="row-[8] col-[1/32] md:row-[3] md:col-[3/7]">
-          <h1 className="w-[80vw] text-center text-[8vw] md:w-[35vw] md:text-[7vw] leading-[8vw] font-serif text-blue-dark">
+          <Title className="w-[80vw] text-start text-[8vw] md:w-[35vw] md:text-[7vw] leading-[8vw] font-serif text-blue-dark">
             <span className="inline md:block">Take IT </span>
             <span className="inline md:block">for future</span>
-          </h1>
+          </Title>
         </div>
         <div className="row-[21/26] col-[4/29] md:row-[12/15] md:col-[3/13]">
           <ContactButton />
