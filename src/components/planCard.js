@@ -1,5 +1,5 @@
 
-export default function PlanCard({ title, cta }) {
+export default function PlanCard({ cardTitle, cardCTA, items }) {
   return (
     <div className={`group relative w-80`}>
       <div
@@ -36,110 +36,16 @@ export default function PlanCard({ title, cta }) {
               />
             </div>
             <div className="relative">
-              <h3 className="text-[2vw] font-medium uppercase tracking-wider text-blue-light">
-                {title}
+              <h3 className="text-[2vw] font-medium uppercase tracking-wider text-orange">
+                {cardTitle}
               </h3>
               <p className="mt-2 text-sm text-slate-400">
-                {cta}
+                {cardCTA}
               </p>
             </div>
 
             <div className="relative mt-6 space-y-4">
-              <div className="flex items-start gap-3">
-                <div
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10"
-                >
-                  <svg
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className="h-4 w-4 text-blue-light"
-                  >
-                    <path
-                      d="M5 13l4 4L19 7"
-                      strokeWidth="2"
-                      strokeLinejoin="round"
-                      strokeLinecap="round"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-white">Unlimited Projects</p>
-                  <p className="text-xs text-slate-400">Create as many as you need</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10"
-                >
-                  <svg
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className="h-4 w-4 text-blue-light"
-                  >
-                    <path
-                      d="M5 13l4 4L19 7"
-                      strokeWidth="2"
-                      strokeLinejoin="round"
-                      strokeLinecap="round"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-white">Advanced Analytics</p>
-                  <p className="text-xs text-slate-400">Detailed insights and reports</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10"
-                >
-                  <svg
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className="h-4 w-4 text-blue-light"
-                  >
-                    <path
-                      d="M5 13l4 4L19 7"
-                      strokeWidth="2"
-                      strokeLinejoin="round"
-                      strokeLinecap="round"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-white">Custom Domains</p>
-                  <p className="text-xs text-slate-400">Use your own domain name</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10"
-                >
-                  <svg
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className="h-4 w-4 text-blue-light"
-                  >
-                    <path
-                      d="M5 13l4 4L19 7"
-                      strokeWidth="2"
-                      strokeLinejoin="round"
-                      strokeLinecap="round"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-white">24/7 Priority Support</p>
-                  <p className="text-xs text-slate-400">Get help when you need it</p>
-                </div>
-              </div>
+              <Content items={items} />
             </div>
 
             <div className="relative mt-8">
@@ -150,7 +56,7 @@ export default function PlanCard({ title, cta }) {
                   className="relative rounded-xl bg-slate-950/50 px-4 py-3 transition-colors group-hover/btn:bg-transparent"
                 >
                   <span className="relative flex items-center justify-center gap-2">
-                    Contattaci
+                    Descrizione
                     <svg
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -169,12 +75,12 @@ export default function PlanCard({ title, cta }) {
               </button>
             </div>
 
-            <div className="mt-4 flex items-center justify-center gap-2">
+            {/* <div className="mt-4 flex items-center justify-center gap-2 whitespace-nowrap">
               <svg
                 stroke="currentColor"
                 viewBox="0 0 24 24"
                 fill="none"
-                className="h-4 w-4 text-slate-400"
+                className="h-1 w-1 text-slate-400"
               >
                 <path
                   d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
@@ -184,12 +90,58 @@ export default function PlanCard({ title, cta }) {
                 ></path>
               </svg>
               <span className="text-xs font-medium text-slate-400">
-                30-day money-back guarantee
+                Servizio clienti dedicato per ogni necessità
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
     </div>
   )
+}
+
+function Content({ items = [] }) {
+  return (
+    <>
+      {items.map(({ title, description, active = true }, index) => (
+        <div key={index} className="flex items-start gap-3">
+          <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10">
+            {active ? (
+              <svg
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="h-4 w-4 text-blue-light"
+              >
+                <path
+                  d="M5 13l4 4L19 7"
+                  strokeWidth="2"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                />
+              </svg>
+            ) : (
+              <svg
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="h-4 w-4 text-red-600"
+              >
+                <path
+                  d="M6 6l12 12M6 18L18 6"
+                  strokeWidth="2"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                />
+              </svg>
+            )}
+          </div>
+          <div>
+            <p className="text-sm font-medium text-white">{title}</p>
+            <p className="text-xs text-slate-400">{description}</p>
+          </div>
+        </div>
+      ))}
+    </>
+  );
 }
