@@ -1,18 +1,21 @@
 "use client"
 
 import { useState } from "react"
-import PageTitle from "@/components/pageTitle"
 import PlanCard from "@/components/planCard"
 import FeatureSection from "@/components/featuresSection"
 import CTASitoVetrina from "@/components/ctaSitoVetrina"
 import ShapesDisplayer from "@/components/shapesDisplayer"
+import AnimatedTitle from "@/components/AnimatedTitle"
 
 export default function SitoVetrina() {
     const [activeButton, setActiveButton] = useState("statico")
 
     return (
         <>
-            <PageTitle title={"Sito Online"} />
+            <div className="flex justify-center items-center row-[2] col-[1/32] md:row-[2] md:col-[1/49]">
+                <AnimatedTitle text="Sito Online" />
+            </div>
+
             <div className="
                 grid my-[5vw]
                 gap-[0.5vw] md:gap-[1vw] 
@@ -48,7 +51,7 @@ export default function SitoVetrina() {
                         FOTO
                     </div>
                 </div>
-                
+
                 <div className="row-[22] col-[1/49] w-full h-full">
                     <FeatureSection />
                 </div>

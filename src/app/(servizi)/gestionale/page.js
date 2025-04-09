@@ -1,6 +1,6 @@
 "use client"
 
-import PageTitle from "@/components/pageTitle"
+import AnimatedTitle from "@/components/AnimatedTitle"
 import PlanCard from "@/components/planCard"
 import { useState } from "react"
 
@@ -8,7 +8,9 @@ export default function Gestionale() {
     const [activeButton, setActiveButton] = useState("/img/default.jpg")
     return (
         <>
-            <PageTitle title={"Gestionale"} />
+            <div className="flex justify-center items-center row-[2] col-[1/32] md:row-[2] md:col-[1/49]">
+                <AnimatedTitle text="Gestionale" />
+            </div>
             <div className="
                 grid my-[5vw]
                 gap-[0.5vw] md:gap-[1vw]

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Employee } from '../ClassEmployees';
 import { useInView } from "react-intersection-observer";
+import AnimatedTitle from '../AnimatedTitle';
 
 export default function AboutUs() {
     const [scrollProgress, setScrollProgress] = useState(0);
@@ -56,16 +57,7 @@ export default function AboutUs() {
             ref={containerRef}
             className="flex flex-col justify-center items-center w-full min-h-[150vh] py-20 px-4 "
         >
-            <h1
-                ref={titleRef}
-                className="text-[7vw] md:text-[6vw] text-blue-dark font-bold mb-[3vw] transition-transform duration-100"
-                style={{
-                    transform: `translateY(${scrollProgress * -100}px) scale(${1 + scrollProgress * 0.2})`,
-                    opacity: 1 - scrollProgress * 0.3,
-                }}
-            >
-                {`Scopri chi c'è dietro Zefiro`}
-            </h1>
+            <AnimatedTitle text="Scopri chi c'è dietro Zefiro" />
 
             <div className="w-full max-w-6xl">
                 <div
