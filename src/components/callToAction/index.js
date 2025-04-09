@@ -12,11 +12,9 @@ export default function CallToAction() {
       grid-rows-[repeat(45,_minmax(0,_2vw))] md:grid-rows-[repeat(20,_minmax(0,_1vw))]
       grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))]
     ">
+        {/* TITOLO */}
         <div className="row-[8] col-[1/32] md:row-[3] md:col-[3/7]">
-          <Title className="w-[80vw] text-start text-[8vw] md:w-[35vw] md:text-[7vw] leading-[8vw] font-serif text-blue-dark">
-            <span className="inline md:block">Take IT </span>
-            <span className="inline md:block">for future</span>
-          </Title>
+          <Title />
         </div>
         <div className="row-[21/26] col-[4/29] md:row-[12/15] md:col-[3/13]">
           <ContactButton />
