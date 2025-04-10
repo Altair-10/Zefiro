@@ -1,35 +1,37 @@
-export default () => {
+
+export default function Testimonials() {
 
     const testimonials = [
         {
+            avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+            name: "Luciana Zavalloni",
+            title: "Ristoratrice a Cesenatico",
+            quote: "Collaborare con loro è stata una svolta per il mio ristorante. Professionalità e attenzione al dettaglio che si vedono di rado."
+        },
+        {
             avatar: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
-            name: "Martin escobar",
-            title: "Founder of meta",
-            quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et est hendrerit, porta nunc vitae."
+            name: "Giorgio Minguzzi",
+            title: "Proprietario di una concessionaria a Ravenna",
+            quote: "Affidabili, puntuali e sempre disponibili. Grazie a loro ho potuto migliorare l'immagine della mia attività in poco tempo."
         },
         {
-            avatar: "https://randomuser.me/api/portraits/women/79.jpg",
-            name: "Angela stian",
-            title: "Product designer",
-            quote: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit."
-        },
-        {
-            avatar: "https://randomuser.me/api/portraits/men/86.jpg",
-            name: "Karim ahmed",
-            title: "DevOp engineer",
-            quote: "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain."
-        },
+            avatar: "https://api.uifaces.co/our-content/donated/NY9hnAbp.jpg",
+            name: "Sandro Ricci",
+            title: "Gestore di uno stabilimento balneare a Rimini",
+            quote: "Ci hanno seguito passo dopo passo con idee fresche e innovative. Una vera marcia in più per la stagione estiva!"
+        }
     ]
+    
 
     return (
         <section className="py-14">
             <div className="max-w-screen-xl mx-auto px-4 md:px-8">
                 <div className="max-w-xl sm:text-center md:mx-auto">
                     <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
-                        See what others saying about us
+                        Cosa dicono su di noi!
                     </h3>
                     <p className="mt-3 text-gray-600">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et est hendrerit, porta nunc vitae, gravida justo. Nunc fermentum magna lorem, euismod volutpat arcu volutpat et.
+                        Le parole dei nostri clienti parlano per noi. Ogni feedback è uno stimolo a fare sempre meglio. Scopri cosa pensano di noi le persone che ci hanno scelto.
                     </p>
                 </div>
                 <div className="mt-12">

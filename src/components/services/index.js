@@ -49,7 +49,7 @@ export default function Services() {
         </div>
 
         {/* Card "Sito Vetrina" */}
-        <div className="row-[10/35] col-[1/32] md:row-[7/15] md:col-[13/25]">
+        <div className="row-[10/35] col-[1/32] md:row-[7/17] md:col-[9/24]">
           <Card
             preTitle={"Dai vita alla tua attività"}
             title={"Sito Vetrina"}
@@ -62,7 +62,7 @@ export default function Services() {
         </div>
 
         {/* Card "Gestionale" */}
-        <div className="row-[36/45] col-[1/32] md:row-[16/24] md:col-[25/37]">
+        <div className="row-[36/45] col-[1/32] md:row-[19/29] md:col-[26/41]">
           <Card
             preTitle={"Ottimizza il tuo business"}
             title={"Gestionale"}
@@ -75,16 +75,16 @@ export default function Services() {
         </div>
 
         {/* Rettangoli */}
-        <div className="hidden md:block row-[9/11] col-[2/27] bg-blue-medium">
+        <div className="hidden md:block row-[10/12] col-[2/27] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
             imgName1="FormeSVG/blue-6.svg"
             position="start"
           />
         </div>
-        <div className="hidden md:block row-[11/13] col-[2/27] bg-blue-light" />
-        <div className="hidden md:block row-[18/20] col-[23/48] bg-blue-light" />
-        <div className="hidden md:block row-[20/22] col-[23/48] bg-blue-medium">
+        <div className="hidden md:block row-[12/14] col-[2/27] bg-blue-light" />
+        <div className="hidden md:block row-[22/24] col-[23/48] bg-blue-light" />
+        <div className="hidden md:block row-[24/26] col-[23/48] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
             imgName1="FormeSVG/orange-12.svg"
