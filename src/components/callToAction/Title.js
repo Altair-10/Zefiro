@@ -22,7 +22,7 @@ const Title = () => {
         opacity: 1, 
         y: 0,
         rotationX: 0,
-        duration: 0.6, 
+        duration: 0.4, 
         stagger: 0.08, 
         ease: "back.out" 
       }
@@ -40,7 +40,7 @@ const Title = () => {
         opacity: 1, 
         y: 0,
         rotationX: 0,
-        duration: 0.6, 
+        duration: 0.2, 
         ease: "back.out" 
       },
       "+=0.2"
@@ -58,7 +58,7 @@ const Title = () => {
         x: "0%", 
         rotation: 0, 
         opacity: 1, 
-        duration: 1.6,
+        duration: 1.2,
         ease: "power4.out" 
       },
       "-=0.3"
