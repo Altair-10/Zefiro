@@ -22,8 +22,6 @@ export default function Testimonials() {
             quote: "Ci hanno seguito passo dopo passo con idee fresche e innovative. Una vera marcia in più per la stagione estiva!"
         }
     ]
-    
-
     return (
         <section className="py-14">
             <div className="max-w-screen-xl mx-auto px-4 md:px-8">
@@ -47,7 +45,7 @@ export default function Testimonials() {
                                             </div>
                                         </div>
                                         <blockquote>
-                                            <p className="mt-6 text-gray-700">
+                                            <p className="mt-6 text-center text-gray-700">
                                                 {item.quote}
                                             </p>
                                         </blockquote>

@@ -43,7 +43,7 @@ export default function Footer() {
                     height={1000}
                     alt="logo"
                     className="w-[60vw] md:w-[20vw]" />
-                <p className="leading-relaxed w-[45vw] text-[20px] text-center text-black font-bold">
+                <p className="leading-relaxed md:w-[45vw] text-[5vw] md:text-[20px] text-center text-black font-bold">
                     Offriamo competenze, creatività e tecnologie avanzate per trasformare le tue idee in soluzioni digitali innovative, 
                     aiutandoti a comunicare meglio, crescere online e offrire esperienze uniche ai tuoi utenti.                
                 </p>

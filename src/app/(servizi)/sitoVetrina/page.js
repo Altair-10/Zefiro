@@ -6,9 +6,11 @@ import FeatureSection from "@/components/featuresSection"
 import CTASitoVetrina from "@/components/ctaSitoVetrina"
 import ShapesDisplayer from "@/components/shapesDisplayer"
 import AnimatedTitle from "@/components/AnimatedTitle"
+import PlanSlider from "@/components/PlanSlider"
 
 export default function SitoVetrina() {
     const [activeButton, setActiveButton] = useState("statico")
+
     const planContent = {
         base: [
             { title: "Sito Web", description: "Realizzazione del sito web con layout base" },
@@ -74,57 +76,68 @@ export default function SitoVetrina() {
             return (a.active === false ? 1 : 0) - (b.active === false ? 1 : 0);
         });
     };
+
+    // Descrizioni da mostrare in base al pulsante attivo
+    const descriptions = {
+        statico: "Un sito statico è un sito con pagine semplici e contenuti fissi, perfetto per presentare la tua attività e i tuoi servizi in modo chiaro e veloce, senza necessità di aggiornamenti frequenti.",
+        dinamico: "Un sito dinamico è un sito interattivo che permette aggiornamenti facili e funzionalità personalizzate, ideale per chi vuole offrire contenuti sempre aggiornati, come news, cataloghi o aree riservate."
+    };
+
     return (
         <>
-            <div className="flex justify-center items-center row-[2] col-[1/32] md:row-[2] md:col-[1/49]">
+            <div className="flex justify-center items-center mt-4">
                 <AnimatedTitle text="Sito Online" />
             </div>
 
             <div className="
-                grid my-[5vw]
+                grid mb-[5vw]
                 gap-[0.5vw] md:gap-[1vw] 
                 grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))] 
-                grid-rows-[repeat(65,_minmax(0,_2vw))] md:grid-rows-[repeat(95,_minmax(0,_1vw))] 
+                grid-rows-[repeat(385,_minmax(0,_2vw))] md:grid-rows-[repeat(82,_minmax(0,_1vw))]
             ">
-                <div className="row-[1/20] col-[1/49] flex flex-row justify-center items-center">
-                    <div className="flex flex-col justify-start w-1/3 h-full p-4 gap-4">
+                {/* Sezione per i pulsanti e il riquadro descrittivo */}
+                <div className="row-[1/30] col-[1/32] md:row-[1/10] md:col-[1/49] flex flex-col md:flex-row justify-center items-center gap-4">
+                    {/* Pulsanti */}
+                    <div className="flex flex-col justify-start w-full md:w-1/3 p-4 gap-4">
                         <button
                             onClick={() => setActiveButton("statico")}
                             className={`
-                                h-2/4 text-[2vw] rounded-xl font-bold
+                                h-12 text-lg rounded-xl font-bold
                                 transition-all duration-300 ease-in-out
-                                ${activeButton === "statico" ? "shadow-lg bg-blue-medium" : "hover:bg-blue-light"}
+                                ${activeButton === "statico" ? "shadow-lg bg-blue-medium text-white" : " hover:bg-blue-medium text-black"}
                             `}
                         >
                             STATICO
                         </button>
-
                         <button
                             onClick={() => setActiveButton("dinamico")}
                             className={`
-                                h-2/4 text-[2vw] rounded-xl font-bold
+                                h-12 text-lg rounded-xl font-bold
                                 transition-all duration-300 ease-in-out
-                                ${activeButton === "dinamico" ? "shadow-lg bg-blue-medium" : "hover:bg-blue-light"}
+                                ${activeButton === "dinamico" ? "shadow-lg bg-blue-medium text-white" : "hover:bg-blue-medium text-black"}
                             `}
                         >
                             DINAMICO
                         </button>
                     </div>
 
-                    <div className="w-2/3 h-full bg-blue-light">
-                        FOTO
+                    {/* Riquadro per la descrizione */}
+                    <div className="w-full md:w-2/3 h-48 flex justify-center items-center rounded-xl shadow-md p-4">
+                        <p className="text-center text-[4.5vw] md:text-[2vw] text-gray-700">
+                            {descriptions[activeButton]}
+                        </p>
                     </div>
                 </div>
 
-                <div className="row-[22] col-[1/49] w-full h-full">
+                <div className="row-[40] col-[1/32] md:row-[10] md:col-[1/49] w-full h-full text-center">
                     <FeatureSection />
                 </div>
 
-                <div className="row-[43] col-[6/44] flex justify-center items-center">
+                <div className="row-[185] col-[1/32] md:row-[29] md:col-[6/44] flex flex-col justify-center items-center text-center md:text-start">
                     <CTASitoVetrina />
                 </div>
 
-                <div className="row-[40/42] col-[24/49] bg-blue-dark">
+                <div className="md:row-[26/28] md:col-[24/49] bg-blue-dark">
                     <ShapesDisplayer
                         numShapes={1}
                         imgName1="/formeSVG/orange-6.svg"
@@ -132,7 +145,7 @@ export default function SitoVetrina() {
                         height="2vw"
                     />
                 </div>
-                <div className="row-[42/44] col-[24/49] bg-blue-medium">
+                <div className="md:row-[28/30] md:col-[24/49] bg-blue-medium">
                     <ShapesDisplayer
                         numShapes={1}
                         imgName1="/formeSVG/blue-8.svg"
@@ -141,14 +154,46 @@ export default function SitoVetrina() {
                     />
                 </div>
 
-                <div className="row-[55] col-[1/49] flex justify-center items-center text-black text-3xl font-semibold md:text-6xl">
+                <div className="row-[230] col-[1/32] md:row-[39] md:col-[1/49] flex justify-center items-center text-black text-[8vw] text-center font-semibold md:text-[5vw]">
                     Scegli il piano che fa per te!
                 </div>
 
-                <div className="row-[59] col-[1/49] flex flex-row justify-around">
-                    <PlanCard cardTitle="standard" cardCTA={"Perfetto per chi desidera una presenza online semplice ma professionale, con strumenti essenziali per iniziare."} items={getPlanItems("standard")} />
-                    <PlanCard cardTitle="medium" cardCTA={"Pensato per aziende che vogliono crescere online, con funzionalità avanzate e maggiore flessibilità operativa."} items={getPlanItems("business")} />
-                    <PlanCard cardTitle="personal" cardCTA={"La soluzione completa per realtà ambiziose, con massima personalizzazione, performance e supporto dedicato."} items={getPlanItems("premium")} />
+                <div className="md: hidden row-[238] col-span-full">
+                    <PlanSlider>
+                        <PlanCard
+                            cardTitle="standard"
+                            cardCTA="Perfetto per chi desidera una presenza online semplice ma professionale, con strumenti essenziali per iniziare."
+                            items={getPlanItems("standard")}
+                        />
+                        <PlanCard
+                            cardTitle="medium"
+                            cardCTA="Pensato per aziende che vogliono crescere online, con funzionalità avanzate e maggiore flessibilità operativa."
+                            items={getPlanItems("business")}
+                        />
+                        <PlanCard
+                            cardTitle="personal"
+                            cardCTA="La soluzione completa per realtà ambiziose, con massima personalizzazione, performance e supporto dedicato."
+                            items={getPlanItems("premium")}
+                        />
+                    </PlanSlider>
+                </div>
+
+                <div className="hidden row-[43] col-[1/49] md:flex flex-row justify-around">
+                    <PlanCard
+                        cardTitle="standard"
+                        cardCTA="Perfetto per chi desidera una presenza online semplice ma professionale, con strumenti essenziali per iniziare."
+                        items={getPlanItems("standard")}
+                    />
+                    <PlanCard
+                        cardTitle="medium"
+                        cardCTA="Pensato per aziende che vogliono crescere online, con funzionalità avanzate e maggiore flessibilità operativa."
+                        items={getPlanItems("business")}
+                    />
+                    <PlanCard
+                        cardTitle="personal"
+                        cardCTA="La soluzione completa per realtà ambiziose, con massima personalizzazione, performance e supporto dedicato."
+                        items={getPlanItems("premium")}
+                    />
                 </div>
             </div>
         </>

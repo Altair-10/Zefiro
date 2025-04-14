@@ -62,7 +62,7 @@ export default function Services() {
         </div>
 
         {/* Card "Gestionale" */}
-        <div className="row-[36/45] col-[1/32] md:row-[19/29] md:col-[26/41]">
+        <div className="row-[36/61] col-[1/32] md:row-[19/29] md:col-[26/41]">
           <Card
             preTitle={"Ottimizza il tuo business"}
             title={"Gestionale"}

@@ -1,7 +1,7 @@
 
 export default function PlanCard({ cardTitle, cardCTA, items }) {
   return (
-    <div className={`group relative w-80`}>
+    <div className={`group relative w-60 md:w-80`}>
       <div
         className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 p-[1px] shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-cyan-500/25"
       >
@@ -9,7 +9,7 @@ export default function PlanCard({ cardTitle, cardCTA, items }) {
           className="absolute inset-0 bg-gradient-to-b from-cyan-500 to-blue-500 opacity-20"
         />
         <div
-          className="relative rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 p-6"
+          className="relative rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 pt-4 md:p-6"
         >
           <div
             className="relative rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 p-6"
@@ -36,7 +36,7 @@ export default function PlanCard({ cardTitle, cardCTA, items }) {
               />
             </div>
             <div className="relative">
-              <h3 className="text-[2vw] font-medium uppercase tracking-wider text-orange">
+              <h3 className="text-[8vw] md:text-[2vw] font-medium uppercase tracking-wider text-orange">
                 {cardTitle}
               </h3>
               <p className="mt-2 text-sm text-slate-400">
@@ -105,7 +105,7 @@ function Content({ items = [] }) {
     <>
       {items.map(({ title, description, active = true }, index) => (
         <div key={index} className="flex items-start gap-3">
-          <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10">
+          <div className="flex h-6 w-4 md:w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10">
             {active ? (
               <svg
                 stroke="currentColor"
@@ -137,8 +137,8 @@ function Content({ items = [] }) {
             )}
           </div>
           <div>
-            <p className="text-sm font-medium text-white">{title}</p>
-            <p className="text-xs text-slate-400">{description}</p>
+            <p className="text-smfont-medium text-white">{title}</p>
+            <p className="text-xs w-40 text-slate-400">{description}</p>
           </div>
         </div>
       ))}

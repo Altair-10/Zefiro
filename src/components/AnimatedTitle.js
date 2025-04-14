@@ -50,7 +50,8 @@ export const AnimatedTitle = ({ text = "" }) => {
   return (
     <div
       ref={containerRef}
-      className="w-full flex justify-center py-16"
+
+      className="w-full flex justify-center py-4"
     >
       <h1
         ref={textRef}
