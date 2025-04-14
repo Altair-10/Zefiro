@@ -9,7 +9,7 @@ export default function CTASitoVetrina() {
                     <h3 className="text-3xl text-gray-800 font-semibold md:text-4xl">
                         Creiamo siti web <br /><span className="text-orange">ad alte performance</span><br /> per il tuo successo online
                     </h3>
-                    <p className="text-gray-500 leading-relaxed mt-3 pr-12">
+                    <p className="text-gray-500 leading-relaxed mt-3 md:pr-12">
                     Il nostro obiettivo è offrirti un sito web che non solo rispecchi la tua identità, ma che sia anche veloce, sicuro e ottimizzato per un'esperienza utente senza pari.
                     </p>
                 </div>
