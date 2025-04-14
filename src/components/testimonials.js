@@ -1,3 +1,4 @@
+import AnimatedTitle from "./AnimatedTitle"
 
 export default function Testimonials() {
 
@@ -26,11 +27,9 @@ export default function Testimonials() {
     return (
         <section className="py-14">
             <div className="max-w-screen-xl mx-auto px-4 md:px-8">
-                <div className="max-w-xl sm:text-center md:mx-auto">
-                    <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
-                        Cosa dicono su di noi!
-                    </h3>
-                    <p className="mt-3 text-gray-600">
+                <div className="w-full text-center">
+                    <AnimatedTitle text="Cosa dicono su di noi!"/>
+                    <p className="text-[2vw] text-gray-600">
                         Le parole dei nostri clienti parlano per noi. Ogni feedback è uno stimolo a fare sempre meglio. Scopri cosa pensano di noi le persone che ci hanno scelto.
                     </p>
                 </div>

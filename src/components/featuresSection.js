@@ -1,4 +1,4 @@
-export default function FeatureSection() {
+export default function FeatureSection({ title1, desc1, title2, desc2, title3, desc3 }) {
 
     const features = [
         {
@@ -7,24 +7,24 @@ export default function FeatureSection() {
                     <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
                     <path d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5z" />
                 </svg>,
-            title: "Design Moderno e Responsive",
-            desc: "Il sito si adatta automaticamente a qualsiasi dispositivo, che si tratti di smartphone, tablet o desktop, garantendo un'esperienza utente perfetta su ogni schermata."
+            title: title1,
+            desc: desc1
         },
         {
             icon:
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                 </svg>,
-            title: "Contenuti Ottimizzati per la SEO",
-            desc: "Ogni pagina è progettata per essere facilmente trovata su Google, grazie a una struttura SEO-friendly, migliorando la visibilità online e attirando più visitatori."
+            title: title2,
+            desc: desc2
         },
         {
             icon:
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-graph-up" viewBox="0 0 16 16">
                     <path fillRule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07" />
                 </svg>,
-            title: "Velocità di Caricamento Elevata",
-            desc: "Il sito è ottimizzato per caricarsi rapidamente, riducendo i tempi di attesa e migliorando l'esperienza dell'utente, fattore cruciale per trattenere i visitatori."
+            title: title3,
+            desc: desc3
         },
     ]
 

@@ -140,7 +140,7 @@ export default function Navbar() {
             {isDropdownOpen && (
               <div
                 ref={dropdownRef}
-                className="absolute mt-5 w-44 bg-gradient-orange shadow-lg rounded-lg py-2 z-10"
+                className="absolute mt-5 w-96 bg-gradient-orange shadow-lg rounded-lg py-2 z-10"
                 onMouseEnter={cancelCloseDropdown}
                 onMouseLeave={closeDropdown}
               >
@@ -151,10 +151,22 @@ export default function Navbar() {
                   SITO VETRINA
                 </Link>
                 <Link
-                  href="/gestionale"
+                  href="/sitoPerEventi"
                   className="block w-full text-left px-4 py-2 hover:text-blue-dark"
                 >
-                  GESTIONALE
+                  SITO PER EVENTI
+                </Link>
+                <Link
+                  href="/e-learning"
+                  className="block w-full text-left px-4 py-2 hover:text-blue-dark"
+                >
+                  PIATTAFORMA E-LEARNING
+                </Link>
+                <Link
+                  href="/portfolioCreativo"
+                  className="block w-full text-left px-4 py-2 hover:text-blue-dark"
+                >
+                  PORTFOLIO CREATIVO
                 </Link>
               </div>
             )}
