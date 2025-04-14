@@ -3,7 +3,7 @@
 import { useState } from "react"
 import PlanCard from "@/components/planCard"
 import FeatureSection from "@/components/featuresSection"
-import CTASitoVetrina from "@/components/ctaSitoVetrina"
+import CTAServizio from "@/components/ctaServizio"
 import ShapesDisplayer from "@/components/shapesDisplayer"
 import AnimatedTitle from "@/components/AnimatedTitle"
 import PlanSlider from "@/components/PlanSlider"
@@ -130,11 +130,21 @@ export default function SitoVetrina() {
                 </div>
 
                 <div className="row-[40] col-[1/32] md:row-[10] md:col-[1/49] w-full h-full text-center">
-                    <FeatureSection />
+                    <FeatureSection
+                        title1={"Design Moderno e Responsive"}
+                        desc1={"Il sito si adatta automaticamente a qualsiasi dispositivo, che si tratti di smartphone, tablet o desktop, garantendo un'esperienza utente perfetta su ogni schermata."}
+                        title2={"Contenuti Ottimizzati per la SEO"}
+                        desc2={"Ogni pagina è progettata per essere facilmente trovata su Google, grazie a una struttura SEO-friendly, migliorando la visibilità online e attirando più visitatori."}
+                        title3={"Velocità di Caricamento Elevata"}
+                        desc3={"Il sito è ottimizzato per caricarsi rapidamente, riducendo i tempi di attesa e migliorando l'esperienza dell'utente, fattore cruciale per trattenere i visitatori."}
+                    />
                 </div>
 
                 <div className="row-[185] col-[1/32] md:row-[29] md:col-[6/44] flex flex-col justify-center items-center text-center md:text-start">
-                    <CTASitoVetrina />
+                    <CTAServizio
+                        cta={<>Creiamo siti web <br /><span className="text-orange">ad alte performance</span><br /> per il tuo successo online</>}
+                        desc={"Il nostro obiettivo è offrirti un sito web che non solo rispecchi la tua identità, ma che sia anche veloce, sicuro e ottimizzato per un'esperienza utente senza pari."}
+                    />
                 </div>
 
                 <div className="md:row-[26/28] md:col-[24/49] bg-blue-dark">
