@@ -44,7 +44,6 @@ export default function portfolioCreativo() {
                         }
                     />
                 </div>
-
                 <div className="md:row-[26/28] md:col-[24/49] bg-blue-dark">
                     <ShapesDisplayer
                         numShapes={1}

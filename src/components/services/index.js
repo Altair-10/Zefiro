@@ -40,7 +40,7 @@ export default function Services() {
           grid my-[5vw]
           gap-[0.5vw] md:gap-[1vw] 
           grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))]
-          grid-rows-[repeat(65,_minmax(0,_2vw))] md:grid-rows-[repeat(48,_minmax(0,_1vw))]
+          grid-rows-[repeat(270,_minmax(0,_2vw))] md:grid-rows-[repeat(102,_minmax(0,_1vw))]
         "
       >
         {/* Title */}
@@ -48,33 +48,7 @@ export default function Services() {
           <AnimatedTitle text="I nostri servizi" />
         </div>
 
-        {/* Card "Sito Vetrina" */}
-        <div className="row-[10/35] col-[1/32] md:row-[7/17] md:col-[9/24]">
-          <Card
-            preTitle={"Dai vita alla tua attività"}
-            title={"Sito Vetrina"}
-            img={"/sfondi/sitoVetrina.jpg"}
-            calltoaction1={"Distinguiti online"}
-            calltoaction2={"un sito che parla per te."}
-            href="/sitoVetrina"
-            animationDirection="left"
-          />
-        </div>
-
-        {/* Card "Gestionale" */}
-        <div className="row-[36/61] col-[1/32] md:row-[19/29] md:col-[26/41]">
-          <Card
-            preTitle={"Ottimizza il tuo business"}
-            title={"Gestionale"}
-            img={"/sfondi/E-commerce.jpg"}
-            calltoaction1={"Vendi senza limiti"}
-            calltoaction2={"un gestionale su misura."}
-            href="/gestionale"
-            animationDirection="right"
-          />
-        </div>
-
-        {/* Rettangoli */}
+        {/* Rettangoli "SitoVetrina" */}
         <div className="hidden md:block row-[10/12] col-[2/27] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
@@ -83,6 +57,18 @@ export default function Services() {
           />
         </div>
         <div className="hidden md:block row-[12/14] col-[2/27] bg-blue-light" />
+        {/* Card "SitoVetrina" */}
+        <div className="row-[10/60] col-[1/32] md:row-[7/17] md:col-[6/24]">
+          <Card
+            CardTitle={"Sito Vetrina"}
+            image={"/sfondi/sitoVetrina.jpg"}
+            CardDescription={"Presenta la tua attività online in modo chiaro, professionale e su misura."}
+            btnHref={"/sitoVetrina"}
+            animationDirection="left"
+          />
+        </div>
+
+        {/* Rettangoli "SitoPerEventi" */}
         <div className="hidden md:block row-[22/24] col-[23/48] bg-blue-light" />
         <div className="hidden md:block row-[24/26] col-[23/48] bg-blue-medium">
           <ShapesDisplayer
@@ -91,15 +77,83 @@ export default function Services() {
             position="end"
           />
         </div>
+        {/* Card "SitoPerEventi" */}
+        <div className="row-[62/112] col-[1/32] md:row-[19/29] md:col-[26/44]">
+          <Card
+            image={"/sfondi/E-commerce.jpg"}
+            CardTitle={"Sito Per Eventi"}
+            CardDescription={"Promuovi e gestisci il tuo evento online con tutte le informazioni essenziali."}
+            btnHref={"/sitoPerEventi"}
+            animationDirection="right"
+          />
+        </div>
 
-        <div className="hidden md:block md:row-[24/34] md:col-[5/20]">
+        {/* Rettangoli "Portfolio" */}
+        <div className="hidden md:block row-[34/36] col-[2/27] bg-blue-medium">
+          <ShapesDisplayer
+            numShapes={1}
+            imgName1="FormeSVG/blue-6.svg"
+            position="start"
+          />
+        </div>
+        <div className="hidden md:block row-[36/38] col-[2/27] bg-blue-light" />
+        {/* Card "Portfolio" */}
+        <div className="row-[114/164] col-[1/32] md:row-[31/41] md:col-[6/24]">
+          <Card
+            image={"/sfondi/E-commerce.jpg"}
+            CardTitle={"Portfolio Creativo"}
+            CardDescription={"Mostra i tuoi progetti con uno stile che valorizza il tuo talento."}
+            btnHref={"/portfolioCreativo"}
+            animationDirection="left"
+          />
+        </div>
+
+        {/* Rettangoli "Piattaforma" */}
+        <div className="hidden md:block row-[46/48] col-[23/48] bg-blue-light" />
+        <div className="hidden md:block row-[48/50] col-[23/48] bg-blue-medium">
+          <ShapesDisplayer
+            numShapes={1}
+            imgName1="FormeSVG/orange-12.svg"
+            position="end"
+          />
+        </div>
+        {/* Card "Piattaforma" */}
+        <div className="row-[168/218] col-[1/32] md:row-[43/53] md:col-[26/44]">
+          <Card
+            image={"/sfondi/E-commerce.jpg"}
+            CardTitle={"E-learning"}
+            CardDescription={"Offri corsi e formazione online con una piattaforma intuitiva e completa."}
+            btnHref={"/e-learning"}
+            animationDirection="right"
+          />
+        </div>
+
+        {/* Rettangoli "Blog" */}
+        <div className="hidden md:block row-[58/60] col-[2/27] bg-blue-light" />
+        <div className="hidden md:block row-[60/62] col-[2/27] bg-blue-medium">
+          <ShapesDisplayer
+            numShapes={1}
+            imgName1="FormeSVG/orange-12.svg"
+            position="end"
+          />
+        </div>
+        {/* Card "Blog" */}
+        <div className="row-[220/270] col-[1/32] md:row-[55/65] md:col-[6/24]">
+          <Card
+            image={"/sfondi/E-commerce.jpg"}
+            CardTitle={"Blog"}
+            CardDescription={"Condividi articoli, pensieri e novità in uno spazio tutto tuo."}
+            btnHref={"/e-learning"}
+            animationDirection="left"
+          />
+        </div>
+
+        {/* <div className="hidden md:block md:row-[24/34] md:col-[5/20]">
           <PremiumSaleAnimation />
         </div>
-
-        {/* switch tra gestionale e sito vetrina */}
         <div className="hidden md:block md:row-[26/33] md:col-[30/40]">
           <ServicesSwitch />
-        </div>
+        </div> */}
       </div>
     </div>
   );

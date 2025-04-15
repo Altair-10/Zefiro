@@ -13,7 +13,7 @@ export default function HomePage() {
             <section id="services">
                 <Services />
             </section>
-            <section>
+            {/* <section>
                 <Testimonials />
             </section>
             <section id="aboutUs">
@@ -21,7 +21,7 @@ export default function HomePage() {
             </section>
             <section id="contactUs">
                 <ContactUs />
-            </section>
+            </section> */}
         </>
     )
 }
