@@ -40,7 +40,7 @@ export default function Services() {
           grid my-[5vw]
           gap-[0.5vw] md:gap-[1vw] 
           grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))]
-          grid-rows-[repeat(270,_minmax(0,_2vw))] md:grid-rows-[repeat(102,_minmax(0,_1vw))]
+          grid-rows-[repeat(270,_minmax(0,_2vw))] md:grid-rows-[repeat(64,_minmax(0,_1vw))]
         "
       >
         {/* Title */}

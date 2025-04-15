@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/img/favicon.ico" sizes="any" />
         <title>Zefiro</title>
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-brown-light`}>
         <Navbar />
         <div className="flex flex-col justify-center items-center w-full">
           {children}
