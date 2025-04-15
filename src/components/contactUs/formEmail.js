@@ -86,7 +86,7 @@ export default function ContactForm() {
       <div className="md:flex flex-row justify-between w-full gap-4">
         <div className="flex-1 min-w-0">
           <label className="block text-sm font-medium">Azienda</label>
-          <input type="text" name="azienda" value={formData.azienda} onChange={handleChange} className="w-full p-2 border rounded-md" />
+          <input type="text" name="azienda" value={formData.azienda} onChange={handleChange} className="w-full p-2 border rounded-md bg-gray-100" />
         </div>
         <div className="flex-1 min-w-0">
           <label className="block text-sm font-medium whitespace-nowrap">Numero di telefono</label>

@@ -57,7 +57,7 @@ const Card = ({ image, CardTitle, CardDescription, btnHref, animationDirection }
         </p>
         <Link
           href={btnHref}
-          className="inline-block rounded-full border border-gray-3 px-7 py-2 text-base font-medium text-body-color transition hover:border-primary hover:bg-primary hover:text-slate-600 dark:border-dark-3 dark:text-dark-6"
+          className="inline-block rounded-full border border-black bg-orange px-7 py-2 text-base font-medium text-body-color transition hover:border-primary hover:bg-primary hover:text-slate-600 dark:border-dark-3 dark:text-dark-6"
         >
           Scopri di più
         </Link>

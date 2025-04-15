@@ -143,7 +143,7 @@ export default function Services() {
             image={"/sfondi/E-commerce.jpg"}
             CardTitle={"Blog"}
             CardDescription={"Condividi articoli, pensieri e novità in uno spazio tutto tuo."}
-            btnHref={"/e-learning"}
+            btnHref={"/blog"}
             animationDirection="left"
           />
         </div>

@@ -27,7 +27,7 @@ export default function Testimonials() {
             <div className="max-w-screen-xl mx-auto px-4 md:px-8">
                 <div className="w-full text-center">
                     <AnimatedTitle text="Cosa dicono su di noi!"/>
-                    <p className="text-[2vw] text-gray-600">
+                    <p className="text-[5vw] md:text-[1.5vw] text-gray-600">
                         Le parole dei nostri clienti parlano per noi. Ogni feedback è uno stimolo a fare sempre meglio. Scopri cosa pensano di noi le persone che ci hanno scelto.
                     </p>
                 </div>

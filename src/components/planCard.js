@@ -1,5 +1,5 @@
 
-export default function PlanCard({ cardTitle, cardCTA, items }) {
+function PlanCard({ cardTitle, cardCTA, items }) {
   return (
     <div className={`group relative w-60 md:w-80`}>
       <div

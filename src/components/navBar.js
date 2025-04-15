@@ -168,6 +168,12 @@ export default function Navbar() {
                 >
                   PORTFOLIO CREATIVO
                 </Link>
+                <Link
+                  href="/blog"
+                  className="block w-full text-left px-4 py-2 hover:text-blue-dark"
+                >
+                  BLOG
+                </Link>
               </div>
             )}
           </div>

@@ -7,6 +7,7 @@ import CTAServizio from "@/components/ctaServizio"
 import ShapesDisplayer from "@/components/shapesDisplayer"
 import AnimatedTitle from "@/components/AnimatedTitle"
 import PlanSlider from "@/components/PlanSlider"
+import PianiAbbonamento from "@/components/pianiAbbonamento"
 
 export default function SitoVetrina() {
     const [activeButton, setActiveButton] = useState("statico")
@@ -164,47 +165,7 @@ export default function SitoVetrina() {
                     />
                 </div>
 
-                <div className="row-[230] col-[1/32] md:row-[39] md:col-[1/49] flex justify-center items-center text-black text-[8vw] text-center font-semibold md:text-[5vw]">
-                    Scegli il piano che fa per te!
-                </div>
-
-                <div className="md: hidden row-[238] col-span-full">
-                    <PlanSlider>
-                        <PlanCard
-                            cardTitle="standard"
-                            cardCTA="Perfetto per chi desidera una presenza online semplice ma professionale, con strumenti essenziali per iniziare."
-                            items={getPlanItems("standard")}
-                        />
-                        <PlanCard
-                            cardTitle="medium"
-                            cardCTA="Pensato per aziende che vogliono crescere online, con funzionalità avanzate e maggiore flessibilità operativa."
-                            items={getPlanItems("business")}
-                        />
-                        <PlanCard
-                            cardTitle="personal"
-                            cardCTA="La soluzione completa per realtà ambiziose, con massima personalizzazione, performance e supporto dedicato."
-                            items={getPlanItems("premium")}
-                        />
-                    </PlanSlider>
-                </div>
-
-                <div className="hidden row-[43] col-[1/49] md:flex flex-row justify-around">
-                    <PlanCard
-                        cardTitle="standard"
-                        cardCTA="Perfetto per chi desidera una presenza online semplice ma professionale, con strumenti essenziali per iniziare."
-                        items={getPlanItems("standard")}
-                    />
-                    <PlanCard
-                        cardTitle="medium"
-                        cardCTA="Pensato per aziende che vogliono crescere online, con funzionalità avanzate e maggiore flessibilità operativa."
-                        items={getPlanItems("business")}
-                    />
-                    <PlanCard
-                        cardTitle="personal"
-                        cardCTA="La soluzione completa per realtà ambiziose, con massima personalizzazione, performance e supporto dedicato."
-                        items={getPlanItems("premium")}
-                    />
-                </div>
+                <PianiAbbonamento />
             </div>
         </>
     )
