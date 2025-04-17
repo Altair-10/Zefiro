@@ -291,7 +291,7 @@ const Menu = ({ open, setOpen }) => {
             {/* Submenu */}
             <div 
               className={`overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] mx-[20%] ${
-                showSubMenu ? "max-h-48" : "max-h-0"
+                showSubMenu ? "max-h-auto" : "max-h-0"
               }`}
             >
               <Link href="/sitoVetrina" passHref legacyBehavior>
@@ -313,7 +313,40 @@ const Menu = ({ open, setOpen }) => {
                   onClick={() => setOpen(false)}
                   style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
                 >
-                  Gestionale
+                  Sito Per Eventi
+                </a>
+              </Link>
+              <Link href="/gestionale" passHref legacyBehavior>
+                <a
+                  className={`block text-xl py-3 w-full transition-all duration-400 ease-in-out ${
+                    open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+                  } text-[#489fb5] font-bold tracking-[0.5vw]`}
+                  onClick={() => setOpen(false)}
+                  style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
+                >
+                  E-learning
+                </a>
+              </Link>
+              <Link href="/gestionale" passHref legacyBehavior>
+                <a
+                  className={`block text-xl py-3 w-full transition-all duration-400 ease-in-out ${
+                    open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+                  } text-[#489fb5] font-bold tracking-[0.5vw]`}
+                  onClick={() => setOpen(false)}
+                  style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
+                >
+                  Portfolio Creativo
+                </a>
+              </Link>
+              <Link href="/gestionale" passHref legacyBehavior>
+                <a
+                  className={`block text-xl py-3 w-full transition-all duration-400 ease-in-out ${
+                    open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+                  } text-[#489fb5] font-bold tracking-[0.5vw]`}
+                  onClick={() => setOpen(false)}
+                  style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
+                >
+                  Blog
                 </a>
               </Link>
             </div>

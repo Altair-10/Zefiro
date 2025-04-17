@@ -4,7 +4,7 @@ import Card from "./card";
 import ShapesDisplayer from "../shapesDisplayer";
 import PremiumSaleAnimation from "./caroselloAggettivi";
 import { useEffect, useRef, useState } from "react";
-import AnimatedTitle from "../AnimatedTitle";
+import AnimatedTitle from "../animatedTitle";
 import FloatingShape from "./FloatingShape";
 
 export default function Services() {

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Employee } from '../ClassEmployees';
 import { useInView } from "react-intersection-observer";
-import AnimatedTitle from '../AnimatedTitle';
+import AnimatedTitle from '../animatedTitle';
 
 export default function AboutUs() {
     const [scrollProgress, setScrollProgress] = useState(0);

@@ -1,4 +1,4 @@
-import AnimatedTitle from "@/components/AnimatedTitle"
+import AnimatedTitle from "@/components/animatedTitle"
 import ServiceDescription from "@/components/serviceDescription"
 import FeatureSection from "@/components/featuresSection"
 import CTAServizio from "@/components/ctaServizio"

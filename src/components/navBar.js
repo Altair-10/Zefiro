@@ -88,8 +88,8 @@ export default function Navbar() {
       <div className="flex justify-between items-center h-full md:mx-5 pr-5 md:pr-0">
         {/* Logo che sostituisce il pulsante HOME */}
         <div className="flex items-center justify-center">
-          <button 
-            onClick={handleLogoClick} 
+          <button
+            onClick={handleLogoClick}
             className="focus:outline-none hover:opacity-80 transition-opacity"
             aria-label="Torna alla home"
           >
@@ -105,7 +105,13 @@ export default function Navbar() {
         </div>
 
         {/* Menu Desktop */}
-        <div className="hidden sm:flex text-xl gap-[3vw] text-white font-bold">
+        <div className="hidden md:flex text-xl gap-[3vw] text-white font-bold">
+          <Link
+            href="/"
+            className="hover:text-blue-dark cursor-pointer"
+          >
+            HOME
+          </Link>
           {/* Servizi con dropdown */}
           <div
             className="relative"
@@ -120,9 +126,8 @@ export default function Navbar() {
             >
               SERVIZI
               <span
-                className={`transition-transform duration-200 ${
-                  isDropdownOpen ? "rotate-180" : ""
-                }`}
+                className={`transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""
+                  }`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +142,9 @@ export default function Navbar() {
               </span>
             </button>
 
+
             {isDropdownOpen && (
+
               <div
                 ref={dropdownRef}
                 className="absolute mt-5 w-96 bg-gradient-orange shadow-lg rounded-lg py-2 z-10"
@@ -177,8 +184,6 @@ export default function Navbar() {
               </div>
             )}
           </div>
-          
-          {/* Chi siamo e Contattaci */}
           <button
             onClick={() => scrollToSection("aboutUs")}
             className="hover:text-blue-dark cursor-pointer"
@@ -194,7 +199,7 @@ export default function Navbar() {
         </div>
 
         {/* Social Icons */}
-        <div className="hidden sm:flex gap-3">
+        <div className="hidden md:flex gap-3">
           <SocialIcons color="#ffffff" hoverColor="text-blue-dark" />
         </div>
 
