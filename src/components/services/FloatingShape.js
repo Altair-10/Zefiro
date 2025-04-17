@@ -12,6 +12,7 @@ const FloatingShape = ({
   const [isExploding, setIsExploding] = useState(false);
   const [confetti, setConfetti] = useState([]);
   const animationRef = useRef(null);
+  const animateShapeRef = useRef(null);
   const [svgContent, setSvgContent] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
@@ -19,18 +20,23 @@ const FloatingShape = ({
   // Utilizziamo ref per mantenere lo stato della fisica tra i render
   const physicsRef = useRef({
     position: { x: 0, y: 0 },
-    velocity: { x: 0, y: 0 }
+    velocity: { x: 0, y: 0 },
+    initialSpeed: speed // Aggiungiamo la velocità iniziale nel ref
   });
 
-  // Inizializza con una direzione casuale all'avvio
-  useEffect(() => {
-    // Angolo casuale per la direzione iniziale
+  // Funzione per inizializzare la velocità
+  const initVelocity = () => {
     const angle = Math.random() * Math.PI * 2;
-    // Velocità costante in quella direzione
     physicsRef.current.velocity = { 
       x: Math.cos(angle) * speed,
       y: Math.sin(angle) * speed
     };
+    physicsRef.current.initialSpeed = speed;
+  };
+
+  // Inizializza con una direzione casuale all'avvio
+  useEffect(() => {
+    initVelocity();
   }, [speed]);
 
   // Fetch SVG content from file
@@ -40,18 +46,15 @@ const FloatingShape = ({
       fetch(svgPath)
         .then(response => response.text())
         .then(text => {
-          // Extract SVG content
           const parser = new DOMParser();
           const svgDoc = parser.parseFromString(text, "image/svg+xml");
           const svgElement = svgDoc.querySelector("svg");
           
           if (svgElement) {
-            // Extract viewBox if available and not provided
             if (!viewBox && svgElement.getAttribute("viewBox")) {
               viewBox = svgElement.getAttribute("viewBox");
             }
             
-            // Get inner content of the SVG
             const innerContent = svgElement.innerHTML;
             setSvgContent(innerContent);
           }
@@ -77,10 +80,8 @@ const FloatingShape = ({
       }
     };
 
-    // Initial size measurement
     updateContainerSize();
 
-    // Set up resize observer
     const resizeObserver = new ResizeObserver(updateContainerSize);
     resizeObserver.observe(containerRef.current);
 
@@ -96,33 +97,36 @@ const FloatingShape = ({
 
     const physics = physicsRef.current;
     
-    // Calculate boundaries for movement
     const maxX = (containerSize.width / 2) - (width / 2) - 2;
     const maxY = (containerSize.height / 2) - (height / 2) - 2;
 
     const animateShape = () => {
       if (isExploding) return;
 
-      // Update position based on velocity - movimento costante e lineare
       physics.position.x += physics.velocity.x;
       physics.position.y += physics.velocity.y;
 
-      // Boundary checks with bounce - cambia direzione solo quando tocca i bordi
       if (Math.abs(physics.position.x) > maxX) {
-        // Correggi la posizione per evitare che esca dal container
         physics.position.x = Math.sign(physics.position.x) * maxX;
-        // Inverti solo la componente X della velocità
         physics.velocity.x = -physics.velocity.x;
       }
 
       if (Math.abs(physics.position.y) > maxY) {
-        // Correggi la posizione per evitare che esca dal container
         physics.position.y = Math.sign(physics.position.y) * maxY;
-        // Inverti solo la componente Y della velocità
         physics.velocity.y = -physics.velocity.y;
       }
 
-      // Applica la posizione
+      // Manteniamo la velocità costante normalizzando il vettore
+      const currentSpeed = Math.sqrt(
+        physics.velocity.x * physics.velocity.x + 
+        physics.velocity.y * physics.velocity.y
+      );
+      
+      if (currentSpeed > 0) {
+        physics.velocity.x = (physics.velocity.x / currentSpeed) * physics.initialSpeed;
+        physics.velocity.y = (physics.velocity.y / currentSpeed) * physics.initialSpeed;
+      }
+
       if (shapeRef.current) {
         shapeRef.current.style.transform = `translate(calc(-50% + ${physics.position.x}px), calc(-50% + ${physics.position.y}px))`;
       }
@@ -130,35 +134,30 @@ const FloatingShape = ({
       animationRef.current = requestAnimationFrame(animateShape);
     };
     
-    // Start animation
+    animateShapeRef.current = animateShape;
     animationRef.current = requestAnimationFrame(animateShape);
     
-    // Cleanup
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isExploding, isLoading, containerSize, width, height]);
+  }, [isExploding, isLoading, containerSize, width, height, speed]);
 
-  // Handle explosion effect when clicked
   const handleExplosion = () => {
     if (isExploding) return;
     
     setIsExploding(true);
     
-    // Cancel current animation
     if (animationRef.current) {
       cancelAnimationFrame(animationRef.current);
     }
     
-    // Generate confetti particles
     const particleCount = 40;
     const newConfetti = [];
     const containerHeight = containerSize.height;
     
     for (let i = 0; i < particleCount; i++) {
-      // Create random directions and speeds for particles
       const angle = Math.random() * Math.PI * 2;
       const speed = 3 + Math.random() * 5;
       const size = 5 + Math.random() * 10;
@@ -183,17 +182,20 @@ const FloatingShape = ({
     
     setConfetti(newConfetti);
     
-    // Reset after animation
     setTimeout(() => {
       setIsExploding(false);
       setConfetti([]);
       
-      // Restart the regular animation
-      animationRef.current = requestAnimationFrame(animateShape);
+      // Resetta la posizione e la velocità
+      physicsRef.current.position = { x: 0, y: 0 };
+      initVelocity();
+      
+      if (animateShapeRef.current) {
+        animationRef.current = requestAnimationFrame(animateShapeRef.current);
+      }
     }, 4000);
   };
 
-  // Update confetti positions
   useEffect(() => {
     if (!isExploding || confetti.length === 0) return;
     
@@ -207,7 +209,6 @@ const FloatingShape = ({
       
       setConfetti(prevConfetti => 
         prevConfetti.map(particle => {
-          // Skip physics update if reached the floor and almost stopped
           let newVx = particle.vx;
           let newVy = particle.vy;
           let newX = particle.x;
@@ -215,49 +216,35 @@ const FloatingShape = ({
           let reachedFloor = particle.reachedFloor;
           let rotation = particle.rotation + particle.rotationSpeed;
           
-          // If not reached floor yet, apply physics
           if (!particle.reachedFloor) {
-            // Apply gravity
             newVy = particle.vy + gravity;
-            
-            // Apply friction
             newVx = particle.vx * friction;
-            
-            // Update position
             newX = particle.x + newVx;
             newY = particle.y + newVy;
             
-            // Check if reached floor
             if (newY >= particle.floor) {
               newY = particle.floor;
               newVy = -newVy * 0.4;
-              
-              // After first bounce, apply extra friction
               newVx *= floorFriction;
               
-              // If almost stopped, mark as reached floor
               if (Math.abs(newVy) < 0.8) {
                 reachedFloor = true;
                 newVy = 0;
               }
             }
           } else {
-            // If already on floor, just slow down horizontal movement
             newVx *= floorFriction;
             rotation = particle.rotation + particle.rotationSpeed * 0.3;
             
-            // Almost no movement, just stay in place
             if (Math.abs(newVx) < 0.2) {
               newVx = 0;
               particle.rotationSpeed = 0;
             }
           }
           
-          // Calculate opacity based on lifetime
           const age = now - particle.createdAt;
           const lifeFraction = age / particle.lifespan;
           
-          // Start fading at 60% of life for a smoother, longer fade
           let opacity = 1;
           if (lifeFraction > 0.6) {
             opacity = Math.max(0, 1 - ((lifeFraction - 0.6) / 0.4));
@@ -273,7 +260,7 @@ const FloatingShape = ({
             opacity,
             reachedFloor
           };
-        }).filter(particle => particle.opacity > 0) // Remove completely faded particles
+        }).filter(particle => particle.opacity > 0)
       );
       
       frame = requestAnimationFrame(animateConfetti);
@@ -286,7 +273,6 @@ const FloatingShape = ({
     };
   }, [isExploding, confetti.length]);
 
-  // If still loading or no SVG content, show nothing or a placeholder
   if (isLoading || !svgContent) {
     return (
       <div ref={containerRef} style={{ position: "relative", width: "100%", height: "100%" }} />
@@ -305,7 +291,6 @@ const FloatingShape = ({
       }}
       onClick={handleExplosion}
     >
-      {/* Main shape */}
       {!isExploding && (
         <svg
           ref={shapeRef}
@@ -328,7 +313,6 @@ const FloatingShape = ({
         />
       )}
 
-      {/* Explosion confetti */}
       {isExploding && confetti.map(particle => (
         <div 
           key={`confetti-${particle.id}`}
