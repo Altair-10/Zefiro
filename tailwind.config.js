@@ -1,4 +1,3 @@
-import { heroui } from "@heroui/react";
 
 export const content = [
   "./src/pages/**/*.{js,jsx,tsx}",
@@ -35,8 +34,3 @@ export const theme = {
     },
   },
 };
-export const plugins = [
-  heroui({
-    prefix: "myapp",
-  }),
-];
