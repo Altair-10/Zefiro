@@ -4,22 +4,34 @@ const FloatingShape = ({
   svgPath, 
   width = 60, 
   height = 70, 
-  trailCount = 5,
   viewBox = "0 0 173 198",
-  randomMovement = false,
-  targetRow = null
+  speed = 1.5
 }) => {
   const shapeRef = useRef(null);
-  const trailRefs = useRef([]);
   const containerRef = useRef(null);
   const [isExploding, setIsExploding] = useState(false);
   const [confetti, setConfetti] = useState([]);
   const animationRef = useRef(null);
   const [svgContent, setSvgContent] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
+  
+  // Utilizziamo ref per mantenere lo stato della fisica tra i render
+  const physicsRef = useRef({
+    position: { x: 0, y: 0 },
+    velocity: { x: 0, y: 0 }
+  });
 
-  // Create trail elements
-  const trails = Array(trailCount).fill(null);
+  // Inizializza con una direzione casuale all'avvio
+  useEffect(() => {
+    // Angolo casuale per la direzione iniziale
+    const angle = Math.random() * Math.PI * 2;
+    // Velocità costante in quella direzione
+    physicsRef.current.velocity = { 
+      x: Math.cos(angle) * speed,
+      y: Math.sin(angle) * speed
+    };
+  }, [speed]);
 
   // Fetch SVG content from file
   useEffect(() => {
@@ -52,82 +64,68 @@ const FloatingShape = ({
     }
   }, [svgPath, viewBox]);
 
+  // Get container dimensions and set up resize observer
   useEffect(() => {
-    if (!shapeRef.current || !containerRef.current || isLoading) return;
+    if (!containerRef.current) return;
 
-    // Generate random or fixed positions for animation
-    let positions;
+    const updateContainerSize = () => {
+      if (containerRef.current) {
+        setContainerSize({
+          width: containerRef.current.clientWidth,
+          height: containerRef.current.clientHeight
+        });
+      }
+    };
+
+    // Initial size measurement
+    updateContainerSize();
+
+    // Set up resize observer
+    const resizeObserver = new ResizeObserver(updateContainerSize);
+    resizeObserver.observe(containerRef.current);
+
+    return () => {
+      if (containerRef.current) {
+        resizeObserver.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!shapeRef.current || !containerRef.current || isLoading || containerSize.width === 0) return;
+
+    const physics = physicsRef.current;
     
-    if (randomMovement) {
-      // Generate random positions for movement
-      const containerWidth = containerRef.current.clientWidth;
-      const containerHeight = containerRef.current.clientHeight;
-      
-      positions = Array(5).fill().map(() => ({
-        x: (Math.random() - 0.5) * containerWidth * 0.8,
-        y: (Math.random() - 0.5) * containerHeight * 0.8
-      }));
-      
-      // Always return to center as the last position
-      positions.push({ x: 0, y: 0 });
-    } else {
-      // Default fixed positions
-      positions = [
-        { x: 0, y: 0 },
-        { x: 40, y: -30 },
-        { x: 20, y: 40 },
-        { x: -40, y: 20 },
-        { x: 0, y: 0 }
-      ];
-    }
-    
-    let currentPosition = 0;
-    let trailPositions = Array(trailCount).fill().map(() => [...positions]);
-    
-    // Update shape position based on animation progress
+    // Calculate boundaries for movement
+    const maxX = (containerSize.width / 2) - (width / 2) - 2;
+    const maxY = (containerSize.height / 2) - (height / 2) - 2;
+
     const animateShape = () => {
       if (isExploding) return;
 
-      const now = Date.now();
-      const animationDuration = 3000; // 3 seconds per position
-      const totalDuration = animationDuration * (positions.length - 1);
-      const cycleTime = now % totalDuration;
-      const segment = Math.floor(cycleTime / animationDuration);
-      const progress = (cycleTime % animationDuration) / animationDuration;
-      
-      const startPos = positions[segment];
-      const endPos = positions[segment + 1];
-      
-      // Smooth interpolation
-      const x = startPos.x + (endPos.x - startPos.x) * easeInOut(progress);
-      const y = startPos.y + (endPos.y - startPos.y) * easeInOut(progress);
-      
-      if (shapeRef.current) {
-        shapeRef.current.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+      // Update position based on velocity - movimento costante e lineare
+      physics.position.x += physics.velocity.x;
+      physics.position.y += physics.velocity.y;
+
+      // Boundary checks with bounce - cambia direzione solo quando tocca i bordi
+      if (Math.abs(physics.position.x) > maxX) {
+        // Correggi la posizione per evitare che esca dal container
+        physics.position.x = Math.sign(physics.position.x) * maxX;
+        // Inverti solo la componente X della velocità
+        physics.velocity.x = -physics.velocity.x;
       }
-      
-      // Update trail positions with delay
-      trailRefs.current.forEach((trail, i) => {
-        if (!trail) return;
-        
-        // Calculate delayed progress (different for each trail element)
-        const delayFactor = 0.15 * (i + 1);
-        const delayedCycleTime = (now - (delayFactor * animationDuration)) % totalDuration;
-        const delayedSegment = Math.floor(delayedCycleTime / animationDuration);
-        const delayedProgress = (delayedCycleTime % animationDuration) / animationDuration;
-        
-        // Get positions for this trail element
-        const trailStartPos = positions[delayedSegment >= 0 ? delayedSegment : 0];
-        const trailEndPos = positions[delayedSegment + 1 < positions.length ? delayedSegment + 1 : positions.length - 1];
-        
-        // Calculate position with ease
-        const trailX = trailStartPos.x + (trailEndPos.x - trailStartPos.x) * easeInOut(delayedProgress);
-        const trailY = trailStartPos.y + (trailEndPos.y - trailStartPos.y) * easeInOut(delayedProgress);
-        
-        // Apply position and styling based on index
-        trail.style.transform = `translate(calc(-50% + ${trailX}px), calc(-50% + ${trailY}px)) scale(${1 - (i * 0.15)})`;
-        trail.style.opacity = 0.3 - (i * 0.05);
-      });
+
+      if (Math.abs(physics.position.y) > maxY) {
+        // Correggi la posizione per evitare che esca dal container
+        physics.position.y = Math.sign(physics.position.y) * maxY;
+        // Inverti solo la componente Y della velocità
+        physics.velocity.y = -physics.velocity.y;
+      }
+
+      // Applica la posizione
+      if (shapeRef.current) {
+        shapeRef.current.style.transform = `translate(calc(-50% + ${physics.position.x}px), calc(-50% + ${physics.position.y}px))`;
+      }
       
       animationRef.current = requestAnimationFrame(animateShape);
     };
@@ -141,12 +139,7 @@ const FloatingShape = ({
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isExploding, trailCount, isLoading, randomMovement]);
-
-  // Easing function for smooth animation
-  const easeInOut = (t) => {
-    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-  };
+  }, [isExploding, isLoading, containerSize, width, height]);
 
   // Handle explosion effect when clicked
   const handleExplosion = () => {
@@ -160,23 +153,15 @@ const FloatingShape = ({
     }
     
     // Generate confetti particles
-    const particleCount = 30;
+    const particleCount = 40;
     const newConfetti = [];
+    const containerHeight = containerSize.height;
     
     for (let i = 0; i < particleCount; i++) {
       // Create random directions and speeds for particles
       const angle = Math.random() * Math.PI * 2;
-      const speed = 2 + Math.random() * 4;
+      const speed = 3 + Math.random() * 5;
       const size = 5 + Math.random() * 10;
-      
-      // Calculate the target position for confetti
-      // If targetRow is provided, we'll make confetti gravitate there
-      let targetY = null;
-      if (targetRow) {
-        // Convert the target row to an approximate pixel value
-        // This is an approximation - you might need to adjust based on your grid
-        targetY = 200; // Default value if calculations fail
-      }
       
       newConfetti.push({
         id: i,
@@ -186,10 +171,13 @@ const FloatingShape = ({
         vy: Math.sin(angle) * speed,
         size,
         rotation: Math.random() * 360,
-        rotationSpeed: (Math.random() - 0.5) * 10,
+        rotationSpeed: (Math.random() - 0.5) * 15,
         opacity: 1,
-        color: `hsl(${Math.floor(Math.random() * 360)}, 70%, 60%)`,
-        targetY: targetY
+        color: `hsl(${Math.floor(Math.random() * 360)}, 80%, 60%)`,
+        reachedFloor: false,
+        floor: containerHeight / 2 - size - 5,
+        createdAt: Date.now(),
+        lifespan: 2500 + Math.random() * 1500
       });
     }
     
@@ -202,7 +190,7 @@ const FloatingShape = ({
       
       // Restart the regular animation
       animationRef.current = requestAnimationFrame(animateShape);
-    }, 2000);
+    }, 4000);
   };
 
   // Update confetti positions
@@ -210,68 +198,86 @@ const FloatingShape = ({
     if (!isExploding || confetti.length === 0) return;
     
     let frame;
-    const gravity = 0.1;
+    const gravity = 0.25;
     const friction = 0.98;
-    const fadeSpeed = 0.01; // Reduced for slower fade
+    const floorFriction = 0.85;
     
     const animateConfetti = () => {
+      const now = Date.now();
+      
       setConfetti(prevConfetti => 
         prevConfetti.map(particle => {
-          // Apply physics
-          let vy = particle.vy + gravity;
-          const vx = particle.vx * friction;
-          let y = particle.y + vy;
+          // Skip physics update if reached the floor and almost stopped
+          let newVx = particle.vx;
+          let newVy = particle.vy;
+          let newX = particle.x;
+          let newY = particle.y;
+          let reachedFloor = particle.reachedFloor;
+          let rotation = particle.rotation + particle.rotationSpeed;
           
-          // If we have a target row, make confetti gravitate towards it
-          if (particle.targetY !== null) {
-            // As particles get further away, increase their tendency to return to targetY
-            const distanceToTarget = particle.targetY - particle.y;
-            // Apply a force towards the target, stronger as the particle gets further away
-            if (Math.abs(distanceToTarget) > 10) {
-              vy += distanceToTarget * 0.01;
-            }
+          // If not reached floor yet, apply physics
+          if (!particle.reachedFloor) {
+            // Apply gravity
+            newVy = particle.vy + gravity;
             
-            // If near the target, slow down
-            if (Math.abs(distanceToTarget) < 50) {
-              vy *= 0.95;
+            // Apply friction
+            newVx = particle.vx * friction;
+            
+            // Update position
+            newX = particle.x + newVx;
+            newY = particle.y + newVy;
+            
+            // Check if reached floor
+            if (newY >= particle.floor) {
+              newY = particle.floor;
+              newVy = -newVy * 0.4;
+              
+              // After first bounce, apply extra friction
+              newVx *= floorFriction;
+              
+              // If almost stopped, mark as reached floor
+              if (Math.abs(newVy) < 0.8) {
+                reachedFloor = true;
+                newVy = 0;
+              }
+            }
+          } else {
+            // If already on floor, just slow down horizontal movement
+            newVx *= floorFriction;
+            rotation = particle.rotation + particle.rotationSpeed * 0.3;
+            
+            // Almost no movement, just stay in place
+            if (Math.abs(newVx) < 0.2) {
+              newVx = 0;
+              particle.rotationSpeed = 0;
             }
           }
           
-          // Calculate opacity with a more gradual fade
-          // For the first second, maintain full opacity, then fade over the next second
-          const lifetime = 2000; // 2 seconds total
-          const now = Date.now();
+          // Calculate opacity based on lifetime
           const age = now - particle.createdAt;
-          let opacity = particle.opacity;
+          const lifeFraction = age / particle.lifespan;
           
-          if (age > lifetime * 0.5) {
-            // Only start fading after half the lifetime
-            opacity = Math.max(0, 1 - ((age - (lifetime * 0.5)) / (lifetime * 0.5)));
+          // Start fading at 60% of life for a smoother, longer fade
+          let opacity = 1;
+          if (lifeFraction > 0.6) {
+            opacity = Math.max(0, 1 - ((lifeFraction - 0.6) / 0.4));
           }
           
           return {
             ...particle,
-            x: particle.x + vx,
-            y: y,
-            vx,
-            vy,
-            rotation: particle.rotation + particle.rotationSpeed,
-            opacity
+            x: newX,
+            y: newY,
+            vx: newVx,
+            vy: newVy,
+            rotation,
+            opacity,
+            reachedFloor
           };
         }).filter(particle => particle.opacity > 0) // Remove completely faded particles
       );
       
       frame = requestAnimationFrame(animateConfetti);
     };
-    
-    const now = Date.now();
-    // Add creation timestamp to each particle for age-based effects
-    setConfetti(prevConfetti => 
-      prevConfetti.map(particle => ({
-        ...particle,
-        createdAt: now
-      }))
-    );
     
     frame = requestAnimationFrame(animateConfetti);
     
@@ -295,33 +301,10 @@ const FloatingShape = ({
         width: "100%", 
         height: "100%", 
         overflow: "hidden",
-        cursor: "pointer"
+        cursor: "pointer",
       }}
       onClick={handleExplosion}
     >
-      {/* Trail elements */}
-      {!isExploding && trails.map((_, i) => (
-        <svg
-          key={`trail-${i}`}
-          ref={el => trailRefs.current[i] = el}
-          width={width} 
-          height={height}
-          viewBox={viewBox}
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            opacity: 0.2,
-            zIndex: 1,
-            pointerEvents: "none"
-          }}
-          dangerouslySetInnerHTML={{ __html: svgContent }}
-        />
-      ))}
-
       {/* Main shape */}
       {!isExploding && (
         <svg
@@ -336,8 +319,9 @@ const FloatingShape = ({
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            opacity: 0.8,
+            opacity: 0.85,
             zIndex: 2,
+            filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.1))",
             pointerEvents: "none"
           }}
           dangerouslySetInnerHTML={{ __html: svgContent }}
@@ -355,12 +339,11 @@ const FloatingShape = ({
             width: `${particle.size}px`,
             height: `${particle.size}px`,
             backgroundColor: particle.color,
-            borderRadius: "2px",
             transform: `translate(calc(-50% + ${particle.x}px), calc(-50% + ${particle.y}px)) rotate(${particle.rotation}deg)`,
             opacity: particle.opacity,
             zIndex: 10,
             pointerEvents: "none",
-            transition: "opacity 0.3s ease-out" // Smooth opacity transition
+            transition: "opacity 0.3s ease-out"
           }}
         />
       ))}

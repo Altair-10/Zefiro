@@ -14,7 +14,8 @@ export default function Services() {
     "/FormeSVG/blue-6.svg",
     "/FormeSVG/orange-4.svg",
     "/FormeSVG/orange-6.svg",
-    "/FormeSVG/blue-4.svg"   
+    "/FormeSVG/blue-4.svg",
+    "/FormeSVG/orange-12.svg",
   ];
 
   const containerRef = useRef(null);
@@ -92,58 +93,37 @@ export default function Services() {
           />
         </div>
 
-        {/* Animated Shapes Area - Con contenimento appropriato */}
+        {/* Animated Shapes Area */}
         <div className="md:row-[18/30] md:col-[2/22] relative">
-          {/* Prima forma animata */}
-          <div className="absolute inset-0 overflow-hidden">
-            <FloatingShape 
-              svgPath={svgPaths[0]} 
-              width={60} 
-              height={70} 
-              trailCount={4} 
-              randomMovement={true} 
-              targetRow={30}
-              boundsMultiplier={0.6} // Limite del movimento per mantenere le forme dentro il contenitore
-            />
-          </div>
-          
-          {/* Seconda forma animata */}
-          <div className="absolute inset-0 overflow-hidden">
-            <FloatingShape 
-              svgPath={svgPaths[1]} 
-              width={50} 
-              height={60} 
-              trailCount={3} 
-              randomMovement={true} 
-              targetRow={30}
-              boundsMultiplier={0.5}
-            />
-          </div>
-          
-          {/* Terza forma animata */}
-          <div className="absolute inset-0 overflow-hidden">
-            <FloatingShape 
-              svgPath={svgPaths[2]} 
-              width={40} 
-              height={50} 
-              trailCount={2} 
-              randomMovement={true} 
-              targetRow={30}
-              boundsMultiplier={0.55}
-            />
-          </div>
-          
-          {/* Quarta forma animata */}
-          <div className="absolute inset-0 overflow-hidden">
-            <FloatingShape 
-              svgPath={svgPaths[3]} 
-              width={45} 
-              height={55} 
-              trailCount={3} 
-              randomMovement={true} 
-              targetRow={30}
-              boundsMultiplier={0.45}
-            />
+          <div className="w-full h-48 overflow-hidden">
+            {/* OPZIONE 1: Singola SVG che occupa tutto lo spazio */}
+            {/* <FloatingShape
+              svgPath={svgPaths[0]}
+              width={60}
+              height={70}
+              speed={1.2} // Velocità più bassa per un movimento più elegante
+            /> */}
+
+            {/* OPZIONE 2: Due SVG affiancate - Scommentare queste e commentare l'opzione sopra per usare questa */}
+
+            <div className="absolute inset-0 grid grid-cols-2 gap-0">
+              <div className="w-full h-full">
+                <FloatingShape
+                  svgPath={svgPaths[2]}
+                  width={60}
+                  height={70}
+                  speed={2.0}
+                />
+              </div>
+              <div className="w-full h-full">
+                <FloatingShape
+                  svgPath={svgPaths[3]}
+                  width={60}
+                  height={70}
+                  speed={2.2}
+                />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -156,6 +136,18 @@ export default function Services() {
             btnHref={"/sitoPerEventi"}
             animationDirection="right"
           />
+        </div>
+        
+        {/* Animated Shapes Area */}
+        <div className="md:row-[31/41] md:col-[30/45] relative">
+          <div className="w-full h-48 overflow-hidden">
+            <FloatingShape
+              svgPath={svgPaths[0]}
+              width={60}
+              height={70}
+              speed={1.5}
+            />
+          </div>
         </div>
 
         {/* Rettangoli "Portfolio" */}
@@ -176,6 +168,18 @@ export default function Services() {
             btnHref={"/portfolioCreativo"}
             animationDirection="left"
           />
+        </div>
+
+        {/* Animated Shapes Area */}
+        <div className="md:row-[44/53] md:col-[2/22] relative">
+          <div className="w-full h-48 overflow-hidden">
+            <FloatingShape
+              svgPath={svgPaths[1]}
+              width={60}
+              height={70}
+              speed={1.2}
+            />
+          </div>
         </div>
 
         {/* Rettangoli "Piattaforma" */}
@@ -216,6 +220,30 @@ export default function Services() {
             btnHref={"/blog"}
             animationDirection="left"
           />
+        </div>
+
+        {/* Animated Shapes Area */}
+        <div className="md:row-[55/65] md:col-[30/48] relative">
+          <div className="w-full h-48 overflow-hidden">
+            <div className="absolute inset-0 grid grid-cols-2 gap-0">
+              <div className="w-full h-full">
+                <FloatingShape
+                  svgPath={svgPaths[0]}
+                  width={60}
+                  height={70}
+                  speed={2.0}
+                />
+              </div>
+              <div className="w-full h-full">
+                <FloatingShape
+                  svgPath={svgPaths[2]}
+                  width={60}
+                  height={70}
+                  speed={2.2}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
