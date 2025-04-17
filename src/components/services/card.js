@@ -48,16 +48,18 @@ const Card = ({ image, CardTitle, CardDescription, btnHref, animationDirection }
       </div>
 
       {/* Blocco testo con inner shadow */}
-      <div className="flex flex-col justify-around items-center text-center w-full h-1/2 md:w-1/2 md:h-full p-4 relative
-                      before:content-[''] before:absolute before:inset-0 before:pointer-events-none
-                      before:shadow-[inset_2px_2px_8px_rgba(0,0,0,0.12),inset_-1px_-1px_6px_rgba(0,0,0,0.08)]">
-        <h3 className="text-[7vw] md:text-[2vw] text-gray-800 font-bold whitespace-nowrap">
+      <div className="
+        flex flex-col justify-around items-center text-center w-full h-1/2 md:w-1/2 md:h-full p-4 relative
+        before:content-[''] before:absolute before:inset-0 before:pointer-events-none
+        before:shadow-[inset_2px_2px_8px_rgba(0,0,0,0.12),inset_-1px_-1px_6px_rgba(0,0,0,0.08)]
+      ">
+        <h3 className="text-gray-800 font-bold">
           {CardTitle}
         </h3>
-        <p className="mb-4 text-base leading-relaxed text-gray-600 dark:text-dark-6">
+        <p className="mb-4 leading-relaxed text-gray-600 dark:text-dark-6">
           {CardDescription}
         </p>
-        <AnimatedButton href={btnHref}/>
+        <AnimatedButton href={btnHref} />
       </div>
     </div>
   );

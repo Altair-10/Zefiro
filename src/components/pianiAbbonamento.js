@@ -2,80 +2,18 @@
 
 import React from "react";
 import { useState, useRef } from "react"
+import { getPlanItems } from "@/app/config/subscriptionPlansCostants";
 
 export default function PianiAbbonamento() {
-    const planContent = {
-        base: [
-            { title: "Sito Web", description: "Realizzazione del sito web con layout base" },
-            { title: "Hosting Sicuro", description: "Hosting protetto su server europeo" },
-            { title: "Dominio Dedicato", description: "Registrazione dominio inclusa per 1 anno" },
-            { title: "Certificato SSL", description: "Connessione sicura tramite HTTPS" },
-            { title: "Supporto via Mail", description: "Assistenza via email con risposta entro 24h" },
-        ],
-        overrides: {
-            standard: {
-                5: { title: "Assistenza Telefonica", description: "Supporto telefonico fino a 2 ore mensili" },
-                6: { title: "Backup Mensile", description: "Backup automatico dei contenuti ogni mese" },
-                7: { title: "Manutenzione su Richiesta", description: "Interventi tecnici extra <br> su richiesta" },
-                8: { title: "Formazione del Personale", description: "Sessione di formazione della durata di 1 ora", active: false },
-                9: { title: "SEO", description: "Ottimizzazione base per i motori di ricerca", active: false },
-                10: { title: "Raccolta Dati", description: "Modulo per la raccolta dei dati dei visitatori", active: false },
-                11: { title: "Sito Dinamico", description: "Gestione autonoma dei contenuti tramite CMS", active: false },
-            },
-            business: {
-                5: { title: "Assistenza Telefonica", description: "Supporto telefonico illimitato 24 ore su 24" },
-                6: { title: "Backup Settimanale", description: "Backup automatico dei contenuti ogni settimana" },
-                7: { title: "Manutenzione Ordinaria", description: "Interventi tecnici ricorrenti <br> inclusi" },
-                8: { title: "Formazione del Personale", description: "Sessione di formazione della durata di 1 ora" },
-                9: { title: "SEO", description: "Ottimizzazione base per i motori di ricerca", active: false },
-                10: { title: "Raccolta Dati", description: "Modulo per la raccolta dei dati dei visitatori", active: false },
-                11: { title: "Sito Dinamico", description: "Gestione autonoma dei contenuti tramite CMS", active: false },
-            },
-            premium: {
-                5: { title: "Assistenza Telefonica", description: "Supporto telefonico illimitato 24 ore su 24" },
-                6: { title: "Backup Giornaliero", description: "Backup automatico dei contenuti ogni giorno" },
-                7: { title: "Manutenzione Straordinaria", description: "Interventi tecnici straordinari inclusi" },
-                8: { title: "Formazione del Personale", description: "Sessione di formazione della durata di 1 ora" },
-                9: { title: "SEO", description: "Ottimizzazione base per i motori di ricerca" },
-                10: { title: "Raccolta Dati", description: "Modulo per la raccolta dei dati dei visitatori" },
-                11: { title: "Sito Dinamico", description: "Gestione autonoma dei contenuti tramite CMS" },
-            }
-        }
-    };
-
-    const getPlanItems = (plan) => {
-        const base = [...planContent.base];
-        const overrides = planContent.overrides[plan.toLowerCase()] || {};
-
-        const merged = base.map((item, index) => {
-            const override = overrides[index];
-            return {
-                ...item,
-                ...(override || {}),
-                active: override?.active !== false,
-            };
-        });
-
-        const extra = Object.entries(overrides)
-            .filter(([index]) => parseInt(index) >= base.length)
-            .map(([_, value]) => ({
-                ...value,
-                active: value.active !== false,
-            }));
-
-        const allItems = [...merged, ...extra];
-
-        return allItems.sort((a, b) => {
-            return (a.active === false ? 1 : 0) - (b.active === false ? 1 : 0);
-        });
-    };
     return (
         <>
-            <div className="flex justify-center items-center text-black text-[8vw] text-center font-semibold md:text-[5vw]">
-                Scegli il piano che fa per te!
+            <div className="flex justify-center items-center text-black text-center font-semibold pt-36 mx-16 md:mx-0">
+                <h1 className="text-black text-3xl font-semibold md:text-6xl mb-20">
+                    Scegli il Piano che fa per te!
+                </h1>
             </div>
 
-            <div className="md: hidden row-[238] col-span-full">
+            {/* <div className="md:hidden">
                 <PlanSlider>
                     <PlanCard
                         cardTitle="standard"
@@ -93,9 +31,9 @@ export default function PianiAbbonamento() {
                         items={getPlanItems("premium")}
                     />
                 </PlanSlider>
-            </div>
+            </div> */}
 
-            <div className="hidden row-[43] col-[1/49] md:flex flex-row justify-around">
+            <div className="hidden md:flex flex-row justify-center gap-40">
                 <PlanCard
                     cardTitle="standard"
                     cardCTA="Perfetto per chi desidera una presenza online semplice ma professionale, con strumenti essenziali per iniziare."
@@ -263,65 +201,63 @@ function Content({ items = [] }) {
     );
 }
 
-const PlanSlider = ({ children }) => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const total = React.Children.count(children);
+// const PlanSlider = ({ children }) => {
+//     const [activeIndex, setActiveIndex] = useState(0);
+//     const total = React.Children.count(children);
 
-    const startX = useRef(0);
-    const endX = useRef(0);
+//     const startX = useRef(0);
+//     const endX = useRef(0);
 
-    const handleTouchStart = (e) => {
-        startX.current = e.touches[0].clientX;
-    };
+//     const handleTouchStart = (e) => {
+//         startX.current = e.touches[0].clientX;
+//     };
 
-    const handleTouchMove = (e) => {
-        endX.current = e.touches[0].clientX;
-    };
+//     const handleTouchMove = (e) => {
+//         endX.current = e.touches[0].clientX;
+//     };
 
-    const handleTouchEnd = () => {
-        const delta = startX.current - endX.current;
-        if (delta > 50 && activeIndex < total - 1) {
-            setActiveIndex((prev) => prev + 1); // swipe left → next
-        } else if (delta < -50 && activeIndex > 0) {
-            setActiveIndex((prev) => prev - 1); // swipe right → prev
-        }
-    };
+//     const handleTouchEnd = () => {
+//         const delta = startX.current - endX.current;
+//         if (delta > 50 && activeIndex < total - 1) {
+//             setActiveIndex((prev) => prev + 1); // swipe left → next
+//         } else if (delta < -50 && activeIndex > 0) {
+//             setActiveIndex((prev) => prev - 1); // swipe right → prev
+//         }
+//     };
 
-    return (
-        <div className="md:hidden w-full flex flex-col justify-center items-center">
-            {/* Dots */}
-            <div className="flex space-x-2 mb-4">
-                {Array.from({ length: total }).map((_, index) => (
-                    <button
-                        key={index}
-                        className={`w-3 h-3 rounded-full ${index === activeIndex ? "bg-blue-600" : "bg-gray-300"
-                            }`}
-                        onClick={() => setActiveIndex(index)}
-                    />
-                ))}
-            </div>
+//     return (
+//         <div className="md:hidden w-full flex flex-col justify-center items-center">
+//             {/* Dots */}
+//             <div className="flex space-x-2 mb-4">
+//                 {Array.from({ length: total }).map((_, index) => (
+//                     <button
+//                         key={index}
+//                         className={`w-3 h-3 rounded-full ${index === activeIndex ? "bg-blue-600" : "bg-gray-300"}`}
+//                         onClick={() => setActiveIndex(index)}
+//                     />
+//                 ))}
+//             </div>
 
-            {/* Slider */}
-            <div
-                className="relative w-full overflow-hidden max-w-md"
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-            >
-                <div
-                    className="flex transition-transform duration-500 ease-in-out"
-                    style={{
-                        transform: `translateX(-${activeIndex * 100}%)`,
-                        width: `${total * 100}%`,
-                    }}
-                >
-                    {React.Children.map(children, (child) => (
-                        <div className="w-full shrink-0 flex justify-center px-4">
-                            <div className="w-full">{child}</div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-    );
-};
+//             {/* Slider */}
+//             <div
+//                 onTouchStart={handleTouchStart}
+//                 onTouchMove={handleTouchMove}
+//                 onTouchEnd={handleTouchEnd}
+//             >
+//                 <div
+//                     className="flex transition-transform duration-500 ease-in-out"
+//                     style={{
+//                         transform: `translateX(-${activeIndex * 100}%)`,
+//                         width: `${total * 100}%`,
+//                     }}
+//                 >
+//                     {React.Children.map(children, (child) => (
+//                         <div className="w-full shrink-0 flex justify-center">
+//                             <div className="w-[280px] sm:w-[320px]">{child}</div>
+//                         </div>
+//                     ))}
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };

@@ -43,7 +43,7 @@ export default function Services() {
   }, []);
 
   return (
-    <div className="flex justify-center items-center w-full" ref={containerRef}>
+    <div className="flex justify-center items-center w-full py-14" ref={containerRef}>
       <div
         className="
           grid my-[5vw]
