@@ -57,7 +57,7 @@ export default function Services() {
           <AnimatedTitle text="I nostri servizi" />
         </div>
 
-        {/* Rettangoli "SitoVetrina" */}
+        {/* SITO VETRINA */}
         <div className="hidden md:block row-[10/12] col-[2/27] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
@@ -66,8 +66,6 @@ export default function Services() {
           />
         </div>
         <div className="hidden md:block row-[12/14] col-[2/27] bg-blue-light" />
-
-        {/* Card "SitoVetrina" */}
         <div className="row-[10/60] col-[1/32] md:row-[7/17] md:col-[6/24]">
           <Card
             CardTitle={"Sito Vetrina"}
@@ -79,11 +77,11 @@ export default function Services() {
         </div>
 
         {/* Animazione Carosello aggettivi */}
-        <div className=" md:row-[6/16] md:col-[33/48]">
+        <div className="hidden md:block md:row-[6/16] md:col-[33/48]">
           <PremiumSaleAnimation />
         </div>
 
-        {/* Rettangoli "SitoPerEventi" */}
+        {/* SITO PER EVENTI */}
         <div className="hidden md:block row-[22/24] col-[23/48] bg-blue-light" />
         <div className="hidden md:block row-[24/26] col-[23/48] bg-blue-medium">
           <ShapesDisplayer
@@ -92,20 +90,19 @@ export default function Services() {
             position="end"
           />
         </div>
+        <div className="row-[62/112] col-[1/32] md:row-[19/29] md:col-[26/44]">
+          <Card
+            image={"/sfondi/E-commerce.jpg"}
+            CardTitle={"Sito Per Eventi"}
+            CardDescription={"Promuovi e gestisci il tuo evento online con tutte le informazioni essenziali."}
+            btnHref={"/sitoPerEventi"}
+            animationDirection="right"
+          />
+        </div>
 
         {/* Animated Shapes Area */}
-        <div className="md:row-[18/30] md:col-[2/22] relative">
+        <div className="hidden md:block md:row-[18/30] md:col-[2/22] relative">
           <div className="w-full h-48 overflow-hidden">
-            {/* OPZIONE 1: Singola SVG che occupa tutto lo spazio */}
-            {/* <FloatingShape
-              svgPath={svgPaths[0]}
-              width={60}
-              height={70}
-              speed={1.2} // Velocità più bassa per un movimento più elegante
-            /> */}
-
-            {/* OPZIONE 2: Due SVG affiancate - Scommentare queste e commentare l'opzione sopra per usare questa */}
-
             <div className="absolute inset-0 grid grid-cols-2 gap-0">
               <div className="w-full h-full">
                 <FloatingShape
@@ -127,30 +124,18 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Card "SitoPerEventi" */}
-        <div className="row-[62/112] col-[1/32] md:row-[19/29] md:col-[26/44]">
-          <Card
-            image={"/sfondi/E-commerce.jpg"}
-            CardTitle={"Sito Per Eventi"}
-            CardDescription={"Promuovi e gestisci il tuo evento online con tutte le informazioni essenziali."}
-            btnHref={"/sitoPerEventi"}
-            animationDirection="right"
-          />
-        </div>
-        
         {/* Animated Shapes Area */}
-        <div className="md:row-[31/41] md:col-[30/45] relative">
+        <div className="hidden md:block md:row-[31/41] md:col-[30/45] relative">
           <div className="w-full h-48 overflow-hidden">
             <FloatingShape
               svgPath={svgPaths[0]}
               width={60}
               height={70}
-              speed={1.5}
             />
           </div>
         </div>
 
-        {/* Rettangoli "Portfolio" */}
+        {/* PORTFOLIO CREATIVO */}
         <div className="hidden md:block row-[34/36] col-[2/27] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
@@ -159,7 +144,6 @@ export default function Services() {
           />
         </div>
         <div className="hidden md:block row-[36/38] col-[2/27] bg-blue-light" />
-        {/* Card "Portfolio" */}
         <div className="row-[114/164] col-[1/32] md:row-[31/41] md:col-[6/24]">
           <Card
             image={"/sfondi/E-commerce.jpg"}
@@ -171,7 +155,7 @@ export default function Services() {
         </div>
 
         {/* Animated Shapes Area */}
-        <div className="md:row-[44/53] md:col-[2/22] relative">
+        <div className="hidden md:block md:row-[44/53] md:col-[2/22] relative">
           <div className="w-full h-48 overflow-hidden">
             <FloatingShape
               svgPath={svgPaths[1]}
@@ -182,7 +166,7 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Rettangoli "Piattaforma" */}
+        {/* E-LEARNING */}
         <div className="hidden md:block row-[46/48] col-[23/48] bg-blue-light" />
         <div className="hidden md:block row-[48/50] col-[23/48] bg-blue-medium">
           <ShapesDisplayer
@@ -191,7 +175,6 @@ export default function Services() {
             position="end"
           />
         </div>
-        {/* Card "Piattaforma" */}
         <div className="row-[168/218] col-[1/32] md:row-[43/53] md:col-[26/44]">
           <Card
             image={"/sfondi/E-commerce.jpg"}
@@ -202,7 +185,7 @@ export default function Services() {
           />
         </div>
 
-        {/* Rettangoli "Blog" */}
+        {/* BLOG */}
         <div className="hidden md:block row-[58/60] col-[2/27] bg-blue-light" />
         <div className="hidden md:block row-[60/62] col-[2/27] bg-blue-medium">
           <ShapesDisplayer
@@ -211,7 +194,6 @@ export default function Services() {
             position="end"
           />
         </div>
-        {/* Card "Blog" */}
         <div className="row-[220/270] col-[1/32] md:row-[55/65] md:col-[6/24]">
           <Card
             image={"/sfondi/E-commerce.jpg"}
@@ -223,7 +205,7 @@ export default function Services() {
         </div>
 
         {/* Animated Shapes Area */}
-        <div className="md:row-[55/65] md:col-[30/48] relative">
+        <div className="hidden md:block md:row-[55/65] md:col-[30/48] relative">
           <div className="w-full h-48 overflow-hidden">
             <div className="absolute inset-0 grid grid-cols-2 gap-0">
               <div className="w-full h-full">
