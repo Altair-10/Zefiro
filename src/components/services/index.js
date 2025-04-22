@@ -92,7 +92,7 @@ export default function Services() {
         </div>
         <div className="row-[62/112] col-[1/32] md:row-[19/29] md:col-[26/44]">
           <Card
-            image={"/sfondi/E-commerce.jpg"}
+            image={"/sfondi/sitoEventi.png"}
             CardTitle={"Sito Per Eventi"}
             CardDescription={"Promuovi e gestisci il tuo evento online con tutte le informazioni essenziali."}
             btnHref={"/sitoPerEventi"}
@@ -177,7 +177,7 @@ export default function Services() {
         </div>
         <div className="row-[168/218] col-[1/32] md:row-[43/53] md:col-[26/44]">
           <Card
-            image={"/sfondi/E-commerce.jpg"}
+            image={"/sfondi/ELearning.png"}
             CardTitle={"E-learning"}
             CardDescription={"Offri corsi e formazione online con una piattaforma intuitiva e completa."}
             btnHref={"/e-learning"}
@@ -196,7 +196,7 @@ export default function Services() {
         </div>
         <div className="row-[220/270] col-[1/32] md:row-[55/65] md:col-[6/24]">
           <Card
-            image={"/sfondi/E-commerce.jpg"}
+            image={"/sfondi/Blog.png"}
             CardTitle={"Blog"}
             CardDescription={"Condividi articoli, pensieri e novità in uno spazio tutto tuo."}
             btnHref={"/blog"}
