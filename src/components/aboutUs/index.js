@@ -1,34 +1,17 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Employee } from '../ClassEmployees';
 import { useInView } from "react-intersection-observer";
-import AnimatedTitle from '../animatedTitle';
+import AnimatedTitle from '../AnimatedTitle';
 
 export default function AboutUs() {
     const [scrollProgress, setScrollProgress] = useState(0);
     const containerRef = useRef(null);
-    const titleRef = useRef(null);
 
     const { ref, inView } = useInView({
         triggerOnce: true,
         threshold: 0.5,
     });
-
-    const teamMembers = [
-        new Employee("Antonino La Ferrara", "Full stack developer 🧩", {
-            src: "/cardEmployees/AntoninoLaFerrara.png",
-        }),
-        new Employee("Samuele Risso", "CTO", {
-            src: "/cardEmployees/MarcoDonati.jpg",
-        }),
-        new Employee("Stive Baumi", "Design Lead", {
-            src: "/cardEmployees/MarcoDonati.jpg",
-        }),
-        new Employee("Marco Donati", "Creatore di bug 👾", {
-            src: "/cardEmployees/MarcoDonati.jpg",
-        }),
-    ];
 
     useEffect(() => {
         let ticking = false;

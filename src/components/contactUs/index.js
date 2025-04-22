@@ -3,7 +3,7 @@
 import ContactForm from "@/components/contactUs/formEmail";
 import ShapesDisplayer from "../shapesDisplayer";
 import ContactUsCard from "@/components/contactUs/card";
-import AnimatedTitle from "../animatedTitle";
+import AnimatedTitle from "../AnimatedTitle";
 
 export default function ContactUs() {
     return (

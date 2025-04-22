@@ -1,4 +1,4 @@
-import AnimatedTitle from "./animatedTitle"
+import AnimatedTitle from "./AnimatedTitle"
 
 export default function Testimonials() {
 

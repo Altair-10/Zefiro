@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const AnimatedTitle = ({ text = "" }) => {
+export const animatedTitle = ({ text = "" }) => {
   const containerRef = useRef(null);
   const textRef = useRef(null);
 
@@ -60,4 +60,4 @@ export const AnimatedTitle = ({ text = "" }) => {
   );
 };
 
-export default AnimatedTitle;
+export default animatedTitle;

@@ -4,8 +4,8 @@ import Card from "./card";
 import ShapesDisplayer from "../shapesDisplayer";
 import PremiumSaleAnimation from "./caroselloAggettivi";
 import { useEffect, useRef, useState } from "react";
-import AnimatedTitle from "../animatedTitle";
 import FloatingShape from "./FloatingShape";
+import AnimatedTitle from '../AnimatedTitle';
 
 export default function Services() {
   const [scrollProgress, setScrollProgress] = useState(0);
