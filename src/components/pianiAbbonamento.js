@@ -1,38 +1,37 @@
 "use client"
 
-import React from "react";
-import { useState, useRef } from "react"
+import React, { useState } from "react";
 import { getPlanItems } from "@/app/config/subscriptionPlansCostants";
 
 export default function PianiAbbonamento() {
     return (
-        <>
-            <div className="flex justify-center items-center text-black text-center font-semibold pt-36 mx-16 md:mx-0">
-                <h1 className="text-black text-3xl font-semibold md:text-6xl mb-20">
-                    Scegli il Piano che fa per te!
+        <section className="pt-16 md:pt-36">
+            <div className="flex justify-center items-center text-black text-center font-semibold mx-6 md:mx-0 mb-[3vw]">
+                <h1 className="text-black text-center text-3xl md:text-6xl font-semibold">
+                    I Nostri Piani!
                 </h1>
             </div>
 
-            {/* <div className="md:hidden">
-                <PlanSlider>
-                    <PlanCard
-                        cardTitle="standard"
-                        cardCTA="Perfetto per chi desidera una presenza online semplice ma professionale, con strumenti essenziali per iniziare."
-                        items={getPlanItems("standard")}
-                    />
-                    <PlanCard
-                        cardTitle="medium"
-                        cardCTA="Pensato per aziende che vogliono crescere online, con funzionalità avanzate e maggiore flessibilità operativa."
-                        items={getPlanItems("business")}
-                    />
-                    <PlanCard
-                        cardTitle="personal"
-                        cardCTA="La soluzione completa per realtà ambiziose, con massima personalizzazione, performance e supporto dedicato."
-                        items={getPlanItems("premium")}
-                    />
-                </PlanSlider>
-            </div> */}
+            {/* Mobile Version */}
+            <div className="md:hidden flex flex-col items-center gap-6 px-4">
+                <MobileAccordionCard
+                    cardTitle="standard"
+                    cardCTA="Perfetto per chi desidera una presenza online semplice ma professionale, con strumenti essenziali per iniziare."
+                    items={getPlanItems("standard")}
+                />
+                <MobileAccordionCard
+                    cardTitle="medium"
+                    cardCTA="Pensato per aziende che vogliono crescere online, con funzionalità avanzate e maggiore flessibilità operativa."
+                    items={getPlanItems("business")}
+                />
+                <MobileAccordionCard
+                    cardTitle="personal"
+                    cardCTA="La soluzione completa per realtà ambiziose, con massima personalizzazione, performance e supporto dedicato."
+                    items={getPlanItems("premium")}
+                />
+            </div>
 
+            {/* Desktop Version */}
             <div className="hidden md:flex flex-row justify-center gap-40">
                 <PlanCard
                     cardTitle="standard"
@@ -50,8 +49,41 @@ export default function PianiAbbonamento() {
                     items={getPlanItems("premium")}
                 />
             </div>
-        </>
+        </section>
     )
+}
+
+// VERSIONE MOBILE - CARD COMPRIMIBILE
+function MobileAccordionCard({ cardTitle, cardCTA, items }) {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <div className="w-full max-w-md border border-slate-700 rounded-xl bg-slate-900 text-white mt-6">
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-full px-4 py-4 flex justify-between items-center text-left"
+            >
+                <div>
+                    <h3 className="text-xl font-semibold uppercase text-orange">{cardTitle}</h3>
+                    <p className="text-sm text-slate-400 mt-1">{cardCTA}</p>
+                </div>
+                <svg
+                    className={`w-5 h-5 transition-transform ${isOpen ? "rotate-90" : ""}`}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+            {isOpen && (
+                <div className="flex flex-col justify-start px-4 pb-4 gap-y-4">
+                    <Content items={items} />
+                </div>
+            )}
+        </div>
+    );
 }
 
 function PlanCard({ cardTitle, cardCTA, items }) {
@@ -102,8 +134,7 @@ function PlanCard({ cardTitle, cardCTA, items }) {
                         <div className="relative mt-6 space-y-4">
                             <Content items={items} />
                         </div>
-
-                        <div className="relative mt-8">
+                        {/* <div className="relative mt-8">
                             <button
                                 className="group/btn relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-blue-light to-blue-dark p-px font-semibold text-white shadow-[0_1000px_0_0_hsl(0_0%_100%_/_0%)_inset] transition-colors hover:shadow-[0_1000px_0_0_hsl(0_0%_100%_/_2%)_inset]"
                             >
@@ -128,26 +159,7 @@ function PlanCard({ cardTitle, cardCTA, items }) {
                                     </span>
                                 </div>
                             </button>
-                        </div>
-
-                        {/* <div className="mt-4 flex items-center justify-center gap-2 whitespace-nowrap">
-                <svg
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="h-1 w-1 text-slate-400"
-                >
-                  <path
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                    strokeWidth="2"
-                    strokeLinejoin="round"
-                    strokeLinecap="round"
-                  ></path>
-                </svg>
-                <span className="text-xs font-medium text-slate-400">
-                  Servizio clienti dedicato per ogni necessità
-                </span>
-              </div> */}
+                        </div> */}
                     </div>
                 </div>
             </div>
@@ -193,71 +205,10 @@ function Content({ items = [] }) {
                     </div>
                     <div>
                         <p className="text-smfont-medium text-white">{title}</p>
-                        <p className="text-xs w-40 text-slate-400">{description}</p>
+                        <p className="text-xs w-70 md:w-40 text-slate-400">{description}</p>
                     </div>
                 </div>
             ))}
         </>
     );
 }
-
-// const PlanSlider = ({ children }) => {
-//     const [activeIndex, setActiveIndex] = useState(0);
-//     const total = React.Children.count(children);
-
-//     const startX = useRef(0);
-//     const endX = useRef(0);
-
-//     const handleTouchStart = (e) => {
-//         startX.current = e.touches[0].clientX;
-//     };
-
-//     const handleTouchMove = (e) => {
-//         endX.current = e.touches[0].clientX;
-//     };
-
-//     const handleTouchEnd = () => {
-//         const delta = startX.current - endX.current;
-//         if (delta > 50 && activeIndex < total - 1) {
-//             setActiveIndex((prev) => prev + 1); // swipe left → next
-//         } else if (delta < -50 && activeIndex > 0) {
-//             setActiveIndex((prev) => prev - 1); // swipe right → prev
-//         }
-//     };
-
-//     return (
-//         <div className="md:hidden w-full flex flex-col justify-center items-center">
-//             {/* Dots */}
-//             <div className="flex space-x-2 mb-4">
-//                 {Array.from({ length: total }).map((_, index) => (
-//                     <button
-//                         key={index}
-//                         className={`w-3 h-3 rounded-full ${index === activeIndex ? "bg-blue-600" : "bg-gray-300"}`}
-//                         onClick={() => setActiveIndex(index)}
-//                     />
-//                 ))}
-//             </div>
-
-//             {/* Slider */}
-//             <div
-//                 onTouchStart={handleTouchStart}
-//                 onTouchMove={handleTouchMove}
-//                 onTouchEnd={handleTouchEnd}
-//             >
-//                 <div
-//                     className="flex transition-transform duration-500 ease-in-out"
-//                     style={{
-//                         transform: `translateX(-${activeIndex * 100}%)`,
-//                         width: `${total * 100}%`,
-//                     }}
-//                 >
-//                     {React.Children.map(children, (child) => (
-//                         <div className="w-full shrink-0 flex justify-center">
-//                             <div className="w-[280px] sm:w-[320px]">{child}</div>
-//                         </div>
-//                     ))}
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// };

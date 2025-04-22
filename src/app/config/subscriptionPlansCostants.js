@@ -10,7 +10,7 @@ const planContent = {
         standard: {
             5: { title: "Assistenza Telefonica", description: "Supporto telefonico fino a 2 ore mensili" },
             6: { title: "Backup Mensile", description: "Backup automatico dei contenuti ogni mese" },
-            7: { title: "Manutenzione su Richiesta", description: "Interventi tecnici extra <br> su richiesta" },
+            7: { title: "Manutenzione su Richiesta", description: "Interventi tecnici extra su richiesta" },
             8: { title: "Formazione del Personale", description: "Sessione di formazione della durata di 1 ora", active: false },
             9: { title: "SEO", description: "Ottimizzazione base per i motori di ricerca", active: false },
             10: { title: "Raccolta Dati", description: "Modulo per la raccolta dei dati dei visitatori", active: false },
@@ -19,7 +19,7 @@ const planContent = {
         business: {
             5: { title: "Assistenza Telefonica", description: "Supporto telefonico illimitato 24 ore su 24" },
             6: { title: "Backup Settimanale", description: "Backup automatico dei contenuti ogni settimana" },
-            7: { title: "Manutenzione Ordinaria", description: "Interventi tecnici ricorrenti <br> inclusi" },
+            7: { title: "Manutenzione Ordinaria", description: "Interventi tecnici ricorrenti inclusi" },
             8: { title: "Formazione del Personale", description: "Sessione di formazione della durata di 1 ora" },
             9: { title: "SEO", description: "Ottimizzazione base per i motori di ricerca", active: false },
             10: { title: "Raccolta Dati", description: "Modulo per la raccolta dei dati dei visitatori", active: false },
@@ -63,10 +63,4 @@ export const getPlanItems = (plan) => {
     return allItems.sort((a, b) => {
         return (a.active === false ? 1 : 0) - (b.active === false ? 1 : 0);
     });
-};
-
-// Descrizioni da mostrare in base al pulsante attivo
-const descriptions = {
-    statico: "Un sito statico è un sito con pagine semplici e contenuti fissi, perfetto per presentare la tua attività e i tuoi servizi in modo chiaro e veloce, senza necessità di aggiornamenti frequenti.",
-    dinamico: "Un sito dinamico è un sito interattivo che permette aggiornamenti facili e funzionalità personalizzate, ideale per chi vuole offrire contenuti sempre aggiornati, come news, cataloghi o aree riservate."
 };

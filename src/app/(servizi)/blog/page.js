@@ -2,8 +2,6 @@ import AnimatedTitle from "@/components/AnimatedTitle"
 import ServiceDescription from "@/components/serviceDescription"
 import FeatureSection from "@/components/featuresSection"
 import CTAServizio from "@/components/ctaServizio"
-import PlanSlider from "@/components/PlanSlider"
-import PlanCard from "@/components/planCard"
 import PianiAbbonamento from "@/components/pianiAbbonamento"
 
 export default function Blog() {

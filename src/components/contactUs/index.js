@@ -17,7 +17,7 @@ export default function ContactUs() {
                     <AnimatedTitle text="Contattaci" />
                 </div>
 
-                <div className="row-[10/40] col-[2/31] md:row-[7/19] md:col-[3/18]">
+                <div className="row-[14/40] col-[2/31] md:row-[7/19] md:col-[3/18]">
                     <ContactUsCard />
                 </div>
                 <div className="row-[75] col-[2/31] md:row-[7/20] md:col-[22/37]">
