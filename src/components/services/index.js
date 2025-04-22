@@ -155,7 +155,7 @@ export default function Services() {
         </div>
 
         {/* Animated Shapes Area */}
-        {/* <div className="hidden md:block md:row-[44/53] md:col-[2/22] relative">
+        <div className="hidden md:block md:row-[44/53] md:col-[2/22] relative">
           <div className="w-full h-48 overflow-hidden">
             <FloatingShape
               svgPath={svgPaths[1]}
@@ -164,12 +164,7 @@ export default function Services() {
               speed={1.2}
             />
           </div>
-        </div> */}
-
-        {/* Animazione Carosello aggettivi */}
-        <div className="hidden md:block md:row-[44/52] md:col-[5/15]">
-          <PremiumSaleAnimation />
-        </div>
+        </div> 
 
         {/* E-LEARNING */}
         <div className="hidden md:block row-[46/48] col-[23/48] bg-blue-light" />
