@@ -7,7 +7,7 @@ import PianiAbbonamento from "@/components/pianiAbbonamento"
 export default function ELearning() {
     return (
         <>
-            <AnimatedTitle text="Piattaforma E-learning" />
+            <AnimatedTitle text={"Piattaforma\nE-learning"} doubleRow={true} />
             <ServiceDescription desc="
                 Progettiamo e sviluppiamo piattaforme e-learning moderne, intuitive e personalizzabili.
                 Che si tratti di un corso professionale, universitario o aziendale, ti aiutiamo a costruire un’esperienza formativa coinvolgente e di qualità.

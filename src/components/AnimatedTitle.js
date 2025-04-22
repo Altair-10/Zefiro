@@ -6,57 +6,69 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
-export const animatedTitle = ({ text = "" }) => {
+export const animatedTitle = ({ text = "", doubleRow = false }) => {
   const containerRef = useRef(null);
-  const textRef = useRef(null);
+  const lineRefs = useRef([]);
 
   useEffect(() => {
-    if (!textRef.current || !text) return;
+    if (!text || !lineRefs.current.length) return;
 
-    // Split mantiene gli spazi, ma li avvolgiamo in span separati
-    const characters = text.split("").map((char) => (char === " " ? " " : char));
+    const lines = doubleRow ? text.split("\n") : [text];
 
-    textRef.current.innerHTML = characters
-      .map(
-        (char, i) =>
-          char === " "
-            ? '&nbsp;'  // Usa &nbsp; per gli spazi "non collassabili"
-            : `<span class="inline-block opacity-0" style="transform: translateY(20px) scale(0.8);" key=${i}>${char}</span>`
-      )
-      .join("");
+    lineRefs.current.forEach((ref, lineIndex) => {
+      if (!ref) return;
 
-    const letterElements = textRef.current.querySelectorAll("span");
+      const characters = lines[lineIndex].split("");
 
-    // Animazione GSAP (solo per gli span, ignora &nbsp;)
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
+      ref.innerHTML = characters
+        .map(
+          (char, i) =>
+            char === " "
+              ? '&nbsp;'
+              : `<span class="inline-block opacity-0" style="transform: translateY(20px) scale(0.8);" key=${i}>${char}</span>`
+        )
+        .join("");
+
+      const letterElements = ref.querySelectorAll("span");
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      tl.to(letterElements, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        ease: "back.out(1.2)",
+        stagger: 0.05,
+        delay: lineIndex * 0.2, // leggero ritardo tra le righe
+      });
     });
 
-    tl.to(letterElements, {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      duration: 0.6,
-      ease: "back.out(1.2)",
-      stagger: 0.05,
-    });
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, [text, doubleRow]);
 
-    return () => tl.kill();
-  }, [text]);
+  const lines = doubleRow ? text.split("\n") : [text];
 
   return (
     <div
       ref={containerRef}
-      className="w-full flex justify-center mt-28 md:mb-5 md:mt-36"
+      className="w-full flex flex-col justify-center items-center mt-28 md:mb-5 md:mt-36"
     >
-      <h1
-        ref={textRef}
-        className="font-bold text-blue-dark text-center leading-tight whitespace-nowrap"
-      />
+      {lines.map((line, index) => (
+        <h1
+          key={index}
+          ref={el => (lineRefs.current[index] = el)}
+          className="font-bold text-blue-dark text-center leading-tight whitespace-nowrap"
+        />
+      ))}
     </div>
   );
 };
