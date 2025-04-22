@@ -30,7 +30,7 @@ export default function FeatureSection({ title1, desc1, title2, desc2, title3, d
 
     return (
         <section className="pt-16 md:pt-36">
-            <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
+            <div className="max-w-screen-xl mx-auto text-gray-600">
                 <div>
                     <h1 className="text-black text-center text-3xl md:text-6xl font-semibold">
                         Funzionalità
@@ -51,7 +51,7 @@ export default function FeatureSection({ title1, desc1, title2, desc2, title3, d
                                         <h2 className="text-lg md:text-xl text-gray-800 font-semibold">
                                             {item.title}
                                         </h2>
-                                        <p className="mt-3 mx-10 md:mx-0 break-words text-gray-600">
+                                        <p className="mt-3 mx-[10vw] md:mx-0 break-words text-gray-600">
                                             {item.desc}
                                         </p>
                                     </div>

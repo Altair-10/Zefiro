@@ -38,13 +38,13 @@ h2 {
 
 @media (min-width: 640px) {
   h2 {
-    font-size: 1.125rem; /* sm: tra p e h1 */
+    font-size: 1.3rem; /* sm: tra p e h1 */
   }
 }
 
 @media (min-width: 768px) {
   h2 {
-    font-size: 1.25rem;  /* md */
+    font-size: 1.4rem;  /* md */
   }
 }
 

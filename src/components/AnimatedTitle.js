@@ -1,9 +1,10 @@
-"use client";
-import { useRef, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+"use client"
 
-gsap.registerPlugin(ScrollTrigger);
+import { useRef, useEffect } from "react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
 
 export const animatedTitle = ({ text = "" }) => {
   const containerRef = useRef(null);
@@ -50,7 +51,7 @@ export const animatedTitle = ({ text = "" }) => {
   return (
     <div
       ref={containerRef}
-      className="w-full flex justify-center mt-24 md:my-5 md:mt-32"
+      className="w-full flex justify-center mt-28 md:mb-5 md:mt-36"
     >
       <h1
         ref={textRef}
