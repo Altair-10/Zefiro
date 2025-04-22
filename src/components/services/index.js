@@ -146,7 +146,7 @@ export default function Services() {
         <div className="hidden md:block row-[36/38] col-[2/27] bg-blue-light" />
         <div className="row-[114/164] col-[1/32] md:row-[31/41] md:col-[6/24]">
           <Card
-            image={"/sfondi/E-commerce.jpg"}
+            image={"/sfondi/portfolioCreativo.png"}
             CardTitle={"Portfolio Creativo"}
             CardDescription={"Mostra i tuoi progetti con uno stile che valorizza il tuo talento."}
             btnHref={"/portfolioCreativo"}

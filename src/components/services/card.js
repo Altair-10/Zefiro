@@ -43,7 +43,7 @@ const Card = ({ image, CardTitle, CardDescription, btnHref, animationDirection }
           width={1000}
           height={1000}
           alt=""
-          className="w-full h-full object-contain p-2 bg-orange"
+          className="w-full h-full object-cover"
         />
       </div>
 
