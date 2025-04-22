@@ -3,7 +3,7 @@
 import React from "react";
 import { useState, useRef, useEffect } from "react"
 import Image from "next/image";
-import AnimatedButton from "./animatedButton";
+import AnimatedButton from "./AnimatedButton";
 
 const Card = ({ image, CardTitle, CardDescription, btnHref, animationDirection }) => {
   const cardRef = useRef(null);
