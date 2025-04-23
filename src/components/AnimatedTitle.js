@@ -66,7 +66,7 @@ export const animatedTitle = ({ text = "", doubleRow = false }) => {
         <h1
           key={index}
           ref={el => (lineRefs.current[index] = el)}
-          className="font-bold text-blue-dark text-center leading-tight whitespace-nowrap"
+          className="font-bold text-blue-dark text-center leading-tight whitespace-nowrap mb-[7vw]"
         />
       ))}
     </div>
