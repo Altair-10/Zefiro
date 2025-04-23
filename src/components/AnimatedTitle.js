@@ -60,13 +60,13 @@ export const animatedTitle = ({ text = "", doubleRow = false }) => {
   return (
     <div
       ref={containerRef}
-      className="w-full flex flex-col justify-center items-center mt-28 md:mb-5 md:mt-36"
+      className="w-full flex flex-col justify-center items-center mt-10 md:mb-5 md:mt-14"
     >
       {lines.map((line, index) => (
         <h1
           key={index}
           ref={el => (lineRefs.current[index] = el)}
-          className="font-bold text-blue-dark text-center leading-tight whitespace-nowrap mb-[7vw]"
+          className="font-bold text-blue-dark text-center leading-tight whitespace-nowrap mb-[7vw] md:mb-[1vw]"
         />
       ))}
     </div>
