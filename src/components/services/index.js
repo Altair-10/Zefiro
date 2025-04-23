@@ -8,8 +8,6 @@ import FloatingShape from "./FloatingShape";
 import AnimatedTitle from '../AnimatedTitle';
 
 export default function Services() {
-  const [scrollProgress, setScrollProgress] = useState(0);
-
   const svgPaths = [
     "/FormeSVG/blue-6.svg",
     "/FormeSVG/orange-4.svg",
@@ -54,7 +52,7 @@ export default function Services() {
       >
         {/* Title */}
         <div className="flex justify-center items-center row-[2] col-[1/32] md:row-[2] md:col-[1/49]">
-          <AnimatedTitle text="I nostri servizi" />
+          <AnimatedTitle text="I nostri servizi" doubleRow={false} />
         </div>
 
         {/* SITO VETRINA */}

@@ -7,7 +7,7 @@ import PianiAbbonamento from "@/components/pianiAbbonamento"
 export default function PortfolioCreativo() {
     return (
         <>
-            <AnimatedTitle text="Portfolio Creativo" />
+            <AnimatedTitle text="Portfolio Creativo" doubleRow={false} />
             <ServiceDescription desc="
                 Creiamo portfolio digitali unici e personalizzati, ideali per designer, fotografi, artisti e creativi di ogni settore.
                 Ogni progetto è realizzato per rispecchiare il tuo stile, mettendo in luce il tuo lavoro con un design elegante e professionale.

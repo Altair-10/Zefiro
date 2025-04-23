@@ -7,7 +7,7 @@ import PianiAbbonamento from "@/components/pianiAbbonamento"
 export default function SitoPerEventi() {
     return (
         <>
-            <AnimatedTitle text="Sito per Eventi" />
+            <AnimatedTitle text="Sito per Eventi" doubleRow={false} />
             <ServiceDescription desc="
                 Progettiamo siti web per eventi unici, che catturano l’attenzione e facilitano la gestione di eventi, conferenze, fiere e molto altro. 
                 Il sito è pensato per essere funzionale, moderno e facilmente navigabile, garantendo una buona esperienza utente.

@@ -7,7 +7,7 @@ import PianiAbbonamento from "@/components/pianiAbbonamento"
 export default function SitoVetrina() {
     return (
         <>
-            <AnimatedTitle text="Sito Vetrina" />
+            <AnimatedTitle text="Sito Vetrina" doubleRow={false} />
             <ServiceDescription desc="
                 Realizziamo siti vetrina moderni, veloci e ottimizzati per comunicare al meglio la tua identità.
                 Che tu abbia bisogno di presentare un’azienda, un’attività o un progetto personale,

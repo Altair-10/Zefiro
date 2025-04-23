@@ -40,7 +40,7 @@ export default function AboutUs() {
             ref={containerRef}
             className="flex flex-col justify-center items-center w-full min-h-[150vh] py-20 px-4 "
         >
-            <AnimatedTitle text="Scopri chi c'è dietro Zefiro" />
+            <AnimatedTitle text="Scopri chi c'è dietro Zefiro" doubleRow={false} />
 
             <div className="w-full max-w-6xl">
                 <div

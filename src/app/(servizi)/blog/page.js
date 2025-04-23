@@ -7,7 +7,7 @@ import PianiAbbonamento from "@/components/pianiAbbonamento"
 export default function Blog() {
     return (
         <>
-            <AnimatedTitle text="Blog" />
+            <AnimatedTitle text="Blog" doubleRow={false} />
             <ServiceDescription desc="
                 Progettiamo e sviluppiamo blog moderni e funzionali,
                 ottimizzati per la lettura e la condivisione dei tuoi contenuti.
