@@ -161,8 +161,8 @@ export default function SitoVetrina() {
                                     📱
                                 </div>
                             </div>
-                            <h3 className="text-xl font-bold mb-4 text-blue-dark text-center">Mobile First</h3>
-                            <p className="text-gray-700">
+                            <h3 className="text-xl font-extrabold mb-4 text-blue-dark text-center">Mobile First</h3>
+                            <p className="text-gray-700 text-center">
                                 Adattabile a tutti i dispositivi con design fluidi. L'esperienza utente ottimale su smartphone, tablet e desktop.
                             </p>
                         </div>
@@ -174,8 +174,8 @@ export default function SitoVetrina() {
                                     🚀
                                 </div>
                             </div>
-                            <h3 className="text-xl font-bold mb-4 text-blue-dark text-center">Velocità ottimizzata</h3>
-                            <p className="text-gray-700">
+                            <h3 className="text-xl font-extrabold mb-4 text-blue-dark text-center">Velocità ottimizzata</h3>
+                            <p className="text-gray-700 text-center">
                                 Tempi di caricamento rapidi per mantenere i visitatori coinvolti e migliorare il posizionamento sui motori di ricerca.
                             </p>
                         </div>
@@ -187,8 +187,8 @@ export default function SitoVetrina() {
                                     🔍
                                 </div>
                             </div>
-                            <h3 className="text-xl font-bold mb-4 text-blue-dark text-center">SEO Integrato</h3>
-                            <p className="text-gray-700">
+                            <h3 className="text-xl font-extrabold mb-4 text-blue-dark text-center">SEO Integrato</h3>
+                            <p className="text-gray-700 text-center">
                                 Ottimizzato per i motori di ricerca fin dal primo giorno, per far trovare la tua azienda ai clienti giusti.
                             </p>
                         </div>

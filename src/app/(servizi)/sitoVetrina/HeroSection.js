@@ -302,7 +302,7 @@ const HeroSection = () => {
           <p className="text-xl md:text-3xl font-bold bg-gradient-to-r from-[#ffa62b] to-[#ede7e4] text-transparent bg-clip-text">
             La tua vetrina digitale sempre aperta.
           </p>
-          <p className="text-lg md:text-xl text-white max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-white max-w-2xl mx-auto">
             Design su misura, mobile-friendly e ottimizzato per convertire visitatori in clienti.
           </p>
         </div>
