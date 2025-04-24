@@ -15,7 +15,7 @@ export default function SiteSample( {sectionTitle, urlImg1} ) {
                 <div className="demo-carousel relative max-w-5xl mx-auto">
                     <div className="overflow-hidden rounded-lg shadow-xl border-4 border-[#ede7e4]">
                         <Image
-                            src=""
+                            src="/sfondi/portfolioCreativo.png"
                             alt="Esempio Sito Vetrina"
                             width={1200}
                             height={675}

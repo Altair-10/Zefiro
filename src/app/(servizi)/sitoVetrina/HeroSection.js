@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import AnimatedButton from "@/components/services/AnimatedButton";
+import ContactButton from "@/components/callToAction/contactButton";
 
 const HeroSection = () => {
   const sectionRef = useRef(null);
@@ -308,7 +308,7 @@ const HeroSection = () => {
           </p>
         </div>
         <div className="flex justify-center">
-          <AnimatedButton mode="scroll" />
+          <ContactButton />
         </div>
       </div>
     </section>

@@ -16,7 +16,7 @@ export default function CallToAction() {
         <div className="row-[8] col-[1/32] md:row-[3] md:col-[3/7]">
           <Title />
         </div>
-        <div className="row-[21/26] col-[4/29] md:row-[12/15] md:col-[3/13]">
+        <div className="row-[21/26] col-[5/29] md:row-[12/15] md:col-[3/13]">
           <ContactButton />
         </div>
 

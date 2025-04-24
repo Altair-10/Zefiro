@@ -12,7 +12,7 @@ export default function ContactButton (){
       onClick={() => scrollToSection("contactUs")}
       className="
         group flex items-center justify-center
-        w-full h-full px-[1em] mt-[5vw] md:mt-0
+        h-[13vw] md:h-[4.5vw] px-[1em] mt-[5vw] md:mt-0
         font-sans text-[5vw] md:text-[1.5vw] text-[#ffffff]
         border-none rounded-[4vw] md:rounded-[2vw] shadow-md bg-gradient-orange
         transition-all duration-300 hover:transform hover:-translate-y-[0.2vw] hover:shadow-lg active:scale-95 active:shadow-sm
