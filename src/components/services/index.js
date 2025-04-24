@@ -68,7 +68,7 @@ export default function Services() {
           <Card
             CardTitle={"Sito Vetrina"}
             image={"/sfondi/sitoVetrina.jpg"}
-            CardDescription={"Presenta la tua attività online in modo chiaro, professionale e su misura."}
+            CardDescription={"Design su misura, mobile-friendly e ottimizzato per convertire visitatori in clienti"}
             btnHref={"/sitoVetrina"}
             animationDirection="left"
           />
