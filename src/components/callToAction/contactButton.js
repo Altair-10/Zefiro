@@ -9,7 +9,7 @@ export default function ContactButton (){
 
   return (
     <button
-      onClick={() => scrollToSection("contattaci")}
+      onClick={() => scrollToSection("contactUs")}
       className="
         group flex items-center justify-center
         w-full h-full px-[1em] mt-[5vw] md:mt-0

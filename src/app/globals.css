@@ -13,6 +13,113 @@ html, body {
   position: relative;
 }
 
+h1 {
+  font-size: 10vw; /* default */
+}
+
+@media (min-width: 640px) {
+  h1 {
+    font-size: 7.5vw; /* sm */
+  }
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 6vw; /* md */
+  }
+}
+
+h2 {
+  font-size: 1rem;       /* base: leggermente più grande del p */
+  line-height: 1.5;
+  color: #5c4033;        /* stesso colore del testo */
+  font-weight: 600;      /* opzionale: un po’ più marcato */
+}
+
+@media (min-width: 640px) {
+  h2 {
+    font-size: 1.3rem; /* sm: tra p e h1 */
+  }
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 1.4rem;  /* md */
+  }
+}
+
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 1.5rem;   /* lg */
+  }
+}
+
+@media (min-width: 1280px) {
+  h2 {
+    font-size: 1.75rem;  /* xl */
+  }
+}
+
+h3 {
+  font-size: 0.875rem;     /* base: più piccolo di h2 */
+  line-height: 1.5;
+  color: #5c4033;          /* stesso colore del testo */
+  font-weight: 500;        /* leggermente meno marcato di h2 */
+}
+
+@media (min-width: 640px) {
+  h3 {
+    font-size: 1rem;       /* sm: sempre sotto h2 */
+  }
+}
+
+@media (min-width: 768px) {
+  h3 {
+    font-size: 1.125rem;   /* md */
+  }
+}
+
+@media (min-width: 1024px) {
+  h3 {
+    font-size: 1.25rem;    /* lg */
+  }
+}
+
+@media (min-width: 1280px) {
+  h3 {
+    font-size: 1.5rem;     /* xl */
+  }
+}
+
+p {
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.625;  /* similar to leading-relaxed */
+}
+
+@media (min-width: 640px) {
+  p {
+    font-size: 0.875rem; /* sm:text-sm */
+  }
+}
+
+@media (min-width: 768px) {
+  p {
+    font-size: 1rem; /* md:text-base */
+  }
+}
+
+@media (min-width: 1024px) {
+  p {
+    font-size: 1.125rem; /* lg:text-lg */
+  }
+}
+
+@media (min-width: 1280px) {
+  p {
+    font-size: 1.25rem; /* xl:text-xl */
+  }
+}
+
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

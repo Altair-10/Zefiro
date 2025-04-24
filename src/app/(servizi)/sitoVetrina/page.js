@@ -1,172 +1,304 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import PlanCard from "@/components/planCard"
-import FeatureSection from "@/components/featuresSection"
-import CTAServizio from "@/components/ctaServizio"
-import ShapesDisplayer from "@/components/shapesDisplayer"
-import AnimatedTitle from "@/components/AnimatedTitle"
-import PlanSlider from "@/components/PlanSlider"
-import PianiAbbonamento from "@/components/pianiAbbonamento"
+import { useEffect, useRef } from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import Francesco from './HeroSection.js';
+
+// Registriamo ScrollTrigger
+if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function SitoVetrina() {
-    const [activeButton, setActiveButton] = useState("statico")
+    // Refs per le animazioni
+    const heroRef = useRef(null);
+    const cardsRef = useRef(null);
+    const timelineRef = useRef(null);
+    const ctaRef = useRef(null);
 
-    const planContent = {
-        base: [
-            { title: "Sito Web", description: "Realizzazione del sito web con layout base" },
-            { title: "Hosting Sicuro", description: "Hosting protetto su server europeo" },
-            { title: "Dominio Dedicato", description: "Registrazione dominio inclusa per 1 anno" },
-            { title: "Certificato SSL", description: "Connessione sicura tramite HTTPS" },
-            { title: "Supporto via Mail", description: "Assistenza via email con risposta entro 24h" },
-        ],
-        overrides: {
-            standard: {
-                5: { title: "Assistenza Telefonica", description: "Supporto telefonico fino a 2 ore mensili" },
-                6: { title: "Backup Mensile", description: "Backup automatico dei contenuti ogni mese" },
-                7: { title: "Manutenzione su Richiesta", description: "Interventi tecnici extra <br> su richiesta" },
-                8: { title: "Formazione del Personale", description: "Sessione di formazione della durata di 1 ora", active: false },
-                9: { title: "SEO", description: "Ottimizzazione base per i motori di ricerca", active: false },
-                10: { title: "Raccolta Dati", description: "Modulo per la raccolta dei dati dei visitatori", active: false },
-                11: { title: "Sito Dinamico", description: "Gestione autonoma dei contenuti tramite CMS", active: false },
-            },
-            business: {
-                5: { title: "Assistenza Telefonica", description: "Supporto telefonico illimitato 24 ore su 24" },
-                6: { title: "Backup Settimanale", description: "Backup automatico dei contenuti ogni settimana" },
-                7: { title: "Manutenzione Ordinaria", description: "Interventi tecnici ricorrenti <br> inclusi" },
-                8: { title: "Formazione del Personale", description: "Sessione di formazione della durata di 1 ora" },
-                9: { title: "SEO", description: "Ottimizzazione base per i motori di ricerca", active: false },
-                10: { title: "Raccolta Dati", description: "Modulo per la raccolta dei dati dei visitatori", active: false },
-                11: { title: "Sito Dinamico", description: "Gestione autonoma dei contenuti tramite CMS", active: false },
-            },
-            premium: {
-                5: { title: "Assistenza Telefonica", description: "Supporto telefonico illimitato 24 ore su 24" },
-                6: { title: "Backup Giornaliero", description: "Backup automatico dei contenuti ogni giorno" },
-                7: { title: "Manutenzione Straordinaria", description: "Interventi tecnici straordinari inclusi" },
-                8: { title: "Formazione del Personale", description: "Sessione di formazione della durata di 1 ora" },
-                9: { title: "SEO", description: "Ottimizzazione base per i motori di ricerca" },
-                10: { title: "Raccolta Dati", description: "Modulo per la raccolta dei dati dei visitatori" },
-                11: { title: "Sito Dinamico", description: "Gestione autonoma dei contenuti tramite CMS" },
+    // Animazioni con GSAP quando il componente è montato
+    useEffect(() => {
+        // Hero Section animation
+        gsap.fromTo(
+            heroRef.current.querySelectorAll('.hero-text'),
+            { opacity: 0, y: 50 },
+            { opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: 'power3.out' }
+        );
+
+        // Pulsante pulsante
+        gsap.to(heroRef.current.querySelector('.cta-button'), {
+            scale: 1.05,
+            repeat: -1,
+            yoyo: true,
+            duration: 1.5,
+            ease: 'sine.inOut'
+        });
+
+        // Cards animation on scroll
+        const cards = cardsRef.current.querySelectorAll('.feature-card');
+        cards.forEach((card, index) => {
+            gsap.fromTo(
+                card,
+                {
+                    opacity: 0,
+                    y: 50,
+                    rotateY: index % 2 === 0 ? -5 : 5
+                },
+                {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 80%',
+                    },
+                    opacity: 1,
+                    y: 0,
+                    rotateY: 0,
+                    duration: 0.8,
+                    ease: 'power3.out'
+                }
+            );
+        });
+
+        // Icon rotation animation
+        const iconWrappers = cardsRef.current.querySelectorAll('.icon-wrapper');
+        iconWrappers.forEach((icon) => {
+            gsap.to(icon.querySelector('div'), {
+                scrollTrigger: {
+                    trigger: icon,
+                    start: 'top 70%',
+                },
+                rotate: 360,
+                duration: 1.5,
+                ease: 'elastic.out(1, 0.3)'
+            });
+        });
+
+        // Timeline animation
+        const timelineSteps = timelineRef.current.querySelectorAll('.timeline-step');
+        timelineSteps.forEach((step, index) => {
+            gsap.fromTo(
+                step,
+                { opacity: 0, x: index % 2 === 0 ? -50 : 50 },
+                {
+                    scrollTrigger: {
+                        trigger: step,
+                        start: 'top 75%',
+                    },
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: 'power2.out'
+                }
+            );
+        });
+
+        // CTA finale animation
+        gsap.fromTo(
+            ctaRef.current,
+            { opacity: 0, scale: 0.9 },
+            {
+                scrollTrigger: {
+                    trigger: ctaRef.current,
+                    start: 'top 80%',
+                },
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                ease: 'elastic.out(1, 0.5)'
             }
-        }
-    };
+        );
 
-    const getPlanItems = (plan) => {
-        const base = [...planContent.base];
-        const overrides = planContent.overrides[plan.toLowerCase()] || {};
+        // Shine effect manuale per il pulsante CTA
+        const shineAnimation = () => {
+            if (!ctaRef.current) return;
 
-        const merged = base.map((item, index) => {
-            const override = overrides[index];
-            return {
-                ...item,
-                ...(override || {}),
-                active: override?.active !== false,
-            };
-        });
+            const shineElement = ctaRef.current.querySelector('.shine-effect');
+            if (shineElement) {
+                gsap.fromTo(
+                    shineElement,
+                    { left: '-100%', opacity: 0.5 },
+                    {
+                        left: '200%',
+                        opacity: 0,
+                        duration: 1.5,
+                        ease: 'power2.inOut',
+                        onComplete: () => {
+                            gsap.set(shineElement, { left: '-100%' });
+                            setTimeout(shineAnimation, 3000);
+                        }
+                    }
+                );
+            }
+        };
+        setTimeout(shineAnimation, 2000);
 
-        const extra = Object.entries(overrides)
-            .filter(([index]) => parseInt(index) >= base.length)
-            .map(([_, value]) => ({
-                ...value,
-                active: value.active !== false,
-            }));
-
-        const allItems = [...merged, ...extra];
-
-        return allItems.sort((a, b) => {
-            return (a.active === false ? 1 : 0) - (b.active === false ? 1 : 0);
-        });
-    };
-
-    // Descrizioni da mostrare in base al pulsante attivo
-    const descriptions = {
-        statico: "Un sito statico è un sito con pagine semplici e contenuti fissi, perfetto per presentare la tua attività e i tuoi servizi in modo chiaro e veloce, senza necessità di aggiornamenti frequenti.",
-        dinamico: "Un sito dinamico è un sito interattivo che permette aggiornamenti facili e funzionalità personalizzate, ideale per chi vuole offrire contenuti sempre aggiornati, come news, cataloghi o aree riservate."
-    };
+    }, []);
 
     return (
-        <>
-            <div className="flex justify-center items-center mt-4">
-                <AnimatedTitle text="Sito Online" />
-            </div>
+        <div className="bg-[#ede7e4]">
+            <Head>
+                <title>Sito Vetrina | La tua presenza digitale professionale</title>
+                <meta name="description" content="Crea una vetrina digitale professionale per la tua azienda. Design personalizzato, mobile-friendly e ottimizzato per le conversioni." />
+            </Head>
 
-            <div className="
-                grid mb-[5vw]
-                gap-[0.5vw] md:gap-[1vw] 
-                grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))] 
-                grid-rows-[repeat(385,_minmax(0,_2vw))] md:grid-rows-[repeat(82,_minmax(0,_1vw))]
-            ">
-                {/* Sezione per i pulsanti e il riquadro descrittivo */}
-                <div className="row-[1/30] col-[1/32] md:row-[1/10] md:col-[1/49] flex flex-col md:flex-row justify-center items-center gap-4">
-                    {/* Pulsanti */}
-                    <div className="flex flex-col justify-start w-full md:w-1/3 p-4 gap-4">
-                        <button
-                            onClick={() => setActiveButton("statico")}
-                            className={`
-                                h-12 text-lg rounded-xl font-bold
-                                transition-all duration-300 ease-in-out
-                                ${activeButton === "statico" ? "shadow-lg bg-blue-medium text-white" : " hover:bg-blue-medium text-black"}
-                            `}
-                        >
-                            STATICO
-                        </button>
-                        <button
-                            onClick={() => setActiveButton("dinamico")}
-                            className={`
-                                h-12 text-lg rounded-xl font-bold
-                                transition-all duration-300 ease-in-out
-                                ${activeButton === "dinamico" ? "shadow-lg bg-blue-medium text-white" : "hover:bg-blue-medium text-black"}
-                            `}
-                        >
-                            DINAMICO
-                        </button>
+            {/* 1. Hero Section */}
+            <section ref={heroRef} className="relative h-screen w-screen overflow-hidden pt-16 ">
+                <Francesco />
+            </section>
+
+            {/* 2. Sezione "Perché Sceglierlo" */}
+            <section ref={cardsRef} className="py-20 bg-[#ede7e4]">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-dark mb-16">Perché scegliere un Sito Vetrina</h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {/* Card 1 */}
+                        <div className="feature-card bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-[#489fb5]">
+                            <div className="icon-wrapper mb-6 text-5xl text-[#489fb5] flex justify-center">
+                                <div className="transform transition-transform duration-300 hover:rotate-12 bg-brown-light p-4 rounded-full">
+                                    📱
+                                </div>
+                            </div>
+                            <h3 className="text-xl font-extrabold mb-4 text-blue-dark text-center">Mobile First</h3>
+                            <p className="text-gray-700 text-center">
+                                Adattabile a tutti i dispositivi con design fluidi. L'esperienza utente ottimale su smartphone, tablet e desktop.
+                            </p>
+                        </div>
+
+                        {/* Card 2 */}
+                        <div className="feature-card bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-[#489fb5]">
+                            <div className="icon-wrapper mb-6 text-5xl text-[#489fb5] flex justify-center">
+                                <div className="transform transition-transform duration-300 hover:rotate-12 bg-brown-light p-4 rounded-full">
+                                    🚀
+                                </div>
+                            </div>
+                            <h3 className="text-xl font-extrabold mb-4 text-blue-dark text-center">Velocità ottimizzata</h3>
+                            <p className="text-gray-700 text-center">
+                                Tempi di caricamento rapidi per mantenere i visitatori coinvolti e migliorare il posizionamento sui motori di ricerca.
+                            </p>
+                        </div>
+
+                        {/* Card 3 */}
+                        <div className="feature-card bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-[#489fb5]">
+                            <div className="icon-wrapper mb-6 text-5xl text-[#489fb5] flex justify-center">
+                                <div className="transform transition-transform duration-300 hover:rotate-12 bg-brown-light p-4 rounded-full">
+                                    🔍
+                                </div>
+                            </div>
+                            <h3 className="text-xl font-extrabold mb-4 text-blue-dark text-center">SEO Integrato</h3>
+                            <p className="text-gray-700 text-center">
+                                Ottimizzato per i motori di ricerca fin dal primo giorno, per far trovare la tua azienda ai clienti giusti.
+                            </p>
+                        </div>
                     </div>
+                </div>
+            </section>
 
-                    {/* Riquadro per la descrizione */}
-                    <div className="w-full md:w-2/3 h-48 flex justify-center items-center rounded-xl shadow-md p-4">
-                        <p className="text-center text-[4.5vw] md:text-[2vw] text-gray-700">
-                            {descriptions[activeButton]}
-                        </p>
+            {/* 3. Demo Interattiva */}
+            <section className="py-20 bg-white">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-dark mb-16">Esempi di Siti Vetrina</h2>
+
+                    {/* Qui inseriamo il carousel */}
+                    <div className="demo-carousel relative max-w-5xl mx-auto">
+                        {/* Immagini demo - in produzione usare un vero carousel */}
+                        <div className="overflow-hidden rounded-lg shadow-xl border-4 border-[#ede7e4]">
+                            <Image
+                                src="/images/showcase-example-1.jpg"
+                                alt="Esempio Sito Vetrina"
+                                width={1200}
+                                height={675}
+                                className="w-full"
+                            />
+                        </div>
+
+                        {/* Controlli custom */}
+                        <div className="flex justify-center mt-8 space-x-4">
+                            <button className="w-12 h-12 rounded-full bg-blue-light flex items-center justify-center hover:bg-blue-medium text-white transition-colors duration-300 shadow-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button className="w-12 h-12 rounded-full bg-blue-light flex items-center justify-center hover:bg-blue-medium text-white transition-colors duration-300 shadow-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div className="row-[40] col-[1/32] md:row-[10] md:col-[1/49] w-full h-full text-center">
-                    <FeatureSection
-                        title1={"Design Moderno e Responsive"}
-                        desc1={"Il sito si adatta automaticamente a qualsiasi dispositivo, che si tratti di smartphone, tablet o desktop, garantendo un'esperienza utente perfetta su ogni schermata."}
-                        title2={"Contenuti Ottimizzati per la SEO"}
-                        desc2={"Ogni pagina è progettata per essere facilmente trovata su Google, grazie a una struttura SEO-friendly, migliorando la visibilità online e attirando più visitatori."}
-                        title3={"Velocità di Caricamento Elevata"}
-                        desc3={"Il sito è ottimizzato per caricarsi rapidamente, riducendo i tempi di attesa e migliorando l'esperienza dell'utente, fattore cruciale per trattenere i visitatori."}
-                    />
-                </div>
+            {/* 4. Dettagli del Servizio (Timeline) */}
+            <section ref={timelineRef} className="py-20 bg-[#ede7e4]">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-dark mb-16">Il nostro processo</h2>
 
-                <div className="row-[185] col-[1/32] md:row-[29] md:col-[6/44] flex flex-col justify-center items-center text-center md:text-start">
-                    <CTAServizio
-                        cta={<>Creiamo siti web <br /><span className="text-orange">ad alte performance</span><br /> per il tuo successo online</>}
-                        desc={"Il nostro obiettivo è offrirti un sito web che non solo rispecchi la tua identità, ma che sia anche veloce, sicuro e ottimizzato per un'esperienza utente senza pari."}
-                    />
-                </div>
+                    <div className="max-w-4xl mx-auto">
+                        {/* Step 1 */}
+                        <div className="timeline-step flex flex-col md:flex-row mb-16 bg-white p-6 rounded-lg shadow-lg">
+                            <div className="w-16 h-16 bg-gradient-blue rounded-full flex items-center justify-center text-white text-2xl font-bold shrink-0 mb-4 md:mb-0 mx-auto md:mx-0">
+                                1
+                            </div>
+                            <div className="md:ml-8">
+                                <h3 className="text-2xl font-bold mb-4 text-blue-dark text-center md:text-left">Analisi delle esigenze</h3>
+                                <p className="text-gray-700">
+                                    Iniziamo ascoltando le tue necessità. Comprendiamo il tuo business, i tuoi obiettivi e il tuo pubblico di riferimento per creare una strategia digitale su misura per te.
+                                </p>
+                            </div>
+                        </div>
 
-                <div className="md:row-[26/28] md:col-[24/49] bg-blue-dark">
-                    <ShapesDisplayer
-                        numShapes={1}
-                        imgName1="/formeSVG/orange-6.svg"
-                        width="2vw"
-                        height="2vw"
-                    />
-                </div>
-                <div className="md:row-[28/30] md:col-[24/49] bg-blue-medium">
-                    <ShapesDisplayer
-                        numShapes={1}
-                        imgName1="/formeSVG/blue-8.svg"
-                        width="2vw"
-                        height="2vw"
-                    />
-                </div>
+                        {/* Step 2 */}
+                        <div className="timeline-step flex flex-col md:flex-row mb-16 bg-white p-6 rounded-lg shadow-lg">
+                            <div className="w-16 h-16 bg-gradient-blue rounded-full flex items-center justify-center text-white text-2xl font-bold shrink-0 mb-4 md:mb-0 mx-auto md:mx-0">
+                                2
+                            </div>
+                            <div className="md:ml-8">
+                                <h3 className="text-2xl font-bold mb-4 text-blue-dark text-center md:text-left">Design personalizzato</h3>
+                                <p className="text-gray-700">
+                                    Creiamo un design unico che riflette l'identità del tuo brand. Ogni elemento è pensato per offrire una user experience eccellente e per comunicare efficacemente i tuoi valori.
+                                </p>
+                            </div>
+                        </div>
 
-                <PianiAbbonamento />
-            </div>
-        </>
-    )
+                        {/* Step 3 */}
+                        <div className="timeline-step flex flex-col md:flex-row bg-white p-6 rounded-lg shadow-lg">
+                            <div className="w-16 h-16 bg-gradient-blue rounded-full flex items-center justify-center text-white text-2xl font-bold shrink-0 mb-4 md:mb-0 mx-auto md:mx-0">
+                                3
+                            </div>
+                            <div className="md:ml-8">
+                                <h3 className="text-2xl font-bold mb-4 text-blue-dark text-center md:text-left">Ottimizzazione SEO</h3>
+                                <p className="text-gray-700">
+                                    Implementiamo le migliori pratiche SEO per assicurare che il tuo sito sia ben posizionato sui motori di ricerca, aumentando la tua visibilità online e il traffico qualificato.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 6. CTA Finale */}
+            <section ref={ctaRef} className="py-24 bg-gradient-blue ">
+                <div className="container mx-auto px-4 text-center text-white">
+                    <h2 className="text-3xl md:text-5xl font-bold mb-8">
+                        Pronto a far crescere la tua presenza online?
+                    </h2>
+                    <p className="text-xl max-w-2xl mx-auto mb-12">
+                        Trasforma la tua attività con un sito vetrina professionale e inizia a conquistare nuovi clienti oggi stesso.
+                    </p>
+
+                    {/* Pulsante con shine effect migliorato */}
+                    <div className="relative inline-block overflow-hidden rounded-full group">
+                        <button className="relative z-10 bg-gradient-orange text-white px-10 py-5 rounded-full font-bold text-lg shadow-lg hover:shadow-2xl transition duration-300">
+                            Richiedi un preventivo gratuito
+                        </button>
+                        {/* Shine effect animato con GSAP */}
+                        <div className="shine-effect absolute top-0 left-0 w-full h-full bg-white bg-opacity-30 transform -skew-x-45"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
 }

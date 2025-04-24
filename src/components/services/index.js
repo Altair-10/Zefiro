@@ -3,13 +3,11 @@
 import Card from "./card";
 import ShapesDisplayer from "../shapesDisplayer";
 import PremiumSaleAnimation from "./caroselloAggettivi";
-import { useEffect, useRef, useState } from "react";
-import AnimatedTitle from "../AnimatedTitle";
+import { useRef } from "react";
 import FloatingShape from "./FloatingShape";
+import AnimatedTitle from '../AnimatedTitle';
 
 export default function Services() {
-  const [scrollProgress, setScrollProgress] = useState(0);
-
   const svgPaths = [
     "/FormeSVG/blue-6.svg",
     "/FormeSVG/orange-4.svg",
@@ -20,41 +18,19 @@ export default function Services() {
 
   const containerRef = useRef(null);
 
-  useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          if (containerRef.current) {
-            const { top } = containerRef.current.getBoundingClientRect();
-            const progress = Math.min(
-              1,
-              Math.max(0, (window.innerHeight * 0.2 - top) / (window.innerHeight * 0.6))
-            );
-            setScrollProgress(progress);
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <div className="flex justify-center items-center w-full" ref={containerRef}>
+    <div className="flex justify-center items-center w-full pt-5 md:pt-10" ref={containerRef}>
       <div
         className="
-          grid my-[5vw]
+          grid md:my-[5vw]
           gap-[0.5vw] md:gap-[1vw] 
           grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))]
           grid-rows-[repeat(270,_minmax(0,_2vw))] md:grid-rows-[repeat(64,_minmax(0,_1vw))]
         "
       >
         {/* Title */}
-        <div className="flex justify-center items-center row-[2] col-[1/32] md:row-[2] md:col-[1/49]">
-          <AnimatedTitle text="I nostri servizi" />
+        <div className="flex justify-center items-center row-[4] col-[1/32] md:row-[2] md:col-[1/49]">
+          <AnimatedTitle text="I nostri servizi" doubleRow={false} />
         </div>
 
         {/* SITO VETRINA */}
@@ -70,7 +46,7 @@ export default function Services() {
           <Card
             CardTitle={"Sito Vetrina"}
             image={"/sfondi/sitoVetrina.jpg"}
-            CardDescription={"Presenta la tua attività online in modo chiaro, professionale e su misura."}
+            CardDescription={"Design su misura, mobile-friendly e ottimizzato per convertire visitatori in clienti"}
             btnHref={"/sitoVetrina"}
             animationDirection="left"
           />
@@ -92,7 +68,7 @@ export default function Services() {
         </div>
         <div className="row-[62/112] col-[1/32] md:row-[19/29] md:col-[26/44]">
           <Card
-            image={"/sfondi/E-commerce.jpg"}
+            image={"/sfondi/sitoEventi.png"}
             CardTitle={"Sito Per Eventi"}
             CardDescription={"Promuovi e gestisci il tuo evento online con tutte le informazioni essenziali."}
             btnHref={"/sitoPerEventi"}
@@ -146,7 +122,7 @@ export default function Services() {
         <div className="hidden md:block row-[36/38] col-[2/27] bg-blue-light" />
         <div className="row-[114/164] col-[1/32] md:row-[31/41] md:col-[6/24]">
           <Card
-            image={"/sfondi/E-commerce.jpg"}
+            image={"/sfondi/portfolioCreativo.png"}
             CardTitle={"Portfolio Creativo"}
             CardDescription={"Mostra i tuoi progetti con uno stile che valorizza il tuo talento."}
             btnHref={"/portfolioCreativo"}
@@ -164,7 +140,7 @@ export default function Services() {
               speed={1.2}
             />
           </div>
-        </div>
+        </div> 
 
         {/* E-LEARNING */}
         <div className="hidden md:block row-[46/48] col-[23/48] bg-blue-light" />
@@ -177,7 +153,7 @@ export default function Services() {
         </div>
         <div className="row-[168/218] col-[1/32] md:row-[43/53] md:col-[26/44]">
           <Card
-            image={"/sfondi/E-commerce.jpg"}
+            image={"/sfondi/ELearning.png"}
             CardTitle={"E-learning"}
             CardDescription={"Offri corsi e formazione online con una piattaforma intuitiva e completa."}
             btnHref={"/e-learning"}
@@ -196,7 +172,7 @@ export default function Services() {
         </div>
         <div className="row-[220/270] col-[1/32] md:row-[55/65] md:col-[6/24]">
           <Card
-            image={"/sfondi/E-commerce.jpg"}
+            image={"/sfondi/Blog.png"}
             CardTitle={"Blog"}
             CardDescription={"Condividi articoli, pensieri e novità in uno spazio tutto tuo."}
             btnHref={"/blog"}

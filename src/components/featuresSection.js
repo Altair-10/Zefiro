@@ -29,26 +29,29 @@ export default function FeatureSection({ title1, desc1, title2, desc2, title3, d
     ]
 
     return (
-        <section className="py-14">
-            <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
-                <div className="max-w-xl mx-auto space-y-3 sm:text-center">
-                    <h1 className="text-black text-3xl font-semibold md:text-6xl">
+        <section className="pt-16 md:pt-36">
+            <div className="max-w-screen-xl mx-auto text-gray-600">
+                <div>
+                    <h1 className="text-black text-center text-3xl md:text-6xl font-semibold">
                         Funzionalità
                     </h1>
                 </div>
                 <div className="mt-12">
-                    <ul className="grid gap-y-8 gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
+                    <ul className="grid gap-y-14 gap-x-20 sm:grid-cols-2 lg:grid-cols-3 justify-center">
                         {
                             features.map((item, idx) => (
-                                <li key={idx} className="flex gap-x-4">
+                                <li
+                                    key={idx}
+                                    className="flex flex-col items-center text-center sm:items-start sm:text-left sm:flex-row gap-x-4"
+                                >
                                     <div className="flex-none w-12 h-12 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center">
                                         {item.icon}
                                     </div>
-                                    <div>
-                                        <h4 className="text-lg text-gray-800 font-semibold">
+                                    <div className="mt-4 sm:mt-0 text-center">
+                                        <h2 className="text-lg md:text-xl text-gray-800 font-semibold">
                                             {item.title}
-                                        </h4>
-                                        <p className="mt-3">
+                                        </h2>
+                                        <p className="mt-3 mx-[10vw] md:mx-0 break-words text-gray-600">
                                             {item.desc}
                                         </p>
                                     </div>

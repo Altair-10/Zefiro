@@ -35,7 +35,7 @@ export default function Footer() {
     ]
 
     return (
-        <footer className="text-white bg-orange px-4 py-5 w-full md:px-8">
+        <footer className="text-white bg-gradient-orange px-4 py-5 w-full md:px-8">
             <div className="flex flex-col justify-center items-center">
                 <Image
                     src="/loghi_altair/bigZefiro_light.svg"
@@ -43,7 +43,7 @@ export default function Footer() {
                     height={1000}
                     alt="logo"
                     className="w-[60vw] md:w-[20vw]" />
-                <p className="leading-relaxed md:w-[45vw] text-[5vw] md:text-[20px] text-center text-black font-bold">
+                <p className="leading-relaxed md:w-[45vw] text-[4vw] sm:text-[3vw] md:text-[20px] text-center text-black font-bold">
                     Offriamo competenze, creatività e tecnologie avanzate per trasformare le tue idee in soluzioni digitali innovative, 
                     aiutandoti a comunicare meglio, crescere online e offrire esperienze uniche ai tuoi utenti.                
                 </p>
@@ -72,7 +72,7 @@ export default function Footer() {
                     &copy; 2025 Zefiro. Tutti i diritti riservati.
                 </div>
                 <div className="mt-6 sm:mt-0">
-                    <SocialIcons color="#2d3748" hoverColor="text-blue-dark" />
+                    <SocialIcons color="#000000" hoverColor="text-blue-dark" />
                 </div>
             </div>
         </footer>

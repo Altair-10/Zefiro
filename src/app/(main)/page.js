@@ -13,9 +13,9 @@ export default function HomePage() {
             <section id="services">
                 <Services />
             </section>
-            <section>
+            {/* <section>
                 <Testimonials />
-            </section>
+            </section> */}
             <section id="aboutUs">
                 <AboutUs />
             </section>

@@ -160,7 +160,7 @@ const Title = () => {
 
   return (
     <div className="row-[8] col-[1/32] md:row-[3] md:col-[3/7]">
-      <h1 className="w-[80vw] text-start text-[8vw] md:w-[35vw] md:text-[7vw] leading-[8vw] font-serif text-blue-dark overflow-hidden">
+      <h1 className="w-[80vw] text-center md:text-start text-[8vw] md:w-[35vw] md:text-[7vw] leading-[8vw] font-serif text-blue-dark overflow-hidden">
         <div className="inline-block md:block overflow-hidden">
           {renderTakeIt()}
         </div>

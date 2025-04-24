@@ -72,13 +72,13 @@ export default function ContactForm() {
     <form className="flex flex-col justify-center md:gap-y-2 w-full h-full" onSubmit={handleSubmit}>
       <div className="md:flex flex-row justify-between w-full gap-4 ">
         <div className="flex-1 min-w-0">
-          <label className="block text-sm font-medium ">Nome</label>
-          <input required type="text" name="nome" value={formData.nome} onChange={handleChange} className="w-full p-2 border rounded-md bg-gray-100" />
+          <label className="block text-sm font-medium">Nome</label>
+          <input required type="text" name="nome" value={formData.nome} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md bg-gray-100" />
           {errors.nome && <p className="text-red-500 text-xs mt-1 whitespace-nowrap">{errors.nome}</p>}
         </div>
         <div className="flex-1 min-w-0">
           <label className="block text-sm font-medium">Cognome</label>
-          <input required type="text" name="cognome" value={formData.cognome} onChange={handleChange} className="w-full p-2 border rounded-md bg-gray-100" />
+          <input required type="text" name="cognome" value={formData.cognome} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md bg-gray-100" />
           {errors.cognome && <p className="text-red-500 text-xs mt-1 whitespace-nowrap">{errors.cognome}</p>}
         </div>
       </div>
@@ -86,25 +86,31 @@ export default function ContactForm() {
       <div className="md:flex flex-row justify-between w-full gap-4">
         <div className="flex-1 min-w-0">
           <label className="block text-sm font-medium">Azienda</label>
-          <input type="text" name="azienda" value={formData.azienda} onChange={handleChange} className="w-full p-2 border rounded-md bg-gray-100" />
+          <input type="text" name="azienda" value={formData.azienda} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md bg-gray-100" />
         </div>
         <div className="flex-1 min-w-0">
           <label className="block text-sm font-medium whitespace-nowrap">Numero di telefono</label>
-          <input required type="tel" name="telefono" value={formData.telefono} onChange={handleChange} className="w-full p-2 border rounded-md bg-gray-100" />
+          <input required type="tel" name="telefono" value={formData.telefono} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md bg-gray-100" />
           {errors.telefono && <p className="text-red-500 text-xs mt-1 whitespace-nowrap">{errors.telefono}</p>}
         </div>
       </div>
 
       <div className="w-full">
         <label className="block text-sm font-medium">Email</label>
-        <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full p-2 border rounded-md bg-gray-100" />
+        <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md bg-gray-100" />
       </div>
 
       <div className="w-full">
         <label className="block text-sm font-medium">Siamo qui per te. Parlaci!</label>
-        <textarea required name="aiuto" value={formData.aiuto} onChange={handleChange} className="w-full p-2 border rounded-md min-h-[8vw] bg-gray-100" />
+        <textarea
+          required
+          name="aiuto"
+          value={formData.aiuto}
+          onChange={handleChange}
+          className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md min-h-[8vw] bg-gray-100 resize-none"
+        />
       </div>
-      
+
       <div className="flex flex-row justify-center">
         <SubmitButton onGoing={status} />
       </div>

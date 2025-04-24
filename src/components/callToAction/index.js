@@ -8,7 +8,7 @@ export default function CallToAction() {
   return (
     <>
       <div className="
-      grid gap-[0.5vw] md:gap-[1vw] mt-[30vw] md:mt-[10vw] mb-[5vw]
+      grid gap-[0.5vw] md:gap-[1vw] mt-[30vw] md:mt-[12vw] xl:mt-[8vw] mb-[5vw]
       grid-rows-[repeat(45,_minmax(0,_2vw))] md:grid-rows-[repeat(20,_minmax(0,_1vw))]
       grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))]
     ">
