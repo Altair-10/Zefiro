@@ -3,7 +3,7 @@
 import Card from "./card";
 import ShapesDisplayer from "../shapesDisplayer";
 import PremiumSaleAnimation from "./caroselloAggettivi";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import FloatingShape from "./FloatingShape";
 import AnimatedTitle from '../AnimatedTitle';
 
@@ -17,28 +17,6 @@ export default function Services() {
   ];
 
   const containerRef = useRef(null);
-
-  useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          if (containerRef.current) {
-            const { top } = containerRef.current.getBoundingClientRect();
-            const progress = Math.min(
-              1,
-              Math.max(0, (window.innerHeight * 0.2 - top) / (window.innerHeight * 0.6))
-            );
-            setScrollProgress(progress);
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <div className="flex justify-center items-center w-full pt-5 md:pt-10" ref={containerRef}>
