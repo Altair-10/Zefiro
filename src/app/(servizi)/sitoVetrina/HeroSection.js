@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import AnimatedButton from "@/components/services/AnimatedButton";
 
 const HeroSection = () => {
   const sectionRef = useRef(null);
@@ -43,106 +44,106 @@ const HeroSection = () => {
 
     // Initial bubble animations
     const bubbleTl = gsap.timeline();
-    
+
     // Main center circle
     bubbleTl.fromTo(
       circle1Ref.current,
-      { 
+      {
         scale: 0.7,
-        opacity: 0 
+        opacity: 0
       },
-      { 
+      {
         scale: 1,
-        opacity: 1, 
-        duration: 2.5, 
-        ease: "elastic.out(1, 0.5)" 
+        opacity: 1,
+        duration: 2.5,
+        ease: "elastic.out(1, 0.5)"
       }
     );
-    
+
     // Top left circle
     bubbleTl.fromTo(
       circle2Ref.current,
-      { 
-        x: -50, 
-        y: -50, 
-        opacity: 0 
+      {
+        x: -50,
+        y: -50,
+        opacity: 0
       },
-      { 
-        x: 0, 
-        y: 0, 
-        opacity: 0.4, 
-        duration: 3, 
-        ease: "power2.out" 
+      {
+        x: 0,
+        y: 0,
+        opacity: 0.4,
+        duration: 3,
+        ease: "power2.out"
       },
       "-=2"
     );
-    
+
     // Bottom right circle
     bubbleTl.fromTo(
       circle3Ref.current,
-      { 
-        x: 70, 
-        y: 70, 
-        opacity: 0 
+      {
+        x: 70,
+        y: 70,
+        opacity: 0
       },
-      { 
-        x: 0, 
-        y: 0, 
-        opacity: 0.5, 
-        duration: 3.5, 
-        ease: "power2.out" 
+      {
+        x: 0,
+        y: 0,
+        opacity: 0.5,
+        duration: 3.5,
+        ease: "power2.out"
       },
       "-=3"
     );
-    
+
     // Top right circle
     bubbleTl.fromTo(
       circle4Ref.current,
-      { 
-        x: 30, 
-        y: -30, 
-        opacity: 0 
+      {
+        x: 30,
+        y: -30,
+        opacity: 0
       },
-      { 
-        x: 0, 
-        y: 0, 
-        opacity: 0.3, 
-        duration: 2.8, 
-        ease: "power2.out" 
+      {
+        x: 0,
+        y: 0,
+        opacity: 0.3,
+        duration: 2.8,
+        ease: "power2.out"
       },
       "-=3.3"
     );
-    
+
     // Bottom left circle
     bubbleTl.fromTo(
       circle5Ref.current,
-      { 
-        x: -40, 
-        y: 40, 
-        opacity: 0 
+      {
+        x: -40,
+        y: 40,
+        opacity: 0
       },
-      { 
-        x: 0, 
-        y: 0, 
-        opacity: 0.4, 
-        duration: 3.2, 
-        ease: "power2.out" 
+      {
+        x: 0,
+        y: 0,
+        opacity: 0.4,
+        duration: 3.2,
+        ease: "power2.out"
       },
       "-=3"
     );
 
     // Subtle floating animation that eventually stops
     const floatingTl = gsap.timeline({ delay: 2 });
-    
+
     // Apply a gentle floating motion to each circle
     [circle1Ref, circle2Ref, circle3Ref, circle4Ref, circle5Ref].forEach((circleRef, index) => {
       const duration = 8 + index;
       const delay = index * 0.3;
-      
+
       // Random gentle movement
       const xMovement = (Math.random() - 0.5) * 20;
       const yMovement = (Math.random() - 0.5) * 20;
-      
+
       floatingTl.to(
         circleRef.current,
         {
@@ -162,10 +163,10 @@ const HeroSection = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const sectionHeight = sectionRef.current.offsetHeight;
-      
+
       // Calculate scroll progress (0 to 1)
       const scrollProgress = Math.min(scrollPosition / (sectionHeight * 0.6), 1);
-      
+
       // Define movement directions for each circle
       const directions = [
         { x: 0, y: -100 },       // Center circle moves up
@@ -174,11 +175,11 @@ const HeroSection = () => {
         { x: 150, y: -150 },     // Top right moves further top-right
         { x: -150, y: 150 }      // Bottom left moves further bottom-left
       ];
-      
+
       // Apply transformations based on scroll position
       [circle1Ref, circle2Ref, circle3Ref, circle4Ref, circle5Ref].forEach((circleRef, i) => {
         const direction = directions[i];
-        
+
         // Apply movement and fade out
         gsap.to(circleRef.current, {
           x: direction.x * scrollProgress,
@@ -203,13 +204,13 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="relative w-full h-screen flex items-center justify-center overflow-hidden text-white"
     >
       {/* Blue gradient background */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#16697a] to-[#489fb5]" />
-      
+
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 opacity-10 bg-black" />
 
@@ -233,59 +234,59 @@ const HeroSection = () => {
             <stop offset="100%" stopColor="#ede7e4" stopOpacity="0.08" />
           </linearGradient>
         </defs>
-        
+
         {/* Main center circle */}
-        <circle 
+        <circle
           ref={circle1Ref}
-          cx="400" 
-          cy="300" 
-          r="180" 
-          fill="url(#circleGradient)" 
-          filter="url(#glow)" 
+          cx="400"
+          cy="300"
+          r="180"
+          fill="url(#circleGradient)"
+          filter="url(#glow)"
         />
-        
+
         {/* Top left circle */}
-        <circle 
+        <circle
           ref={circle2Ref}
-          cx="200" 
-          cy="150" 
-          r="70" 
-          fill="#ffa62b" 
-          opacity="0.4" 
-          filter="url(#glow)" 
+          cx="200"
+          cy="150"
+          r="70"
+          fill="#ffa62b"
+          opacity="0.4"
+          filter="url(#glow)"
         />
-        
+
         {/* Bottom right circle */}
-        <circle 
+        <circle
           ref={circle3Ref}
-          cx="600" 
-          cy="450" 
-          r="90" 
-          fill="#ede7e4" 
-          opacity="0.5" 
-          filter="url(#glow)" 
+          cx="600"
+          cy="450"
+          r="90"
+          fill="#ede7e4"
+          opacity="0.5"
+          filter="url(#glow)"
         />
-        
+
         {/* Top right circle */}
-        <circle 
+        <circle
           ref={circle4Ref}
-          cx="700" 
-          cy="200" 
-          r="40" 
-          fill="#ffa62b" 
-          opacity="0.3" 
-          filter="url(#glow)" 
+          cx="700"
+          cy="200"
+          r="40"
+          fill="#ffa62b"
+          opacity="0.3"
+          filter="url(#glow)"
         />
-        
+
         {/* Bottom left circle */}
-        <circle 
+        <circle
           ref={circle5Ref}
-          cx="300" 
-          cy="500" 
-          r="60" 
-          fill="#ede7e4" 
-          opacity="0.4" 
-          filter="url(#glow)" 
+          cx="300"
+          cy="500"
+          r="60"
+          fill="#ede7e4"
+          opacity="0.4"
+          filter="url(#glow)"
         />
       </svg>
 
@@ -297,7 +298,7 @@ const HeroSection = () => {
         >
           Sito Vetrina
         </h1>
-        
+
         <div ref={subtitleRef} className="space-y-3 mb-8">
           <p className="text-xl md:text-3xl font-bold bg-gradient-to-r from-[#ffa62b] to-[#ede7e4] text-transparent bg-clip-text">
             La tua vetrina digitale sempre aperta.
@@ -306,14 +307,9 @@ const HeroSection = () => {
             Design su misura, mobile-friendly e ottimizzato per convertire visitatori in clienti.
           </p>
         </div>
-        
-        <button
-          ref={buttonRef}
-          className="px-8 py-4 bg-[#ffa62b] text-white rounded-full font-semibold hover:bg-[#ff8c00] transition-all duration-300 shadow-lg relative overflow-hidden group"
-        >
-          <span className="relative z-10 text-lg">Scopri di più</span>
-          <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-all duration-300" />
-        </button>
+        <div className="flex justify-center">
+          <AnimatedButton mode="scroll" />
+        </div>
       </div>
     </section>
   );

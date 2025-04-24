@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Francesco from './HeroSection.js';
+import PianiAbbonamento from '@/components/pianiAbbonamento.js';
 
 // Registriamo ScrollTrigger
 if (typeof window !== 'undefined') {
@@ -298,6 +299,9 @@ export default function SitoVetrina() {
                         <div className="shine-effect absolute top-0 left-0 w-full h-full bg-white bg-opacity-30 transform -skew-x-45"></div>
                     </div>
                 </div>
+            </section>
+            <section>
+                <PianiAbbonamento />
             </section>
         </div>
     );

@@ -6,7 +6,9 @@ export default function Layout({ children }) {
     return (
         <div>
             {children}
-            <ContactUs />
+            <section id="contactUs">
+                <ContactUs />
+            </section>
         </div>
     )
 }
