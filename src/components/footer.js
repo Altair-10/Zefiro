@@ -35,7 +35,7 @@ export default function Footer() {
     ]
 
     return (
-        <footer className="text-white bg-orange px-4 py-5 w-full md:px-8">
+        <footer className="text-white bg-gradient-orange px-4 py-5 w-full md:px-8">
             <div className="flex flex-col justify-center items-center">
                 <Image
                     src="/loghi_altair/bigZefiro_light.svg"
@@ -72,7 +72,7 @@ export default function Footer() {
                     &copy; 2025 Zefiro. Tutti i diritti riservati.
                 </div>
                 <div className="mt-6 sm:mt-0">
-                    <SocialIcons color="#2d3748" hoverColor="text-blue-dark" />
+                    <SocialIcons color="#000000" hoverColor="text-blue-dark" />
                 </div>
             </div>
         </footer>

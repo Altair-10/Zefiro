@@ -102,9 +102,15 @@ export default function ContactForm() {
 
       <div className="w-full">
         <label className="block text-sm font-medium">Siamo qui per te. Parlaci!</label>
-        <textarea required name="aiuto" value={formData.aiuto} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md min-h-[8vw] bg-gray-100" />
+        <textarea
+          required
+          name="aiuto"
+          value={formData.aiuto}
+          onChange={handleChange}
+          className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md min-h-[8vw] bg-gray-100 resize-none"
+        />
       </div>
-      
+
       <div className="flex flex-row justify-center">
         <SubmitButton onGoing={status} />
       </div>

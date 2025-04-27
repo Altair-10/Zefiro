@@ -1,48 +1,91 @@
-import AnimatedTitle from "@/components/animatedTitle"
-import ServiceDescription from "@/components/serviceDescription"
-import FeatureSection from "@/components/featuresSection"
-import CTAServizio from "@/components/ctaServizio"
-import PlanSlider from "@/components/PlanSlider"
-import PlanCard from "@/components/planCard"
-import PianiAbbonamento from "@/components/pianiAbbonamento"
+"use client";
 
-export default function Blog() {
+import { useEffect, useRef } from 'react';
+import Head from 'next/head';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import HeroSection from '../sitoVetrina/HeroSection';
+import PercheSceglierci from '@/components/percheSceglierci.js';
+import OurPipeline from '@/components/ourPipeline.js';
+import ServiceCTA from '@/components/serviceCTA.js';
+import PianiAbbonamento from '@/components/pianiAbbonamento.js';
+import SiteSample from '@/components/siteSample.js';
+import { initAnimations } from '../animationConfig';
+
+export default function SitoVetrina() {
+    const heroRef = useRef(null);
+    const timelineRef = useRef(null);
+    const ctaRef = useRef(null);
+
+    useEffect(() => {
+        initAnimations(heroRef, timelineRef, ctaRef);  // Avvia le animazioni
+    }, []);
+
     return (
-        <>
-            <AnimatedTitle text="Blog" />
-            <ServiceDescription desc="
-                Progettiamo e sviluppiamo blog moderni e funzionali,
-                ottimizzati per la lettura e la condivisione dei tuoi contenuti.
-                Che si tratti di un blog personale, aziendale o tematico,
-                ti aiutiamo a costruire uno spazio dove raccontare idee,
-                pubblicare articoli e coinvolgere la tua community.
-            "/>
+        <div className="bg-[#ede7e4]">
+            <Head>
+                <title>Blog | Condividi idee e costruisci il tuo pubblico</title>
+                <meta
+                    name="description"
+                    content="Crea un blog professionale per raccontare il tuo brand, condividere esperienze e costruire una community online solida e autentica."
+                />
+            </Head>
 
-            <FeatureSection
-                title1={"Scrittura e Pubblicazione Semplificate"}
-                desc1={"Crea e gestisci articoli in modo intuitivo, grazie a un'interfaccia pensata per autori, blogger e redazioni di ogni livello."}
+            {/* Hero Section */}
+            <section ref={heroRef} className="relative h-screen w-screen overflow-hidden pt-16">
+                <HeroSection
+                    title="Blog"
+                    subtitle="Condividi storie, novità e competenze."
+                    descr="Un blog professionale per aumentare l'autorità del tuo brand, migliorare la SEO e coinvolgere il tuo pubblico."
+                />
+            </section>
 
-                title2={"Layout Ottimizzati per la Lettura"}
-                desc2={"Ogni post è presentato in un formato leggibile, elegante e responsive, per garantire una fruizione fluida su qualsiasi dispositivo."}
+            {/* Sezione "Perché Sceglierci" */}
+            <section className="bg-[#ede7e4]">
+                <PercheSceglierci
+                    sectionTitle="Perché scegliere un Blog"
+                    icon1="✍🏻"
+                    cardTitle1="Costruisci Autorità"
+                    cardBody1="Attraverso articoli di qualità puoi posizionarti come esperto nel tuo settore e guadagnare fiducia."
+                    icon2="🧠"
+                    cardTitle2="Condividi Conoscenza"
+                    cardBody2="Un blog è il miglior modo per educare il tuo pubblico, raccontare esperienze e condividere idee di valore."
+                    icon3="🔗"
+                    cardTitle3="Collega il tuo Brand"
+                    cardBody3="Rafforza il legame tra il tuo brand e i tuoi clienti, costruendo una community attorno ai tuoi contenuti."
+                />
+            </section>
 
-                title3={"Struttura SEO-Friendly e Categorie"}
-                desc3={"Organizza i tuoi contenuti con tag, categorie e URL ottimizzati per Google, migliorando la visibilità e la reperibilità del tuo blog."}
-            />
+            {/* Demo Interattiva */}
+            <section className="bg-white">
+                <SiteSample sectionTitle="Esempi di Blog" />
+            </section>
 
-            <CTAServizio
-                cta={
-                    <>
-                        Dai voce alle tue idee <br />
-                        <span className="text-orange">con un blog moderno e performante</span><br />
-                        che valorizza ogni contenuto
-                    </>
-                }
-                desc={
-                    "Un blog ben costruito rafforza la tua presenza online, migliora l’autorevolezza del tuo brand e trasforma ogni articolo in un’opportunità di connessione con il pubblico."
-                }
-            />
+            {/* Pipeline del servizio */}
+            <section ref={timelineRef} className="bg-[#ede7e4]">
+                <OurPipeline
+                    sectionTitle="Come realizziamo il tuo Blog"
+                    cardTitle1="Strategia Editoriale"
+                    cardBody1="Definiamo insieme obiettivi, target e tipologie di contenuti per creare un piano editoriale solido e coerente."
+                    cardTitle2="Design su Misura"
+                    cardBody2="Progettiamo un'interfaccia moderna, leggibile e mobile-friendly, con focus sull'esperienza di lettura."
+                    cardTitle3="SEO & Performance"
+                    cardBody3="Ottimizziamo il tuo blog per il caricamento rapido, l'indicizzazione SEO e l'integrazione social."
+                />
+            </section>
 
-            <PianiAbbonamento />
-        </>
-    )
+            {/* CTA finale */}
+            <section className="bg-gradient-blue" ref={ctaRef}>
+                <ServiceCTA
+                    question="Vuoi far sentire la tua voce online?"
+                    cta="Crea il tuo blog aziendale e inizia a costruire relazioni durature con il tuo pubblico attraverso contenuti di valore."
+                />
+            </section>
+
+            {/* Piani di abbonamento */}
+            <section>
+                <PianiAbbonamento />
+            </section>
+        </div>
+    );
 }

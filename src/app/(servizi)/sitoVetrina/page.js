@@ -1,44 +1,91 @@
-import AnimatedTitle from "@/components/animatedTitle"
-import ServiceDescription from "@/components/serviceDescription"
-import FeatureSection from "@/components/featuresSection"
-import CTAServizio from "@/components/ctaServizio"
-import PianiAbbonamento from "@/components/pianiAbbonamento"
+"use client";
+
+import { useEffect, useRef } from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import HeroSection from '../sitoVetrina/HeroSection';
+import PercheSceglierci from '@/components/percheSceglierci.js';
+import OurPipeline from '@/components/ourPipeline.js';
+import ServiceCTA from '@/components/serviceCTA.js';
+import PianiAbbonamento from '@/components/pianiAbbonamento.js';
+import SiteSample from '@/components/siteSample.js';
+import { initAnimations } from '../animationConfig';
 
 export default function SitoVetrina() {
-    return (
-        <>
-            <AnimatedTitle text="Sito Vetrina" />
-            <ServiceDescription desc="
-                Realizziamo siti vetrina moderni, veloci e ottimizzati per comunicare al meglio la tua identità.
-                Che tu abbia bisogno di presentare un’azienda, un’attività o un progetto personale,
-                ti aiutiamo a costruire una presenza online solida, chiara e coinvolgente.
-            "/>
+  const heroRef = useRef(null);
+  const timelineRef = useRef(null);
+  const ctaRef = useRef(null);
 
-            <FeatureSection
-                title1={"Design su Misura e Identità Visiva"}
-                desc1={"Ogni sito è progettato per rispecchiare la tua immagine, con grafiche personalizzate e una navigazione intuitiva."}
+  useEffect(() => {
+    initAnimations(heroRef, timelineRef, ctaRef);  // Avvia le animazioni
+  }, []);
 
-                title2={"Performance e Ottimizzazione SEO"}
-                desc2={"Sviluppiamo siti leggeri, reattivi e ottimizzati per i motori di ricerca, per garantire visibilità e velocità."}
+  return (
+    <div className="bg-[#ede7e4]">
+      <Head>
+        <title>Sito Vetrina | La tua presenza digitale professionale</title>
+        <meta
+          name="description"
+          content="Crea una vetrina digitale professionale per la tua azienda. Design personalizzato, mobile-friendly e ottimizzato per le conversioni."
+        />
+      </Head>
 
-                title3={"Responsive e Facile da Gestire"}
-                desc3={"Il sito si adatta perfettamente a ogni dispositivo e può essere aggiornato facilmente anche da chi non ha competenze tecniche."}
-            />
+      {/* Hero Section */}
+      <section ref={heroRef} className="relative h-screen w-screen overflow-hidden pt-16">
+        <HeroSection
+          title="Sito Vetrina"
+          subtitle="La tua vetrina digitale sempre aperta."
+          descr="Design su misura, mobile-friendly e ottimizzato per convertire visitatori in clienti."
+        />
+      </section>
 
-            <CTAServizio
-                cta={
-                    <>
-                        Presenta il tuo brand online <br />
-                        <span className="text-orange">con un sito vetrina efficace e professionale</span><br />
-                        che lascia il segno
-                    </>
-                }
-                desc={
-                    "Un sito vetrina ben strutturato è il tuo biglietto da visita digitale: aumenta la fiducia, migliora la comunicazione e attira nuovi clienti."
-                }
-            />
+      {/* Sezione "Perché Sceglierci" */}
+      <section className="bg-[#ede7e4]">
+        <PercheSceglierci
+          sectionTitle="Perché scegliere un Sito Vetrina"
+          icon1="📱"
+          cardTitle1="Mobile First"
+          cardBody1="Adattabile a tutti i dispositivi con design fluidi. L'esperienza utente ottimale su smartphone, tablet e desktop."
+          icon2="🚀"
+          cardTitle2="Velocità Ottimizzata"
+          cardBody2="Tempi di caricamento rapidi per mantenere i visitatori coinvolti e migliorare il posizionamento sui motori di ricerca."
+          icon3="🔍"
+          cardTitle3="SEO Integrato"
+          cardBody3="Ottimizzato per i motori di ricerca fin dal primo giorno, per far trovare la tua azienda ai clienti giusti."
+        />
+      </section>
 
-            <PianiAbbonamento />
-        </>
-    )
+      {/* Demo Interattiva */}
+      <section className="bg-white">
+        <SiteSample sectionTitle="Esempi di Siti Vetrina" />
+      </section>
+
+      {/* Pipeline del servizio */}
+      <section ref={timelineRef} className="bg-[#ede7e4]">
+        <OurPipeline
+          sectionTitle="Il nostro processo"
+          cardTitle1="Analisi delle esigenze"
+          cardBody1="Iniziamo ascoltando le tue necessità. Comprendiamo il tuo business, i tuoi obiettivi e il tuo pubblico di riferimento per creare una strategia digitale su misura per te."
+          cardTitle2="Design personalizzato"
+          cardBody2="Creiamo un design unico che riflette l'identità del tuo brand. Ogni elemento è pensato per offrire una user experience eccellente e per comunicare efficacemente i tuoi valori."
+          cardTitle3="Ottimizzazione SEO"
+          cardBody3="Implementiamo le migliori pratiche SEO per assicurare che il tuo sito sia ben posizionato sui motori di ricerca, aumentando la tua visibilità online e il traffico qualificato."
+        />
+      </section>
+
+      {/* CTA finale */}
+      <section className="bg-gradient-blue"  ref={ctaRef}>
+        <ServiceCTA
+          question="Pronto a far crescere la tua presenza online?"
+          cta="Trasforma la tua attività con un sito vetrina professionale e inizia a conquistare nuovi clienti oggi stesso."
+        />
+      </section>
+      {/* Piani di abbonamento */}
+      <section>
+        <PianiAbbonamento />
+      </section>
+    </div>
+  );
 }

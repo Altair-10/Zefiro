@@ -1,43 +1,92 @@
-import AnimatedTitle from "@/components/animatedTitle"
-import ServiceDescription from "@/components/serviceDescription"
-import FeatureSection from "@/components/featuresSection"
-import CTAServizio from "@/components/ctaServizio"
-import PianiAbbonamento from "@/components/pianiAbbonamento"
+"use client";
 
-export default function SitoPerEventi() {
+import { useEffect, useRef } from 'react';
+import Head from 'next/head';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import HeroSection from '../sitoVetrina/HeroSection';
+import PercheSceglierci from '@/components/percheSceglierci.js';
+import OurPipeline from '@/components/ourPipeline.js';
+import ServiceCTA from '@/components/serviceCTA.js';
+import PianiAbbonamento from '@/components/pianiAbbonamento.js';
+import SiteSample from '@/components/siteSample.js';
+import { initAnimations } from '../animationConfig';
+
+export default function SitoVetrina() {
+    const heroRef = useRef(null);
+    const timelineRef = useRef(null);
+    const ctaRef = useRef(null);
+
+    useEffect(() => {
+        initAnimations(heroRef, timelineRef, ctaRef);  // Avvia le animazioni
+    }, []);
+
     return (
-        <>
-            <AnimatedTitle text="Sito per Eventi" />
-            <ServiceDescription desc="
-                Progettiamo siti web per eventi unici, che catturano l’attenzione e facilitano la gestione di eventi, conferenze, fiere e molto altro. 
-                Il sito è pensato per essere funzionale, moderno e facilmente navigabile, garantendo una buona esperienza utente.
-            "/>
+        <div className="bg-[#ede7e4]">
+            <Head>
+                <title>Sito per Eventi | Promuovi il tuo evento in grande stile</title>
+                <meta
+                    name="description"
+                    content="Crea un sito dedicato per il tuo evento, completo di programma, iscrizioni e aggiornamenti in tempo reale."
+                />
+            </Head>
 
-            <FeatureSection
-                title1={"Gestione Eventi Semplice e Intuitiva"}
-                desc1={"Organizza, modifica e pubblica i tuoi eventi in pochi clic grazie a un’interfaccia pensata per semplificare ogni fase, dalla pianificazione alla promozione."}
+            {/* Hero Section */}
+            <section ref={heroRef} className="relative h-screen w-screen overflow-hidden pt-16">
+                <HeroSection
+                    title="Sito per Eventi"
+                    subtitle="Promuovi il tuo evento con stile."
+                    descr="Un sito dedicato per presentare programma, ospiti e registrazioni, tutto in un'unica piattaforma."
+                />
 
-                title2={"Calendario Interattivo degli Eventi"}
-                desc2={"Gli utenti possono consultare un calendario dinamico con tutti gli appuntamenti futuri, filtrare per data o categoria, e salvare gli eventi di interesse."}
+            </section>
 
-                title3={"Schede Evento Dettagliate"}
-                desc3={"Ogni evento è presentato con una scheda informativa completa: data, orario, luogo, descrizione, immagini e tutte le informazioni utili per il pubblico."}
-            />
+            {/* Perché Sceglierci */}
+            <section className="bg-[#ede7e4]">
+                <PercheSceglierci
+                    sectionTitle="Perché creare un Sito per Eventi"
+                    icon1="📅"
+                    cardTitle1="Organizzazione Perfetta"
+                    cardBody1="Offri ai partecipanti tutte le informazioni aggiornate: programma, location, ospiti e modalità di iscrizione."
+                    icon2="🧩"
+                    cardTitle2="Personalizzazione Completa"
+                    cardBody2="Design su misura per il tema del tuo evento, con funzionalità su richiesta come registrazione online o ticketing."
+                    icon3="📢"
+                    cardTitle3="Massima Visibilità"
+                    cardBody3="Promuovi il tuo evento con SEO, integrazione social e strumenti di marketing mirati."
+                />
+            </section>
 
-            <CTAServizio
-                cta={
-                    <>
-                        Dai visibilità ai tuoi eventi <br />
-                        <span className="text-orange">con un sito curato e professionale</span><br />
-                        che cattura l’attenzione
-                    </>
-                }
-                desc={
-                    "Un sito per eventi ben progettato comunica affidabilità, crea entusiasmo e permette al tuo pubblico di vivere un’esperienza coinvolgente ancora prima di partecipare."
-                }
-            />
+            {/* Demo */}
+            <section className="bg-white">
+                <SiteSample sectionTitle="Esempi di Siti per Eventi" />
+            </section>
 
-            <PianiAbbonamento />
-        </>
-    )
+            {/* Pipeline */}
+            <section ref={timelineRef} className="bg-[#ede7e4]">
+                <OurPipeline
+                    sectionTitle="Come realizziamo il sito del tuo evento"
+                    cardTitle1="Pianificazione"
+                    cardBody1="Raccogliamo tutte le informazioni sull'evento per costruire una struttura chiara ed efficace."
+                    cardTitle2="Design ed Esperienza"
+                    cardBody2="Creiamo un sito intuitivo e accattivante per stimolare la partecipazione e semplificare le iscrizioni."
+                    cardTitle3="Supporto Live"
+                    cardBody3="Ti affianchiamo anche durante l'evento con aggiornamenti, notifiche e assistenza tecnica in tempo reale."
+                />
+            </section>
+
+            {/* CTA */}
+            <section className="bg-gradient-blue" ref={ctaRef}>
+                <ServiceCTA
+                    question="Hai un evento da promuovere?"
+                    cta="Crea un sito evento su misura per attirare partecipanti, gestire registrazioni e rendere ogni dettaglio memorabile."
+                />
+            </section>
+
+            {/* Piani */}
+            <section>
+                <PianiAbbonamento />
+            </section>
+        </div>
+    );
 }

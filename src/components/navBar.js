@@ -106,12 +106,12 @@ export default function Navbar() {
 
         {/* Menu Desktop */}
         <div className="hidden md:flex text-xl gap-[3vw] text-white font-bold">
-          <Link
-            href="/"
+        <button
+            onClick={() => scrollToSection("home")}
             className="hover:text-blue-dark cursor-pointer"
           >
             HOME
-          </Link>
+          </button>
           {/* Servizi con dropdown */}
           <div
             className="relative"

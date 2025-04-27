@@ -3,7 +3,7 @@
 import ContactForm from "@/components/contactUs/formEmail";
 import ShapesDisplayer from "../shapesDisplayer";
 import ContactUsCard from "@/components/contactUs/card";
-import AnimatedTitle from "../animatedTitle";
+import AnimatedTitle from "../AnimatedTitle";
 
 export default function ContactUs() {
     return (
@@ -13,11 +13,11 @@ export default function ContactUs() {
                 grid-rows-[repeat(110,_minmax(0,_2vw))] md:grid-rows-[repeat(22,_minmax(0,_1vw))]
                 grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))]
             ">
-                <div className="flex justify-center items-center row-[1] col-[1/32] md:row-[1] lg:row-[2] md:col-[1/49]">
-                    <AnimatedTitle text="Contattaci" />
+                <div className="flex justify-center items-center row-[8] col-[1/32] md:row-[1] lg:row-[2] md:col-[1/49]">
+                    <AnimatedTitle text="Contattaci" doubleRow={false} />
                 </div>
 
-                <div className="row-[10/40] col-[2/31] md:row-[7/19] md:col-[3/18]">
+                <div className="row-[14/40] col-[2/31] md:row-[7/19] md:col-[3/18]">
                     <ContactUsCard />
                 </div>
                 <div className="row-[75] col-[2/31] md:row-[7/20] md:col-[22/37]">
