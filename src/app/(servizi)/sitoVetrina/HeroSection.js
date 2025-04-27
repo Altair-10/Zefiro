@@ -294,7 +294,7 @@ const HeroSection = ({ title, subtitle, descr}) => {
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <h1
           ref={titleRef}
-          className="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-[#ffa62b] to-[#ede7e4] text-transparent bg-clip-text"
+          className="text-5xl md:text-7xl font-extrabold pb-4 bg-gradient-to-r from-[#ffa62b] to-[#ede7e4] text-transparent bg-clip-text"
         >
           {title}
         </h1>
