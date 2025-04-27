@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import Francesco from './HeroSection.js';
+import HeroSection from '../sitoVetrina/HeroSection';
 import PercheSceglierci from '@/components/percheSceglierci.js';
 import OurPipeline from '@/components/ourPipeline.js';
 import ServiceCTA from '@/components/serviceCTA.js';
@@ -124,7 +124,7 @@ export default function SitoVetrina() {
 
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-screen w-screen overflow-hidden pt-16">
-        <Francesco />
+        <HeroSection title="Sito Vetrina" subtitle="La tua vetrina digitale sempre aperta." descr="Design su misura, mobile-friendly e ottimizzato per convertire visitatori in clienti." />
       </section>
 
       {/* Sezione "Perché Sceglierci" */}
@@ -163,7 +163,10 @@ export default function SitoVetrina() {
 
       {/* CTA finale */}
       <section className="bg-gradient-blue">
-        <ServiceCTA />
+        <ServiceCTA
+          question="Pronto a far crescere la tua presenza online?"
+          cta="Trasforma la tua attività con un sito vetrina professionale e inizia a conquistare nuovi clienti oggi stesso."
+        />
       </section>
       {/* Piani di abbonamento */}
       <section>

@@ -5,7 +5,7 @@ import { getPlanItems } from "@/app/config/subscriptionPlansCostants";
 
 export default function PianiAbbonamento() {
     return (
-        <section className="pt-16 md:pt-36">
+        <section className="pt-16 md:py-20">
             <div className="flex justify-center items-center text-black text-center font-semibold mx-6 md:mx-0 mb-[3vw]">
                 <h1 className="text-black text-center text-3xl md:text-6xl font-semibold">
                     I Nostri Piani!

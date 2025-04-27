@@ -9,7 +9,7 @@ if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function ServiceCTA() {
+export default function ServiceCTA({ question, cta }) {
     const ctaRef = useRef(null);
 
     useEffect(() => {
@@ -58,10 +58,10 @@ export default function ServiceCTA() {
     return (
         <div ref={ctaRef} className="container mx-auto px-4 text-center text-white py-24">
             <h2 className="text-3xl md:text-5xl font-bold mb-8">
-                Pronto a far crescere la tua presenza online?
+                {question}
             </h2>
             <p className="text-xl max-w-2xl mx-auto mb-12">
-                Trasforma la tua attività con un sito vetrina professionale e inizia a conquistare nuovi clienti oggi stesso.
+                {cta}
             </p>
 
             <div className="relative inline-block overflow-hidden group">

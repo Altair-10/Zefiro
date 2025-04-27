@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import ContactButton from "@/components/callToAction/contactButton";
 
-const HeroSection = () => {
+const HeroSection = ({ title, subtitle, descr}) => {
   const sectionRef = useRef(null);
   const svgRef = useRef(null);
   const titleRef = useRef(null);
@@ -296,15 +296,15 @@ const HeroSection = () => {
           ref={titleRef}
           className="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-[#ffa62b] to-[#ede7e4] text-transparent bg-clip-text"
         >
-          Sito Vetrina
+          {title}
         </h1>
 
         <div ref={subtitleRef} className="space-y-3 mb-8">
           <p className="text-xl md:text-3xl font-bold bg-gradient-to-r from-[#ffa62b] to-[#ede7e4] text-transparent bg-clip-text">
-            La tua vetrina digitale sempre aperta.
+            {subtitle}
           </p>
           <p className="text-base md:text-lg text-white max-w-2xl mx-auto">
-            Design su misura, mobile-friendly e ottimizzato per convertire visitatori in clienti.
+            {descr}
           </p>
         </div>
         <div className="flex justify-center">
