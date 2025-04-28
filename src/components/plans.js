@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from "react";
+import { getPlanItems } from "@/app/constants/subscriptionPlansCostants";
 
 export default function PianiAbbonamento() {
     const [activePlan, setActivePlan] = useState("medium");
@@ -13,128 +14,123 @@ export default function PianiAbbonamento() {
     };
 
     return (
-        <section className="py-16 md:py-20 bg-brown-light bg-opacity-5">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-blue-dark mb-4">
-                        I Nostri <span className="text-orange">Piani</span>
-                    </h2>
-                    <p className="text-blue-dark max-w-2xl mx-auto">
-                        Scegli il piano più adatto alle tue esigenze e trasforma la tua presenza online
-                    </p>
-                </div>
+        <section className="pt-16 md:py-20">
+            <h2 className="text-3xl md:text-6xl font-bold text-center text-blue-dark mb-16">
+                I Nostri Piani!
+            </h2>
+            <p className="text-blue-dark max-w-2xl mx-auto">
+                Scegli il piano più adatto alle tue esigenze e trasforma la tua presenza online
+            </p>
+            {/* Mobile Version */}
+            <div className="md:hidden space-y-8">
+                <MobilePlanCard
+                    title="Standard"
+                    description="Ideale per piccole attività che vogliono iniziare online"
+                    features={[
+                        { included: true, text: "Sito Web Responsive" },
+                        { included: true, text: "Fino a 5 pagine" },
+                        { included: true, text: "SEO Base" },
+                        { included: true, text: "Hosting per 1 anno" },
+                        { included: false, text: "Certificato SSL" },
+                        { included: false, text: "Form di contatto avanzato" },
+                        { included: false, text: "eCommerce" },
+                        { included: false, text: "Integrazioni API" }
+                    ]}
+                    isActive={activePlan === "standard"}
+                    onClick={() => handlePlanChange("standard")}
+                />
 
-                {/* Mobile Version */}
-                <div className="md:hidden space-y-8">
-                    <MobilePlanCard
-                        title="Standard"
-                        description="Ideale per piccole attività che vogliono iniziare online"
-                        features={[
-                            { included: true, text: "Sito Web Responsive" },
-                            { included: true, text: "Fino a 5 pagine" },
-                            { included: true, text: "SEO Base" },
-                            { included: true, text: "Hosting per 1 anno" },
-                            { included: false, text: "Certificato SSL" },
-                            { included: false, text: "Form di contatto avanzato" },
-                            { included: false, text: "eCommerce" },
-                            { included: false, text: "Integrazioni API" }
-                        ]}
-                        isActive={activePlan === "standard"}
-                        onClick={() => handlePlanChange("standard")}
-                    />
+                <MobilePlanCard
+                    title="Medium"
+                    description="Per aziende che vogliono crescere e ampliare il proprio business"
+                    features={[
+                        { included: true, text: "Sito Web Responsive" },
+                        { included: true, text: "Fino a 10 pagine" },
+                        { included: true, text: "SEO Avanzato" },
+                        { included: true, text: "Hosting per 1 anno" },
+                        { included: true, text: "Certificato SSL" },
+                        { included: true, text: "Form di contatto avanzato" },
+                        { included: false, text: "eCommerce" },
+                        { included: false, text: "Integrazioni API" }
+                    ]}
+                    isActive={activePlan === "medium"}
+                    onClick={() => handlePlanChange("medium")}
+                    featured={true}
+                />
 
-                    <MobilePlanCard
-                        title="Medium"
-                        description="Per aziende che vogliono crescere e ampliare il proprio business"
-                        features={[
-                            { included: true, text: "Sito Web Responsive" },
-                            { included: true, text: "Fino a 10 pagine" },
-                            { included: true, text: "SEO Avanzato" },
-                            { included: true, text: "Hosting per 1 anno" },
-                            { included: true, text: "Certificato SSL" },
-                            { included: true, text: "Form di contatto avanzato" },
-                            { included: false, text: "eCommerce" },
-                            { included: false, text: "Integrazioni API" }
-                        ]}
-                        isActive={activePlan === "medium"}
-                        onClick={() => handlePlanChange("medium")}
-                        featured={true}
-                    />
-
-                    <MobilePlanCard
-                        title="Personal"
-                        description="Soluzione completa per business esigenti con funzionalità avanzate"
-                        features={[
-                            { included: true, text: "Sito Web Responsive" },
-                            { included: true, text: "Pagine illimitate" },
-                            { included: true, text: "SEO Avanzato" },
-                            { included: true, text: "Hosting per 2 anni" },
-                            { included: true, text: "Certificato SSL" },
-                            { included: true, text: "Form di contatto avanzato" },
-                            { included: true, text: "eCommerce" },
-                            { included: true, text: "Integrazioni API" }
-                        ]}
-                        isActive={activePlan === "personal"}
-                        onClick={() => handlePlanChange("personal")}
-                    />
-                </div>
-
-                {/* Desktop Version */}
-                <div className="hidden md:flex justify-center gap-8 lg:gap-10">
-                    <PlanCard
-                        title="Standard"
-                        description="Ideale per piccole attività che vogliono iniziare online"
-                        features={[
-                            { included: true, text: "Sito Web Responsive" },
-                            { included: true, text: "Fino a 5 pagine" },
-                            { included: true, text: "SEO Base" },
-                            { included: true, text: "Hosting per 1 anno" },
-                            { included: false, text: "Certificato SSL" },
-                            { included: false, text: "Form di contatto avanzato" },
-                            { included: false, text: "eCommerce" },
-                            { included: false, text: "Integrazioni API" }
-                        ]}
-                        isActive={activePlan === "standard"}
-                        onClick={() => setActivePlan("standard")}
-                    />
-
-                    <PlanCard
-                        title="Medium"
-                        description="Per aziende che vogliono crescere e ampliare il proprio business"
-                        features={[
-                            { included: true, text: "Sito Web Responsive" },
-                            { included: true, text: "Fino a 10 pagine" },
-                            { included: true, text: "SEO Avanzato" },
-                            { included: true, text: "Hosting per 1 anno" },
-                            { included: true, text: "Certificato SSL" },
-                            { included: true, text: "Form di contatto avanzato" },
-                            { included: false, text: "eCommerce" },
-                            { included: false, text: "Integrazioni API" }
-                        ]}
-                        isActive={activePlan === "medium"}
-                        onClick={() => setActivePlan("medium")}
-                        featured={true}
-                    />
-
-                    <PlanCard
-                        title="Personal"
-                        description="Soluzione completa per business esigenti con funzionalità avanzate"
-                        features={[
-                            { included: true, text: "Sito Web Responsive" },
-                            { included: true, text: "Pagine illimitate" },
-                            { included: true, text: "SEO Avanzato" },
-                            { included: true, text: "Hosting per 2 anni" },
-                            { included: true, text: "Certificato SSL" },
-                            { included: true, text: "Form di contatto avanzato" },
-                            { included: true, text: "eCommerce" },
-                            { included: true, text: "Integrazioni API" }
-                        ]}
-                        isActive={activePlan === "personal"}
-                        onClick={() => setActivePlan("personal")}
-                    />
-                </div>
+                <MobilePlanCard
+                    title="Personal"
+                    description="Soluzione completa per business esigenti con funzionalità avanzate"
+                    features={[
+                        { included: true, text: "Sito Web Responsive" },
+                        { included: true, text: "Pagine illimitate" },
+                        { included: true, text: "SEO Avanzato" },
+                        { included: true, text: "Hosting per 2 anni" },
+                        { included: true, text: "Certificato SSL" },
+                        { included: true, text: "Form di contatto avanzato" },
+                        { included: true, text: "eCommerce" },
+                        { included: true, text: "Integrazioni API" }
+                    ]}
+                    isActive={activePlan === "personal"}
+                    onClick={() => handlePlanChange("personal")}
+                />
             </div>
-        </section>
+
+            {/* Desktop Version */}
+            <div className="hidden md:flex justify-center gap-8 lg:gap-10">
+                <PlanCard
+                    title="Standard"
+                    description="Ideale per piccole attività che vogliono iniziare online"
+                    features={[
+                        { included: true, text: "Sito Web Responsive" },
+                        { included: true, text: "Fino a 5 pagine" },
+                        { included: true, text: "SEO Base" },
+                        { included: true, text: "Hosting per 1 anno" },
+                        { included: false, text: "Certificato SSL" },
+                        { included: false, text: "Form di contatto avanzato" },
+                        { included: false, text: "eCommerce" },
+                        { included: false, text: "Integrazioni API" }
+                    ]}
+                    isActive={activePlan === "standard"}
+                    onClick={() => setActivePlan("standard")}
+                />
+
+                <PlanCard
+                    title="Medium"
+                    description="Per aziende che vogliono crescere e ampliare il proprio business"
+                    features={[
+                        { included: true, text: "Sito Web Responsive" },
+                        { included: true, text: "Fino a 10 pagine" },
+                        { included: true, text: "SEO Avanzato" },
+                        { included: true, text: "Hosting per 1 anno" },
+                        { included: true, text: "Certificato SSL" },
+                        { included: true, text: "Form di contatto avanzato" },
+                        { included: false, text: "eCommerce" },
+                        { included: false, text: "Integrazioni API" }
+                    ]}
+                    isActive={activePlan === "medium"}
+                    onClick={() => setActivePlan("medium")}
+                    featured={true}
+                />
+
+                <PlanCard
+                    title="Personal"
+                    description="Soluzione completa per business esigenti con funzionalità avanzate"
+                    features={[
+                        { included: true, text: "Sito Web Responsive" },
+                        { included: true, text: "Pagine illimitate" },
+                        { included: true, text: "SEO Avanzato" },
+                        { included: true, text: "Hosting per 2 anni" },
+                        { included: true, text: "Certificato SSL" },
+                        { included: true, text: "Form di contatto avanzato" },
+                        { included: true, text: "eCommerce" },
+                        { included: true, text: "Integrazioni API" }
+                    ]}
+                    isActive={activePlan === "personal"}
+                    onClick={() => setActivePlan("personal")}
+                />
+            </div>
+        </section >
     );
 }
 

@@ -3,12 +3,12 @@
 import { useEffect, useRef } from 'react';
 import Head from 'next/head';
 import HeroSection from '../sitoVetrina/HeroSection';
-import PercheSceglierci from '@/components/percheSceglierci.js';
+import PercheSceglierci from '@/components/whyUs.js';
 import OurPipeline from '@/components/ourPipeline.js';
 import ServiceCTA from '@/components/serviceCTA.js';
-import PianiAbbonamento from '@/components/pianiAbbonamento.js';
+import PianiAbbonamento from '@/components/plans.js';
 import SiteSample from '@/components/siteSample.js';
-import { ServicePagesCostants } from '@/app/config/servicePagesCostants';
+import { ServicePagesCostants } from '@/app/constants/servicePagesCostants';
 
 export default function SitoVetrina() {
     const heroRef = useRef(null);

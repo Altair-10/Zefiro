@@ -1,4 +1,3 @@
-// components/DemoInterattiva.js
 "use client";
 
 import Image from 'next/image';
@@ -13,13 +12,12 @@ export default function SiteSample( {sectionTitle, urlImg1} ) {
 
                 {/* Carousel demo (placeholder) */}
                 <div className="flex flex-col justify-center items-center demo-carousel relative max-w-5xl mx-auto">
-                    <div className="w-[25vw] overflow-hidden rounded-lg shadow-xl border-4 border-[#ede7e4]">
+                    <div className="md:w-[25vw] overflow-hidden rounded-lg shadow-xl border-4 border-[#ede7e4]">
                         <Image
                             src="/sfondi/portfolioCreativo.png"
                             alt="Esempio Sito Vetrina"
                             width={1200}
                             height={675}
-                            className=""
                         />
                     </div>
 
