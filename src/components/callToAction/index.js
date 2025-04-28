@@ -24,7 +24,7 @@ export default function CallToAction() {
         <div className="md:hidden row-[1/5] col-[1/16] bg-blue-light rounded-sm">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/formeSVG/blue-6.svg"
+            imgName1="FormeSVG/blue-6.svg"
             position="center"
             width="6vw"
             height="6vw"
@@ -33,7 +33,7 @@ export default function CallToAction() {
         <div className="md:hidden row-[1/5] col-[17/32] bg-blue-dark rounded-sm">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/formeSVG/orange-6.svg"
+            imgName1="FormeSVG/orange-6.svg"
             position="center"
             width="6vw"
             height="6vw"
@@ -41,15 +41,7 @@ export default function CallToAction() {
         </div>
 
         {/* 2° riga */}
-        <div className="md:hidden row-[14/20] col-[1/32] bg-blue-medium rounded-sm">
-          <ShapesDisplayer
-            numShapes={1}
-            imgName1="/formeSVG/reactLogo.svg"
-            position="center"
-            height="12vw"
-            width="12vw"
-          />
-        </div>
+        <div className="md:hidden row-[14/20] col-[1/32] bg-blue-medium rounded-sm" />
 
         {/* 3° riga */}
         <div className="md:hidden row-[31/35] col-[1/23] bg-blue-medium rounded-sm" />
@@ -57,7 +49,7 @@ export default function CallToAction() {
         <div className="md:hidden row-[31/35] col-[24/32] bg-blue-dark rounded-sm">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/formeSVG/orange-12.svg"
+            imgName1="FormeSVG/orange-12.svg"
             position="center"
             width="6vw"
             height="6vw"
@@ -68,7 +60,7 @@ export default function CallToAction() {
         <div className="md:hidden row-[36/40] col-[1/7] bg-blue-light rounded-sm">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/formeSVG/blue-8.svg"
+            imgName1="FormeSVG/blue-8.svg"
             position="center"
             width="6vw"
             height="6vw"
@@ -81,7 +73,7 @@ export default function CallToAction() {
         <div className="md:hidden row-[41/45] col-[24/32] bg-blue-dark rounded-sm">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/formeSVG/orange-4.svg"
+            imgName1="FormeSVG/orange-4.svg"
             position="center"
             width="6vw"
             height="6vw"
@@ -93,8 +85,8 @@ export default function CallToAction() {
         <div className="hidden md:block row-[1/3] col-[20/48] bg-blue-dark">
           <ShapesDisplayer
             numShapes={2}
-            imgName1="/formeSVG/orange-6.svg"
-            imgName2="/formeSVG/blue-4.svg"
+            imgName1="FormeSVG/orange-6.svg"
+            imgName2="FormeSVG/blue-4.svg"
             position="start"
           />
         </div>
@@ -103,54 +95,34 @@ export default function CallToAction() {
         <div className="hidden md:block row-[3/5] col-[24/36] bg-blue-light">
           <ShapesDisplayer
             numShapes={1}
-            imgName1={"/formeSVG/orange-12.svg"}
+            imgName1={"FormeSVG/orange-12.svg"}
             position="end"
           />
         </div>
         <div className="hidden md:block row-[3/5] col-[36/44] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
-            imgName1={"/formeSVG/blue-8.svg"}
+            imgName1={"FormeSVG/blue-8.svg"}
             position="start"
           />
         </div>
 
         {/*rettangoli verticali*/}
-        <div className="hidden md:block row-[5/12] col-[24/28] bg-blue-medium">
-          <ShapesDisplayer
-            numShapes={1}
-            imgName1={"/formeSVG/reactLogo.svg"}
-            flexType="column"
-            position="center"
-            height="4vw"
-            width="4vw"
-          />
-        </div>
-        <div className="hidden md:block row-[3/12] col-[44/48] bg-blue-light">
-          <ShapesDisplayer
-            numShapes={4}
-            imgName1={"/formeSVG/pAngolari.svg"}
-            imgName2={"/formeSVG/pTonde.svg"}
-            imgName3={"/formeSVG/pGraffe.svg"}
-            imgName4={"/formeSVG/pQuadre.svg"}
-            flexType="col"
-            position="center"
-            spin={false}
-          />
-        </div>
+        <div className="hidden md:block row-[5/12] col-[24/28] bg-blue-medium" />
+        <div className="hidden md:block row-[3/12] col-[44/48] bg-blue-light" />
 
         {/*3° riga*/}
         <div className="hidden md:block row-[12/14] col-[22/28] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/formeSVG/blue-6.svg"
+            imgName1="FormeSVG/blue-6.svg"
             position="start"
           />
         </div>
         <div className="hidden md:block row-[12/14] col-[44/48] bg-blue-dark">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/formeSVG/blue-4.svg"
+            imgName1="FormeSVG/blue-4.svg"
           />
         </div>
 
@@ -158,13 +130,13 @@ export default function CallToAction() {
         <div className="hidden md:block row-[14/16] col-[26/37] bg-blue-dark">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/formeSVG/orange-4.svg"
+            imgName1="FormeSVG/orange-4.svg"
           />
         </div>
         <div className="hidden md:block row-[14/16] col-[37/48] bg-blue-light">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/formeSVG/orange-4.svg"
+            imgName1="FormeSVG/orange-4.svg"
             position="start"
           />
         </div>
@@ -173,14 +145,14 @@ export default function CallToAction() {
         <div className="hidden md:block row-[16/18] col-[18/30] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/formeSVG/blue-8.svg"
+            imgName1="FormeSVG/blue-8.svg"
             position="start"
           />
         </div>
         <div className="hidden md:block md:row-[16/18] md:col-[30/48] bg-blue-dark">
           <ShapesDisplayer
             numShapes={1}
-            imgName1="/formeSVG/orange-6.svg"
+            imgName1="FormeSVG/orange-6.svg"
           />
         </div>
 
@@ -188,9 +160,9 @@ export default function CallToAction() {
         <div className="hidden md:block row-[18/20] col-[10/48] bg-blue-light">
           <ShapesDisplayer
             numShapes={3}
-            imgName1="/formeSVG/blue-4.svg"
-            imgName2="/formeSVG/orange-12.svg"
-            imgName3="/formeSVG/blue-6.svg"
+            imgName1="FormeSVG/blue-4.svg"
+            imgName2="FormeSVG/orange-12.svg"
+            imgName3="FormeSVG/blue-6.svg"
             position="start"
           />
         </div>

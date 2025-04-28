@@ -6,7 +6,7 @@ if (typeof window !== 'undefined') {
 }
 
 // Funzione che gestisce le animazioni per Hero, Timeline, e CTA
-export const initAnimations = (heroRef, timelineRef, ctaRef) => {
+export const ServicePagesCostants = (heroRef, timelineRef, ctaRef) => {
   // Hero animation
   if (heroRef.current) {
     const heroText = heroRef.current.querySelectorAll('.hero-text');

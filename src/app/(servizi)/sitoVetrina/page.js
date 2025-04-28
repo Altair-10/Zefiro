@@ -2,16 +2,13 @@
 
 import { useEffect, useRef } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import HeroSection from '../sitoVetrina/HeroSection';
 import PercheSceglierci from '@/components/percheSceglierci.js';
 import OurPipeline from '@/components/ourPipeline.js';
 import ServiceCTA from '@/components/serviceCTA.js';
 import PianiAbbonamento from '@/components/pianiAbbonamento.js';
 import SiteSample from '@/components/siteSample.js';
-import { initAnimations } from '../animationConfig';
+import { ServicePagesCostants } from '@/app/config/servicePagesCostants';
 
 export default function SitoVetrina() {
   const heroRef = useRef(null);
@@ -19,7 +16,7 @@ export default function SitoVetrina() {
   const ctaRef = useRef(null);
 
   useEffect(() => {
-    initAnimations(heroRef, timelineRef, ctaRef);  // Avvia le animazioni
+    ServicePagesCostants(heroRef, timelineRef, ctaRef);  // Avvia le animazioni
   }, []);
 
   return (
