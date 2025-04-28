@@ -9,7 +9,7 @@ export default function ContactUs() {
     return (
         <div className="flex flex-col justify-center items-center w-full md:mt-[5vw]">
             <div className="
-                grid gap-[0.5vw] md:gap-[1vw] my-[5vw]
+                grid gap-[0.5vw] md:gap-[1vw] my-[5vw] md:my-0
                 grid-rows-[repeat(110,_minmax(0,_2vw))] md:grid-rows-[repeat(22,_minmax(0,_1vw))]
                 grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))]
             ">

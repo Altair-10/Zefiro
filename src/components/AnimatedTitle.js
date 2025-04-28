@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
-export const animatedTitle = ({ text = "", doubleRow = false }) => {
+const animatedTitle = ({ text = "", doubleRow = false }) => {
   const containerRef = useRef(null);
   const lineRefs = useRef([]);
 
@@ -60,7 +60,7 @@ export const animatedTitle = ({ text = "", doubleRow = false }) => {
   return (
     <div
       ref={containerRef}
-      className="w-full flex flex-col justify-center items-center mt-10 md:mb-5 md:mt-14"
+      className="w-full flex flex-col justify-center items-center mt-10 md:my-5"
     >
       {lines.map((line, index) => (
         <h1

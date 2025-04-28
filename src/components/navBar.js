@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import SocialIcons from "./socialIcons";
-import BurgerMenu from "./mobileMenu";
+import BurgerMenu from "./mobileBurger";
 
 export default function Navbar() {
   const router = useRouter();
