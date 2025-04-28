@@ -2,7 +2,6 @@
 
 import Card from "./card";
 import ShapesDisplayer from "../shapesDisplayer";
-import PremiumSaleAnimation from "../callToAction/premiumSaleAnimation";
 import { useRef } from "react";
 import FloatingShape from "./FloatingShape";
 import AnimatedTitle from '../AnimatedTitle';
@@ -19,7 +18,7 @@ export default function Services() {
   const containerRef = useRef(null);
 
   return (
-    <div className="flex justify-center items-center w-full pt-5 md:pt-10" ref={containerRef}>
+    <div className="flex justify-center items-center w-full pt-5 md:pt-0" ref={containerRef}>
       <div
         className="
           grid md:my-[5vw]
@@ -50,11 +49,6 @@ export default function Services() {
             btnHref={"/sitoVetrina"}
             animationDirection="left"
           />
-        </div>
-
-        {/* Animazione Carosello aggettivi */}
-        <div className="hidden md:block md:row-[6/16] md:col-[33/48]">
-          <PremiumSaleAnimation />
         </div>
 
         {/* SITO PER EVENTI */}

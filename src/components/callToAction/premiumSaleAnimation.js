@@ -4,12 +4,12 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const sellingPoints = [
-    { text: "Convenienza", color: "#FF6B35", emoji: "💰", shadow: "0 0 15px rgba(255, 107, 53, 0.7)" },
-    { text: "Velocità", color: "#4ECDC4", emoji: "⚡", shadow: "0 0 15px rgba(78, 205, 196, 0.7)" },
-    { text: "Design", color: "#FFBE0B", emoji: "🎨", shadow: "0 0 15px rgba(255, 190, 11, 0.7)" },
-    { text: "SEO", color: "#8338EC", emoji: "🔍", shadow: "0 0 15px rgba(131, 56, 236, 0.7)" },
-    { text: "Sicurezza", color: "#3A86FF", emoji: "🛡️", shadow: "0 0 15px rgba(58, 134, 255, 0.7)" },
-];
+    { text: "Convenienza", color: "#FF9A77", emoji: "💰", shadow: "0 0 15px rgba(255, 154, 119, 0.5)" },
+    { text: "Velocità", color: "#7DDDD2", emoji: "⚡", shadow: "0 0 15px rgba(125, 221, 210, 0.5)" },
+    { text: "Design", color: "#FFD86B", emoji: "🎨", shadow: "0 0 15px rgba(255, 216, 107, 0.5)" },
+    { text: "SEO", color: "#B28AF6", emoji: "🔍", shadow: "0 0 15px rgba(178, 138, 246, 0.5)" },
+    { text: "Sicurezza", color: "#7DAEFF", emoji: "🛡️", shadow: "0 0 15px rgba(125, 174, 255, 0.5)" }
+]  
 
 export default function PremiumSaleAnimation() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,7 +41,7 @@ export default function PremiumSaleAnimation() {
             <div className="relative w-full h-full flex items-center justify-center rounded-xl overflow-hidden">
                 <div className="absolute z-10">
                     <div
-                        className="px-8 py-6 rounded-xl text-white font-extrabold text-3xl md:text-4xl flex items-center justify-center gap-3"
+                        className="px-8 py-6 rounded-xl text-black font-extrabold text-3xl md:text-4xl flex items-center justify-center gap-3"
                         style={{
                             background: sellingPoints[0].color,
                             boxShadow: sellingPoints[0].shadow,
@@ -67,7 +67,7 @@ export default function PremiumSaleAnimation() {
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
                     <motion.div
-                        className="px-8 py-6 rounded-xl text-white font-extrabold text-3xl md:text-4xl flex items-center justify-center gap-3 cursor-pointer"
+                        className="px-8 py-6 rounded-xl text-black font-extrabold text-3xl md:text-4xl flex items-center justify-center gap-3 cursor-pointer"
                         style={{
                             background: sellingPoints[currentIndex].color,
                             boxShadow: sellingPoints[currentIndex].shadow,
