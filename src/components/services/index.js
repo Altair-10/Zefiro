@@ -2,7 +2,7 @@
 
 import Card from "./card";
 import ShapesDisplayer from "../shapesDisplayer";
-import PremiumSaleAnimation from "./caroselloAggettivi";
+import PremiumSaleAnimation from "../callToAction/premiumSaleAnimation";
 import { useRef } from "react";
 import FloatingShape from "./FloatingShape";
 import AnimatedTitle from '../AnimatedTitle';

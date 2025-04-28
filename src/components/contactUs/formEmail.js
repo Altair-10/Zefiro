@@ -111,7 +111,7 @@ export default function ContactForm() {
         />
       </div>
 
-      <div className="flex flex-row justify-center">
+      <div className="flex flex-row justify-center mt-5">
         <SubmitButton onGoing={status} />
       </div>
     </form>

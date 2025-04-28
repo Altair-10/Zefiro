@@ -3,6 +3,7 @@ import React from "react";
 import ContactButton from "./contactButton";
 import ShapesDisplayer from "@/components/shapesDisplayer";
 import Title from "./Title"
+import PremiumSaleAnimation from "./premiumSaleAnimation";
 
 export default function CallToAction() {
   return (
@@ -19,7 +20,11 @@ export default function CallToAction() {
         <div className="row-[21/26] col-[5/29] md:row-[12/15] md:col-[3/13]">
           <ContactButton />
         </div>
+        <div className="md:row-[5/14] md:col-[28/44]">
+          <PremiumSaleAnimation />
+        </div>
 
+        {/* RETTANGOLI CALL TO ACTION MOBILE */}
         {/* 1° riga */}
         <div className="md:hidden row-[1/5] col-[1/16] bg-blue-light rounded-sm">
           <ShapesDisplayer
@@ -110,30 +115,33 @@ export default function CallToAction() {
         {/*rettangoli verticali*/}
         <div className="hidden md:block row-[5/12] col-[24/28] bg-blue-medium" />
         <div className="hidden md:block row-[3/12] col-[44/48] bg-blue-light" />
+        <div className="hidden md:block row-[5/7] col-[40/44] bg-blue-dark" />
+        {/* <div className="hidden md:block row-[10/12] col-[28/30] bg-blue-light" /> */}
+        <div className="hidden md:block row-[5/7] col-[28/32] bg-blue-dark" />
 
-        {/*3° riga*/}
-        <div className="hidden md:block row-[12/14] col-[22/28] bg-blue-medium">
+        {/*4° riga*/}
+        <div className="hidden md:block row-[12/14] col-[22/32] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
             imgName1="FormeSVG/blue-6.svg"
             position="start"
           />
         </div>
-        <div className="hidden md:block row-[12/14] col-[44/48] bg-blue-dark">
+        <div className="hidden md:block row-[12/14] col-[40/48] bg-blue-dark">
           <ShapesDisplayer
             numShapes={1}
             imgName1="FormeSVG/blue-4.svg"
           />
         </div>
 
-        {/*4° riga*/}
-        <div className="hidden md:block row-[14/16] col-[26/37] bg-blue-dark">
+        {/*5° riga*/}
+        <div className="hidden md:block row-[14/16] col-[26/36] bg-blue-dark">
           <ShapesDisplayer
             numShapes={1}
             imgName1="FormeSVG/orange-4.svg"
           />
         </div>
-        <div className="hidden md:block row-[14/16] col-[37/48] bg-blue-light">
+        <div className="hidden md:block row-[14/16] col-[36/48] bg-blue-light">
           <ShapesDisplayer
             numShapes={1}
             imgName1="FormeSVG/orange-4.svg"
@@ -141,7 +149,7 @@ export default function CallToAction() {
           />
         </div>
 
-        {/*5° riga*/}
+        {/*6° riga*/}
         <div className="hidden md:block row-[16/18] col-[18/30] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
@@ -156,7 +164,7 @@ export default function CallToAction() {
           />
         </div>
 
-        {/*6° riga*/}
+        {/*7° riga*/}
         <div className="hidden md:block row-[18/20] col-[10/48] bg-blue-light">
           <ShapesDisplayer
             numShapes={3}

@@ -38,7 +38,7 @@ export default function ContactUsCard() {
 
       {/* Contenuto della card */}
       <div className="flex flex-col justify-center items-center my-[8vw] md:my-[3.5vw] px-5">
-        <h2 className="flex justify-center text-gray-800 font-bold mb-4">
+        <h2 className="flex flex-col justify-center text-center text-gray-800 font-bold mb-4 xl:text-[2vw]">
           {inView && (
             <TypeAnimation
               key={`heading-${animationKey}`}
@@ -52,7 +52,7 @@ export default function ContactUsCard() {
             />
           )}
         </h2>
-        <p className="text-center text-gray-600">
+        <p className="text-center text-gray-600 xl:text-[1.3vw]">
           {inView && (
             <TypeAnimation
               key={`text-${animationKey}`}

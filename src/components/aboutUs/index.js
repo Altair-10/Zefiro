@@ -17,7 +17,7 @@ export default function AboutUs() {
     const [processRef, processInView] = useInView({ triggerOnce: true, threshold: 0.3 });
 
     return (
-        <div className="flex flex-col justify-center items-center w-full px-4">
+        <div className="flex flex-col justify-center items-center w-full px-4 md:mb-[2vw]">
             <div>
                 <AnimatedTitle text="Chi siamo" doubleRow={false} />
 
