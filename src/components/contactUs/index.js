@@ -7,7 +7,7 @@ import AnimatedTitle from "../AnimatedTitle";
 
 export default function ContactUs() {
     return (
-        <div className="flex flex-col justify-center items-center w-full">
+        <div className="flex flex-col justify-center items-center w-full md:mt-[5vw]">
             <div className="
                 grid gap-[0.5vw] md:gap-[1vw] my-[5vw]
                 grid-rows-[repeat(110,_minmax(0,_2vw))] md:grid-rows-[repeat(22,_minmax(0,_1vw))]
@@ -28,9 +28,9 @@ export default function ContactUs() {
                 <div className="hidden md:block row-[20/22] col-[2/19] bg-blue-medium">
                     <ShapesDisplayer
                         numShapes={3}
-                        imgName1="/formeSVG/blue-8.svg"
-                        imgName2="/formeSVG/orange-12.svg"
-                        imgName3="/formeSVG/blue-8.svg"
+                        imgName1="FormeSVG/blue-8.svg"
+                        imgName2="FormeSVG/orange-12.svg"
+                        imgName3="FormeSVG/blue-8.svg"
                         position="start"
                         spin={true}
                     />
