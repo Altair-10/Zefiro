@@ -217,7 +217,7 @@ const HeroSection = ({ title, subtitle, descr}) => {
       {/* SVG Background Elements */}
       <svg
         ref={svgRef}
-        className="absolute w-full h-full object-cover z-0"
+        className="absolute w-full h-full object-cover z-0 pb-80 md:pb-0"
         viewBox="0 0 800 600"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -291,7 +291,7 @@ const HeroSection = ({ title, subtitle, descr}) => {
       </svg>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pb-28 md:pb-0">
         <h1
           ref={titleRef}
           className="text-5xl md:text-7xl font-extrabold pb-4 bg-gradient-to-r from-[#ffa62b] to-[#ede7e4] text-transparent bg-clip-text"

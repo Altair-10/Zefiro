@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Head from 'next/head';
-import HeroSection from '../sitoVetrina/HeroSection';
+import HeroSection from '../../../components/HeroSection';
 import PercheSceglierci from '@/components/whyUs.js';
 import OurPipeline from '@/components/ourPipeline.js';
 import ServiceCTA from '@/components/serviceCTA.js';

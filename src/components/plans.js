@@ -6,7 +6,7 @@ import { getPlanItems } from "@/app/constants/subscriptionPlansCostants";
 export default function PianiAbbonamento() {
     return (
         <section className="pt-16 md:py-20">
-            <h2 className="text-3xl md:text-6xl font-bold text-center text-blue-dark mb-16">
+            <h2 className="text-3xl md:text-6xl font-bold text-center text-blue-dark mb-10 md:mb-16">
                 I Nostri Piani!
             </h2>
 
