@@ -21,14 +21,14 @@ export default function Services() {
     <div className="flex justify-center items-center w-full pt-5 md:pt-0" ref={containerRef}>
       <div
         className="
-          grid md:my-[5vw]
+          grid md:my-[2vw]
           gap-[0.5vw] md:gap-[1vw] 
           grid-cols-[repeat(31,_minmax(0,_2vw))] md:grid-cols-[repeat(48,_minmax(0,_1vw))]
           grid-rows-[repeat(270,_minmax(0,_2vw))] md:grid-rows-[repeat(64,_minmax(0,_1vw))]
         "
       >
         {/* Title */}
-        <div className="flex justify-center items-center row-[4] col-[1/32] md:row-[2] md:col-[1/49]">
+        <div className="flex justify-center items-center row-[4] col-[1/32] md:row-[4] md:col-[1/49]">
           <AnimatedTitle text="I nostri servizi" doubleRow={false} />
         </div>
 
