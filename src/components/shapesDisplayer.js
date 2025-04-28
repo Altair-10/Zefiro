@@ -1,3 +1,5 @@
+import Image from "next/image";
+import React from "react";
 /**
  * @param {Object} props
  * @param {1 | 2 | 3 | 4} props.numShapes - Shapes number desired (1, 2, 3 or 4)
@@ -26,16 +28,24 @@ export default function ShapesDisplayer({
 }) {
   // Validazione delle props
   if (numShapes === 1 && (!imgName1 || imgName2 || imgName3 || imgName4)) {
-    throw new Error("Only imgName1 is required when numShapes=1, whereas imgName2 and imgName3 are not");
+    throw new Error(
+      "Only imgName1 is required when numShapes=1, whereas imgName2 and imgName3 are not"
+    );
   }
   if (numShapes === 2 && (!imgName1 || !imgName2 || imgName3 || imgName4)) {
-    throw new Error("imgName1 and imgName2 are required when numShapes=2, whereas imgName3 is not.");
+    throw new Error(
+      "imgName1 and imgName2 are required when numShapes=2, whereas imgName3 is not."
+    );
   }
   if (numShapes === 3 && (!imgName1 || !imgName2 || !imgName3 || imgName4)) {
-    throw new Error("imgName1, imgName2, and imgName3 are required when numShapes=3");
+    throw new Error(
+      "imgName1, imgName2, and imgName3 are required when numShapes=3"
+    );
   }
   if (numShapes === 4 && (!imgName1 || !imgName2 || !imgName3 || !imgName4)) {
-    throw new Error("imgName1, imgName2, imgName3, and imgName4 are required when numShapes=4");
+    throw new Error(
+      "imgName1, imgName2, imgName3, and imgName4 are required when numShapes=4"
+    );
   }
 
   const validPositions = ["start", "center", "end"];
@@ -48,41 +58,49 @@ export default function ShapesDisplayer({
     <div className={flexClass}>
       {numShapes >= 1 && (
         <div className="m-[0.7vw]">
-          <img
+          <Image
             src={imgName1}
+            width={10}
+            height={10}
+            style={{ width, height }}
             alt="Shape 1"
             className={imageClass}
-            style={{ width, height }}
           />
         </div>
       )}
       {numShapes >= 2 && (
         <div className="m-[0.7vw]">
-          <img
+          <Image
             src={imgName2}
+            width={10}
+            height={10}
+            style={{ width, height }}
             alt="Shape 2"
             className={imageClass}
-            style={{ width, height }}
           />
         </div>
       )}
       {numShapes >= 3 && (
         <div className="m-[0.7vw]">
-          <img
+          <Image
             src={imgName3}
+            width={10}
+            height={10}
+            style={{ width, height }}
             alt="Shape 3"
             className={imageClass}
-            style={{ width, height }}
           />
         </div>
       )}
       {numShapes === 4 && (
         <div className="m-[0.7vw]">
-          <img
+          <Image
             src={imgName4}
+            width={10}
+            height={10}
+            style={{ width, height }}
             alt="Shape 4"
             className={imageClass}
-            style={{ width, height }}
           />
         </div>
       )}
