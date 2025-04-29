@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import ContactButton from "@/components/callToAction/contactButton";
+import ButtonHeroSection from "@/app/(servizi)/sitoVetrina/ButtonHeroSection";
 
 const HeroSection = ({ title, subtitle, descr}) => {
   const sectionRef = useRef(null);
@@ -161,6 +161,8 @@ const HeroSection = ({ title, subtitle, descr}) => {
 
     // Scroll animation setup
     const handleScroll = () => {
+      if (!sectionRef.current) return;
+      
       const scrollPosition = window.scrollY;
       const sectionHeight = sectionRef.current.offsetHeight;
 
@@ -308,7 +310,7 @@ const HeroSection = ({ title, subtitle, descr}) => {
           </p>
         </div>
         <div className="flex justify-center">
-          <ContactButton />
+          <ButtonHeroSection />
         </div>
       </div>
     </section>
