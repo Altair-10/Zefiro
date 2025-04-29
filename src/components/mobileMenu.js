@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import styled from "styled-components";
+import { useRouter, usePathname } from "next/navigation";
 import SocialIcons from "./socialIcons";
 import Link from "next/link";
 
@@ -11,19 +11,16 @@ const useMobileView = () => {
 
   useEffect(() => {
     const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768); // Breakpoint a 768px
+      setIsMobile(window.innerWidth < 768);
     };
 
-    // Esegui al mount e aggiungi listener per resize
     checkIfMobile();
     window.addEventListener('resize', checkIfMobile);
-
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
   return isMobile;
 };
-
 
 // Custom hook per rilevare click esterni
 const useOnClickOutside = (ref, handler) => {
@@ -45,38 +42,46 @@ const useOnClickOutside = (ref, handler) => {
 const Burger = ({ open, setOpen }) => {
   return (
     <button
-      className={`flex flex-col justify-around w-10 h-10 bg-transparent border-none cursor-pointer p-0 z-20 focus:outline-none`}
+      className={`relative flex flex-col justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer p-0 z-50 focus:outline-none group`}
       onClick={() => setOpen(!open)}
       aria-label={open ? "Close menu" : "Open menu"}
     >
-      <div
-        className={`w-full h-1 bg-[#ede7e4] rounded-[10px] transition-all duration-300 origin-[1px] ${open ? "bg-[#ffa62b] rotate-45 scale-x-110" : "rotate-0"
-          }`}
-      />
-      <div
-        className={`w-full h-1 bg-[#ede7e4] rounded-[10px] transition-all duration-300 origin-[1px] ${open ? "opacity-0 translate-x-5" : "opacity-100 translate-x-0"
-          }`}
-      />
-      <div
-        className={`w-full h-1 bg-[#ede7e4] rounded-[10px] transition-all duration-300 origin-[1px] ${open ? "bg-[#ffa62b] -rotate-45 scale-x-110" : "rotate-0"
-          }`}
-      />
+      {/* Icona X animata - Versione migliorata */}
+      <div className={`absolute w-6 h-6 transition-all duration-300 ${open ? "opacity-100 rotate-0" : "opacity-0 -rotate-45"}`}>
+        <div className={`absolute top-1/2 left-1/2 w-6 h-0.5 bg-white transform -translate-x-1/2 -translate-y-1/2 ${open ? "rotate-45" : "rotate-0"}`}></div>
+        <div className={`absolute top-1/2 left-1/2 w-6 h-0.5 bg-white transform -translate-x-1/2 -translate-y-1/2 ${open ? "-rotate-45" : "rotate-0"}`}></div>
+      </div>
+      
+      {/* Icona hamburger animata */}
+      <div className={`flex flex-col justify-between w-6 h-4 transition-all duration-300 ${open ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"}`}>
+        <div className="w-full h-0.5 bg-white rounded transition-all"></div>
+        <div className="w-full h-0.5 bg-white rounded transition-all"></div>
+        <div className="w-full h-0.5 bg-white rounded transition-all"></div>
+      </div>
     </button>
   );
 };
 
 const Menu = ({ open, setOpen }) => {
+  const router = useRouter();
+  const pathname = usePathname();
   const [showSubMenu, setShowSubMenu] = useState(false);
   const subMenuRef = useRef();
+  const isHomePage = pathname === "/";
 
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
+  const scrollToSection = (sectionId) => {
     setOpen(false);
+    
+    if (!isHomePage) {
+      router.push(`/#${sectionId}`);
+      return;
+    }
 
-    if (section) {
+    const element = document.getElementById(sectionId);
+    if (element) {
       setTimeout(() => {
-        section.scrollIntoView({ behavior: "smooth" });
-        window.history.pushState(null, null, `#${id}`);
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, null, `/#${sectionId}`);
       }, 400);
     }
   };
@@ -87,142 +92,149 @@ const Menu = ({ open, setOpen }) => {
     <>
       {/* Overlay */}
       <div
-        className={`fixed top-0 left-0 w-full h-full bg-black/40 z-10 transition-opacity duration-300 ease-in-out ${open ? "opacity-100 visible" : "opacity-0 invisible"
-          } md:hidden`}
+        className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${open ? "opacity-100 visible" : "opacity-0 invisible"}`}
         onClick={() => setOpen(false)}
       />
 
       {/* Main Menu */}
-      <nav
-        className={`flex flex-col bg-[rgba(237,231,228,0.98)] w-full h-full text-center pt-12 px-4 pb-4 fixed top-0 left-0 z-[15] overflow-y-auto transition-transform duration-500 ease-[cubic-bezier(0.77,0.2,0.05,1)] ${open ? "translate-x-0" : "-translate-x-full"
-          } md:hidden`}
+      <div
+        className={`fixed inset-y-0 left-0 w-4/5 max-w-sm bg-gradient-orange z-50 shadow-2xl transition-transform duration-500 ease-in-out ${open ? "translate-x-0" : "-translate-x-full"}`}
       >
-        <div className="flex flex-col justify-center pt-8 pb-4 flex-grow">
-          {/* Services dropdown */}
-          <div ref={subMenuRef}>
+        <div className="flex flex-col h-full">
+          {/* Header */}
+          <div className="p-4 border-b border-white/20">
             <button
-              className={`text-2xl text-center uppercase py-5 font-bold tracking-wider text-[#16697a] transition-all duration-400 ease-in-out relative overflow-hidden flex justify-center items-center w-full ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-                }`}
-              onClick={() => setShowSubMenu(!showSubMenu)}
-              style={{ transitionDelay: open ? '0.1s' : '0s' }}
+              onClick={() => {
+                if (!isHomePage) router.push("/");
+                else scrollToSection("home");
+              }}
+              className="focus:outline-none"
             >
-              Servizi
-              <span
-                className="ml-2 transition-transform duration-300 ease-in-out"
-                style={{ transform: showSubMenu ? 'rotate(180deg)' : 'rotate(0)' }}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-caret-down-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                </svg>
-              </span>
+              <img
+                src="/loghi_altair/bigZefiro_dark.svg"
+                alt="Logo Altair"
+                className="w-40 h-auto"
+              />
             </button>
+          </div>
 
-            {/* Submenu */}
-            <div
-              className={`overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] mx-[20%] ${showSubMenu ? "max-h-auto" : "max-h-0"
-                }`}
-            >
-              <Link href="/sitoVetrina" passHref
-                className={`
-                  block text-xl py-3 w-full transition-all duration-400 ease-in-out 
-                  ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} 
-                  text-blue-medium font-bold tracking-[0.5vw]
-                `}
-                onClick={() => setOpen(false)}
-                style={{ transitionDelay: showSubMenu ? '0.2s' : '0s' }}
-              >
-                Sito Vetrina
-              </Link>
-              <Link href="/sitoPerEventi" passHref
-                className={`
-                  block text-xl py-3 w-full transition-all duration-400 ease-in-out 
-                  ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} 
-                  text-[#489fb5] font-bold tracking-[0.5vw]
-                `}
-                onClick={() => setOpen(false)}
-                style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
-              >
-                Sito Per Eventi
-              </Link>
-              <Link href="/e-learning" passHref
-                className={`
-                  block text-xl py-3 w-full transition-all duration-400 ease-in-out 
-                  ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} 
-                  text-[#489fb5] font-bold tracking-[0.5vw]
-                `}
-                onClick={() => setOpen(false)}
-                style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
-              >
-                E-learning
-              </Link>
-              <Link href="/portfolioCreativo" passHref
-                className={`
-                  block text-xl py-3 w-full transition-all duration-400 ease-in-out 
-                  ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} 
-                  text-[#489fb5] font-bold tracking-[0.5vw]
-                `}
-                onClick={() => setOpen(false)}
-                style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
-              >
-                Portfolio Creativo
-              </Link>
-              <Link
-                href="/blog"
-                passHref
-                className={`
-                  block text-xl py-3 w-full transition-all duration-400 ease-in-out 
-                  ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} 
-                 text-[#489fb5] font-bold tracking-[0.5vw]
-                `}
-                onClick={() => setOpen(false)}
-                style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
-              >
-                Blog
-              </Link>
+          {/* Menu Items */}
+          <nav className="flex-1 overflow-y-auto py-4 px-6">
+            <ul className="space-y-2">
+              {/* Home */}
+              <li>
+                <button
+                  onClick={() => scrollToSection("home")}
+                  className="w-full text-left text-white font-bold py-3 px-4 rounded hover:bg-white/10 transition-colors duration-200"
+                >
+                  HOME
+                </button>
+              </li>
+
+              {/* Servizi */}
+              <li ref={subMenuRef}>
+                <button
+                  onClick={() => setShowSubMenu(!showSubMenu)}
+                  className="w-full flex justify-between items-center text-white font-bold py-3 px-4 rounded hover:bg-white/10 transition-colors duration-200"
+                >
+                  <span>SERVIZI</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className={`bi bi-caret-down-fill transition-transform duration-200 ${showSubMenu ? "rotate-180" : ""}`}
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                  </svg>
+                </button>
+
+                {/* Submenu */}
+                {showSubMenu && (
+                  <ul className="ml-4 mt-2 space-y-1 border-l-2 border-white/20 pl-4">
+                    <li>
+                      <Link
+                        href="/sitoVetrina"
+                        className="block text-white/90 font-medium py-2 px-4 rounded hover:bg-white/10 transition-colors duration-200"
+                        onClick={() => setOpen(false)}
+                      >
+                        Sito Vetrina
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/sitoPerEventi"
+                        className="block text-white/90 font-medium py-2 px-4 rounded hover:bg-white/10 transition-colors duration-200"
+                        onClick={() => setOpen(false)}
+                      >
+                        Sito Per Eventi
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/e-learning"
+                        className="block text-white/90 font-medium py-2 px-4 rounded hover:bg-white/10 transition-colors duration-200"
+                        onClick={() => setOpen(false)}
+                      >
+                        Piattaforma E-learning
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/portfolioCreativo"
+                        className="block text-white/90 font-medium py-2 px-4 rounded hover:bg-white/10 transition-colors duration-200"
+                        onClick={() => setOpen(false)}
+                      >
+                        Portfolio Creativo
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/blog"
+                        className="block text-white/90 font-medium py-2 px-4 rounded hover:bg-white/10 transition-colors duration-200"
+                        onClick={() => setOpen(false)}
+                      >
+                        Blog
+                      </Link>
+                    </li>
+                  </ul>
+                )}
+              </li>
+
+              {/* Chi Siamo */}
+              <li>
+                <button
+                  onClick={() => scrollToSection("aboutUs")}
+                  className="w-full text-left text-white font-bold py-3 px-4 rounded hover:bg-white/10 transition-colors duration-200"
+                >
+                  CHI SIAMO
+                </button>
+              </li>
+
+              {/* Contattaci */}
+              <li>
+                <button
+                  onClick={() => scrollToSection("contactUs")}
+                  className="w-full text-left text-white font-bold py-3 px-4 rounded hover:bg-white/10 transition-colors duration-200"
+                >
+                  CONTATTACI
+                </button>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Footer */}
+          <div className="p-6 border-t border-white/20">
+            <div className="flex justify-center space-x-4 mb-4">
+              <SocialIcons color="#ffffff" hoverColor="text-blue-dark" />
             </div>
+            <p className="text-white/80 text-center text-sm">
+              © {new Date().getFullYear()} Zefiro. Take IT for future.
+            </p>
           </div>
-
-          {/* Other menu items */}
-          <button
-            className={`text-2xl text-center uppercase py-5 font-bold tracking-wider text-[#16697a] transition-all duration-400 ease-in-out relative overflow-hidden ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-              }`}
-            onClick={() => scrollToSection("aboutUs")}
-            style={{ transitionDelay: open ? '0.4s' : '0s' }}
-          >
-            Chi Siamo
-          </button>
-          <button
-            className={`text-2xl text-center uppercase py-5 font-bold tracking-wider text-[#16697a] transition-all duration-400 ease-in-out relative overflow-hidden ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-              }`}
-            onClick={() => scrollToSection("contactUs")}
-            style={{ transitionDelay: open ? '0.5s' : '0s' }}
-          >
-            Contattaci
-          </button>
         </div>
-
-        {/* Footer */}
-        <footer
-          className={`w-[calc(100%-2rem)] py-6 mx-auto border-t border-[rgba(22,105,122,0.2)] sticky bottom-0 bg-[rgba(237,231,228,0.9)] transition-all duration-400 ease-in-out ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-            }`}
-          style={{ transitionDelay: open ? '0.4s' : '0s' }}
-        >
-          <p className="text-[#16697a] mb-5 text-base">Seguici sui social</p>
-          <div className="flex justify-center mb-[3vw]">
-            <SocialIcons color="#16697a" />
-          </div>
-          <p className="text-[#16697a] text-[3.5vw] mt-[4vw]">
-            © {new Date().getFullYear()} Zefiro. Take IT for future.
-          </p>
-        </footer>
-      </nav>
+      </div>
     </>
   );
 };
