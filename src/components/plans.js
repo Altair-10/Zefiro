@@ -121,7 +121,7 @@ function PlanCard({ cardTitle, cardCTA, items }) {
                             />
                         </div>
                         <div className="relative">
-                            <h3 className="text-[8vw] md:text-[2vw] font-medium uppercase tracking-wider text-orange">
+                            <h3 className="text-[8vw] md:text-[2vw] font-medium uppercase text-start text-orange">
                                 {cardTitle}
                             </h3>
                             <p className="mt-2 text-sm text-slate-400">
