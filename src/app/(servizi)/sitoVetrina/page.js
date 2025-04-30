@@ -56,7 +56,13 @@ export default function SitoVetrina() {
 
       {/* Demo Interattiva */}
       <section className="bg-white">
-        <SiteSample sectionTitle="Esempi di Siti Vetrina" />
+        <SiteSample
+          sectionTitle="Esempi di Siti Vetrina"
+          images={[
+            "/siteSamples/vetrina_1.png",
+            "/siteSamples/vetrina_2.png"
+          ]}
+        />
       </section>
 
       {/* Pipeline del servizio */}
@@ -73,7 +79,7 @@ export default function SitoVetrina() {
       </section>
 
       {/* CTA finale */}
-      <section className="bg-gradient-blue"  ref={ctaRef}>
+      <section className="bg-gradient-blue" ref={ctaRef}>
         <ServiceCTA
           question="Pronto a far crescere la tua presenza online?"
           cta="Trasforma la tua attività con un sito vetrina professionale e inizia a conquistare nuovi clienti oggi stesso."

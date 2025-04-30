@@ -56,7 +56,13 @@ export default function SitoVetrina() {
 
             {/* Demo Interattiva */}
             <section className="bg-white">
-                <SiteSample sectionTitle="Esempi di Blog" />
+                <SiteSample
+                    sectionTitle="Esempi di Blog"
+                    images={[
+                        "/siteSamples/blog_1.png",
+                        "/siteSamples/blog_1.png"
+                    ]}
+                />
             </section>
 
             {/* Pipeline del servizio */}

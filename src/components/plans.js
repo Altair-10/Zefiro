@@ -210,6 +210,7 @@ function PlanCard({ title, description, features, featured = false, isActive = f
 
 function MobilePlanCard({ title, description, features, featured = false, isActive = false, onClick }) {
     return (
+<<<<<<< HEAD
         <div
             className={`rounded-2xl overflow-hidden shadow-lg transition-all duration-300 transform ${isActive
                 ? 'border-2 border-orange scale-105 shadow-lg shadow-orange/20'
@@ -225,6 +226,80 @@ function MobilePlanCard({ title, description, features, featured = false, isActi
                 {featured && (
                     <div className="absolute top-0 right-0 left-0 py-1 bg-orange text-white font-bold text-center text-xs">
                         CONSIGLIATO
+=======
+        <div className={`group relative w-60 md:w-80`}>
+            <div
+                className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 p-[1px] shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-cyan-500/25"
+            >
+                <div
+                    className="absolute inset-0 bg-gradient-to-b from-cyan-500 to-blue-500 opacity-20"
+                />
+                <div
+                    className="relative rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 pt-4 md:p-6"
+                >
+                    <div
+                        className="relative rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 p-6"
+                    >
+                        <div
+                            className="absolute -left-16 -top-16 h-32 w-32 rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-500/0 blur-2xl transition-all duration-500 group-hover:scale-150 group-hover:opacity-70"
+                        />
+                        <div
+                            className="absolute -bottom-16 -right-16 h-32 w-32 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/0 blur-2xl transition-all duration-500 group-hover:scale-150 group-hover:opacity-70"
+                        />
+
+                        <div
+                            className="absolute -right-[1px] -top-[1px] overflow-hidden rounded-tr-2xl"
+                        >
+                            <div
+                                className="absolute h-20 w-20 bg-gradient-to-r from-cyan-500 to-blue-500"
+                            />
+                            <div className="absolute h-20 w-20 bg-slate-950/90"></div>
+                            <div
+                                className="absolute right-0 top-[22px] h-[2px] w-[56px] rotate-45 bg-gradient-to-r from-cyan-500 to-blue-500"
+                            />
+                            <span
+                                className="absolute right-1 top-1 text-[10px] font-semibold text-white"
+                            />
+                        </div>
+                        <div className="relative">
+                            <h3 className="text-[8vw] md:text-[2vw] font-medium uppercase text-start text-orange">
+                                {cardTitle}
+                            </h3>
+                            <p className="mt-2 text-sm text-slate-400">
+                                {cardCTA}
+                            </p>
+                        </div>
+
+                        <div className="relative mt-6 space-y-4">
+                            <Content items={items} />
+                        </div>
+                        {/* <div className="relative mt-8">
+                            <button
+                                className="group/btn relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-blue-light to-blue-dark p-px font-semibold text-white shadow-[0_1000px_0_0_hsl(0_0%_100%_/_0%)_inset] transition-colors hover:shadow-[0_1000px_0_0_hsl(0_0%_100%_/_2%)_inset]"
+                            >
+                                <div
+                                    className="relative rounded-xl bg-slate-950/50 px-4 py-3 transition-colors group-hover/btn:bg-transparent"
+                                >
+                                    <span className="relative flex items-center justify-center gap-2">
+                                        Descrizione
+                                        <svg
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                                        >
+                                            <path
+                                                d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                                strokeWidth="2"
+                                                strokeLinejoin="round"
+                                                strokeLinecap="round"
+                                            ></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </button>
+                        </div> */}
+>>>>>>> 064f982 (samuele_1 30/04: aggiunte immagini a esempi di siti)
                     </div>
                 )}
 
