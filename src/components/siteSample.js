@@ -22,7 +22,7 @@ export default function SiteSample({ sectionTitle, images = [] }) {
 
             <div className="flex flex-col justify-center items-center demo-carousel relative max-w-5xl mx-auto">
                 {/* Fisso: larghezza/altezza + centrare immagine */}
-                <div className="w-[30vw] h-[20vw] relative overflow-hidden rounded-lg shadow-xl border-4 border-[#ede7e4] flex items-center justify-center bg-gray-100">
+                <div className="w-[80vw] h-[100vw] md:w-[30vw] md:h-[30vw]  object- relative overflow-hidden rounded-lg shadow-xl border-4 border-[#ede7e4] flex items-center justify-center bg-gray-100">
                     <Image
                         src={images[currentIndex]}
                         alt={`Slide ${currentIndex + 1}`}

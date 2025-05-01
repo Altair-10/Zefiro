@@ -118,123 +118,74 @@ const Menu = ({ open, setOpen }) => {
             </button>
           </div>
 
-          {/* Menu Items */}
-          <nav className="flex-1 overflow-y-auto py-4 px-6">
-            <ul className="space-y-2">
-              {/* Home */}
-              <li>
-                <button
-                  onClick={() => scrollToSection("home")}
-                  className="w-full text-left text-white font-bold py-3 px-4 rounded hover:bg-white/10 transition-colors duration-200"
-                >
-                  HOME
-                </button>
-              </li>
-
-              {/* Servizi */}
-              <li ref={subMenuRef}>
-                <button
-                  onClick={() => setShowSubMenu(!showSubMenu)}
-                  className="w-full flex justify-between items-center text-white font-bold py-3 px-4 rounded hover:bg-white/10 transition-colors duration-200"
-                >
-                  <span>SERVIZI</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    className={`bi bi-caret-down-fill transition-transform duration-200 ${showSubMenu ? "rotate-180" : ""}`}
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                  </svg>
-                </button>
-
-                {/* Submenu */}
-                {showSubMenu && (
-                  <ul className="ml-4 mt-2 space-y-1 border-l-2 border-white/20 pl-4">
-                    <li>
-                      <Link
-                        href="/sitoVetrina"
-                        className="block text-white/90 font-medium py-2 px-4 rounded hover:bg-white/10 transition-colors duration-200"
-                        onClick={() => setOpen(false)}
-                      >
-                        Sito Vetrina
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/sitoPerEventi"
-                        className="block text-white/90 font-medium py-2 px-4 rounded hover:bg-white/10 transition-colors duration-200"
-                        onClick={() => setOpen(false)}
-                      >
-                        Sito Per Eventi
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/e-learning"
-                        className="block text-white/90 font-medium py-2 px-4 rounded hover:bg-white/10 transition-colors duration-200"
-                        onClick={() => setOpen(false)}
-                      >
-                        Piattaforma E-learning
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/portfolioCreativo"
-                        className="block text-white/90 font-medium py-2 px-4 rounded hover:bg-white/10 transition-colors duration-200"
-                        onClick={() => setOpen(false)}
-                      >
-                        Portfolio Creativo
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/blog"
-                        className="block text-white/90 font-medium py-2 px-4 rounded hover:bg-white/10 transition-colors duration-200"
-                        onClick={() => setOpen(false)}
-                      >
-                        Blog
-                      </Link>
-                    </li>
-                  </ul>
-                )}
-              </li>
-
-              {/* Chi Siamo */}
-              <li>
-                <button
-                  onClick={() => scrollToSection("aboutUs")}
-                  className="w-full text-left text-white font-bold py-3 px-4 rounded hover:bg-white/10 transition-colors duration-200"
-                >
-                  CHI SIAMO
-                </button>
-              </li>
-
-              {/* Contattaci */}
-              <li>
-                <button
-                  onClick={() => scrollToSection("contactUs")}
-                  className="w-full text-left text-white font-bold py-3 px-4 rounded hover:bg-white/10 transition-colors duration-200"
-                >
-                  CONTATTACI
-                </button>
-              </li>
-            </ul>
-          </nav>
-
-          {/* Footer */}
-          <div className="p-6 border-t border-white/20">
-            <div className="flex justify-center space-x-4 mb-4">
-              <SocialIcons color="#ffffff" hoverColor="text-blue-dark" />
+            {/* Submenu */}
+            <div
+              className={`overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] mx-[20%] ${showSubMenu ? "max-h-auto" : "max-h-0"
+                }`}
+            >
+              <Link href="/sitoVetrina" passHref
+                className={`
+                  block text-xl py-3 w-full transition-all duration-400 ease-in-out 
+                  ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} 
+                  text-blue-medium font-bold tracking-[0.5vw]
+                `}
+                onClick={() => setOpen(false)}
+                style={{ transitionDelay: showSubMenu ? '0.2s' : '0s' }}
+              >
+                Sito Vetrina
+              </Link>
+              <Link href="/sitoPerEventi" passHref
+                className={`
+                  block text-xl py-3 w-full transition-all duration-400 ease-in-out 
+                  ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} 
+                  text-[#489fb5] font-bold tracking-[0.5vw]
+                `}
+                onClick={() => setOpen(false)}
+                style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
+              >
+                Sito Per Eventi
+              </Link>
+              <Link href="/landingPagePromozionale" passHref
+                className={`
+                  block text-xl py-3 w-full transition-all duration-400 ease-in-out 
+                  ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} 
+                  text-[#489fb5] font-bold tracking-[0.5vw]
+                `}
+                onClick={() => setOpen(false)}
+                style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
+              >
+                Landing Page Promozionale
+              </Link>
+              <Link href="/portfolioCreativo" passHref
+                className={`
+                  block text-xl py-3 w-full transition-all duration-400 ease-in-out 
+                  ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} 
+                  text-[#489fb5] font-bold tracking-[0.5vw]
+                `}
+                onClick={() => setOpen(false)}
+                style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
+              >
+                Portfolio Creativo
+              </Link>
+              <Link
+                href="/blog"
+                passHref
+                className={`
+                  block text-xl py-3 w-full transition-all duration-400 ease-in-out 
+                  ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} 
+                 text-[#489fb5] font-bold tracking-[0.5vw]
+                `}
+                onClick={() => setOpen(false)}
+                style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
+              >
+                Blog
+              </Link>
             </div>
             <p className="text-white/80 text-center text-sm">
               © {new Date().getFullYear()} Zefiro. Take IT for future.
             </p>
           </div>
         </div>
-      </div>
     </>
   );
 };
