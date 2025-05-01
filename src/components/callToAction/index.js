@@ -122,13 +122,25 @@ export default function CallToAction() {
           </p>
         </div>
         <div className="hidden md:block row-[5/7] col-[28/31] bg-blue-dark" />
-        <div className="hidden md:block row-[7/9] col-[28/44] bg-blue-medium" />
+        <div className="hidden md:block row-[7/9] col-[28/44] bg-blue-medium">
+          <ShapesDisplayer
+            numShapes={1}
+            imgName1="FormeSVG/blue-6.svg"
+            position="start"
+          />
+        </div>
         <div className="hidden md:flex row-[9/10] col-[30/42] justify-center items-center">
           <p className="text-center font-bold">
             Il futuro è digitale, non restare indietro.
           </p>
         </div>
-        <div className="hidden md:block row-[10/12] col-[28/44] bg-blue-light" />
+        <div className="hidden md:block row-[10/12] col-[28/44] bg-blue-light">
+          <ShapesDisplayer
+            numShapes={1}
+            imgName1="FormeSVG/blue-6.svg"
+            position="end"
+          />
+        </div>
         <div className="hidden md:flex row-[12/14] col-[30/42] justify-center items-center">
           <p className="text-center font-bold">
             Essere online non è un'opzione.
