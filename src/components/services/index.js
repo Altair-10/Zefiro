@@ -51,6 +51,18 @@ export default function Services() {
           />
         </div>
 
+        {/* Animated Shapes Area */}
+        <div className="hidden md:block md:row-[9] md:col-[30/45] relative">
+          <div className="w-full h-48 overflow-hidden">
+            <FloatingShape
+              svgPath={svgPaths[2]}
+              width={60}
+              height={70}
+              speed={1.2}
+            />
+          </div>
+        </div>
+
         {/* SITO PER EVENTI */}
         <div className="hidden md:block row-[22/24] col-[23/48] bg-blue-light" />
         <div className="hidden md:block row-[24/26] col-[23/48] bg-blue-medium">
@@ -136,7 +148,7 @@ export default function Services() {
           </div>
         </div> 
 
-        {/* E-LEARNING */}
+        {/* SITO PROMOZIONALE */}
         <div className="hidden md:block row-[46/48] col-[23/48] bg-blue-light" />
         <div className="hidden md:block row-[48/50] col-[23/48] bg-blue-medium">
           <ShapesDisplayer
@@ -148,9 +160,9 @@ export default function Services() {
         <div className="row-[168/218] col-[1/32] md:row-[43/53] md:col-[26/44]">
           <Card
             image={"/sfondi/ELearning.png"}
-            CardTitle={"E-learning"}
-            CardDescription={"Offri corsi e formazione online con una piattaforma intuitiva e completa."}
-            btnHref={"/e-learning"}
+            CardTitle={"Landing Page Promozionale"}
+            CardDescription={"Cattura l’attenzione e aumenta le conversioni con una landing page mirata e ad alto impatto."}
+            btnHref={"/landingPagePromozionale"}
             animationDirection="right"
           />
         </div>

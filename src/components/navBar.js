@@ -164,10 +164,10 @@ export default function Navbar() {
                   SITO PER EVENTI
                 </Link>
                 <Link
-                  href="/e-learning"
+                  href="/landingPagePromozionale"
                   className="block w-full text-left px-4 py-2 hover:text-blue-dark"
                 >
-                  PIATTAFORMA E-LEARNING
+                  LANDING PAGE PROMOZIONALE
                 </Link>
                 <Link
                   href="/portfolioCreativo"

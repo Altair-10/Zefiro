@@ -151,7 +151,7 @@ const Menu = ({ open, setOpen }) => {
               >
                 Sito Per Eventi
               </Link>
-              <Link href="/e-learning" passHref
+              <Link href="/landingPagePromozionale" passHref
                 className={`
                   block text-xl py-3 w-full transition-all duration-400 ease-in-out 
                   ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} 
@@ -160,7 +160,7 @@ const Menu = ({ open, setOpen }) => {
                 onClick={() => setOpen(false)}
                 style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
               >
-                E-learning
+                Landing Page Promozionale
               </Link>
               <Link href="/portfolioCreativo" passHref
                 className={`
