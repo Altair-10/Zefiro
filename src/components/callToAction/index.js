@@ -20,9 +20,9 @@ export default function CallToAction() {
         <div className="row-[21/26] col-[5/29] md:row-[12/15] md:col-[3/13]">
           <ContactButton />
         </div>
-        <div className="md:row-[5/14] md:col-[28/44]">
+        {/* <div className="md:row-[5/14] md:col-[28/44]">
           <PremiumSaleAnimation />
-        </div>
+        </div> */}
 
         {/* RETTANGOLI CALL TO ACTION MOBILE */}
         {/* 1° riga */}
@@ -115,19 +115,35 @@ export default function CallToAction() {
         {/*rettangoli verticali*/}
         <div className="hidden md:block row-[5/12] col-[24/28] bg-blue-medium" />
         <div className="hidden md:block row-[3/12] col-[44/48] bg-blue-light" />
-        <div className="hidden md:block row-[5/7] col-[40/44] bg-blue-dark" />
-        {/* <div className="hidden md:block row-[10/12] col-[28/30] bg-blue-light" /> */}
-        <div className="hidden md:block row-[5/7] col-[28/32] bg-blue-dark" />
+        <div className="hidden md:block row-[5/7] col-[41/44] bg-blue-dark" />
+        <div className="hidden md:flex row-[5/7] col-[30/42] justify-center items-center">
+          <p className="text-center font-bold">
+            La tua svolta digitale inizia da qui.
+          </p>
+        </div>
+        <div className="hidden md:block row-[5/7] col-[28/31] bg-blue-dark" />
+        <div className="hidden md:block row-[7/9] col-[28/44] bg-blue-medium" />
+        <div className="hidden md:flex row-[9/10] col-[30/42] justify-center items-center">
+          <p className="text-center font-bold">
+            Il futuro è digitale, non restare indietro.
+          </p>
+        </div>
+        <div className="hidden md:block row-[10/12] col-[28/44] bg-blue-light" />
+        <div className="hidden md:flex row-[12/14] col-[30/42] justify-center items-center">
+          <p className="text-center font-bold">
+            Essere online non è un'opzione.
+          </p>
+        </div>
 
         {/*4° riga*/}
-        <div className="hidden md:block row-[12/14] col-[22/32] bg-blue-medium">
+        <div className="hidden md:block row-[12/14] col-[22/31] bg-blue-medium">
           <ShapesDisplayer
             numShapes={1}
             imgName1="FormeSVG/blue-6.svg"
             position="start"
           />
         </div>
-        <div className="hidden md:block row-[12/14] col-[40/48] bg-blue-dark">
+        <div className="hidden md:block row-[12/14] col-[41/48] bg-blue-dark">
           <ShapesDisplayer
             numShapes={1}
             imgName1="FormeSVG/blue-4.svg"
