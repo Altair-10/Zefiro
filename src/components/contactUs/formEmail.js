@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import SubmitButton from "./submitButton";
+import SuccessModal from "./SuccesModale";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -15,11 +16,12 @@ export default function ContactForm() {
 
   const [status, setStatus] = useState(false);
   const [errors, setErrors] = useState({ nome: "", cognome: "", telefono: "" });
+  const [showModal, setShowModal] = useState(false);
 
   const validateInputs = (name, value) => {
     let error = "";
     if (name === "nome" || name === "cognome") {
-      if (!/^[A-Za-zÀ-ÖØ-öø-ÿ'’ -]{2,}$/.test(value)) {
+      if (!/^[A-Za-zÀ-ÖØ-öø-ÿ'' -]{2,}$/.test(value)) {
         error = "Inserire un cognome valido.";
       }
     } else if (name === "telefono") {
@@ -60,6 +62,7 @@ export default function ContactForm() {
 
       if (response.ok) {
         setFormData({ azienda: "", nome: "", cognome: "", email: "", telefono: "", aiuto: "" });
+        setShowModal(true);
       }
     } catch (error) {
       console.error("Errore:", error);
@@ -68,52 +71,69 @@ export default function ContactForm() {
     }
   }, [formData, errors]);
 
+  // Chiude il modale dopo 5 secondi
+  useEffect(() => {
+    if (showModal) {
+      const timer = setTimeout(() => {
+        setShowModal(false);
+      }, 5000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [showModal]);
+
   return (
-    <form className="flex flex-col justify-center md:gap-y-2 w-full h-full" onSubmit={handleSubmit}>
-      <div className="md:flex flex-row justify-between w-full gap-4 ">
-        <div className="flex-1 min-w-0">
-          <label className="block text-sm font-medium">Nome</label>
-          <input required type="text" name="nome" value={formData.nome} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md bg-gray-100" />
-          {errors.nome && <p className="text-red-500 text-xs mt-1 whitespace-nowrap">{errors.nome}</p>}
+    <>
+      <form className="flex flex-col justify-center md:gap-y-2 w-full h-full" onSubmit={handleSubmit}>
+        <div className="md:flex flex-row justify-between w-full gap-4 ">
+          <div className="flex-1 min-w-0">
+            <label className="block text-sm font-medium">Nome</label>
+            <input required type="text" name="nome" value={formData.nome} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md bg-gray-100" />
+            {errors.nome && <p className="text-red-500 text-xs mt-1 whitespace-nowrap">{errors.nome}</p>}
+          </div>
+          <div className="flex-1 min-w-0">
+            <label className="block text-sm font-medium">Cognome</label>
+            <input required type="text" name="cognome" value={formData.cognome} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md bg-gray-100" />
+            {errors.cognome && <p className="text-red-500 text-xs mt-1 whitespace-nowrap">{errors.cognome}</p>}
+          </div>
         </div>
-        <div className="flex-1 min-w-0">
-          <label className="block text-sm font-medium">Cognome</label>
-          <input required type="text" name="cognome" value={formData.cognome} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md bg-gray-100" />
-          {errors.cognome && <p className="text-red-500 text-xs mt-1 whitespace-nowrap">{errors.cognome}</p>}
+
+        <div className="md:flex flex-row justify-between w-full gap-4">
+          <div className="flex-1 min-w-0">
+            <label className="block text-sm font-medium">Azienda</label>
+            <input type="text" name="azienda" value={formData.azienda} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md bg-gray-100" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <label className="block text-sm font-medium whitespace-nowrap">Numero di telefono</label>
+            <input required type="tel" name="telefono" value={formData.telefono} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md bg-gray-100" />
+            {errors.telefono && <p className="text-red-500 text-xs mt-1 whitespace-nowrap">{errors.telefono}</p>}
+          </div>
         </div>
-      </div>
 
-      <div className="md:flex flex-row justify-between w-full gap-4">
-        <div className="flex-1 min-w-0">
-          <label className="block text-sm font-medium">Azienda</label>
-          <input type="text" name="azienda" value={formData.azienda} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md bg-gray-100" />
+        <div className="w-full">
+          <label className="block text-sm font-medium">Email</label>
+          <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md bg-gray-100" />
         </div>
-        <div className="flex-1 min-w-0">
-          <label className="block text-sm font-medium whitespace-nowrap">Numero di telefono</label>
-          <input required type="tel" name="telefono" value={formData.telefono} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md bg-gray-100" />
-          {errors.telefono && <p className="text-red-500 text-xs mt-1 whitespace-nowrap">{errors.telefono}</p>}
+
+        <div className="w-full">
+          <label className="block text-sm font-medium">Siamo qui per te. Parlaci!</label>
+          <textarea
+            required
+            name="aiuto"
+            value={formData.aiuto}
+            onChange={handleChange}
+            className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md min-h-[8vw] bg-gray-100 resize-none"
+          />
         </div>
-      </div>
 
-      <div className="w-full">
-        <label className="block text-sm font-medium">Email</label>
-        <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md bg-gray-100" />
-      </div>
-
-      <div className="w-full">
-        <label className="block text-sm font-medium">Siamo qui per te. Parlaci!</label>
-        <textarea
-          required
-          name="aiuto"
-          value={formData.aiuto}
-          onChange={handleChange}
-          className="w-full md:h-[4vw] lg:h-[3vw] 2xl:h-[2vw] p-2 border rounded-md min-h-[8vw] bg-gray-100 resize-none"
-        />
-      </div>
-
-      <div className="flex flex-row justify-center mt-5">
-        <SubmitButton onGoing={status} />
-      </div>
-    </form>
+        <div className="flex flex-row justify-center mt-5">
+          <SubmitButton onGoing={status} />
+        </div>
+      </form>
+      
+      {/* Modale di successo per l'invio dell'email */}
+      <SuccessModal isOpen={showModal} onClose={() => setShowModal(false)} />
+      
+    </>
   );
 }
