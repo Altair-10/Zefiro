@@ -4,27 +4,6 @@ import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 
-// Usando la palette di colori fornita
-const theme = {
-  colors: {
-    black: "#000000",
-    white: "#ffffff",
-    blue: {
-      light: "#82bfca",
-      medium: "#489fb5",
-      dark: "#16697a",
-    },
-    brown: {
-      light: "#ede7e4",
-    },
-    orange: "#ffa62b",
-  },
-  backgroundImage: {
-    "gradient-orange": "linear-gradient(to right, #ffa62b, #ff9a3b, #ff8c00)",
-    "gradient-blue": "linear-gradient(to right, #16697a, #489fb5)"
-  }
-};
-
 export default function NotFound() {
   const titleRef = useRef(null);
   const textRef = useRef(null);
@@ -85,97 +64,26 @@ export default function NotFound() {
   }, []);
 
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      minHeight: '100vh',
-      padding: '20px',
-      backgroundColor: theme.colors.brown.light,
-      fontFamily: 'system-ui, -apple-system, sans-serif',
-      position: 'relative',
-      overflow: 'hidden'
-    }}>
+    <div className="flex flex-col items-center justify-center min-h-screen p-5 bg-brown-light font-sans relative overflow-hidden">
       {/* Cerchi decorativi */}
-      <div ref={circlesRef} style={{ position: 'absolute', width: '100%', height: '100%', zIndex: 0 }}>
-        <div className="circle" style={{ 
-          position: 'absolute', 
-          top: '15%', 
-          left: '10%', 
-          width: '120px', 
-          height: '120px', 
-          borderRadius: '50%', 
-          background: theme.colors.blue.light,
-          opacity: 0.6 
-        }}></div>
-        <div className="circle" style={{ 
-          position: 'absolute', 
-          top: '60%', 
-          left: '20%', 
-          width: '80px', 
-          height: '80px', 
-          borderRadius: '50%', 
-          background: theme.colors.orange,
-          opacity: 0.5 
-        }}></div>
-        <div className="circle" style={{ 
-          position: 'absolute', 
-          top: '30%', 
-          right: '15%', 
-          width: '150px', 
-          height: '150px', 
-          borderRadius: '50%', 
-          background: theme.colors.blue.medium,
-          opacity: 0.4 
-        }}></div>
-        <div className="circle" style={{ 
-          position: 'absolute', 
-          bottom: '20%', 
-          right: '10%', 
-          width: '100px', 
-          height: '100px', 
-          borderRadius: '50%', 
-          background: theme.colors.blue.dark,
-          opacity: 0.7 
-        }}></div>
+      <div ref={circlesRef} className="absolute w-full h-full z-0">
+        <div className="circle absolute top-[15%] left-[10%] w-32 h-32 rounded-full bg-blue-light opacity-60"></div>
+        <div className="circle absolute top-[60%] left-[20%] w-20 h-20 rounded-full bg-orange opacity-50"></div>
+        <div className="circle absolute top-[30%] right-[15%] w-36 h-36 rounded-full bg-blue-medium opacity-40"></div>
+        <div className="circle absolute bottom-[20%] right-[10%] w-24 h-24 rounded-full bg-blue-dark opacity-70"></div>
       </div>
 
-      <div style={{ 
-        zIndex: 1,
-        textAlign: 'center',
-        maxWidth: '600px',
-        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-        padding: '40px',
-        borderRadius: '20px',
-        boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)'
-      }}>
-        <h1 ref={titleRef} style={{ 
-          fontSize: '5rem', 
-          margin: '0 0 20px',
-          background: theme.backgroundImage["gradient-blue"],
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          fontWeight: 'bold'
-        }}>
+      <div className="z-10 text-center max-w-xl bg-white bg-opacity-90 p-10 rounded-2xl shadow-lg">
+        <h1 ref={titleRef} className="text-8xl m-0 mb-5 font-bold bg-gradient-blue bg-clip-text text-transparent">
           404
         </h1>
         
         <div ref={textRef}>
-          <h2 style={{ 
-            fontSize: '2rem', 
-            marginBottom: '20px',
-            color: theme.colors.blue.dark
-          }}>
+          <h2 className="text-4xl mb-5 text-blue-dark">
             Pagina non trovata
           </h2>
           
-          <p style={{ 
-            fontSize: '1.1rem', 
-            lineHeight: '1.5',
-            marginBottom: '30px',
-            color: theme.colors.black
-          }}>
+          <p className="text-lg leading-relaxed mb-8 text-black">
             Ci dispiace, la pagina che stai cercando non esiste o è stata spostata.
           </p>
         </div>
@@ -183,26 +91,7 @@ export default function NotFound() {
         <Link href="/" passHref>
           <div 
             ref={buttonRef}
-            style={{
-              display: 'inline-block',
-              padding: '12px 30px',
-              background: theme.backgroundImage["gradient-orange"],
-              color: theme.colors.white,
-              borderRadius: '30px',
-              fontWeight: 'bold',
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              cursor: 'pointer',
-              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-3px)';
-              e.currentTarget.style.boxShadow = '0 10px 20px rgba(255, 166, 43, 0.3)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 5px 10px rgba(255, 166, 43, 0.2)';
-            }}
+            className="inline-block px-8 py-3 bg-gradient-orange text-white rounded-full font-bold text-lg cursor-pointer transition-transform duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg"
           >
             Torna alla Home
           </div>
