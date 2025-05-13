@@ -18,7 +18,7 @@ export default function PianiAbbonamento() {
             <h2 className="text-3xl md:text-6xl font-bold text-center text-blue-dark mb-10 md:mb-8">
                 I Nostri Piani!
             </h2>
-            <p className="text-blue-dark max-w-2xl mx-auto md:mb-8">
+            <p className="text-blue-dark max-w-2xl mx-auto md:mb-8 whitespace-nowrap">
                 Scegli il piano più adatto alle tue esigenze e trasforma la tua presenza online
             </p>
             {/* Mobile Version */}
@@ -210,81 +210,6 @@ function PlanCard({ title, description, features, featured = false, isActive = f
 
 function MobilePlanCard({ title, description, features, featured = false, isActive = false, onClick }) {
     return (
-<<<<<<< HEAD
-        <div className={`group relative w-60 md:w-80`}>
-            <div
-                className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 p-[1px] shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-cyan-500/25"
-            >
-                <div
-                    className="absolute inset-0 bg-gradient-to-b from-cyan-500 to-blue-500 opacity-20"
-                />
-                <div
-                    className="relative rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 pt-4 md:p-6"
-                >
-                    <div
-                        className="relative rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 p-6"
-                    >
-                        <div
-                            className="absolute -left-16 -top-16 h-32 w-32 rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-500/0 blur-2xl transition-all duration-500 group-hover:scale-150 group-hover:opacity-70"
-                        />
-                        <div
-                            className="absolute -bottom-16 -right-16 h-32 w-32 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/0 blur-2xl transition-all duration-500 group-hover:scale-150 group-hover:opacity-70"
-                        />
-
-                        <div
-                            className="absolute -right-[1px] -top-[1px] overflow-hidden rounded-tr-2xl"
-                        >
-                            <div
-                                className="absolute h-20 w-20 bg-gradient-to-r from-cyan-500 to-blue-500"
-                            />
-                            <div className="absolute h-20 w-20 bg-slate-950/90"></div>
-                            <div
-                                className="absolute right-0 top-[22px] h-[2px] w-[56px] rotate-45 bg-gradient-to-r from-cyan-500 to-blue-500"
-                            />
-                            <span
-                                className="absolute right-1 top-1 text-[10px] font-semibold text-white"
-                            />
-                        </div>
-                        <div className="relative">
-                            <h3 className="text-[8vw] md:text-[2vw] font-medium uppercase text-start text-orange">
-                                {/* {cardTitle} */}
-                            </h3>
-                            <p className="mt-2 text-sm text-slate-400">
-                                {/* {cardCTA} */}
-                            </p>
-                        </div>
-
-                        {/* <div className="relative mt-6 space-y-4">
-                            <Content items={items} />
-                        </div> */}
-                        {/* <div className="relative mt-8">
-                            <button
-                                className="group/btn relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-blue-light to-blue-dark p-px font-semibold text-white shadow-[0_1000px_0_0_hsl(0_0%_100%_/_0%)_inset] transition-colors hover:shadow-[0_1000px_0_0_hsl(0_0%_100%_/_2%)_inset]"
-                            >
-                                <div
-                                    className="relative rounded-xl bg-slate-950/50 px-4 py-3 transition-colors group-hover/btn:bg-transparent"
-                                >
-                                    <span className="relative flex items-center justify-center gap-2">
-                                        Descrizione
-                                        <svg
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1"
-                                        >
-                                            <path
-                                                d="M17 8l4 4m0 0l-4 4m4-4H3"
-                                                strokeWidth="2"
-                                                strokeLinejoin="round"
-                                                strokeLinecap="round"
-                                            ></path>
-                                        </svg>
-                                    </span>
-                                </div>
-                            </button>
-                        </div> */}
-                    </div>
-=======
         <div
             className={`rounded-2xl overflow-hidden shadow-lg transition-all duration-300 transform ${isActive
                 ? 'border-2 border-orange scale-105 shadow-lg shadow-orange/20'
@@ -300,63 +225,61 @@ function MobilePlanCard({ title, description, features, featured = false, isActi
                 {featured && (
                     <div className="absolute top-0 right-0 left-0 py-1 bg-orange text-white font-bold text-center text-xs" />
                 )}
->>>>>>> 69f56e2409fdb86a88a64efc32dac58c713aa121
 
-                    <h3 className={`text-xl font-bold text-white ${featured && 'mt-4'}`}>
-                        {title}
-                    </h3>
+                <h3 className={`text-xl font-bold text-white ${featured && 'mt-4'}`}>
+                    {title}
+                </h3>
 
-                    <p className="text-white text-opacity-90 text-sm mt-2">
-                        {description}
-                    </p>
-                </div>
+                <p className="text-white text-opacity-90 text-sm mt-2">
+                    {description}
+                </p>
+            </div>
 
-                {/* Features */}
-                <div className="bg-white p-6">
-                    <ul className="space-y-3 mb-6">
-                        {features.map((feature, index) => (
-                            <li key={index} className="flex items-start gap-3">
-                                <div className={`flex h-5 w-5 mt-0.5 shrink-0 items-center justify-center rounded-full ${feature.included
-                                    ? isActive ? 'text-orange' : 'text-blue-medium'
-                                    : 'text-gray-400'
-                                    }`}>
-                                    {feature.included ? (
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-4 w-4">
-                                            <path
-                                                d="M5 13l4 4L19 7"
-                                                strokeWidth="2.5"
-                                                strokeLinejoin="round"
-                                                strokeLinecap="round"
-                                            />
-                                        </svg>
-                                    ) : (
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-4 w-4">
-                                            <path
-                                                d="M6 18L18 6M6 6l12 12"
-                                                strokeWidth="2"
-                                                strokeLinejoin="round"
-                                                strokeLinecap="round"
-                                            />
-                                        </svg>
-                                    )}
-                                </div>
-                                <span className={`text-sm ${feature.included
-                                    ? isActive ? 'text-blue-dark font-medium' : 'text-blue-dark'
-                                    : 'text-gray-500'
-                                    }`}>
-                                    {feature.text}
-                                </span>
-                            </li>
-                        ))}
-                    </ul>
+            {/* Features */}
+            <div className="bg-white p-6">
+                <ul className="space-y-3 mb-6">
+                    {features.map((feature, index) => (
+                        <li key={index} className="flex items-start gap-3">
+                            <div className={`flex h-5 w-5 mt-0.5 shrink-0 items-center justify-center rounded-full ${feature.included
+                                ? isActive ? 'text-orange' : 'text-blue-medium'
+                                : 'text-gray-400'
+                                }`}>
+                                {feature.included ? (
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-4 w-4">
+                                        <path
+                                            d="M5 13l4 4L19 7"
+                                            strokeWidth="2.5"
+                                            strokeLinejoin="round"
+                                            strokeLinecap="round"
+                                        />
+                                    </svg>
+                                ) : (
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-4 w-4">
+                                        <path
+                                            d="M6 18L18 6M6 6l12 12"
+                                            strokeWidth="2"
+                                            strokeLinejoin="round"
+                                            strokeLinecap="round"
+                                        />
+                                    </svg>
+                                )}
+                            </div>
+                            <span className={`text-sm ${feature.included
+                                ? isActive ? 'text-blue-dark font-medium' : 'text-blue-dark'
+                                : 'text-gray-500'
+                                }`}>
+                                {feature.text}
+                            </span>
+                        </li>
+                    ))}
+                </ul>
 
-                    <button className={`w-full py-3 px-4 rounded-xl font-medium text-white transition-all ${isActive
-                        ? 'bg-gradient-orange shadow-lg shadow-orange/30'
-                        : 'bg-gradient-blue shadow-md shadow-blue-dark/10'
-                        }`}>
-                        Richiedi una consulenza
-                    </button>
-                </div>
+                <button className={`w-full py-3 px-4 rounded-xl font-medium text-white transition-all ${isActive
+                    ? 'bg-gradient-orange shadow-lg shadow-orange/30'
+                    : 'bg-gradient-blue shadow-md shadow-blue-dark/10'
+                    }`}>
+                    Richiedi una consulenza
+                </button>
             </div>
         </div>
     );
