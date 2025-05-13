@@ -145,7 +145,7 @@ const Menu = ({ open, setOpen }) => {
               >
                 Sito Per Eventi
               </Link>
-              <Link href="/landingPagePromozionale" passHref
+              <Link href="/sitoPromozionale" passHref
                 className={`
                   block text-xl py-3 w-full transition-all duration-400 ease-in-out 
                   ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} 
@@ -154,9 +154,9 @@ const Menu = ({ open, setOpen }) => {
                 onClick={() => setOpen(false)}
                 style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
               >
-                Landing Page Promozionale
+                Sito Promozionale
               </Link>
-              <Link href="/portfolioCreativo" passHref
+              <Link href="/portfolioProfessionale" passHref
                 className={`
                   block text-xl py-3 w-full transition-all duration-400 ease-in-out 
                   ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} 
@@ -165,7 +165,7 @@ const Menu = ({ open, setOpen }) => {
                 onClick={() => setOpen(false)}
                 style={{ transitionDelay: showSubMenu ? '0.3s' : '0s' }}
               >
-                Portfolio Creativo
+                Portfolio Professionale
               </Link>
               <Link
                 href="/blog"

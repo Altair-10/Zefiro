@@ -1,9 +1,9 @@
 "use client"
+
 import React from "react";
 import ContactButton from "./contactButton";
 import ShapesDisplayer from "@/components/shapesDisplayer";
 import Title from "./Title"
-import PremiumSaleAnimation from "./premiumSaleAnimation";
 
 export default function CallToAction() {
   return (

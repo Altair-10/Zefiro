@@ -10,7 +10,7 @@ import PianiAbbonamento from '@/components/plans.js';
 import SiteSample from '@/components/siteSample.js';
 import { ServicePagesCostants } from '@/app/constants/servicePagesCostants';
 
-export default function LandingPagePromo() {
+export default function PageContent() {
     const heroRef = useRef(null);
     const timelineRef = useRef(null);
     const ctaRef = useRef(null);

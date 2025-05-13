@@ -18,7 +18,7 @@ export default function PianiAbbonamento() {
             <h2 className="text-3xl md:text-6xl font-bold text-center text-blue-dark mb-10 md:mb-16">
                 I Nostri Piani!
             </h2>
-            <p className="text-blue-dark max-w-2xl mx-auto">
+            <p className="text-blue-dark max-w-2xl mx-auto whitespace-nowrap mb-10">
                 Scegli il piano più adatto alle tue esigenze e trasforma la tua presenza online
             </p>
             {/* Mobile Version */}
@@ -210,23 +210,6 @@ function PlanCard({ title, description, features, featured = false, isActive = f
 
 function MobilePlanCard({ title, description, features, featured = false, isActive = false, onClick }) {
     return (
-<<<<<<< HEAD
-        <div
-            className={`rounded-2xl overflow-hidden shadow-lg transition-all duration-300 transform ${isActive
-                ? 'border-2 border-orange scale-105 shadow-lg shadow-orange/20'
-                : featured && !isActive
-                    ? 'border-2 border-orange scale-95'
-                    : 'border border-blue-medium scale-95'
-                }`}
-            onClick={onClick}
-        >
-            {/* Header */}
-            <div className={`${isActive ? 'bg-gradient-orange' : 'bg-gradient-blue'
-                } px-6 py-5 relative`}>
-                {featured && (
-                    <div className="absolute top-0 right-0 left-0 py-1 bg-orange text-white font-bold text-center text-xs">
-                        CONSIGLIATO
-=======
         <div className={`group relative w-60 md:w-80`}>
             <div
                 className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 p-[1px] shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-cyan-500/25"
@@ -263,16 +246,16 @@ function MobilePlanCard({ title, description, features, featured = false, isActi
                         </div>
                         <div className="relative">
                             <h3 className="text-[8vw] md:text-[2vw] font-medium uppercase text-start text-orange">
-                                {cardTitle}
+                                {/* {cardTitle} */}
                             </h3>
                             <p className="mt-2 text-sm text-slate-400">
-                                {cardCTA}
+                                {/* {cardCTA} */}
                             </p>
                         </div>
 
-                        <div className="relative mt-6 space-y-4">
+                        {/* <div className="relative mt-6 space-y-4">
                             <Content items={items} />
-                        </div>
+                        </div> */}
                         {/* <div className="relative mt-8">
                             <button
                                 className="group/btn relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-blue-light to-blue-dark p-px font-semibold text-white shadow-[0_1000px_0_0_hsl(0_0%_100%_/_0%)_inset] transition-colors hover:shadow-[0_1000px_0_0_hsl(0_0%_100%_/_2%)_inset]"
@@ -299,64 +282,63 @@ function MobilePlanCard({ title, description, features, featured = false, isActi
                                 </div>
                             </button>
                         </div> */}
->>>>>>> 064f982 (samuele_1 30/04: aggiunte immagini a esempi di siti)
                     </div>
-                )}
 
-                <h3 className={`text-xl font-bold text-white ${featured && 'mt-4'}`}>
-                    {title}
-                </h3>
+                    <h3 className={`text-xl font-bold text-white ${featured && 'mt-4'}`}>
+                        {title}
+                    </h3>
 
-                <p className="text-white text-opacity-90 text-sm mt-2">
-                    {description}
-                </p>
-            </div>
+                    <p className="text-white text-opacity-90 text-sm mt-2">
+                        {description}
+                    </p>
+                </div>
 
-            {/* Features */}
-            <div className="bg-white p-6">
-                <ul className="space-y-3 mb-6">
-                    {features.map((feature, index) => (
-                        <li key={index} className="flex items-start gap-3">
-                            <div className={`flex h-5 w-5 mt-0.5 shrink-0 items-center justify-center rounded-full ${feature.included
-                                ? isActive ? 'text-orange' : 'text-blue-medium'
-                                : 'text-gray-400'
-                                }`}>
-                                {feature.included ? (
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-4 w-4">
-                                        <path
-                                            d="M5 13l4 4L19 7"
-                                            strokeWidth="2.5"
-                                            strokeLinejoin="round"
-                                            strokeLinecap="round"
-                                        />
-                                    </svg>
-                                ) : (
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-4 w-4">
-                                        <path
-                                            d="M6 18L18 6M6 6l12 12"
-                                            strokeWidth="2"
-                                            strokeLinejoin="round"
-                                            strokeLinecap="round"
-                                        />
-                                    </svg>
-                                )}
-                            </div>
-                            <span className={`text-sm ${feature.included
-                                ? isActive ? 'text-blue-dark font-medium' : 'text-blue-dark'
-                                : 'text-gray-500'
-                                }`}>
-                                {feature.text}
-                            </span>
-                        </li>
-                    ))}
-                </ul>
+                {/* Features */}
+                <div className="bg-white p-6">
+                    <ul className="space-y-3 mb-6">
+                        {features.map((feature, index) => (
+                            <li key={index} className="flex items-start gap-3">
+                                <div className={`flex h-5 w-5 mt-0.5 shrink-0 items-center justify-center rounded-full ${feature.included
+                                    ? isActive ? 'text-orange' : 'text-blue-medium'
+                                    : 'text-gray-400'
+                                    }`}>
+                                    {feature.included ? (
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-4 w-4">
+                                            <path
+                                                d="M5 13l4 4L19 7"
+                                                strokeWidth="2.5"
+                                                strokeLinejoin="round"
+                                                strokeLinecap="round"
+                                            />
+                                        </svg>
+                                    ) : (
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-4 w-4">
+                                            <path
+                                                d="M6 18L18 6M6 6l12 12"
+                                                strokeWidth="2"
+                                                strokeLinejoin="round"
+                                                strokeLinecap="round"
+                                            />
+                                        </svg>
+                                    )}
+                                </div>
+                                <span className={`text-sm ${feature.included
+                                    ? isActive ? 'text-blue-dark font-medium' : 'text-blue-dark'
+                                    : 'text-gray-500'
+                                    }`}>
+                                    {feature.text}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
 
-                <button className={`w-full py-3 px-4 rounded-xl font-medium text-white transition-all ${isActive
-                    ? 'bg-gradient-orange shadow-lg shadow-orange/30'
-                    : 'bg-gradient-blue shadow-md shadow-blue-dark/10'
-                    }`}>
-                    Richiedi una consulenza
-                </button>
+                    <button className={`w-full py-3 px-4 rounded-xl font-medium text-white transition-all ${isActive
+                        ? 'bg-gradient-orange shadow-lg shadow-orange/30'
+                        : 'bg-gradient-blue shadow-md shadow-blue-dark/10'
+                        }`}>
+                        Richiedi una consulenza
+                    </button>
+                </div>
             </div>
         </div>
     );

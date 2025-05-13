@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import ButtonHeroSection from "@/app/(servizi)/sitoVetrina/ButtonHeroSection";
+import ButtonHeroSection from "@/components/ButtonHeroSection";
 
 const HeroSection = ({ title, subtitle, descr}) => {
   const sectionRef = useRef(null);

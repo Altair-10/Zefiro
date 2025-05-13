@@ -164,16 +164,16 @@ export default function Navbar() {
                   SITO PER EVENTI
                 </Link>
                 <Link
-                  href="/landingPagePromozionale"
+                  href="/sitoPromozionale"
                   className="block w-full text-left px-4 py-2 hover:text-blue-dark"
                 >
-                  LANDING PAGE PROMOZIONALE
+                  SITO PROMOZIONALE
                 </Link>
                 <Link
-                  href="/portfolioCreativo"
+                  href="/portfolioProfessionale"
                   className="block w-full text-left px-4 py-2 hover:text-blue-dark"
                 >
-                  PORTFOLIO CREATIVO
+                  PORTFOLIO PROFESSIONALE
                 </Link>
                 <Link
                   href="/blog"
