@@ -15,10 +15,10 @@ export default function PianiAbbonamento() {
 
     return (
         <section className="pt-16 md:py-20">
-            <h2 className="text-3xl md:text-6xl font-bold text-center text-blue-dark mb-10 md:mb-16">
+            <h2 className="text-3xl md:text-6xl font-bold text-center text-blue-dark mb-10 md:mb-8">
                 I Nostri Piani!
             </h2>
-            <p className="text-blue-dark max-w-2xl mx-auto whitespace-nowrap mb-10">
+            <p className="text-blue-dark max-w-2xl mx-auto md:mb-8">
                 Scegli il piano più adatto alle tue esigenze e trasforma la tua presenza online
             </p>
             {/* Mobile Version */}
@@ -210,6 +210,7 @@ function PlanCard({ title, description, features, featured = false, isActive = f
 
 function MobilePlanCard({ title, description, features, featured = false, isActive = false, onClick }) {
     return (
+<<<<<<< HEAD
         <div className={`group relative w-60 md:w-80`}>
             <div
                 className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 p-[1px] shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-cyan-500/25"
@@ -283,6 +284,23 @@ function MobilePlanCard({ title, description, features, featured = false, isActi
                             </button>
                         </div> */}
                     </div>
+=======
+        <div
+            className={`rounded-2xl overflow-hidden shadow-lg transition-all duration-300 transform ${isActive
+                ? 'border-2 border-orange scale-105 shadow-lg shadow-orange/20'
+                : featured && !isActive
+                    ? 'border-2 border-orange scale-95'
+                    : 'border border-blue-medium scale-95'
+                }`}
+            onClick={onClick}
+        >
+            {/* Header */}
+            <div className={`${isActive ? 'bg-gradient-orange' : 'bg-gradient-blue'
+                } px-6 py-5 relative`}>
+                {featured && (
+                    <div className="absolute top-0 right-0 left-0 py-1 bg-orange text-white font-bold text-center text-xs" />
+                )}
+>>>>>>> 69f56e2409fdb86a88a64efc32dac58c713aa121
 
                     <h3 className={`text-xl font-bold text-white ${featured && 'mt-4'}`}>
                         {title}
