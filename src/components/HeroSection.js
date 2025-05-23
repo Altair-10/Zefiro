@@ -296,13 +296,13 @@ const HeroSection = ({ title, subtitle, descr}) => {
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pb-28 md:pb-0">
         <h1
           ref={titleRef}
-          className="text-5xl md:text-7xl font-extrabold pb-4 bg-gradient-to-r from-[#ffa62b] to-[#ede7e4] text-transparent bg-clip-text"
+          className="text-5xl md:text-7xl font-extrabold pb-4 bg-gradient-cyan text-transparent bg-clip-text"
         >
           {title}
         </h1>
 
         <div ref={subtitleRef} className="space-y-3 mb-8">
-          <p className="text-xl md:text-3xl font-bold bg-gradient-to-r from-[#ffa62b] to-[#ede7e4] text-transparent bg-clip-text">
+          <p className="text-xl md:text-3xl font-bold bg-gradient-cyan text-transparent bg-clip-text">
             {subtitle}
           </p>
           <p className="text-base md:text-lg text-white max-w-2xl mx-auto">

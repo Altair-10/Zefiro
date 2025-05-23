@@ -17,7 +17,7 @@ export default function PianiAbbonamento() {
             <h2 className="text-3xl md:text-6xl font-bold text-center text-blue-dark mb-10 md:mb-8">
                 I Nostri Piani!
             </h2>
-            <p className="text-blue-dark max-w-2xl mx-auto md:mb-8">
+            <p className="text-blue-dark max-w-2xl mx-auto md:mb-8 text-center">
                 Scegli il piano più adatto alle tue esigenze e trasforma la tua presenza online
             </p>
 
@@ -82,7 +82,11 @@ function MobileAccordionCard({ cardTitle, cardCTA, items, isActive = false, onCl
 
     return (
         <div 
-            className={`w-full max-w-md rounded-xl overflow-hidden shadow-lg transition-all duration-300 ${isActive ? 'border-2 border-orange' : 'border border-blue-medium'}`}
+            className={`w-full max-w-md rounded-xl overflow-hidden shadow-lg transition-all duration-300 ${
+                isActive 
+                    ? 'border-2 border-orange ring-2 ring-orange/20' 
+                    : 'border border-blue-medium hover:border-blue-light'
+            }`}
             onClick={onClick}
         >
             <button
@@ -90,10 +94,18 @@ function MobileAccordionCard({ cardTitle, cardCTA, items, isActive = false, onCl
                     e.stopPropagation();
                     setIsOpen(!isOpen);
                 }}
-                className="w-full px-4 py-4 flex justify-between items-center text-left bg-gradient-blue"
+                className={`w-full px-4 py-4 flex justify-between items-center text-left transition-all duration-300 ${
+                    isActive ? 'bg-gradient-orange' : 'bg-gradient-blue'
+                }`}
             >
                 <div>
-                    <h3 className="text-xl font-semibold uppercase text-white">{cardTitle}</h3>
+                    <h3 className={`text-xl font-semibold uppercase mb-1 bg-gradient-to-r bg-clip-text text-transparent ${
+                        isActive 
+                            ? 'from-[#16697a] to-[#489fb5]' // gradient-blue
+                            : 'from-[#ffa62b] to-[#ede7e4]' // gradient-cyan
+                    }`}>
+                        {cardTitle}
+                    </h3>
                     <p className="text-sm text-white/90 mt-1">{cardCTA}</p>
                 </div>
                 <svg
@@ -109,9 +121,10 @@ function MobileAccordionCard({ cardTitle, cardCTA, items, isActive = false, onCl
             {isOpen && (
                 <div className="flex flex-col justify-start px-4 pb-4 gap-y-4 bg-white">
                     <Content items={items} />
-                    <button className={`w-full py-3 px-4 rounded-xl font-medium text-white transition-all ${isActive
-                        ? 'bg-gradient-orange shadow-lg shadow-orange/30'
-                        : 'bg-gradient-blue shadow-md shadow-blue-dark/10'
+                    <button className={`w-full py-3 px-4 rounded-xl font-medium text-white transition-all duration-300 transform hover:scale-105 ${
+                        isActive
+                            ? 'bg-gradient-orange shadow-lg shadow-orange/30'
+                            : 'bg-gradient-blue shadow-md shadow-blue-dark/10 hover:shadow-blue-dark/20'
                         }`}>
                         Richiedi una consulenza
                     </button>
@@ -125,24 +138,37 @@ function MobileAccordionCard({ cardTitle, cardCTA, items, isActive = false, onCl
 function PlanCard({ cardTitle, cardCTA, items, isActive = false, onClick, featured = false }) {
     return (
         <div 
-            className={`w-full max-w-sm transform transition-all duration-300 cursor-pointer ${isActive ? 'z-20 scale-105' : 'z-0 scale-95 hover:scale-100'}`}
+            className={`w-full max-w-sm transform transition-all duration-300 cursor-pointer ${
+                isActive 
+                    ? 'z-20 scale-105' 
+                    : 'z-0 scale-95 hover:scale-100'
+            }`}
             onClick={onClick}
         >
-            <div className={`rounded-2xl overflow-hidden shadow-xl ${isActive
-                ? 'shadow-orange/30 ring-2 ring-orange'
-                : featured
-                    ? 'shadow-orange/20'
-                    : 'shadow-blue-dark/10 hover:shadow-blue-medium/20'
+            <div className={`rounded-2xl overflow-hidden shadow-xl transition-all duration-300 ${
+                isActive
+                    ? 'shadow-orange/30 ring-2 ring-orange'
+                    : featured
+                        ? 'shadow-orange/20 hover:shadow-orange/30'
+                        : 'shadow-blue-dark/10 hover:shadow-blue-medium/20'
                 }`}>
                 {/* Header */}
-                <div className={`${isActive ? 'bg-gradient-orange' : 'bg-gradient-blue'} px-6 py-8 relative`}>
+                <div className={`px-6 py-8 relative transition-all duration-300 ${
+                    isActive ? 'bg-gradient-orange' : 'bg-gradient-blue'
+                }`}>
                     {featured && (
-                        <div className="absolute top-0 right-0 left-0 py-2 bg-orange text-white font-bold text-center text-sm">
-                            CONSIGLIATO
+                        <div className="absolute top-0 right-0 w-32 h-32 overflow-hidden pointer-events-none">
+                            <div className="absolute top-6 -right-8 bg-orange text-white text-xs font-bold py-2 px-12 transform rotate-45 shadow-lg text-center">
+                                CONSIGLIATO
+                            </div>
                         </div>
                     )}
 
-                    <h3 className={`text-4xl font-extrabold text-white mb-1 ${featured && 'mt-4'}`}>
+                    <h3 className={`text-4xl font-extrabold mb-1 bg-gradient-to-r bg-clip-text text-transparent transition-all duration-300 ${
+                        isActive 
+                            ? 'from-[#16697a] to-[#489fb5]' // gradient-blue
+                            : 'from-[#ffa62b] to-[#ede7e4]' // gradient-cyan
+                    }`}>
                         {cardTitle}
                     </h3>
 
@@ -157,11 +183,12 @@ function PlanCard({ cardTitle, cardCTA, items, isActive = false, onClick, featur
                         <Content items={items} />
                     </div>
 
-                    <button className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all ${isActive
-                        ? 'bg-gradient-orange shadow-lg shadow-orange/30 scale-105'
-                        : featured
-                            ? 'bg-gradient-blue shadow-md shadow-blue-dark/10 hover:shadow-blue-dark/20 hover:scale-105'
-                            : 'bg-gradient-blue shadow-md shadow-blue-dark/10 hover:shadow-blue-dark/20 hover:scale-105'
+                    <button className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 ${
+                        isActive
+                            ? 'bg-gradient-orange shadow-lg shadow-orange/30'
+                            : featured
+                                ? 'bg-gradient-blue shadow-md shadow-blue-dark/10 hover:shadow-blue-dark/20'
+                                : 'bg-gradient-blue shadow-md shadow-blue-dark/10 hover:shadow-blue-dark/20'
                         }`}>
                         Richiedi una consulenza gratuita
                     </button>
@@ -177,7 +204,9 @@ function Content({ items = [] }) {
         <>
             {items.map(({ title, description, active = true }, index) => (
                 <div key={index} className="flex items-start gap-3">
-                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10">
+                    <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full transition-all duration-200 ${
+                        active ? 'bg-cyan-500/10' : 'bg-red-500/10'
+                    }`}>
                         {active ? (
                             <svg
                                 stroke="currentColor"
