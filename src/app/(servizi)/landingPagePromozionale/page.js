@@ -7,7 +7,7 @@ import PercheSceglierci from '@/components/whyUs.js';
 import OurPipeline from '@/components/ourPipeline.js';
 import ServiceCTA from '@/components/serviceCTA.js';
 import PianiAbbonamento from '@/components/plans.js';
-import SiteSample from '@/components/siteSample.js';
+// import SiteSample from '@/components/siteSample.js';
 import { ServicePagesCostants } from '@/app/constants/servicePagesCostants';
 
 export default function LandingPagePromo() {
@@ -55,9 +55,9 @@ export default function LandingPagePromo() {
             </section>
 
             {/* Demo */}
-            <section className="bg-white">
+            {/* <section className="bg-white">
                 <SiteSample sectionTitle="Esempi di Landing Page" />
-            </section>
+            </section> */}
 
             {/* Pipeline */}
             <section ref={timelineRef} className="bg-[#ede7e4]">
