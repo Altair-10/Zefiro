@@ -130,5 +130,7 @@ export default function ContactForm() {
         <SubmitButton onGoing={status} />
       </div>
     </form>
+    <SuccessModal show={showModal} onClose={() => setShowModal(false)} />
+    </>
   );
 }
