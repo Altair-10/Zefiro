@@ -71,9 +71,6 @@ export default function Footer() {
                 <div className="mt-4 sm:mt-0">
                     &copy; 2025 Zefiro. Tutti i diritti riservati.
                 </div>
-                <div className="mt-6 sm:mt-0">
-                    <SocialIcons color="#000000" hoverColor="text-blue-dark" />
-                </div>
             </div>
         </footer>
     )

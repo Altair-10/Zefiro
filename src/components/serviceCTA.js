@@ -57,7 +57,7 @@ export default function ServiceCTA({ question, cta }) {
 
     return (
         <div ref={ctaRef} className="container mx-auto px-4 text-center text-white py-24">
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 text-black">
+            <h2 className="text-5xl md:text-5xl font-extrabold pb-4 bg-gradient-to-r from-[#ffa62b] to-[#ede7e4] text-transparent bg-clip-text">
                 {question}
             </h2>
             <p className="text-xl max-w-2xl mx-auto mb-12">
@@ -66,7 +66,6 @@ export default function ServiceCTA({ question, cta }) {
 
             <div className="relative inline-block overflow-hidden group">
                 <AnimatedButton mode="scroll" />
-                <div className="shine-effect absolute top-0 left-0 w-full h-full bg-white bg-opacity-30 transform -skew-x-45"></div>
             </div>
         </div>
     );

@@ -85,9 +85,9 @@ export default function Navbar() {
 
   return (
     <div id="navbar" className="fixed w-full top-0 z-50 h-[20vw] sm:h-[13vw] md:h-[10vw] lg:h-[8vw] xl:h-[5vw] bg-gradient-orange">
-      <div className="flex justify-between items-center h-full md:mx-5 pr-5 md:pr-0">
+      <div className="flex items-center h-full md:mx-5 pr-5 md:pr-0">
         {/* Logo che sostituisce il pulsante HOME */}
-        <div className="flex items-center justify-center">
+        <div className="flex items-center">
           <button
             onClick={handleLogoClick}
             className="focus:outline-none hover:opacity-80 transition-opacity"
@@ -105,8 +105,8 @@ export default function Navbar() {
         </div>
 
         {/* Menu Desktop */}
-        <div className="hidden md:flex text-xl gap-[3vw] text-white font-bold">
-        <button
+        <div className="hidden md:flex text-xl gap-[3vw] text-white font-bold ml-auto mr-[20vw]">
+          <button
             onClick={() => scrollToSection("home")}
             className="hover:text-blue-dark cursor-pointer"
           >
@@ -170,10 +170,10 @@ export default function Navbar() {
                   LANDING PAGE PROMOZIONALE
                 </Link>
                 <Link
-                  href="/portfolioCreativo"
+                  href="/portfolioProfessionale"
                   className="block w-full text-left px-4 py-2 hover:text-blue-dark"
                 >
-                  PORTFOLIO CREATIVO
+                  PORTFOLIO PROFESSIONALE
                 </Link>
                 <Link
                   href="/blog"
@@ -198,13 +198,10 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Social Icons */}
-        <div className="hidden md:flex gap-3">
-          <SocialIcons color="#ffffff" hoverColor="text-blue-dark" />
-        </div>
-
         {/* Burger Menu (Mobile) */}
-        <BurgerMenu />
+        <div className="ml-auto md:hidden">
+          <BurgerMenu />
+        </div>
       </div>
     </div>
   );
