@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌬️ Zefiro — Siti web su misura per le PMI
 
-## Getting Started
+**Zefiro** è il sito vetrina della nostra agenzia digitale, nata per dare una spinta leggera ma decisa alla presenza online delle piccole e medie imprese.  
+Come il vento da cui prendiamo il nome, ci muoviamo con agilità nel mondo del web design, portando freschezza, direzione e visibilità ai nostri clienti.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Cosa facciamo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Realizziamo **siti web professionali**, su misura per le esigenze delle PMI.  
+Dal design responsive alla SEO, dalla strategia di comunicazione al copy, Zefiro accompagna le aziende in un percorso di digitalizzazione che non solo ha senso... ma porta risultati.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### I nostri servizi:
+- 🌐 **Siti vetrina moderni e veloci**
+- 📱 **Design responsive per ogni dispositivo**
+- 🔍 **Ottimizzazione SEO di base**
+- 🧭 **Consulenza strategica su branding e messaggi**
+- 🔧 **Manutenzione tecnica e aggiornamenti**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 💨 Perché "Zefiro"?
 
-To learn more about Next.js, take a look at the following resources:
+Zefiro è il vento che arriva puntuale in primavera, portando aria nuova.  
+Nel nostro lavoro, vogliamo essere esattamente questo:  
+- **leggeri**, ma incisivi  
+- **invisibili**, ma fondamentali  
+- **guidati dalla direzione giusta**, ma sempre pronti a cambiare rotta insieme al cliente  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+In un mondo digitale spesso caotico e rumoroso, noi puntiamo sull'essenziale.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📁 Struttura del progetto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Questa repository contiene il codice sorgente del nostro **sito vetrina** sviluppato in _[specifica tecnologia qui, es. HTML/CSS/JS, Next.js, Astro, ecc.]_.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🌍 [www.zefiro.space](https://www.zefiro.space)
